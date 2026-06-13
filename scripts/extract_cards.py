@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import unicodedata
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
@@ -37,9 +38,15 @@ def slugify(name: str) -> str:
 
 
 def clean_text(text: str) -> str:
+    text = unicodedata.normalize("NFKC", text)
     text = text.replace("\ufffd", "")
+    text = text.replace("\ufb01", "fi").replace("\ufb02", "fl")
     text = text.replace("E\ufb00 ect", "Effect").replace("Eﬀ ect", "Effect")
+    text = re.sub(r"\bHit Eff ect:?", "Hit Effect:", text)
     text = re.sub(r"\bT is skill\b", "This skill", text)
+    text = re.sub(r"\bT en\b", "Then", text)
+    text = re.sub(r"\bT e\b", "The", text)
+    text = re.sub(r"\bAf er\b", "After", text, flags=re.I)
     text = re.sub(r"\s+", " ", text).strip()
     text = re.sub(r"\s+([,.;:!?])", r"\1", text)
     return text
@@ -123,6 +130,11 @@ def extract_alt_profiles(text: str) -> Tuple[str, List[Dict]]:
     return cleaned, profiles
 
 
+def is_pure_stat_block(parts: List[str]) -> bool:
+    tokens = expand_stat_tokens(parts)
+    return bool(tokens) and len(tokens) >= 3 and all(is_stat_token(token) for token in tokens)
+
+
 def parse_block(text: str) -> Optional[Dict]:
     """Parse a single PDF text block into a skill or trait."""
     text = clean_text(text)
@@ -137,6 +149,12 @@ def parse_block(text: str) -> Optional[Dict]:
 
     parts = [clean_text(p) for p in text.split("|") if clean_text(p)]
     if not parts:
+        return None
+
+    if is_pure_stat_block(parts):
+        stats = parse_stats_from_tokens(expand_stat_tokens(parts))
+        if stats:
+            return {"type": "orphan_stats", **stats}
         return None
 
     name = parts[0]
@@ -279,7 +297,13 @@ def attach_orphan_stat_blocks(items: List[Dict]) -> List[Dict]:
     """Attach stat-only blocks (e.g. '6 | - | 6 | -') to the previous skill."""
     cleaned = []
     for item in items:
-        if item.get("type") == "skill" and re.match(r"^\d+$", item.get("name", "")):
+        if item.get("type") == "orphan_stats":
+            if cleaned and cleaned[-1].get("type") == "skill":
+                profile = {k: item[k] for k in ("cost", "range", "accuracy", "damage") if k in item}
+                cleaned[-1].setdefault("altProfiles", []).append(profile)
+                continue
+            continue
+        if item.get("type") == "skill" and re.match(r"^[\d\-]+(?:\s[\d\-]+[\*\+]?)*$", item.get("name", "")):
             if cleaned and cleaned[-1].get("type") == "skill":
                 profile = {k: item[k] for k in ("cost", "range", "accuracy", "damage") if k in item}
                 cleaned[-1].setdefault("altProfiles", []).append(profile)
@@ -364,9 +388,14 @@ def parse_pdf(path: Path) -> Dict:
         if item["type"] == "faction_trait":
             faction_trait = {"name": item["name"], "text": item["text"]}
         elif item["type"] == "unique_trait":
-            unique_traits.append({"name": item["name"], "text": item["text"]})
+            unique_traits.append({
+                "name": clean_text(item["name"]),
+                "text": item["text"],
+            })
         elif item["type"] == "skill":
             entry = {k: v for k, v in item.items() if k != "type"}
+            if isinstance(entry.get("name"), str):
+                entry["name"] = clean_text(entry["name"])
             if classify_skill(item) == "plot":
                 plot_skills.append(entry)
             else:
@@ -380,6 +409,8 @@ def parse_pdf(path: Path) -> Dict:
             f_traits.append({"name": item["name"], "text": item["text"]})
         elif item["type"] == "skill":
             entry = {k: v for k, v in item.items() if k != "type"}
+            if isinstance(entry.get("name"), str):
+                entry["name"] = clean_text(entry["name"])
             if classify_skill(item) == "clash":
                 f_clash.append(entry)
             else:
@@ -473,7 +504,10 @@ def main():
         "champions": sorted(champions, key=lambda c: (c["faction"], c["name"])),
     }
 
-    output_file.write_text(json.dumps(output, indent=2, ensure_ascii=False) + "\n")
+    output_file.write_text(
+        json.dumps(output, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
     print(f"Wrote {len(champions)} champions to {output_file}", file=sys.stderr)
 
 
