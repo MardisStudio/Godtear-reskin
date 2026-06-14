@@ -1,0 +1,112 @@
+{
+    "characters": [
+        {
+            "id": "blackjaw",
+            "description": "Unleash the firestorm with Blackjaw, the Sweeping Flame. Blackjaw surges forward as a brazen destructive force, threatening to destroy all before him in a bright inferno. In his wake come the Unburnt Reavers: vicious orc followers that can withstand the blistering heat emanating from their leader, each racing headlong like wildfire."
+        },
+        {
+            "id": "durthax",
+            "description": "Unleash the unyielding wrath of nature with Durthax, Branchlord of the Weald. Something extraordinary happened when a falling godtear pierced the bark of an ancient tree: its branches shuddered with life, and its trunk heaved roots from the clutches of the earth. Durthax—protector and warden of the forest—was born. Along with their steadfast Treekin followers Durthax aims to guard and nurture all living beings from those who seek to exploit them. A stalwart protector of all living things, Durthax embodies the brutal strength of nature, using their abilities to protect their four Treekin followers.  Durthax excels manipulating the field to your advantage, armed with the ability to teleport banners. They also work well with larger groups of small followers, helping defend them from danger with a strong set of support abilities. The Branchlord of the Weald is a hard counter to some of the toughest current champions in the game, with an unique range of stats and abilities. Slow and methodical, Durthax is unable to move during the plot phase, but makes up for it with a whopping 14 health, the highest of any Godtear champion."
+        },
+        {
+            "id": "fenra",
+            "description": "Feasting on godtears has blessed Fenra with unnatural size, and rumours abound that her ascent to godhood could bring about the end times in a rain of flaming crystals. No wolf is complete without her pack - Fenra's piercing howls summon a snarling pack of Chainless Curs, the cunning gnolls who hunt down and surround any who escape her razor-sharp wrath."
+        },
+        {
+            "id": "finvarr",
+            "description": "Champion Finvarr, Lord of Mirages. Finvarr's Followers - 3 Shadow Sentinels"
+        },
+        {
+            "id": "grimgut",
+            "description": "Spread the disease with Grimgut, the Vile. A lumbering mass of spoilt flesh, Grimgut truly earns his alias of the Vile. Unlike other champions who seek to attract their followers, Grimgut creates the Retchlings by vomiting forth the remains of those unfortunate enough to find their way into his gullet."
+        },
+        {
+            "id": "halftusk",
+            "description": "Last of his kind. The last of his people to avoid enslavement, the mantle of Warden of the Stonekin Isle has long sat upon Halftusk's broad shoulders. Not a simple brute but an anguished soul, his demeanour is kindly towards the strange and primordial Froglodyte that are his burden, and terrible to invaders that seek to harm them."
+        },
+        {
+            "id": "helena",
+            "description": "Raise your banner with Helena, the Inspiration of Hope. Pure of heart, beloved Helena strides into battle with a message not of conquest, but of unity. Wherever this sacred quest takes her, Rallied Peasants flock to her standard in hope of a better world. Introducing the ONLY Guardian champion without a banner! So devoted is she to her cause that Helena embodies her own banner—her presence alone is enough to stake her claim on the battlefield."
+        },
+        {
+            "id": "jaak",
+            "description": "Trouble is brewing with Jaak, the Dubious Alchemist. Strange Jaak's potioncraft is famous throughout the land. He wanders from town to town, bringing unusual brews with legendary healing powers. Wherever Jaak goes, his Cauldron Cronies are there to keep his knapsack stocked with weird and wonderful ingredients. Potent potions, intoxicating elixirs, clever concoctions… this Guardian champion can brew it all. He specialises in healing draughts to keep friendly champions and followers in tip-top condition. In fact, Jaak's the only champion in Godtear who can heal other champions. If you're floundering in fights, with champions getting knocked out left, right, and centre, Jaak's the goblin for you! But it's not such good news for Jaak's enemies. While he's healing allies, his Cauldron Cronies followers are busy causing mayhem on the battlefield. So supportive are the Cronies, they can even plant Jaak's banner for him!"
+        },
+        {
+            "id": "jeen",
+            "description": "Master your destiny with Jeen, the Wandering Warrior. A mercenary with a soft spot for the downtrodden, Jeen wanders in search of wrongs to right and worthy adversaries to challenge. She leads the Golden Shrikes, a swarm of disciplined soldiers who dutifully cut down enemies in a flash of cold steel."
+        },
+        {
+            "id": "kailinn",
+            "description": "Kailinn, mighty centaur and protector of the forest, tramples her foes underhoof with unbridled ferocity. Few can withstand a charge from Kailinn and her faithful Virtues, the druidic centaurs accompanying her in her quest for godhood. Fast, furious, and fantastic at assassinating enemy followers before they can flee, Kailinn is a Maelstrom champion with a maelstrom attitude. No champion can match her speed as she canters across the battlefield with reckless abandon. Watch out for her wicked-sharp horn — it's made for skewering followers of any size!"
+        },
+        {
+            "id": "keera",
+            "description": "Live a legend with Keera, the Dragon Princess. On the outside, Keera is the essence of nobility. But on the inside, an untameable fire burns. Enemies are advised to tread lightly, for it is uncertain who they should fear more— the fiery mistress, or her mythical dragons."
+        },
+        {
+            "id": "lily",
+            "description": "Awaken the power of nature with Lily, Thornsinger of the Azure Forest Older than the woods she wanders, nothing escapes Lily's notice, even the tiniest sapling. In her wake, she leaves a trail of crystalline fairy dust that empowers her allies and ensnares her foes. Around her, an overgrowth of Thornlings sink their roots, ready to confront anyone foolish enough to trespass in their forest home. Sprinkle some fae magic on your Godtear warband! Lily might not be an offensive powerhouse, but don't underestimate her. What she lacks in direct attacks, she makes up for with powerful support abilities and fae trickery. Using fairy dust, she's the first ever champion able to seed boons and blights on the battlefield for other characters to step on, helping her friends and hindering her foes! Lily's loyal followers are the Thornlings — woodland beings who sink their roots deep and entangle enemies to slow them down. Meanwhile, Lily flits around the battlefield with impressive speed, leaving treats and traps in her wake!"
+        },
+        {
+            "id": "lorsann",
+            "description": "Strike from afar with Lorsann, the Autumnal Wind. Once guardian of the Eternal Glade, the Autumnal Wind has led her Mistwood Rangers from that hallowed place in pursuit of the destiny which now calls to her. Few have ever seen Lorsann's face, for death usually comes long before such an event—or, for those fortunate few, quickly thereafter."
+        },
+        {
+            "id": "luella",
+            "description": "Ride the lightning with Luella, the Raging Storm. Like a mighty storm, Luella engulfs her enemies in a whirlwind of flashing steel and thunderous fury. Take cover, for she and her Shieldmaidens charge into battle without a backward glance."
+        },
+        {
+            "id": "maxen",
+            "description": "Lock & Load with Maxen, the Artificer. Possessed of a brilliant mind, Maxen easily grasps concepts beyond mortal understanding. Proof can be seen in his flock of mechanical Gearhawks. These helpful clockwork creatures perform tasks and may even be used as ammunition, in a pinch."
+        },
+        {
+            "id": "morrigan",
+            "description": "Champion Morrigan, Lich Queen of the Frozen Wastes. Morrigan's Followers - 5 Cold Bones Skeletons"
+        },
+        {
+            "id": "mournblade",
+            "description": "Journey from beyond the grave with Mournblade, the Soulless. A fallen champion from a past age, Mournblade refused to give up his endless lust for godhood. Heralded by grave wind and dark omens, the cold-hearted one has returned, his dead fingers beckoning to the land of the living once more."
+        },
+        {
+            "id": "nia",
+            "description": "Champion Nia, The Crystalmancer. Nia's Followers - 3 Quartzlings"
+        },
+        {
+            "id": "raithmarid",
+            "description": "Ride the wave with Raith'Marid, the Rising Tsunami. A powerful disciple of the element that birthed his sire, Raith'Marid is a tidal wave cascading across the battlefield, crashing against his foes and washing them away. He is accompanied by a tide of Splashlings—conjured spirits that serve as focal points for Raith'Marid's immense power."
+        },
+        {
+            "id": "rangosh",
+            "description": "Smash all asunder with Rangosh, Scourge of the Broken Plains. Rangosh is known far and wide, preceded by tales of his violence. A true tyrant, the Scourge terrifies opponents with his brutal lash. Without heroism to inspire fealty, his sole followers are the Red Bandits—cold-hearted and loyal only to coin."
+        },
+        {
+            "id": "rattlebone",
+            "description": "Speak of dire omens with Rattlebone, Prophet of the Ascended Past. A feared shaman, Rattlebone's reputation allows her safe passage among even the most troublesome of her people. Visited by visions and portents, the Prophet communes with the godtears. She understands champions are mere puppets to them—just as the Hexlings are to her."
+        },
+        {
+            "id": "rhodri",
+            "description": "Stand proud with Rhodri, Thane of the Forsaken Holds. Proud, stoic, and resolute, Rhodri stands guard against all who would seek to visit ruin upon his ancestral land or its people. Accompanied by his Household Guard, his iron skin turns aside all but the mightiest blows or deadliest blades."
+        },
+        {
+            "id": "shayle",
+            "description": "Guard the realm with Shayle, Keeper of the Oath. Bound to the elementals from birth, Shayle is a warden of the mortal realm and an enemy to any who try seizing the power of the gods. Shayle binds each godtear with runic magic, crafting powerful sentinels like Landslide from living rock with godly power at its core."
+        },
+        {
+            "id": "skullbreaker",
+            "description": "Join the hunt with Skullbreaker, the Dragon Slayer. Skullbreaker. The one they call the Dragon Slayer. An orc so strong he wields the jawbone of a slain dragon as a weapon. His followers are dubbed the Tooth Bearers: acolytes deemed worthy of a single tooth from his dragon jaw blade, a trophy of Skullbreaker's many hunts. Soaring dragons, gargantuan golems, towering trolls… this Godtear Slayer champion can take on fantasy races of any size. And he eats enemy champions for breakfast. This almighty orc excels at setting up and unleashing powerful single-target attacks. His thirst for blood knows no bounds as he fells foe after foe with his enormous blade. Of course, such a powerful being isn't short of devotees. Those Skullbreaker deems worthy of joining his hunts are gifted a tooth from his blade. These Tooth Bearers are desperate to earn his respect and will stop at nothing to gain it. If they displease Skullbreaker, he isn't shy of letting them know… Not many survive a tussle with Skullbreaker and the Tooth Bearers. Those who do will definitely be taking a trip to the dentist."
+        },
+        {
+            "id": "sneaky-peet",
+            "description": "Rule from the shadows with Sneaky Peet, the Maligned. Opportunistic, untrustworthy, and sly, all goblins are loathed—but special hatred is reserved for the Maligned. Sneaky Peet's rapid rise to leader of the Sneaky Stabbers has as much to do with the spilled blood of his rivals as it does intelligence or destiny."
+        },
+        {
+            "id": "styx",
+            "description": "Master death itself with Styx, Lord of Hounds. A powerful necromancer with a dark reputation, the mere sight of Styx incites fear. This nightmarish spectre is accompanied by a pair of slavering Abyssal Hounds – huge creatures with an insatiable thirst for blood. Styx uses his Shaper skills to master the battlefield and bend the rules of death, drawing enemies into his clutches and weakening their defences. While Styx selects a victim, his hounds can circle an enemy banner and tear it to shreds."
+        },
+        {
+            "id": "titus",
+            "description": "Champion Titus, The Disgraced. Titus' Followers - 5 Glory Seekers"
+        }
+    ]
+}
