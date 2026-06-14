@@ -1,0 +1,210 @@
+{
+  "id": "lily",
+  "name": "Lily",
+  "faction": "Shaper",
+  "source": "Characters/lily/",
+  "iconReference": "icons.json",
+  "iconPlaceholderFormat": "{icon_id}",
+  "extractionNotes": [
+    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
+    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
+    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
+    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
+    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+  ],
+  "champion": {
+    "stats": {
+      "plotSpeed": "3",
+      "clashSpeed": "3",
+      "dodge": "4",
+      "protection": "1",
+      "health": "7"
+    },
+    "factionTrait": {
+      "name": "Shaper Champion",
+      "text": "A shaper moves the turn token +1 step when they make a claim action."
+    },
+    "uniqueTraits": [
+      {
+        "name": "Touch of the Fae",
+        "text": "After one of her actions, Lily may place a status effect token of her choice in an adjacent empty hex. When a model enters a hex with a token, move it onto them after they end their movement."
+      }
+    ],
+    "ultimate": {
+      "name": "Thorn Wall",
+      "skillIcon": "skill_area",
+      "mustTarget": "-",
+      "text": "Remove any number of Thornlings from the battlefield and place them on objective hexes within range. Thornlings on objective hexes cannot make advance actions or be moved by enemy skills.",
+      "statProfiles": [
+        {
+          "figuresInHex": "-",
+          "range": "4",
+          "accuracy": "-",
+          "damage": "-"
+        }
+      ]
+    },
+    "plotSkills": [
+      {
+        "name": "Earth Call",
+        "skillIcon": "skill_area",
+        "mustTarget": "-",
+        "text": "Move one objective hex within range 1 hex onto an empty non-objective hex. Models on the objective hex move with it.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Breath of the Earth",
+        "skillIcon": "skill_area",
+        "mustTarget": "-",
+        "text": "Place a status effect token of your choice in an empty hex within range. When a model enters a hex with a token, move it onto them after they end their movement.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Nature's Visage",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move each friendly and enemy model in hexes adjacent to the target up to 1 hex away from the target.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "5",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Haunting Melody",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move all models in the target's hex up to 2 hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "6",
+            "damage": "-"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Thornlings",
+    "units": 5,
+    "stats": {
+      "plotSpeed": "1",
+      "clashSpeed": "2",
+      "dodge": "2",
+      "protection": "3",
+      "health": "1"
+    },
+    "traits": [
+      {
+        "name": "Overgrowth",
+        "text": "When the Thornlings make a recruit action, you may recruit one, two, or three Thornlings to the hex."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Deep Roots",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Remove any number of Thornlings from the battlefield. Then take a recruit action for each Thornling this skill removed from the battlefield.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Tangling Thorns",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {dodge_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "2",
+            "accuracy": "2",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "2",
+            "accuracy": "4",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "2",
+            "accuracy": "6",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Sprout",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Gain {protection_boon}",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Nature's Wrath",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "If the hit roll total equals the target's {dodge} exactly, this skill has +3 {damage}.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "2",
+            "accuracy": "2",
+            "damage": "4*"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "2",
+            "accuracy": "4",
+            "damage": "4*"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "2",
+            "accuracy": "6",
+            "damage": "4*"
+          }
+        ]
+      }
+    ]
+  }
+}

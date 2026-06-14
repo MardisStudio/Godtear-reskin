@@ -1,0 +1,222 @@
+{
+  "id": "rangosh",
+  "name": "Rangosh",
+  "faction": "Slayer",
+  "source": "Characters/rangosh/",
+  "iconReference": "icons.json",
+  "iconPlaceholderFormat": "{icon_id}",
+  "extractionNotes": [
+    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
+    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
+    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
+    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
+    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+  ],
+  "champion": {
+    "stats": {
+      "plotSpeed": "3",
+      "clashSpeed": "2",
+      "dodge": "4",
+      "protection": "2",
+      "health": "7"
+    },
+    "factionTrait": {
+      "name": "Slayer Champion",
+      "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
+    },
+    "uniqueTraits": [
+      {
+        "name": "Brutal Master",
+        "text": "Once per hit roll or damage roll before rolling the dice, you may remove one Red Bandit from a hex within 3 hexes of Rangosh to add 1 die to Rangosh's roll."
+      }
+    ],
+    "ultimate": {
+      "name": "Beastly Charge",
+      "skillIcon": "skill_area",
+      "mustTarget": "-",
+      "text": "Move Rangosh up to 2 hexes. Then you may place up to 2 wounds on an enemy within range.",
+      "statProfiles": [
+        {
+          "figuresInHex": "-",
+          "range": "1",
+          "accuracy": "-",
+          "damage": "-"
+        }
+      ]
+    },
+    "plotSkills": [
+      {
+        "name": "Channel Rage",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Gain {damage_die_boon}",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Break Spirit",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {accuracy_die_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "6",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Jawbreaker",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 1 hex away from Rangosh.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "3",
+            "damage": "7"
+          }
+        ]
+      },
+      {
+        "name": "Whiplash",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 1 hex toward Rangosh.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "5",
+            "damage": "5"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Red Bandits",
+    "units": 5,
+    "stats": {
+      "plotSpeed": "2",
+      "clashSpeed": "2",
+      "dodge": "3",
+      "protection": "2",
+      "health": "1"
+    },
+    "traits": [
+      {
+        "name": "Stolen Treasure",
+        "text": "If the Red Bandits cause an enemy model to gain a wound when they use a skill action, they may gain one boon of your choice."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Induct",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "If the Red Bandits are below their maximum unit size, add one to a hex containing at least one Red Bandit.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Ambush",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: The target gains 1 wound.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "1",
+            "accuracy": "3",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "1",
+            "accuracy": "4",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "1",
+            "accuracy": "5",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Ambush",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: The target gains 1 wound.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "1",
+            "accuracy": "3",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "1",
+            "accuracy": "4",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "1",
+            "accuracy": "5",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Shoot",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "3",
+            "accuracy": "3",
+            "damage": "4"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "3",
+            "accuracy": "4",
+            "damage": "4"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "3",
+            "accuracy": "5",
+            "damage": "4"
+          }
+        ]
+      }
+    ]
+  }
+}

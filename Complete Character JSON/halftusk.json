@@ -1,0 +1,226 @@
+{
+  "id": "halftusk",
+  "name": "Halftusk",
+  "faction": "Guardian",
+  "source": "Characters/halftusk/",
+  "iconReference": "icons.json",
+  "iconPlaceholderFormat": "{icon_id}",
+  "extractionNotes": [
+    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
+    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
+    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
+    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
+    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+  ],
+  "champion": {
+    "stats": {
+      "plotSpeed": "2",
+      "clashSpeed": "2",
+      "dodge": "3",
+      "protection": "3",
+      "health": "7"
+    },
+    "factionTrait": {
+      "name": "Guardian Champion",
+      "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+    },
+    "uniqueTraits": [
+      {
+        "name": "Fighting Fit",
+        "text": "If Halftusk does not have any wounds, his skills have +2 {accuracy}."
+      }
+    ],
+    "ultimate": {
+      "name": "The Great Tusk",
+      "skillIcon": "skill_area",
+      "mustTarget": "-",
+      "text": "Plot phase only. Halftusk may make a claim action. Then choose {protection_boon} or {move_boon}. Friendly models within range gain the boon you chose.",
+      "statProfiles": [
+        {
+          "figuresInHex": "-",
+          "range": "2",
+          "accuracy": "-",
+          "damage": "-"
+        }
+      ]
+    },
+    "plotSkills": [
+      {
+        "name": "Regenerate",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Remove up to 2 of Halftusk's wounds.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Footwork",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Grant {move_boon}",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Feint",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {accuracy_die_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "5",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Regenerate",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Remove up to 2 of Halftusk's wounds.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "One Punch",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Halftusk may use Two Punch this turn as a bonus action.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "6",
+            "damage": "4"
+          }
+        ]
+      },
+      {
+        "name": "Two Punch",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Halftusk may move up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "4",
+            "damage": "5"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Froglodytes",
+    "units": 3,
+    "stats": {
+      "plotSpeed": "1",
+      "clashSpeed": "3",
+      "dodge": "2",
+      "protection": "3",
+      "health": "1"
+    },
+    "traits": [
+      {
+        "name": "Tear-Twisted",
+        "text": "Froglodytes may enter objective hexes."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Feel the Power",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "This skill may be used only while on an objective hex. Gain {dodge_boon} and {protection_boon}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Hop",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "You may place each Froglodyte in a hex up to 2 hexes from its current hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Tongue Tow",
+        "skillIcon": "skill_area",
+        "mustTarget": "-",
+        "text": "Move a friendly banner that is within range up to 1 hex toward this Froglodyte.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Tongue Lash",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 1 hex toward this Froglodyte.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "2",
+            "accuracy": "5",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "2",
+            "accuracy": "6",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "2",
+            "accuracy": "7",
+            "damage": "-"
+          }
+        ]
+      }
+    ]
+  }
+}

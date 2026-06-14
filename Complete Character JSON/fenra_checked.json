@@ -1,0 +1,222 @@
+{
+  "id": "fenra",
+  "name": "Fenra",
+  "faction": "Maelstrom",
+  "source": "Characters/fenra/",
+  "iconReference": "icons.json",
+  "iconPlaceholderFormat": "{icon_id}",
+  "extractionNotes": [
+    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
+    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
+    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
+    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
+    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+  ],
+  "champion": {
+    "stats": {
+      "plotSpeed": "1",
+      "clashSpeed": "4",
+      "dodge": "5",
+      "protection": "1",
+      "health": "5"
+    },
+    "factionTrait": {
+      "name": "Maelstrom Champion",
+      "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+    },
+    "uniqueTraits": [
+      {
+        "name": "Pack Alpha",
+        "text": "When Fenra knocks out an enemy follower, move a friendly model within 3 hexes of her up to 1 hex. Each model may only be moved once per activation using this trait."
+      }
+    ],
+    "ultimate": {
+      "name": "Call of the Hunt",
+      "skillIcon": "skill_friendly",
+      "mustTarget": "-",
+      "text": "Move another model within range up to 3 hexes.",
+      "statProfiles": [
+        {
+          "figuresInHex": "-",
+          "range": "3",
+          "accuracy": "-",
+          "damage": "-"
+        }
+      ]
+    },
+    "plotSkills": [
+      {
+        "name": "Bark at the Moon",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Followers within range move up to 2 hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "The Wolf is Loose",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Fenra moves up to 2 hexes towards the target.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "6",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Feral Bite",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Target up to 3 models in a single hex. This skill has +1 {damage} for each hex adjacent to the target that contains one or more friendly followers.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "6",
+            "damage": "4*"
+          }
+        ]
+      },
+      {
+        "name": "Shatterstorm",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "follower",
+        "text": "This skill may target up to 2 followers within range. This skill has +1 {damage} for each hex adjacent to the target that contains one or more friendly followers.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "5",
+            "damage": "4*"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Chainless Curs",
+    "units": 4,
+    "stats": {
+      "plotSpeed": "1",
+      "clashSpeed": "3",
+      "dodge": "4",
+      "protection": "2",
+      "health": "1"
+    },
+    "traits": [
+      {
+        "name": "Gang Up",
+        "text": "When a Chainless Cur uses a skill targeting a small follower it gains +3 {accuracy} if there are more followers in the Chainless Cur's hex than in the target's hex."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Makeshift Plating",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Gain {protection_boon}",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Corner Them",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Place each Chainless Cur within range of the target in a hex adjacent to the target.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "2",
+            "accuracy": "4",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "2",
+            "accuracy": "5",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "2",
+            "accuracy": "6",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Snarl",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move each follower model in the target's hex up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "1",
+            "accuracy": "5",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "1",
+            "accuracy": "5",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "1",
+            "accuracy": "6",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Maim and Encircle",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move a Chainless Cur up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "1",
+            "accuracy": "4",
+            "damage": "4"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "1",
+            "accuracy": "4",
+            "damage": "5"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "1",
+            "accuracy": "5",
+            "damage": "5"
+          }
+        ]
+      }
+    ]
+  }
+}

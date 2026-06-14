@@ -1,0 +1,224 @@
+{
+  "id": "blackjaw",
+  "name": "Blackjaw",
+  "faction": "Maelstrom",
+  "source": "Characters/blackjaw/",
+  "iconReference": "icons.json",
+  "iconPlaceholderFormat": "{icon_id}",
+  "extractionNotes": [
+    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
+    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
+    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
+    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
+    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+  ],
+  "champion": {
+    "stats": {
+      "plotSpeed": "3",
+      "clashSpeed": "2",
+      "dodge": "3",
+      "protection": "2",
+      "health": "8"
+    },
+    "factionTrait": {
+      "name": "Maelstrom Champion",
+      "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+    },
+    "uniqueTraits": [
+      {
+        "name": "Wildfire",
+        "text": "If Blackjaw knocks out a follower during his activation, he may make a bonus action that activation."
+      }
+    ],
+    "ultimate": {
+      "name": "Fire Storm",
+      "skillIcon": "skill_enemy",
+      "mustTarget": "follower",
+      "text": "This skill may target up to five followers on any hexes within range.",
+      "statProfiles": [
+        {
+          "figuresInHex": "-",
+          "range": "2",
+          "accuracy": "6",
+          "damage": "5"
+        }
+      ]
+    },
+    "plotSkills": [
+      {
+        "name": "Hotfoot",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Grant {move_boon}",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Evil Eye",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "follower",
+        "text": "Inflict {protection_blight}",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "6",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Kick",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "follower",
+        "text": "",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "6",
+            "damage": "6"
+          }
+        ]
+      },
+      {
+        "name": "Fiery Axe",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "This skill may target up to three models in one hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "4",
+            "damage": "5"
+          }
+        ]
+      },
+      {
+        "name": "Fireball",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "This skill may target up to three models in one hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "5",
+            "damage": "4"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Unburnt Reavers",
+    "units": 5,
+    "stats": {
+      "plotSpeed": "3",
+      "clashSpeed": "2",
+      "dodge": "3",
+      "protection": "2",
+      "health": "1"
+    },
+    "traits": [
+      {
+        "name": "Fearsome",
+        "text": "If a small enemy is within 3 hexes of one or more Unburnt Reavers and has fewer than three models in its hex, all of its skills have -1 {accuracy}."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Rush",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Choose a hex. Each Unburnt Reaver in that hex may move up to 2 hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Intimidation",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Inflict {dodge_blight}",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "1",
+            "accuracy": "2",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "1",
+            "accuracy": "4",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "1",
+            "accuracy": "6",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "War Cry",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Gain {accuracy_die_boon}",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Cleaving Strike",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "1",
+            "accuracy": "3",
+            "damage": "4"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "1",
+            "accuracy": "4",
+            "damage": "5"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "1",
+            "accuracy": "5",
+            "damage": "6"
+          }
+        ]
+      }
+    ]
+  }
+}

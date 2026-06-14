@@ -1,0 +1,198 @@
+{
+  "id": "helena",
+  "name": "Helena",
+  "faction": "Guardian",
+  "source": "Characters/helena/",
+  "iconReference": "icons.json",
+  "iconPlaceholderFormat": "{icon_id}",
+  "extractionNotes": [
+    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
+    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
+    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
+    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
+    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+  ],
+  "champion": {
+    "stats": {
+      "plotSpeed": "2",
+      "clashSpeed": "2",
+      "dodge": "3",
+      "protection": "4",
+      "health": "4"
+    },
+    "factionTrait": {
+      "name": "Guardian Champion",
+      "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+    },
+    "uniqueTraits": [
+      {
+        "name": "Banner Bearer",
+        "text": "Helena cannot make claim actions. During the end phase, if she is not knocked out, Helena counts as a banner for the purposes of gaining steps on the battle ladder."
+      }
+    ],
+    "ultimate": {
+      "name": "Call to Arms",
+      "skillIcon": "skill_area",
+      "mustTarget": "-",
+      "text": "Follower units of all friendly champions in range, immediately make recruit actions up to maximum unit size.",
+      "statProfiles": [
+        {
+          "figuresInHex": "-",
+          "range": "2",
+          "accuracy": "-",
+          "damage": "-"
+        }
+      ]
+    },
+    "plotSkills": [
+      {
+        "name": "Rally the Troops",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "The Rallied Peasants immediately make up to 2 recruit actions.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Lead the Charge",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Move Helena up to 1 hex. Then move each Rallied Peasant that is within range up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Shield Push",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "6",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Holy Light",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "5",
+            "damage": "4"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Rallied Peasants",
+    "units": 6,
+    "stats": {
+      "plotSpeed": "2",
+      "clashSpeed": "2",
+      "dodge": "3",
+      "protection": "1",
+      "health": "1"
+    },
+    "traits": [
+      {
+        "name": "Devoted",
+        "text": "A Rallied Peasant has +1 {dodge} and {protection} while it is within 2 hexes of Helena."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Prayer",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "If Helena is within range, remove up to 1 wound from Helena.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Condemnation",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "3",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Prayer",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "If Helena is within range, remove up to 1 wound from Helena.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Will of the People",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "This skill gains +1 {accuracy} and +1 {damage} for each Rallied Peasant adjacent to the target.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "1",
+            "accuracy": "0*",
+            "damage": "0*"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "1",
+            "accuracy": "0*",
+            "damage": "0*"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "1",
+            "accuracy": "0*",
+            "damage": "0*"
+          }
+        ]
+      }
+    ]
+  }
+}

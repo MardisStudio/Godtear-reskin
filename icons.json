@@ -1,91 +1,29 @@
 {
   "source": "icons.pdf",
   "categories": {
-    "battleLadderSteps": [
-      {
-        "id": "slayer",
-        "label": "Slayer",
-        "description": "Knock out an enemy champion — 4 steps (+1 for Slayer)"
-      },
-      {
-        "id": "maelstrom",
-        "label": "Maelstrom",
-        "description": "Knock out an enemy follower — 1 step for small, 2 for large (+1 for Maelstrom)"
-      },
-      {
-        "id": "shaper",
-        "label": "Shaper",
-        "description": "Make a claim action during the plot phase — 1 step (+1 for Shaper)"
-      },
-      {
-        "id": "guardian",
-        "label": "Guardian",
-        "description": "Have a friendly banner on an objective hex during the end phase — 4 steps (+1 for Guardian)"
-      }
-    ],
-    "phases": [
-      {
-        "id": "plot_phase",
-        "label": "Plot Phase",
-        "description": "Lighter card side used during the plot phase"
-      },
-      {
-        "id": "clash_phase",
-        "label": "Clash Phase",
-        "description": "Darker card side used during the clash phase"
-      }
-    ],
-    "actions": [
-      {
-        "id": "advance",
-        "label": "Advance",
-        "description": "Move the champion or each follower a number of hexes up to its speed"
-      },
-      {
-        "id": "skill",
-        "label": "Skill",
-        "description": "Use a skill from the model's card"
-      },
-      {
-        "id": "ultimate_skill",
-        "label": "Ultimate Skill",
-        "description": "Use the champion's ultimate skill (champion only, once per game)"
-      },
-      {
-        "id": "claim",
-        "label": "Claim",
-        "description": "Place the champion's banner in an adjacent empty objective hex"
-      },
-      {
-        "id": "rally",
-        "label": "Rally",
-        "description": "Clear a champion's wounds after it is knocked out"
-      },
-      {
-        "id": "recruit",
-        "label": "Recruit",
-        "description": "Return a follower model to the battlefield after it is knocked out"
-      }
-    ],
     "stats": [
       {
         "id": "speed",
         "label": "Speed",
+        "iconDescription": "White winged boot inside a black hexagon",
         "description": "Number of hexes the model may move with an advance action"
       },
       {
         "id": "dodge",
         "label": "Dodge",
+        "iconDescription": "White shield with a curved deflecting arrow inside a black hexagon",
         "description": "Number an enemy needs on its hit roll when targeting this model"
       },
       {
         "id": "protection",
         "label": "Protection",
+        "iconDescription": "Plain white shield silhouette inside a black hexagon",
         "description": "Amount of damage ignored each time this model suffers damage"
       },
       {
         "id": "health",
         "label": "Health",
+        "iconDescription": "White heart silhouette inside a black hexagon",
         "description": "Number of wounds a model can have before it is knocked out"
       }
     ],
@@ -93,36 +31,43 @@
       {
         "id": "skill_self",
         "label": "Self",
+        "iconDescription": "White bust silhouette of a single figure inside a black hexagon",
         "description": "The skill affects the champion or follower unit using the skill"
       },
       {
         "id": "skill_friendly",
         "label": "Friendly",
+        "iconDescription": "White bust silhouette of two gears inside a black hexagon",
         "description": "The skill affects a friendly champion or follower unit"
       },
       {
         "id": "skill_area",
         "label": "Area",
+        "iconDescription": "White hex outline containing a six-pointed star inside a black hexagon",
         "description": "The skill affects the models or hexes described in the skill"
       },
       {
         "id": "skill_enemy",
         "label": "Enemy",
+        "iconDescription": "White stylized skull inside a black hexagon",
         "description": "The skill targets an enemy champion or follower"
       },
       {
         "id": "range",
         "label": "Range",
+        "iconDescription": "Three small white hexes in a diagonal line inside a black hexagon",
         "description": "Maximum number of hexes away a model can be and still be affected"
       },
       {
         "id": "accuracy",
         "label": "Accuracy",
+        "iconDescription": "White crosshair target (circle with inward-pointing lines) inside a black hexagon",
         "description": "Number of dice rolled to hit your target"
       },
       {
         "id": "damage",
         "label": "Damage",
+        "iconDescription": "White square with a large X inside a black hexagon",
         "description": "Number of dice rolled to damage your target"
       }
     ],
@@ -130,26 +75,31 @@
       {
         "id": "move_boon",
         "label": "Move Boon",
+        "iconDescription": "White circle with a black winged boot and a small plus in the top-left corner",
         "description": "+1 speed for its next advance action"
       },
       {
         "id": "dodge_boon",
         "label": "Dodge Boon",
+        "iconDescription": "White circle with a black shield-and-arrow and a small plus in the top-left corner",
         "description": "+1 dodge for the next hit roll against it"
       },
       {
         "id": "protection_boon",
         "label": "Protection Boon",
+        "iconDescription": "White circle with a black shield and a small plus in the top-left corner",
         "description": "+1 protection for the next damage roll against it"
       },
       {
         "id": "accuracy_die_boon",
         "label": "Accuracy Die Boon",
+        "iconDescription": "White circle with a black crosshair target and a small plus in the top-left corner",
         "description": "+1 die on its next hit roll"
       },
       {
         "id": "damage_die_boon",
         "label": "Damage Die Boon",
+        "iconDescription": "White circle with a black square X and a small plus in the top-left corner",
         "description": "+1 die on its next damage roll"
       }
     ],
@@ -157,54 +107,32 @@
       {
         "id": "move_blight",
         "label": "Move Blight",
+        "iconDescription": "Black circle with a white winged boot and a small minus in the top-left corner",
         "description": "-1 speed for its next advance action"
       },
       {
         "id": "dodge_blight",
         "label": "Dodge Blight",
+        "iconDescription": "Black circle with a white shield-and-arrow and a small minus in the top-left corner",
         "description": "-1 dodge for the next hit roll against it"
       },
       {
         "id": "protection_blight",
         "label": "Protection Blight",
+        "iconDescription": "Black circle with a white shield and a small minus in the top-left corner",
         "description": "-1 protection for the next damage roll against it"
       },
       {
         "id": "accuracy_die_blight",
         "label": "Accuracy Die Blight",
+        "iconDescription": "Black circle with a white crosshair target and a small minus in the top-left corner",
         "description": "-1 die on its next hit roll"
       },
       {
         "id": "damage_die_blight",
         "label": "Damage Die Blight",
+        "iconDescription": "Black circle with a white square X and a small minus in the top-left corner",
         "description": "-1 die on its next damage roll"
-      }
-    ],
-    "generic": [
-      {
-        "id": "boon",
-        "label": "Boon",
-        "description": "Generic boon token when type is chosen or unspecified"
-      },
-      {
-        "id": "blight",
-        "label": "Blight",
-        "description": "Generic blight token when type is chosen or unspecified"
-      },
-      {
-        "id": "wound",
-        "label": "Wound",
-        "description": "Wound token placed on a model"
-      },
-      {
-        "id": "banner",
-        "label": "Banner",
-        "description": "Champion banner placed on objective hexes"
-      },
-      {
-        "id": "step",
-        "label": "Step",
-        "description": "Battle ladder step moved by scoring accomplishments"
       }
     ]
   }

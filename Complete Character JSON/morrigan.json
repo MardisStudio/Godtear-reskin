@@ -1,0 +1,224 @@
+{
+  "id": "morrigan",
+  "name": "Morrigan",
+  "faction": "Slayer",
+  "source": "Characters/morrigan/",
+  "iconReference": "icons.json",
+  "iconPlaceholderFormat": "{icon_id}",
+  "extractionNotes": [
+    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
+    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
+    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
+    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
+    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+  ],
+  "champion": {
+    "stats": {
+      "plotSpeed": "2",
+      "clashSpeed": "2",
+      "dodge": "2",
+      "protection": "3",
+      "health": "6"
+    },
+    "factionTrait": {
+      "name": "Slayer Champion",
+      "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
+    },
+    "uniqueTraits": [
+      {
+        "name": "Frost Forged",
+        "text": "Morrigan gains a +2 bonus for boons instead of a +1 bonus."
+      }
+    ],
+    "ultimate": {
+      "name": "Flash Freeze",
+      "skillIcon": "skill_area",
+      "mustTarget": "-",
+      "text": "All enemies within range gain {move_blight} and {dodge_blight}.",
+      "statProfiles": [
+        {
+          "figuresInHex": "-",
+          "range": "3",
+          "accuracy": "-",
+          "damage": "-"
+        }
+      ]
+    },
+    "plotSkills": [
+      {
+        "name": "Forward, Minions!",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Move each Cold Bones that is within range up to 2 hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "4",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Frosty Glance",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move Morrigan up to 1 hex towards the target.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "5",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Snowball's Chance",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "If this skill wounds its target, they gain wounds until they are knocked out.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "1",
+            "damage": "2"
+          }
+        ]
+      },
+      {
+        "name": "Iceblade",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: If the target has {move_blight}, {accuracy_die_blight}, or {damage_die_blight} it gains 1 wound.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "5",
+            "damage": "5"
+          }
+        ]
+      },
+      {
+        "name": "Icebolt",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {move_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "7",
+            "damage": "3"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Cold Bones",
+    "units": 5,
+    "stats": {
+      "plotSpeed": "1",
+      "clashSpeed": "1",
+      "dodge": "2",
+      "protection": "3",
+      "health": "1"
+    },
+    "traits": [
+      {
+        "name": "Brain Freeze",
+        "text": "After an enemy model uses a skill to knock out one or more Cold Bones, the enemy model gains {move_blight}."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "So Cool, Mistress!",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "If Morrigan is within range, she gains {dodge_boon} or {protection_boon}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Chill Out",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "This skill has +1 {accuracy} for each Cold Bones adjacent to the target. Hit Effect: Inflict {move_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "1",
+            "accuracy": "1*",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "1",
+            "accuracy": "1*",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "1",
+            "accuracy": "1*",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Intense Cold",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Gain {protection_boon}",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Snowblade Fight!",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "This skill has +1 {accuracy} for each Cold Bones adjacent to the target.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "1",
+            "accuracy": "1*",
+            "damage": "3"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "1",
+            "accuracy": "1*",
+            "damage": "4"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "1",
+            "accuracy": "1*",
+            "damage": "5"
+          }
+        ]
+      }
+    ]
+  }
+}

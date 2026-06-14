@@ -1,0 +1,186 @@
+{
+  "id": "kailinn",
+  "name": "Kailinn",
+  "faction": "Maelstrom",
+  "source": "Characters/kailinn/",
+  "iconReference": "icons.json",
+  "iconPlaceholderFormat": "{icon_id}",
+  "extractionNotes": [
+    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
+    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
+    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
+    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
+    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+  ],
+  "champion": {
+    "stats": {
+      "plotSpeed": "4",
+      "clashSpeed": "4",
+      "dodge": "3",
+      "protection": "2",
+      "health": "7"
+    },
+    "factionTrait": {
+      "name": "Maelstrom Champion",
+      "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+    },
+    "uniqueTraits": [
+      {
+        "name": "Centaur",
+        "text": "Kailinn cannot enter objective hexes. During her activation she may enter small followers hexes. If she ends her movement on a hex containing small followers, move each small follower into an adjacent hex."
+      }
+    ],
+    "ultimate": {
+      "name": "Impaling Horn",
+      "skillIcon": "skill_self",
+      "mustTarget": "follower",
+      "text": "Move Kailinn up to 1 hex. Then you may choose an enemy follower within range to gain wounds until it is knocked out. You move the turn token an extra +2 steps instead of the usual maelstrom bonus for this knock out.",
+      "statProfiles": [
+        {
+          "figuresInHex": "-",
+          "range": "1",
+          "accuracy": "-",
+          "damage": "-"
+        }
+      ]
+    },
+    "plotSkills": [
+      {
+        "name": "Powerful Leap",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Place Kailinn on a hex up to 2 hexes from her current hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Thundering Hooves",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Move Kailinn up to 1 hex. Then move one friendly champion within range up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Brutal Charge",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "If Kailinn made an advance action this activation, Brutal Charge is a bonus action.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "4",
+            "damage": "6"
+          }
+        ]
+      },
+      {
+        "name": "Flashing Blade",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "This skill may target up to two followers that are in different hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "5",
+            "damage": "6"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Virtues",
+    "units": 2,
+    "stats": {
+      "plotSpeed": "4",
+      "clashSpeed": "2",
+      "dodge": "3",
+      "protection": "2",
+      "health": "4"
+    },
+    "traits": [
+      {
+        "name": "Harmonious",
+        "text": "Immediately after a Virtue uses a skill, the other Virtue may use the same skill as part of the same action."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Patience",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "If Kailinn is within range, she gains a boon of your choice.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Compassion",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Move this Virtue up to 1 hex. Then move one friendly follower within range up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Serenity",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "You may move this Virtue up to 2 hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Justice",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "If the Virtues made an advance action this activation, Justice has +1 {damage}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "5",
+            "damage": "4"
+          }
+        ]
+      }
+    ]
+  }
+}

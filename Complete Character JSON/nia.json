@@ -1,0 +1,238 @@
+{
+  "id": "nia",
+  "name": "Nia",
+  "faction": "Shaper",
+  "source": "Characters/nia/",
+  "iconReference": "icons.json",
+  "iconPlaceholderFormat": "{icon_id}",
+  "extractionNotes": [
+    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
+    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
+    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
+    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
+    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+  ],
+  "champion": {
+    "stats": {
+      "plotSpeed": "1",
+      "clashSpeed": "2",
+      "dodge": "4",
+      "protection": "2",
+      "health": "6"
+    },
+    "factionTrait": {
+      "name": "Shaper Champion",
+      "text": "A shaper moves the turn token +1 step when they make a claim action."
+    },
+    "uniqueTraits": [
+      {
+        "name": "Rock Concert",
+        "text": "If all 3 Quartzlings are on the battlefield when Nia activates, she may make a bonus action that activation."
+      }
+    ],
+    "ultimate": {
+      "name": "Geode",
+      "skillIcon": "skill_area",
+      "mustTarget": "-",
+      "text": "Plot phase only. Choose a Quartzling that is the only model in its hex and is adjacent to an objective hex, and replace it with an objective hex. If it is within 2 hexes of Nia, she may make a claim action on that hex.",
+      "statProfiles": [
+        {
+          "figuresInHex": "-",
+          "range": "-",
+          "accuracy": "-",
+          "damage": "-"
+        }
+      ]
+    },
+    "plotSkills": [
+      {
+        "name": "Crystal Mirror",
+        "skillIcon": "skill_area",
+        "mustTarget": "-",
+        "text": "Choose a boon on any model within range. Then choose a friendly model within range to gain that boon.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Meditation",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Make a claim action.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "March",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Move Nia up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Crystal Glare",
+        "skillIcon": "skill_area",
+        "mustTarget": "-",
+        "text": "Choose a blight on any model within range. Then choose an enemy model within range to gain that blight.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Erosion",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {dodge_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "5",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Blinding Light",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {accuracy_die_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "4",
+            "damage": "5"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Quartzlings",
+    "units": 3,
+    "stats": {
+      "plotSpeed": "2",
+      "clashSpeed": "0",
+      "dodge": "2",
+      "protection": "4",
+      "health": "1"
+    },
+    "traits": [
+      {
+        "name": "Rock Formation",
+        "text": "When Nia's banner is removed from the battlefield, the Quartzlings may immediately make a recruit action, even if it is the end phase."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Calcify",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "If this Quartzling is the only model in its hex and is adjacent to an objective hex, replace it with an objective hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Shimmer",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "2",
+            "accuracy": "4",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "2",
+            "accuracy": "5",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "2",
+            "accuracy": "5",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Rolling Stones",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Each Quartzling may move up to 3 hexes in a straight line.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Stone's Throw",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "2",
+            "accuracy": "4",
+            "damage": "4"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "2",
+            "accuracy": "5",
+            "damage": "4"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "2",
+            "accuracy": "5",
+            "damage": "5"
+          }
+        ]
+      }
+    ]
+  }
+}

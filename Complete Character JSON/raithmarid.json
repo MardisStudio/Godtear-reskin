@@ -1,0 +1,238 @@
+{
+  "id": "raithmarid",
+  "name": "Raith'Marid",
+  "faction": "Shaper",
+  "source": "Characters/raithmarid/",
+  "iconReference": "icons.json",
+  "iconPlaceholderFormat": "{icon_id}",
+  "extractionNotes": [
+    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
+    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
+    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
+    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
+    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+  ],
+  "champion": {
+    "stats": {
+      "plotSpeed": "1",
+      "clashSpeed": "1",
+      "dodge": "2",
+      "protection": "3",
+      "health": "7"
+    },
+    "factionTrait": {
+      "name": "Shaper Champion",
+      "text": "A shaper moves the turn token +1 step when they make a claim action."
+    },
+    "uniqueTraits": [
+      {
+        "name": "Rippling Scales",
+        "text": "When a Splashling leaves the battlefield, Raith'Marid may gain the boon of your choice."
+      }
+    ],
+    "ultimate": {
+      "name": "Tsunami",
+      "skillIcon": "skill_area",
+      "mustTarget": "-",
+      "text": "Place Raith'Marid on a hex within range. Then move each enemy model within 2 hexes of him up to 2 hexes in the order of your choice.",
+      "statProfiles": [
+        {
+          "figuresInHex": "-",
+          "range": "3",
+          "accuracy": "-",
+          "damage": "-"
+        }
+      ]
+    },
+    "plotSkills": [
+      {
+        "name": "Undertow",
+        "skillIcon": "skill_area",
+        "mustTarget": "-",
+        "text": "Choose an empty objective hex within range. Place it on an empty non-objective hex within range.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Ker-Splash",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Choose a hex within range containing one Splashling. Remove the Splashling and place Raith'Marid in that hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Jet",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Move a Splashling within range up to 3 hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Ker-Splash",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Choose a hex within range containing one Splashling. Remove the Splashling and place Raith'Marid in that hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Headbutt",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "5",
+            "damage": "5"
+          }
+        ]
+      },
+      {
+        "name": "Lunging Strike",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Before the hit roll, move Raith'Marid up to 1 hex towards the target.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "6",
+            "damage": "4"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Splashlings",
+    "units": 3,
+    "stats": {
+      "plotSpeed": "0",
+      "clashSpeed": "0",
+      "dodge": "4",
+      "protection": "1",
+      "health": "1"
+    },
+    "traits": [
+      {
+        "name": "Like Water",
+        "text": "Once per phase during the Splashlings' activation, you may choose a boon on Raith'Marid. The Splashlings gain that boon."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Current",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "You may place each Splashling in a hex up to 3 hexes from its current hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Tide",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "2",
+            "accuracy": "5",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "2",
+            "accuracy": "6",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "2",
+            "accuracy": "7",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Current",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "You may place each Splashling in a hex up to 3 hexes from its current hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Tide",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "2",
+            "accuracy": "5",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "2",
+            "accuracy": "6",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "2",
+            "accuracy": "7",
+            "damage": "-"
+          }
+        ]
+      }
+    ]
+  }
+}

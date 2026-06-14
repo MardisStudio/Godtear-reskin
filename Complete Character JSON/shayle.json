@@ -1,0 +1,187 @@
+{
+  "id": "shayle",
+  "name": "Shayle",
+  "faction": "Shaper",
+  "source": "Characters/shayle/",
+  "iconReference": "icons.json",
+  "iconPlaceholderFormat": "{icon_id}",
+  "extractionNotes": [
+    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
+    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
+    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
+    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
+    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+  ],
+  "champion": {
+    "stats": {
+      "plotSpeed": "2",
+      "clashSpeed": "2",
+      "dodge": "4",
+      "protection": "2",
+      "health": "5"
+    },
+    "factionTrait": {
+      "name": "Shaper Champion",
+      "text": "A shaper moves the turn token +1 step when they make a claim action."
+    },
+    "uniqueTraits": [
+      {
+        "name": "Runecaller",
+        "text": "After Shayle makes an action during his activation, if he is within 3 hexes of Landslide, you may place Landslide in a hex up to 2 hexes from its current hex."
+      }
+    ],
+    "ultimate": {
+      "name": "Avalanche",
+      "skillIcon": "skill_area",
+      "mustTarget": "-",
+      "text": "Choose any number of objective hexes within 3 hexes of Landslide. Move each up to 1 hex onto an empty non-objective hex in any order. Models on the objective hexes move with them.",
+      "statProfiles": [
+        {
+          "figuresInHex": "-",
+          "range": "-",
+          "accuracy": "-",
+          "damage": "-"
+        }
+      ]
+    },
+    "plotSkills": [
+      {
+        "name": "Stone Strength",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "If Landslide is within range, it gains {protection_boon} or {damage_die_boon}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Runeweaving",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move a boon from the target to any model within range.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "6",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Tremor",
+        "skillIcon": "skill_area",
+        "mustTarget": "-",
+        "text": "Remove all boons from enemies within range.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Stone Spikes",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {dodge_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "5",
+            "damage": "-"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Landslide",
+    "units": 1,
+    "stats": {
+      "plotSpeed": "1",
+      "clashSpeed": "0",
+      "dodge": "2",
+      "protection": "3",
+      "health": "4"
+    },
+    "traits": [
+      {
+        "name": "Rubble",
+        "text": "When Landslide is knocked out, replace it with an objective hex."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Eruption",
+        "skillIcon": "skill_area",
+        "mustTarget": "-",
+        "text": "Friendly and enemy models adjacent to Landslide gain {move_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Earthquake",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target champion or all followers in target's unit up to 2 hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "4",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Earthquake",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target champion or all followers in target's unit up to 2 hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "4",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Boulder Bash",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 1 hex away from Landslide.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "6",
+            "damage": "6"
+          }
+        ]
+      }
+    ]
+  }
+}
+

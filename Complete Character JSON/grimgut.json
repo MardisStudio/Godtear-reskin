@@ -1,0 +1,198 @@
+{
+  "id": "grimgut",
+  "name": "Grimgut",
+  "faction": "Maelstrom",
+  "source": "Characters/grimgut/",
+  "iconReference": "icons.json",
+  "iconPlaceholderFormat": "{icon_id}",
+  "extractionNotes": [
+    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
+    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
+    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
+    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
+    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+  ],
+  "champion": {
+    "stats": {
+      "plotSpeed": "1",
+      "clashSpeed": "1",
+      "dodge": "2",
+      "protection": "2",
+      "health": "9"
+    },
+    "factionTrait": {
+      "name": "Maelstrom Champion",
+      "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+    },
+    "uniqueTraits": [
+      {
+        "name": "Spew",
+        "text": "When Retchlings make a recruit action during Grimgut's activation, you may place the new Retchling adjacent to any Retchling placed during this activation."
+      }
+    ],
+    "ultimate": {
+      "name": "Buffet",
+      "skillIcon": "skill_enemy",
+      "mustTarget": "follower",
+      "text": "This skill may target up to three followers on any hexes within range.",
+      "statProfiles": [
+        {
+          "figuresInHex": "-",
+          "range": "1",
+          "accuracy": "7",
+          "damage": "7"
+        }
+      ]
+    },
+    "plotSkills": [
+      {
+        "name": "New Spew",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Remove all Retchlings from the battlefield. Then they make five recruit actions.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Flu Spew",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "This skill targets each enemy champion and follower unit adjacent to one or more Retchlings. Hit Effect: Inflict {damage_die_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "*",
+            "accuracy": "4",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Goo Spew",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "This skill targets each enemy champion and follower unit adjacent to one or more Retchlings. Hit Effect: Inflict {move_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "*",
+            "accuracy": "4",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Roll",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Grimgut moves up to 3 hexes in a straight line.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "New Spew",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Remove all Retchlings from the battlefield. Then they make five recruit actions.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Nom Nom Nom",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "follower",
+        "text": "",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "7",
+            "damage": "7"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Retchlings",
+    "units": 5,
+    "stats": {
+      "plotSpeed": "0",
+      "clashSpeed": "1",
+      "dodge": "2",
+      "protection": "1",
+      "health": "1"
+    },
+    "traits": [
+      {
+        "name": "Wretched",
+        "text": "When a Retchling is knocked out, it is worth 0 steps instead of 1."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Slip and Slide",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Two Retchlings may use this skill in the same activation if they are in different hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Slimed",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "This skill may target up to three models in one hex. Two Retchlings may use this skill in the same activation if they are in different hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "2",
+            "accuracy": "3",
+            "damage": "5"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "2",
+            "accuracy": "4",
+            "damage": "5"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "2",
+            "accuracy": "5",
+            "damage": "5"
+          }
+        ]
+      }
+    ]
+  }
+}

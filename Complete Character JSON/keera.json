@@ -1,0 +1,200 @@
+{
+  "id": "keera",
+  "name": "Keera",
+  "faction": "Slayer",
+  "source": "Characters/keera/",
+  "iconReference": "icons.json",
+  "iconPlaceholderFormat": "{icon_id}",
+  "extractionNotes": [
+    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
+    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
+    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
+    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
+    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+  ],
+  "champion": {
+    "stats": {
+      "plotSpeed": "2",
+      "clashSpeed": "2",
+      "dodge": "3",
+      "protection": "2",
+      "health": "6"
+    },
+    "factionTrait": {
+      "name": "Slayer Champion",
+      "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
+    },
+    "uniqueTraits": [
+      {
+        "name": "By My Command!",
+        "text": "The range of Keera's enemy skills must be determined from a Young Dragon within 3 hexes of her."
+      }
+    ],
+    "ultimate": {
+      "name": "Firebrand",
+      "skillIcon": "skill_area",
+      "mustTarget": "-",
+      "text": "Each enemy champion that is within 2 hexes of 1 or more Young Dragons gains 1 wound.",
+      "statProfiles": [
+        {
+          "figuresInHex": "-",
+          "range": "-",
+          "accuracy": "-",
+          "damage": "-"
+        }
+      ]
+    },
+    "plotSkills": [
+      {
+        "name": "Royal Summons",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "The Young Dragons may make an advance action or a recruit action.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Regal Blessing",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "If a Young Dragon is within range they gain {protection_boon}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Royal Summons",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "The Young Dragons may make an advance action or a recruit action.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Vicious Bite",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: If the target is a champion it gains 1 wound.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "4",
+            "damage": "7"
+          }
+        ]
+      },
+      {
+        "name": "Rain of Fire",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {move_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "7",
+            "damage": "4"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Young Dragons",
+    "units": 2,
+    "stats": {
+      "plotSpeed": "3",
+      "clashSpeed": "3",
+      "dodge": "2",
+      "protection": "2",
+      "health": "5"
+    },
+    "traits": [
+      {
+        "name": "Flight",
+        "text": "During an advance action, the Young Dragons may move through other models' hexes but cannot end their movement on those hexes."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Draconic Rage",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Gain {damage_die_boon}",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Roar",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "5",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Bite",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: If the target is a champion it gains 1 wound.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "3",
+            "damage": "5"
+          }
+        ]
+      },
+      {
+        "name": "Fiery Breath",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {damage_die_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "5",
+            "damage": "3"
+          }
+        ]
+      }
+    ]
+  }
+}

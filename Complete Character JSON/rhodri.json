@@ -1,0 +1,227 @@
+{
+  "id": "rhodri",
+  "name": "Rhodri",
+  "faction": "Guardian",
+  "source": "Characters/rhodri/",
+  "iconReference": "icons.json",
+  "iconPlaceholderFormat": "{icon_id}",
+  "extractionNotes": [
+    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
+    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
+    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
+    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
+    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+  ],
+  "champion": {
+    "stats": {
+      "plotSpeed": "1",
+      "clashSpeed": "2",
+      "dodge": "2",
+      "protection": "4",
+      "health": "7"
+    },
+    "factionTrait": {
+      "name": "Guardian Champion",
+      "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+    },
+    "uniqueTraits": [
+      {
+        "name": "Unyielding",
+        "text": "If Rhodri is adjacent to a friendly banner, he cannot be moved by enemy models."
+      }
+    ],
+    "ultimate": {
+      "name": "Bannerfall",
+      "skillIcon": "skill_self",
+      "mustTarget": "-",
+      "text": "Clash phase only. Make a claim action.",
+      "statProfiles": [
+        {
+          "figuresInHex": "-",
+          "range": "-",
+          "accuracy": "-",
+          "damage": "-"
+        }
+      ]
+    },
+    "plotSkills": [
+      {
+        "name": "March",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Move Rhodri up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Answer the Call",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "follower",
+        "text": "Choose a follower within range. Its unit makes a recruit action.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Hold!",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Grant {protection_boon}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "March",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Move Rhodri up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Shield Bash",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 2 hexes away from Rhodri.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "7",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Sword Slash",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "5",
+            "damage": "6"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Household Guard",
+    "units": 4,
+    "stats": {
+      "plotSpeed": "1",
+      "clashSpeed": "2",
+      "dodge": "2",
+      "protection": "4",
+      "health": "1"
+    },
+    "traits": [
+      {
+        "name": "Shield Wall",
+        "text": "Household Guard in hexes adjacent to Rhodri cannot be moved by enemy models."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Brace",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Gain {protection_boon}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "March",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Move each Household Guard up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "March",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Move each Household Guard up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Sword Strike",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "1",
+            "accuracy": "5",
+            "damage": "4"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "1",
+            "accuracy": "5",
+            "damage": "5"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "1",
+            "accuracy": "5",
+            "damage": "6"
+          }
+        ]
+      }
+    ]
+  }
+}
+
