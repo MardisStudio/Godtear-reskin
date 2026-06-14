@@ -1,8 +1,8 @@
 {
-  "id": "kailinn",
-  "name": "Kailinn",
+  "id": "luella",
+  "name": "Luella",
   "faction": "Maelstrom",
-  "source": "Characters/kailinn/",
+  "source": "Characters/luella/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -15,10 +15,10 @@
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "4",
-      "clashSpeed": "4",
-      "dodge": "3",
-      "protection": "2",
+      "plotSpeed": "1",
+      "clashSpeed": "2",
+      "dodge": "2",
+      "protection": "3",
       "health": "7"
     },
     "factionTrait": {
@@ -27,15 +27,15 @@
     },
     "uniqueTraits": [
       {
-        "name": "Centaur",
-        "text": "Kailinn cannot enter objective hexes. During her activation she may enter small followers hexes. If she ends her movement on a hex containing small followers, move each small follower into an adjacent hex."
+        "name": "Momentum",
+        "text": "When Luella makes an advance action, she may gain +1 {speed} for that action. If she does, she must move in a straight line."
       }
     ],
     "ultimate": {
-      "name": "Impaling Horn",
-      "skillIcon": "skill_self",
-      "mustTarget": "follower",
-      "text": "Move Kailinn up to 1 hex. Then you may choose an enemy follower within range to gain wounds until it is knocked out. You move the turn token an extra +2 steps instead of the usual maelstrom bonus for this knock out.",
+      "name": "Storm Rider",
+      "skillIcon": "skill_area",
+      "mustTarget": "-",
+      "text": "Move Luella up to 2 hexes. Then make a 3 {damage_die} damage roll against each enemy within range.",
       "statProfiles": [
         {
           "figuresInHex": "-",
@@ -47,29 +47,29 @@
     },
     "plotSkills": [
       {
-        "name": "Powerful Leap",
-        "skillIcon": "skill_self",
+        "name": "Supercharge",
+        "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Place Kailinn on a hex up to 2 hexes from her current hex.",
+        "text": "Grant {move_boon}",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "-",
+            "range": "1",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Thundering Hooves",
-        "skillIcon": "skill_friendly",
+        "name": "Lightning Flash",
+        "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Move Kailinn up to 1 hex. Then move one friendly champion within range up to 1 hex.",
+        "text": "If Luella moved 3 or more hexes this activation, Lightning Flash is a bonus action. Hit Effect: Inflict {dodge_blight}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "2",
-            "accuracy": "-",
+            "accuracy": "6",
             "damage": "-"
           }
         ]
@@ -77,87 +77,72 @@
     ],
     "clashSkills": [
       {
-        "name": "Brutal Charge",
+        "name": "Supercharge",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Grant {move_boon}",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Rolling Thunder",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "If Kailinn made an advance action this activation, Brutal Charge is a bonus action.",
+        "text": "If Luella moved 3 or more hexes this activation, Rolling Thunder is a bonus action.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "1",
             "accuracy": "4",
-            "damage": "6"
+            "damage": "5"
           }
         ]
       },
       {
-        "name": "Flashing Blade",
+        "name": "Arc Lightning",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "This skill may target up to two followers that are in different hexes.",
+        "text": "Hit Effect: After the Arc Lightning damage roll, Luella may make a 3 {damage_die} damage roll against up to 2 other models within 1 hex of the target's hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "5",
-            "damage": "6"
+            "range": "2",
+            "accuracy": "6",
+            "damage": "5"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Virtues",
-    "units": 2,
+    "name": "Shield Maidens",
+    "units": 3,
+    "size": "small",
     "stats": {
-      "plotSpeed": "4",
+      "plotSpeed": "1",
       "clashSpeed": "2",
-      "dodge": "3",
-      "protection": "2",
-      "health": "4"
+      "dodge": "2",
+      "protection": "4",
+      "health": "1"
     },
     "traits": [
       {
-        "name": "Harmonious",
-        "text": "Immediately after a Virtue uses a skill, the other Virtue may use the same skill as part of the same action."
+        "name": "Protective",
+        "text": "At the end of the Shield Maidens' activation, if any Shield Maidens are adjacent to Luella, Luella gains {protection_boon}."
       }
     ],
     "plotSkills": [
       {
-        "name": "Patience",
-        "skillIcon": "skill_friendly",
-        "mustTarget": "-",
-        "text": "If Kailinn is within range, she gains a boon of your choice.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Compassion",
-        "skillIcon": "skill_friendly",
-        "mustTarget": "-",
-        "text": "Move this Virtue up to 1 hex. Then move one friendly follower within range up to 1 hex.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      }
-    ],
-    "clashSkills": [
-      {
-        "name": "Serenity",
+        "name": "Empower",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "You may move this Virtue up to 2 hexes.",
+        "text": "Gain {damage_die_boon}",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -168,16 +153,58 @@
         ]
       },
       {
-        "name": "Justice",
-        "skillIcon": "skill_enemy",
+        "name": "March",
+        "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "If the Virtues made an advance action this activation, Justice has +1 {damage}.",
+        "text": "Move each Shield Maiden up to 1 hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "March",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Move each Shield Maiden up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Cleave",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
             "range": "1",
-            "accuracy": "5",
+            "accuracy": "6",
+            "damage": "3"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "1",
+            "accuracy": "6",
             "damage": "4"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "1",
+            "accuracy": "6",
+            "damage": "5"
           }
         ]
       }

@@ -1,8 +1,8 @@
 {
-  "id": "finvarr",
-  "name": "Finvarr",
-  "faction": "Guardian",
-  "source": "Characters/finvarr/",
+  "id": "titus",
+  "name": "Titus",
+  "faction": "Maelstrom",
+  "source": "Characters/titus/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -11,35 +11,35 @@
     "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
     "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
     "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
-    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}.\""
   ],
   "champion": {
     "stats": {
       "plotSpeed": "2",
-      "clashSpeed": "3",
-      "dodge": "4",
+      "clashSpeed": "2",
+      "dodge": "3",
       "protection": "3",
       "health": "5"
     },
     "factionTrait": {
-      "name": "Guardian Champion",
-      "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+      "name": "Maelstrom Champion",
+      "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
     },
     "uniqueTraits": [
       {
-        "name": "Banner Warden",
-        "text": "If Finvarr is on an objective hex, his skills have +2 {accuracy}."
+        "name": "Superiority",
+        "text": "Titus has +1 {dodge} against followers' hit rolls and +1 {protection} against followers' damage rolls."
       }
     ],
     "ultimate": {
-      "name": "Phantom Banners",
-      "skillIcon": "skill_area",
+      "name": "Path of Destruction",
+      "skillIcon": "skill_self",
       "mustTarget": "-",
-      "text": "Choose any number of friendly banners within range. Place them on objective hexes within range.",
+      "text": "Titus may make a skill action. Then he may move 1 hex. Then he may make another skill action.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "4",
+          "range": "-",
           "accuracy": "-",
           "damage": "-"
         }
@@ -47,29 +47,29 @@
     },
     "plotSkills": [
       {
-        "name": "Poised to Strike",
-        "skillIcon": "skill_self",
+        "name": "Challenge",
+        "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "Gain {move_boon}",
+        "text": "An enemy model within range gains two different blights of your choice. Titus gains a blight of your opponent's choice.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "-",
+            "range": "2",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Shadow Ward",
+        "name": "I'll Kill You All!",
         "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "Hit Effect: Move target up to 1 hex.",
+        "mustTarget": "follower",
+        "text": "Hit Effect: Move all followers in target's unit that are within range up to 1 hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "5",
+            "range": "3",
+            "accuracy": "6",
             "damage": "-"
           }
         ]
@@ -77,43 +77,29 @@
     ],
     "clashSkills": [
       {
-        "name": "Mirage",
-        "skillIcon": "skill_area",
-        "mustTarget": "-",
-        "text": "Choose a friendly banner within 2 hexes of Finvarr. Place it on an objective hex that is 1 hex away from its current hex.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "-",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Void Weapon",
-        "skillIcon": "skill_self",
-        "mustTarget": "-",
-        "text": "Gain {damage_die_boon}",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "-",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Life Blade",
+        "name": "Piercing Strike",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Remove up to 1 of Finvarr's wounds.",
+        "text": "This skill may target up to two models in the same hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "1",
-            "accuracy": "4",
+            "accuracy": "5",
+            "damage": "6"
+          }
+        ]
+      },
+      {
+        "name": "Sweeping Slash",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "This skill may target up to two models that are in different hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "6",
             "damage": "5"
           }
         ]
@@ -121,58 +107,59 @@
     ]
   },
   "followers": {
-    "name": "Shadow Sentinels",
-    "units": 3,
+    "name": "Glory Seekers",
+    "units": 5,
+    "size": "small",
     "stats": {
       "plotSpeed": "2",
-      "clashSpeed": "3",
-      "dodge": "4",
-      "protection": "2",
+      "clashSpeed": "2",
+      "dodge": "3",
+      "protection": "3",
       "health": "1"
     },
     "traits": [
       {
-        "name": "Shadow Step",
-        "text": "If the Shadow Sentinels do not make an advance action during their activation, each Shadow Sentinel may move up to 1 hex when the activation ends."
+        "name": "Rapid Deployment",
+        "text": "After using a recruit action, the Glory Seeker returned to the battlefield moves up to 2 hexes."
       }
     ],
     "plotSkills": [
       {
-        "name": "Protect",
+        "name": "Roar of Battle",
         "skillIcon": "skill_friendly",
-        "mustTarget": "-",
-        "text": "Grant {protection_boon}",
+        "mustTarget": "champion",
+        "text": "One champion within range may move 1 hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "1",
+            "range": "2",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Shadow Snare",
+        "name": "Outflank",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Inflict {move_blight}",
+        "text": "Hit Effect: Place each Glory Seeker that is adjacent to the target in a hex adjacent to the target.",
         "statProfiles": [
           {
             "figuresInHex": 1,
             "range": "1",
-            "accuracy": "4",
+            "accuracy": "6",
             "damage": "-"
           },
           {
             "figuresInHex": 2,
             "range": "1",
-            "accuracy": "5",
+            "accuracy": "6",
             "damage": "-"
           },
           {
             "figuresInHex": 3,
             "range": "1",
-            "accuracy": "5",
+            "accuracy": "6",
             "damage": "-"
           }
         ]
@@ -180,42 +167,54 @@
     ],
     "clashSkills": [
       {
-        "name": "Void Weapon",
-        "skillIcon": "skill_self",
-        "mustTarget": "-",
-        "text": "Gain {damage_die_boon}",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "-",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Life Trade",
+        "name": "Hack",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "If this skill knocks out an enemy while the Shadow Sentinels are below their maximum unit size, add 1 Shadow Sentinel to this hex.",
+        "text": "Hit Effect: Inflict {protection_blight}",
         "statProfiles": [
           {
             "figuresInHex": 1,
             "range": "1",
-            "accuracy": "4",
-            "damage": "4"
+            "accuracy": "5",
+            "damage": "-"
           },
           {
             "figuresInHex": 2,
             "range": "1",
             "accuracy": "5",
-            "damage": "5"
+            "damage": "-"
           },
           {
             "figuresInHex": 3,
             "range": "1",
-            "accuracy": "5",
-            "damage": "5"
+            "accuracy": "6",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Surround Pound",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "This skill has +1 {accuracy_die} and +1 {damage_die} for each other hex adjacent to the target that contains one or more Glory Seekers.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "1",
+            "accuracy": "4*",
+            "damage": "3*"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "1",
+            "accuracy": "4*",
+            "damage": "4*"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "1",
+            "accuracy": "4*",
+            "damage": "5*"
           }
         ]
       }

@@ -1,8 +1,8 @@
 {
-  "id": "rangosh",
-  "name": "Rangosh",
-  "faction": "Slayer",
-  "source": "Characters/rangosh/",
+  "id": "styx",
+  "name": "Styx",
+  "faction": "Shaper",
+  "source": "Characters/styx/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -11,35 +11,35 @@
     "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
     "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
     "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
-    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}.\""
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "3",
+      "plotSpeed": "2",
       "clashSpeed": "2",
       "dodge": "4",
       "protection": "2",
-      "health": "7"
+      "health": "6"
     },
     "factionTrait": {
-      "name": "Slayer Champion",
-      "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
+      "name": "Shaper Champion",
+      "text": "A shaper moves the turn token +1 step when they make a claim action."
     },
     "uniqueTraits": [
       {
-        "name": "Brutal Master",
-        "text": "Once per hit roll or damage roll before rolling the dice, you may remove one Red Bandit from a hex within 3 hexes of Rangosh to add 1 die to Rangosh's roll."
+        "name": "Haunting",
+        "text": "When Styx is knocked out, your opponent may not move him."
       }
     ],
     "ultimate": {
-      "name": "Beastly Charge",
+      "name": "The Reaping",
       "skillIcon": "skill_area",
       "mustTarget": "-",
-      "text": "Move Rangosh up to 2 hexes. Then you may place up to 2 wounds on an enemy within range.",
+      "text": "Knock out an enemy model within range. It does not award you any steps on the battle ladder.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "1",
+          "range": "2",
           "accuracy": "-",
           "damage": "-"
         }
@@ -47,29 +47,29 @@
     },
     "plotSkills": [
       {
-        "name": "Channel Rage",
-        "skillIcon": "skill_self",
+        "name": "Hour is Nigh",
+        "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "Gain {damage_die_boon}",
+        "text": "Styx may use this skill as a bonus action. An enemy model within range gains {protection_blight}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "-",
+            "range": "2",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Break Spirit",
+        "name": "Dead Beckoning",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Inflict {accuracy_die_blight}.",
+        "text": "Hit Effect: Move target up to 1 hex toward Styx.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "6",
+            "range": "3",
+            "accuracy": "5",
             "damage": "-"
           }
         ]
@@ -77,28 +77,28 @@
     ],
     "clashSkills": [
       {
-        "name": "Jawbreaker",
-        "skillIcon": "skill_enemy",
+        "name": "Apparition",
+        "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "Hit Effect: Move target up to 1 hex away from Rangosh.",
+        "text": "Move one objective hex within range 1 hex toward Styx onto an empty non-objective hex. Models on the objective hex move with it.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "3",
-            "damage": "7"
+            "range": "3",
+            "accuracy": "-",
+            "damage": "-"
           }
         ]
       },
       {
-        "name": "Whiplash",
+        "name": "Scythe Slash",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Move target up to 1 hex toward Rangosh.",
+        "text": "Hit Effect: Inflict {damage_die_blight}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
+            "range": "1",
             "accuracy": "5",
             "damage": "5"
           }
@@ -107,27 +107,28 @@
     ]
   },
   "followers": {
-    "name": "Red Bandits",
-    "units": 5,
+    "name": "Abyssal Hounds",
+    "units": 2,
+    "size": "large",
     "stats": {
       "plotSpeed": "2",
       "clashSpeed": "2",
-      "dodge": "3",
-      "protection": "2",
-      "health": "1"
+      "dodge": "4",
+      "protection": "1",
+      "health": "4"
     },
     "traits": [
       {
-        "name": "Stolen Treasure",
-        "text": "If the Red Bandits cause an enemy model to gain a wound when they use a skill action, they may gain one boon of your choice."
+        "name": "Drag",
+        "text": "At the end of the Abyssal Hounds' activation, move up to 2 small follower models within 2 hexes of an Abyssal Hound, 1 hex towards that Abyssal Hound."
       }
     ],
     "plotSkills": [
       {
-        "name": "Induct",
+        "name": "Pack Hunters",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "If the Red Bandits are below their maximum unit size, add one to a hex containing at least one Red Bandit.",
+        "text": "Move each Abyssal Hound within 4 hexes of Styx up to 2 hexes.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -138,26 +139,14 @@
         ]
       },
       {
-        "name": "Ambush",
+        "name": "Howl",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: The target gains 1 wound.",
+        "text": "Hit Effect: Inflict {accuracy_die_blight}",
         "statProfiles": [
           {
-            "figuresInHex": 1,
-            "range": "1",
-            "accuracy": "3",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 2,
-            "range": "1",
-            "accuracy": "4",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 3,
-            "range": "1",
+            "figuresInHex": "-",
+            "range": "2",
             "accuracy": "5",
             "damage": "-"
           }
@@ -166,54 +155,30 @@
     ],
     "clashSkills": [
       {
-        "name": "Ambush",
-        "skillIcon": "skill_enemy",
+        "name": "Torn to Shreds",
+        "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "Hit Effect: The target gains 1 wound.",
+        "text": "If both Abyssal Hounds are adjacent to the same enemy banner, remove the banner from the battlefield.",
         "statProfiles": [
           {
-            "figuresInHex": 1,
+            "figuresInHex": "-",
             "range": "1",
-            "accuracy": "3",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 2,
-            "range": "1",
-            "accuracy": "4",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 3,
-            "range": "1",
-            "accuracy": "5",
+            "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Shoot",
+        "name": "Triple Bite",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "",
+        "text": "Make 3 hit rolls instead of 1. For each hit, this skill has +2 {damage_die}.",
         "statProfiles": [
           {
-            "figuresInHex": 1,
-            "range": "3",
-            "accuracy": "3",
-            "damage": "4"
-          },
-          {
-            "figuresInHex": 2,
-            "range": "3",
+            "figuresInHex": "-",
+            "range": "1",
             "accuracy": "4",
-            "damage": "4"
-          },
-          {
-            "figuresInHex": 3,
-            "range": "3",
-            "accuracy": "5",
-            "damage": "4"
+            "damage": "0*"
           }
         ]
       }

@@ -1,8 +1,8 @@
 {
-  "id": "mournblade",
-  "name": "Mournblade",
+  "id": "helena",
+  "name": "Helena",
   "faction": "Guardian",
-  "source": "Characters/mournblade/",
+  "source": "Characters/helena/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -17,9 +17,9 @@
     "stats": {
       "plotSpeed": "2",
       "clashSpeed": "2",
-      "dodge": "2",
+      "dodge": "3",
       "protection": "4",
-      "health": "1"
+      "health": "4"
     },
     "factionTrait": {
       "name": "Guardian Champion",
@@ -27,19 +27,19 @@
     },
     "uniqueTraits": [
       {
-        "name": "Undying",
-        "text": "When Mournblade is knocked out, he is worth 1 step instead of 4. When an enemy is knocked out, Mournblade may immediately make a rally action."
+        "name": "Banner Bearer",
+        "text": "Helena cannot make claim actions. During the end phase, if she is not knocked out, Helena counts as a banner for the purposes of gaining steps on the battle ladder."
       }
     ],
     "ultimate": {
-      "name": "Grasping Dead",
-      "skillIcon": "skill_friendly",
+      "name": "Call to Arms",
+      "skillIcon": "skill_area",
       "mustTarget": "-",
-      "text": "Remove all Knightshades from the battlefield. Then place all three Knightshades on hexes that are within 3 hexes of Mournblade.",
+      "text": "Follower units of all friendly champions in range, immediately make recruit actions up to maximum unit size.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "-",
+          "range": "2",
           "accuracy": "-",
           "damage": "-"
         }
@@ -47,131 +47,10 @@
     },
     "plotSkills": [
       {
-        "name": "Grave Summons",
-        "skillIcon": "skill_area",
-        "mustTarget": "-",
-        "text": "Mournblade makes a claim action. You may place his banner on any objective hex within range.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Forward, Minions!",
+        "name": "Rally the Troops",
         "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Move each Knightshade that is within range up to 2 hexes.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "4",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      }
-    ],
-    "clashSkills": [
-      {
-        "name": "Death Wind",
-        "skillIcon": "skill_area",
-        "mustTarget": "-",
-        "text": "If Mournblade's banner is within range, place it on an objective hex within range.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Raise Dead",
-        "skillIcon": "skill_friendly",
-        "mustTarget": "-",
-        "text": "All friendly champions within range may make a rally action.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Soul Cleave",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "Hit Effect: The Knightshades make a recruit action.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "5",
-            "damage": "5"
-          }
-        ]
-      }
-    ]
-  },
-  "followers": {
-    "name": "Knightshades",
-    "units": 3,
-    "stats": {
-      "plotSpeed": "1",
-      "clashSpeed": "1",
-      "dodge": "2",
-      "protection": "3",
-      "health": "1"
-    },
-    "traits": [
-      {
-        "name": "Death Grip",
-        "text": "Enemy models that make an advance action while they are adjacent to a Knightshade have {speed} 0 during that advance action."
-      }
-    ],
-    "plotSkills": [
-      {
-        "name": "Careful, Master",
-        "skillIcon": "skill_friendly",
-        "mustTarget": "-",
-        "text": "If Mournblade is within range, he gains {protection_boon}.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Where's Master?",
-        "skillIcon": "skill_friendly",
-        "mustTarget": "-",
-        "text": "If Mournblade is within range, he may make a rally action or move up to 2 hexes.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      }
-    ],
-    "clashSkills": [
-      {
-        "name": "Depths of Sorrow",
-        "skillIcon": "skill_self",
-        "mustTarget": "-",
-        "text": "Make a recruit action.",
+        "text": "The Rallied Peasants immediately make up to 2 recruit actions.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -182,28 +61,136 @@
         ]
       },
       {
-        "name": "Death's Door",
+        "name": "Lead the Charge",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Move Helena up to 1 hex. Then move each Rallied Peasant that is within range up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Shield Push",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "If the Knightshades made a recruit action this activation, Death's Door has +1 {accuracy} and {damage}.",
+        "text": "Hit Effect: Move target up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "6",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Holy Light",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "5",
+            "damage": "4"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Rallied Peasants",
+    "units": 6,
+    "size": "small",
+    "stats": {
+      "plotSpeed": "2",
+      "clashSpeed": "2",
+      "dodge": "3",
+      "protection": "1",
+      "health": "1"
+    },
+    "traits": [
+      {
+        "name": "Devoted",
+        "text": "A Rallied Peasant has +1 {dodge} and {protection} while it is within 2 hexes of Helena."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Prayer",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "If Helena is within range, remove up to 1 wound from Helena.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Condemnation",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "inflict {accuracy_die_blight}",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "3",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Prayer",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "If Helena is within range, remove up to 1 wound from Helena.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Will of the People",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "This skill gains +1 {accuracy_die} and +1 {damage_die} for each Rallied Peasant adjacent to the target.",
         "statProfiles": [
           {
             "figuresInHex": 1,
             "range": "1",
-            "accuracy": "4*",
-            "damage": "4*"
+            "accuracy": "0*",
+            "damage": "0*"
           },
           {
             "figuresInHex": 2,
             "range": "1",
-            "accuracy": "5*",
-            "damage": "4*"
+            "accuracy": "0*",
+            "damage": "0*"
           },
           {
             "figuresInHex": 3,
             "range": "1",
-            "accuracy": "5*",
-            "damage": "5*"
+            "accuracy": "0*",
+            "damage": "0*"
           }
         ]
       }

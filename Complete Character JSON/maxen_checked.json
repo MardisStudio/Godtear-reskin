@@ -1,8 +1,8 @@
 {
-  "id": "lily",
-  "name": "Lily",
-  "faction": "Shaper",
-  "source": "Characters/lily/",
+  "id": "maxen",
+  "name": "Maxen",
+  "faction": "Slayer",
+  "source": "Characters/maxen/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -15,60 +15,60 @@
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "3",
-      "clashSpeed": "3",
-      "dodge": "4",
-      "protection": "1",
-      "health": "7"
+      "plotSpeed": "1",
+      "clashSpeed": "2",
+      "dodge": "3",
+      "protection": "3",
+      "health": "6"
     },
     "factionTrait": {
-      "name": "Shaper Champion",
-      "text": "A shaper moves the turn token +1 step when they make a claim action."
+      "name": "Slayer Champion",
+      "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
     },
     "uniqueTraits": [
       {
-        "name": "Touch of the Fae",
-        "text": "After one of her actions, Lily may place a status effect token of her choice in an adjacent empty hex. When a model enters a hex with a token, move it onto them after they end their movement."
+        "name": "Scavenger",
+        "text": "When Maxen knocks out an enemy champion, remove their banner from the battlefield."
       }
     ],
     "ultimate": {
-      "name": "Thorn Wall",
-      "skillIcon": "skill_area",
+      "name": "Bird Shot",
+      "skillIcon": "skill_enemy",
       "mustTarget": "-",
-      "text": "Remove any number of Thornlings from the battlefield and place them on objective hexes within range. Thornlings on objective hexes cannot make advance actions or be moved by enemy skills.",
+      "text": "Remove up to 3 Gearhawks from the battlefield. This skill has +2 {accuracy_die} and +2 {damage_die} for each Gearhawk removed.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "4",
-          "accuracy": "-",
-          "damage": "-"
+          "range": "3",
+          "accuracy": "2",
+          "damage": "2"
         }
       ]
     },
     "plotSkills": [
       {
-        "name": "Earth Call",
-        "skillIcon": "skill_area",
+        "name": "March",
+        "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Move one objective hex within range 1 hex onto an empty non-objective hex. Models on the objective hex move with it.",
+        "text": "Move Maxen up to 1 hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "3",
+            "range": "-",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Breath of the Earth",
-        "skillIcon": "skill_area",
+        "name": "Tinker",
+        "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Place a status effect token of your choice in an empty hex within range. When a model enters a hex with a token, move it onto them after they end their movement.",
+        "text": "The Gearhawks may immediately make a recruit action and may gain a boon of your choice.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "1",
+            "range": "-",
             "accuracy": "-",
             "damage": "-"
           }
@@ -77,57 +77,58 @@
     ],
     "clashSkills": [
       {
-        "name": "Nature's Visage",
+        "name": "Piercing Round",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Move each friendly and enemy model in hexes adjacent to the target up to 1 hex away from the target.",
+        "text": "This skill has -1 {accuracy_die} for each hex between Maxen and his target. Hit Effect: The target gains 1 wound.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "3",
-            "accuracy": "5",
+            "accuracy": "6*",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Haunting Melody",
+        "name": "Shrapnel Shot",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Move all models in the target's hex up to 2 hexes.",
+        "text": "This skill has -1 {accuracy_die} and -1 {damage_die} for each hex between Maxen and his target. Hit Effect: Move target up to 1 hex away from Maxen.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "3",
-            "accuracy": "6",
-            "damage": "-"
+            "accuracy": "6*",
+            "damage": "6*"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Thornlings",
+    "name": "Gearhawks",
     "units": 5,
+    "size": "small",
     "stats": {
       "plotSpeed": "1",
-      "clashSpeed": "2",
-      "dodge": "2",
-      "protection": "3",
+      "clashSpeed": "0",
+      "dodge": "3",
+      "protection": "2",
       "health": "1"
     },
     "traits": [
       {
-        "name": "Overgrowth",
-        "text": "When the Thornlings make a recruit action, you may recruit one, two, or three Thornlings to the hex."
+        "name": "Eagle Eye",
+        "text": "At the end of the Gearhawks' activation, you may choose a friendly champion adjacent to a Gearhawk model. That friendly champion gains {accuracy_die_boon}."
       }
     ],
     "plotSkills": [
       {
-        "name": "Deep Roots",
+        "name": "Migration",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Remove any number of Thornlings from the battlefield. Then take a recruit action for each Thornling this skill removed from the battlefield.",
+        "text": "You may place each Gearhawk up to 3 hexes from its current hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -138,27 +139,15 @@
         ]
       },
       {
-        "name": "Tangling Thorns",
+        "name": "Talon Rake",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Inflict {dodge_blight}.",
+        "text": "This skill gains +1 {accuracy_die} for each Gearhawk adjacent to the target. Hit Effect: Inflict {protection_blight}.",
         "statProfiles": [
           {
-            "figuresInHex": 1,
-            "range": "2",
-            "accuracy": "2",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 2,
-            "range": "2",
-            "accuracy": "4",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 3,
-            "range": "2",
-            "accuracy": "6",
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "2*",
             "damage": "-"
           }
         ]
@@ -166,10 +155,10 @@
     ],
     "clashSkills": [
       {
-        "name": "Sprout",
+        "name": "Migration",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Gain {protection_boon}",
+        "text": "You may place each Gearhawk up to 3 hexes from its current hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -180,28 +169,16 @@
         ]
       },
       {
-        "name": "Nature's Wrath",
+        "name": "Dive Bomb",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "If the hit roll total equals the target's {dodge} exactly, this skill has +3 {damage}.",
+        "text": "This skill gains +1 {accuracy_die} for each Gearhawk adjacent to the target.",
         "statProfiles": [
           {
-            "figuresInHex": 1,
-            "range": "2",
-            "accuracy": "2",
-            "damage": "4*"
-          },
-          {
-            "figuresInHex": 2,
-            "range": "2",
-            "accuracy": "4",
-            "damage": "4*"
-          },
-          {
-            "figuresInHex": 3,
-            "range": "2",
-            "accuracy": "6",
-            "damage": "4*"
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "2*",
+            "damage": "4"
           }
         ]
       }

@@ -80,7 +80,7 @@
         "name": "Feral Bite",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Target up to 3 models in a single hex. This skill has +1 {damage} for each hex adjacent to the target that contains one or more friendly followers.",
+        "text": "Target up to 3 models in a single hex. This skill has +1 {damage_die} for each hex adjacent to the target that contains one or more friendly followers.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -94,7 +94,7 @@
         "name": "Shatterstorm",
         "skillIcon": "skill_enemy",
         "mustTarget": "follower",
-        "text": "This skill may target up to 2 followers within range. This skill has +1 {damage} for each hex adjacent to the target that contains one or more friendly followers.",
+        "text": "This skill may target up to 2 followers within range. This skill has +1 {damage_die} for each hex adjacent to the target that contains one or more friendly followers.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -109,6 +109,7 @@
   "followers": {
     "name": "Chainless Curs",
     "units": 4,
+    "size": "small",
     "stats": {
       "plotSpeed": "1",
       "clashSpeed": "3",
@@ -119,7 +120,7 @@
     "traits": [
       {
         "name": "Gang Up",
-        "text": "When a Chainless Cur uses a skill targeting a small follower it gains +3 {accuracy} if there are more followers in the Chainless Cur's hex than in the target's hex."
+        "text": "When a Chainless Cur uses a skill targeting a small follower it gains +3 {accuracy_die} if there are more followers in the Chainless Cur's hex than in the target's hex."
       }
     ],
     "plotSkills": [

@@ -1,8 +1,8 @@
 {
-  "id": "blackjaw",
-  "name": "Blackjaw",
-  "faction": "Maelstrom",
-  "source": "Characters/blackjaw/",
+  "id": "shayle",
+  "name": "Shayle",
+  "faction": "Shaper",
+  "source": "Characters/shayle/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -15,42 +15,72 @@
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "3",
+      "plotSpeed": "2",
       "clashSpeed": "2",
-      "dodge": "3",
+      "dodge": "4",
       "protection": "2",
-      "health": "8"
+      "health": "5"
     },
     "factionTrait": {
-      "name": "Maelstrom Champion",
-      "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+      "name": "Shaper Champion",
+      "text": "A shaper moves the turn token +1 step when they make a claim action."
     },
     "uniqueTraits": [
       {
-        "name": "Wildfire",
-        "text": "If Blackjaw knocks out a follower during his activation, he may make a bonus action that activation."
+        "name": "Runecaller",
+        "text": "After Shayle makes an action during his activation, if he is within 3 hexes of Landslide, you may place Landslide in a hex up to 2 hexes from its current hex."
       }
     ],
     "ultimate": {
-      "name": "Fire Storm",
-      "skillIcon": "skill_enemy",
-      "mustTarget": "follower",
-      "text": "This skill may target up to five followers on any hexes within range.",
+      "name": "Avalanche",
+      "skillIcon": "skill_area",
+      "mustTarget": "-",
+      "text": "Choose any number of objective hexes within 3 hexes of Landslide. Move each up to 1 hex onto an empty non-objective hex in any order. Models on the objective hexes move with them.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "2",
-          "accuracy": "6",
-          "damage": "5"
+          "range": "-",
+          "accuracy": "-",
+          "damage": "-"
         }
       ]
     },
     "plotSkills": [
       {
-        "name": "Hotfoot",
+        "name": "Stone Strength",
         "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Grant {move_boon}",
+        "text": "If Landslide is within range, it gains {protection_boon} or {damage_die_boon}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Runeweaving",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move a boon from the target to any model within range.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "6",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Tremor",
+        "skillIcon": "skill_area",
+        "mustTarget": "-",
+        "text": "Remove all boons from enemies within range.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -61,119 +91,63 @@
         ]
       },
       {
-        "name": "Evil Eye",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "follower",
-        "text": "Inflict {protection_blight}",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "6",
-            "damage": "-"
-          }
-        ]
-      }
-    ],
-    "clashSkills": [
-      {
-        "name": "Kick",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "follower",
-        "text": "",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "6",
-            "damage": "6"
-          }
-        ]
-      },
-      {
-        "name": "Fiery Axe",
+        "name": "Stone Spikes",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "This skill may target up to three models in one hex.",
+        "text": "Hit Effect: Inflict {move_blight}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "4",
-            "damage": "5"
-          }
-        ]
-      },
-      {
-        "name": "Fireball",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "This skill may target up to three models in one hex.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "2",
+            "range": "3",
             "accuracy": "5",
-            "damage": "4"
+            "damage": "-"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Unburnt Reavers",
-    "units": 5,
-    "size": "small",
+    "name": "Landslide",
+    "units": 1,
+    "size": "large",
     "stats": {
-      "plotSpeed": "3",
-      "clashSpeed": "2",
-      "dodge": "3",
-      "protection": "2",
-      "health": "1"
+      "plotSpeed": "0",
+      "clashSpeed": "0",
+      "dodge": "2",
+      "protection": "3",
+      "health": "4"
     },
     "traits": [
       {
-        "name": "Fearsome",
-        "text": "If a small enemy is within 3 hexes of one or more Unburnt Reavers and has fewer than three models in its hex, all of its skills have -1 {accuracy_die}."
+        "name": "Rubble",
+        "text": "When Landslide is knocked out, replace it with an objective hex."
       }
     ],
     "plotSkills": [
       {
-        "name": "Rush",
-        "skillIcon": "skill_self",
+        "name": "Eruption",
+        "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "Choose a hex. Each Unburnt Reaver in that hex may move up to 2 hexes.",
+        "text": "Friendly and enemy models adjacent to Landslide gain {protection_blight}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "-",
+            "range": "1",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Intimidation",
+        "name": "Earthquake",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Inflict {dodge_blight}",
+        "text": "Hit Effect: Move target champion or all followers in target's unit up to 2 hexes.",
         "statProfiles": [
           {
-            "figuresInHex": 1,
-            "range": "1",
-            "accuracy": "2",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 2,
-            "range": "1",
+            "figuresInHex": "-",
+            "range": "2",
             "accuracy": "4",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 3,
-            "range": "1",
-            "accuracy": "6",
             "damage": "-"
           }
         ]
@@ -181,41 +155,29 @@
     ],
     "clashSkills": [
       {
-        "name": "War Cry",
-        "skillIcon": "skill_self",
+        "name": "Earthquake",
+        "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Gain {accuracy_die_boon}",
+        "text": "Hit Effect: Move target champion or all followers in target's unit up to 2 hexes.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "-",
-            "accuracy": "-",
+            "range": "2",
+            "accuracy": "4",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Cleaving Strike",
+        "name": "Boulder Bash",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "",
+        "text": "Hit Effect: Inflict {dodge_blight}",
         "statProfiles": [
           {
-            "figuresInHex": 1,
+            "figuresInHex": "-",
             "range": "1",
-            "accuracy": "3",
-            "damage": "4"
-          },
-          {
-            "figuresInHex": 2,
-            "range": "1",
-            "accuracy": "4",
-            "damage": "5"
-          },
-          {
-            "figuresInHex": 3,
-            "range": "1",
-            "accuracy": "5",
+            "accuracy": "6",
             "damage": "6"
           }
         ]

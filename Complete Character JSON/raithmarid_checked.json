@@ -1,8 +1,8 @@
 {
-  "id": "morrigan",
-  "name": "Morrigan",
-  "faction": "Slayer",
-  "source": "Characters/morrigan/",
+  "id": "raithmarid",
+  "name": "Raith'Marid",
+  "faction": "Shaper",
+  "source": "Characters/raithmarid/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -15,27 +15,27 @@
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "2",
-      "clashSpeed": "2",
+      "plotSpeed": "1",
+      "clashSpeed": "1",
       "dodge": "2",
       "protection": "3",
-      "health": "6"
+      "health": "7"
     },
     "factionTrait": {
-      "name": "Slayer Champion",
-      "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
+      "name": "Shaper Champion",
+      "text": "A shaper moves the turn token +1 step when they make a claim action."
     },
     "uniqueTraits": [
       {
-        "name": "Frost Forged",
-        "text": "Morrigan gains a +2 bonus for boons instead of a +1 bonus."
+        "name": "Rippling Scales",
+        "text": "When a Splashling leaves the battlefield, Raith'Marid may gain the boon of your choice."
       }
     ],
     "ultimate": {
-      "name": "Flash Freeze",
+      "name": "Tsunami",
       "skillIcon": "skill_area",
       "mustTarget": "-",
-      "text": "All enemies within range gain {move_blight} and {dodge_blight}.",
+      "text": "Place Raith'Marid on a hex within range. Then move each enemy model within 2 hexes of him up to 2 hexes in the order of your choice.",
       "statProfiles": [
         {
           "figuresInHex": "-",
@@ -47,29 +47,43 @@
     },
     "plotSkills": [
       {
-        "name": "Forward, Minions!",
-        "skillIcon": "skill_friendly",
+        "name": "Undertow",
+        "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "Move each Cold Bones that is within range up to 2 hexes.",
+        "text": "Choose an empty objective hex within range. Place it on an empty non-objective hex within range.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "4",
+            "range": "1",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Frosty Glance",
-        "skillIcon": "skill_enemy",
+        "name": "Ker-Splash",
+        "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Hit Effect: Move Morrigan up to 1 hex towards the target.",
+        "text": "Choose a hex within range containing one Splashling. Remove the Splashling and place Raith'Marid in that hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "3",
-            "accuracy": "5",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Jet",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Move a Splashling within range up to 3 hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "-",
             "damage": "-"
           }
         ]
@@ -77,24 +91,24 @@
     ],
     "clashSkills": [
       {
-        "name": "Snowball's Chance",
-        "skillIcon": "skill_enemy",
+        "name": "Ker-Splash",
+        "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "If this skill wounds its target, they gain wounds until they are knocked out.",
+        "text": "Choose a hex within range containing one Splashling. Remove the Splashling and place Raith'Marid in that hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "1",
-            "damage": "2"
+            "range": "3",
+            "accuracy": "-",
+            "damage": "-"
           }
         ]
       },
       {
-        "name": "Iceblade",
+        "name": "Headbutt",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: If the target has {move_blight}, {accuracy_die_blight}, or {damage_die_blight} it gains 1 wound.",
+        "text": "Hit Effect: Move target up to 1 hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -105,85 +119,44 @@
         ]
       },
       {
-        "name": "Icebolt",
+        "name": "Lunging Strike",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Inflict {move_blight}.",
+        "text": "Before the hit roll, move Raith'Marid up to 1 hex towards the target.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "7",
-            "damage": "3"
+            "range": "2",
+            "accuracy": "6",
+            "damage": "4"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Cold Bones",
-    "units": 5,
+    "name": "Splashlings",
+    "units": 3,
+    "size": "small",
     "stats": {
-      "plotSpeed": "1",
-      "clashSpeed": "1",
-      "dodge": "2",
-      "protection": "3",
+      "plotSpeed": "0",
+      "clashSpeed": "0",
+      "dodge": "4",
+      "protection": "1",
       "health": "1"
     },
     "traits": [
       {
-        "name": "Brain Freeze",
-        "text": "After an enemy model uses a skill to knock out one or more Cold Bones, the enemy model gains {move_blight}."
+        "name": "Like Water",
+        "text": "Once per phase during the Splashlings' activation, you may choose a boon on Raith'Marid. The Splashlings gain that boon."
       }
     ],
     "plotSkills": [
       {
-        "name": "So Cool, Mistress!",
-        "skillIcon": "skill_friendly",
-        "mustTarget": "-",
-        "text": "If Morrigan is within range, she gains {dodge_boon} or {protection_boon}.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Chill Out",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "This skill has +1 {accuracy} for each Cold Bones adjacent to the target. Hit Effect: Inflict {move_blight}.",
-        "statProfiles": [
-          {
-            "figuresInHex": 1,
-            "range": "1",
-            "accuracy": "1*",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 2,
-            "range": "1",
-            "accuracy": "1*",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 3,
-            "range": "1",
-            "accuracy": "1*",
-            "damage": "-"
-          }
-        ]
-      }
-    ],
-    "clashSkills": [
-      {
-        "name": "Intense Cold",
+        "name": "Current",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Gain {protection_boon}",
+        "text": "You may place each Splashling in a hex up to 3 hexes from its current hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -194,28 +167,70 @@
         ]
       },
       {
-        "name": "Snowblade Fight!",
+        "name": "Tide",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "This skill has +1 {accuracy} for each Cold Bones adjacent to the target.",
+        "text": "Hit Effect: Move target up to 1 hex.",
         "statProfiles": [
           {
             "figuresInHex": 1,
-            "range": "1",
-            "accuracy": "1*",
-            "damage": "3"
+            "range": "2",
+            "accuracy": "5",
+            "damage": "-"
           },
           {
             "figuresInHex": 2,
-            "range": "1",
-            "accuracy": "1*",
-            "damage": "4"
+            "range": "2",
+            "accuracy": "6",
+            "damage": "-"
           },
           {
             "figuresInHex": 3,
-            "range": "1",
-            "accuracy": "1*",
-            "damage": "5"
+            "range": "2",
+            "accuracy": "7",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Current",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "You may place each Splashling in a hex up to 3 hexes from its current hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Tide",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "2",
+            "accuracy": "5",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "2",
+            "accuracy": "6",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "2",
+            "accuracy": "7",
+            "damage": "-"
           }
         ]
       }

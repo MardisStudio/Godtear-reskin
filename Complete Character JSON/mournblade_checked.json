@@ -1,8 +1,8 @@
 {
-  "id": "rattlebone",
-  "name": "Rattlebone",
-  "faction": "Shaper",
-  "source": "Characters/rattlebone/",
+  "id": "mournblade",
+  "name": "Mournblade",
+  "faction": "Guardian",
+  "source": "Characters/mournblade/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -15,31 +15,31 @@
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "3",
+      "plotSpeed": "2",
       "clashSpeed": "2",
-      "dodge": "3",
-      "protection": "3",
-      "health": "6"
+      "dodge": "2",
+      "protection": "4",
+      "health": "1"
     },
     "factionTrait": {
-      "name": "Shaper Champion",
-      "text": "A shaper moves the turn token +1 step when they make a claim action."
+      "name": "Guardian Champion",
+      "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
     },
     "uniqueTraits": [
       {
-        "name": "Roll the Bones",
-        "text": "At the end of Rattlebone's activation, roll one die. If you roll a 1 or 2, you may remove a boon or blight from a model within that many hexes of Rattlebone and place it on a different model within that many hexes."
+        "name": "Undying",
+        "text": "When Mournblade is knocked out, he is worth 1 step instead of 4. When an enemy is knocked out, Mournblade may immediately make a rally action."
       }
     ],
     "ultimate": {
-      "name": "Power Hex",
-      "skillIcon": "skill_area",
+      "name": "Grasping Dead",
+      "skillIcon": "skill_friendly",
       "mustTarget": "-",
-      "text": "Choose one blight for each Hexling within range. Each enemy champion within range gains those blights.",
+      "text": "Remove all Knightshades from the battlefield. Then place all three Knightshades on hexes that are within 3 hexes of Mournblade.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "2",
+          "range": "-",
           "accuracy": "-",
           "damage": "-"
         }
@@ -47,29 +47,29 @@
     },
     "plotSkills": [
       {
-        "name": "Call Totems",
-        "skillIcon": "skill_friendly",
+        "name": "Grave Summons",
+        "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "Remove any number of Hexlings from the battlefield. Then place them on hexes within 2 hexes of Rattlebone.",
+        "text": "Mournblade makes a claim action. You may place his banner on any objective hex within range.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "-",
+            "range": "3",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Grasping Curse",
-        "skillIcon": "skill_enemy",
+        "name": "Forward, Minions!",
+        "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Hit Effect: The target gains {move_blight} or {dodge_blight}.",
+        "text": "Move each Knightshade that is within range up to 2 hexes.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "6",
+            "range": "4",
+            "accuracy": "-",
             "damage": "-"
           }
         ]
@@ -77,10 +77,10 @@
     ],
     "clashSkills": [
       {
-        "name": "Cursed Ground",
+        "name": "Death Wind",
         "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "Place up to two objective hexes on empty non-objective hexes within range. Remove them at the end of the clash phase.",
+        "text": "If Mournblade's banner is within range, place it on an objective hex within range.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -91,43 +91,88 @@
         ]
       },
       {
-        "name": "Deadly Curse",
-        "skillIcon": "skill_enemy",
+        "name": "Raise Dead",
+        "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Hit Effect: The target gains {dodge_blight} or {damage_die_blight}.",
+        "text": "All friendly champions within range may make a rally action.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "4",
-            "damage": "6"
+            "range": "3",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Soul Cleave",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: The Knightshades make a recruit action.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "5",
+            "damage": "5"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Hexlings",
+    "name": "Knightshades",
     "units": 3,
+    "size": "small",
     "stats": {
-      "plotSpeed": "2",
-      "clashSpeed": "2",
-      "dodge": "3",
-      "protection": "2",
+      "plotSpeed": "1",
+      "clashSpeed": "1",
+      "dodge": "2",
+      "protection": "3",
       "health": "1"
     },
     "traits": [
       {
-        "name": "Hex Eaters",
-        "text": "When Rattlebone rolls a blank on her Roll the Bones roll, the Hexlings may gain the boon of your choice."
+        "name": "Death Grip",
+        "text": "Enemy models that make an advance action while they are adjacent to a Knightshade have speed 0 during that advance action."
       }
     ],
     "plotSkills": [
       {
-        "name": "Attune Magic",
+        "name": "Careful, Master",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "If Mournblade is within range, he gains {dodge_boon}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Where's Master?",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "If Mournblade is within range, he may make a rally action or move up to 2 hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Depths of Sorrow",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Gain the boon of your choice.",
+        "text": "Grant {damage_die_boon}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -138,70 +183,28 @@
         ]
       },
       {
-        "name": "Hex Bolt",
+        "name": "Death's Door",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: The target gains the blight of your choice.",
+        "text": "If the Knightshades made a recruit action this activation, Death's Door has +1 {accuracy_die} and {damage_die}.",
         "statProfiles": [
           {
             "figuresInHex": 1,
-            "range": "2",
-            "accuracy": "2",
-            "damage": "-"
+            "range": "1",
+            "accuracy": "4*",
+            "damage": "4*"
           },
           {
             "figuresInHex": 2,
-            "range": "2",
-            "accuracy": "4",
-            "damage": "-"
+            "range": "1",
+            "accuracy": "5*",
+            "damage": "4*"
           },
           {
             "figuresInHex": 3,
-            "range": "2",
-            "accuracy": "6",
-            "damage": "-"
-          }
-        ]
-      }
-    ],
-    "clashSkills": [
-      {
-        "name": "Purge Magic",
-        "skillIcon": "skill_friendly",
-        "mustTarget": "-",
-        "text": "Move all boons and blights from the Hexlings to a friendly model within range.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Hex Bolt",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "Hit Effect: The target gains the blight of your choice.",
-        "statProfiles": [
-          {
-            "figuresInHex": 1,
-            "range": "2",
-            "accuracy": "2",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 2,
-            "range": "2",
-            "accuracy": "4",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 3,
-            "range": "2",
-            "accuracy": "6",
-            "damage": "-"
+            "range": "1",
+            "accuracy": "5*",
+            "damage": "5*"
           }
         ]
       }

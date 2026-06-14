@@ -1,8 +1,8 @@
 {
-  "id": "grimgut",
-  "name": "Grimgut",
+  "id": "kailinn",
+  "name": "Kailinn",
   "faction": "Maelstrom",
-  "source": "Characters/grimgut/",
+  "source": "Characters/kailinn/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -15,11 +15,11 @@
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "1",
-      "clashSpeed": "1",
-      "dodge": "2",
+      "plotSpeed": "4",
+      "clashSpeed": "4",
+      "dodge": "3",
       "protection": "2",
-      "health": "9"
+      "health": "7"
     },
     "factionTrait": {
       "name": "Maelstrom Champion",
@@ -27,30 +27,30 @@
     },
     "uniqueTraits": [
       {
-        "name": "Spew",
-        "text": "When Retchlings make a recruit action during Grimgut's activation, you may place the new Retchling adjacent to any Retchling placed during this activation."
+        "name": "Centaur",
+        "text": "Kailinn cannot enter objective hexes. During her activation she may enter small followers hexes. If she ends her movement on a hex containing small followers, move each small follower into an adjacent hex."
       }
     ],
     "ultimate": {
-      "name": "Buffet",
-      "skillIcon": "skill_enemy",
+      "name": "Impaling Horn",
+      "skillIcon": "skill_area",
       "mustTarget": "follower",
-      "text": "This skill may target up to three followers on any hexes within range.",
+      "text": "Move Kailinn up to 1 hex. Then you may choose an enemy follower within range to gain wounds until it is knocked out. You move the turn token an extra +2 steps instead of the usual maelstrom bonus for this knock out.",
       "statProfiles": [
         {
           "figuresInHex": "-",
           "range": "1",
-          "accuracy": "7",
-          "damage": "7"
+          "accuracy": "-",
+          "damage": "-"
         }
       ]
     },
     "plotSkills": [
       {
-        "name": "New Spew",
-        "skillIcon": "skill_friendly",
+        "name": "Powerful Leap",
+        "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Remove all Retchlings from the battlefield. Then they make five recruit actions.",
+        "text": "Place Kailinn on a hex up to 2 hexes from her current hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -61,29 +61,15 @@
         ]
       },
       {
-        "name": "Flu Spew",
-        "skillIcon": "skill_enemy",
+        "name": "Thundering Hooves",
+        "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "This skill targets each enemy champion and follower unit adjacent to one or more Retchlings. Hit Effect: Inflict {damage_die_blight}.",
+        "text": "Move Kailinn up to 1 hex. Then move one friendly champion within range up to 1 hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "*",
-            "accuracy": "4",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Goo Spew",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "This skill targets each enemy champion and follower unit adjacent to one or more Retchlings. Hit Effect: Inflict {move_blight}.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "*",
-            "accuracy": "4",
+            "range": "2",
+            "accuracy": "-",
             "damage": "-"
           }
         ]
@@ -91,75 +77,76 @@
     ],
     "clashSkills": [
       {
-        "name": "Roll",
-        "skillIcon": "skill_self",
-        "mustTarget": "-",
-        "text": "Grimgut moves up to 3 hexes in a straight line.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "-",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "New Spew",
-        "skillIcon": "skill_friendly",
-        "mustTarget": "-",
-        "text": "Remove all Retchlings from the battlefield. Then they make five recruit actions.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "-",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Nom Nom Nom",
+        "name": "Brutal Charge",
         "skillIcon": "skill_enemy",
-        "mustTarget": "follower",
-        "text": "",
+        "mustTarget": "-",
+        "text": "If Kailinn made an advance action this activation, Brutal Charge is a bonus action.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "1",
-            "accuracy": "7",
-            "damage": "7"
+            "accuracy": "4",
+            "damage": "6"
+          }
+        ]
+      },
+      {
+        "name": "Flashing Blade",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "This skill may target up to two followers that are in different hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "5",
+            "damage": "6"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Retchlings",
-    "units": 5,
+    "name": "Virtues",
+    "units": 2,
+    "size": "large",
     "stats": {
-      "plotSpeed": "0",
-      "clashSpeed": "1",
-      "dodge": "2",
-      "protection": "1",
-      "health": "1"
+      "plotSpeed": "4",
+      "clashSpeed": "2",
+      "dodge": "3",
+      "protection": "2",
+      "health": "4"
     },
     "traits": [
       {
-        "name": "Wretched",
-        "text": "When a Retchling is knocked out, it is worth 0 steps instead of 1."
+        "name": "Harmonious",
+        "text": "Immediately after a Virtue uses a skill, the other Virtue may use the same skill as part of the same action."
       }
     ],
     "plotSkills": [
       {
-        "name": "Slip and Slide",
+        "name": "Patience",
         "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Two Retchlings may use this skill in the same activation if they are in different hexes.",
+        "text": "If Kailinn is within range, she gains a boon of your choice.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "1",
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Compassion",
+        "skillIcon": "skill_friendly",
+        "mustTarget": "-",
+        "text": "Move this Virtue up to 1 hex. Then move one friendly follower within range up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
             "accuracy": "-",
             "damage": "-"
           }
@@ -168,28 +155,30 @@
     ],
     "clashSkills": [
       {
-        "name": "Slimed",
-        "skillIcon": "skill_enemy",
+        "name": "Serenity",
+        "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "This skill may target up to three models in one hex. Two Retchlings may use this skill in the same activation if they are in different hexes.",
+        "text": "Gain {dodge_boon}. You may move this Virtue up to 2 hexes.",
         "statProfiles": [
           {
-            "figuresInHex": 1,
-            "range": "2",
-            "accuracy": "3",
-            "damage": "5"
-          },
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Justice",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "If the Virtues made an advance action this activation, Justice has +1 {damage_die}.",
+        "statProfiles": [
           {
-            "figuresInHex": 2,
-            "range": "2",
-            "accuracy": "4",
-            "damage": "5"
-          },
-          {
-            "figuresInHex": 3,
-            "range": "2",
+            "figuresInHex": "-",
+            "range": "1",
             "accuracy": "5",
-            "damage": "5"
+            "damage": "4"
           }
         ]
       }

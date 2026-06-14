@@ -1,8 +1,8 @@
 {
-  "id": "nia",
-  "name": "Nia",
-  "faction": "Shaper",
-  "source": "Characters/nia/",
+  "id": "morrigan",
+  "name": "Morrigan",
+  "faction": "Slayer",
+  "source": "Characters/morrigan/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -15,31 +15,31 @@
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "1",
+      "plotSpeed": "2",
       "clashSpeed": "2",
-      "dodge": "4",
-      "protection": "2",
+      "dodge": "2",
+      "protection": "3",
       "health": "6"
     },
     "factionTrait": {
-      "name": "Shaper Champion",
-      "text": "A shaper moves the turn token +1 step when they make a claim action."
+      "name": "Slayer Champion",
+      "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
     },
     "uniqueTraits": [
       {
-        "name": "Rock Concert",
-        "text": "If all 3 Quartzlings are on the battlefield when Nia activates, she may make a bonus action that activation."
+        "name": "Frost Forged",
+        "text": "Morrigan gains a +2 bonus for boons instead of a +1 bonus."
       }
     ],
     "ultimate": {
-      "name": "Geode",
+      "name": "Flash Freeze",
       "skillIcon": "skill_area",
       "mustTarget": "-",
-      "text": "Plot phase only. Choose a Quartzling that is the only model in its hex and is adjacent to an objective hex, and replace it with an objective hex. If it is within 2 hexes of Nia, she may make a claim action on that hex.",
+      "text": "All enemies within range gain {dodge_blight} and {move_blight}.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "-",
+          "range": "3",
           "accuracy": "-",
           "damage": "-"
         }
@@ -47,43 +47,29 @@
     },
     "plotSkills": [
       {
-        "name": "Crystal Mirror",
-        "skillIcon": "skill_area",
+        "name": "Forward, Minions!",
+        "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Choose a boon on any model within range. Then choose a friendly model within range to gain that boon.",
+        "text": "Move each Cold Bones that is within range up to 2 hexes.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
+            "range": "4",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Meditation",
-        "skillIcon": "skill_self",
+        "name": "Frosty Glance",
+        "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Make a claim action.",
+        "text": "Hit Effect: Inflict {protection_blight}. Move Morrigan up to 1 hex towards the target.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "-",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "March",
-        "skillIcon": "skill_self",
-        "mustTarget": "-",
-        "text": "Move Nia up to 1 hex.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "-",
-            "accuracy": "-",
+            "range": "3",
+            "accuracy": "5",
             "damage": "-"
           }
         ]
@@ -91,102 +77,103 @@
     ],
     "clashSkills": [
       {
-        "name": "Crystal Glare",
-        "skillIcon": "skill_area",
-        "mustTarget": "-",
-        "text": "Choose a blight on any model within range. Then choose an enemy model within range to gain that blight.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Erosion",
+        "name": "Snowball's Chance",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Inflict {dodge_blight}.",
+        "text": "If this skill wounds its target, they gain wounds until they are knocked out.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "5",
-            "damage": "-"
+            "range": "1",
+            "accuracy": "1",
+            "damage": "2"
           }
         ]
       },
       {
-        "name": "Blinding Light",
+        "name": "Iceblade",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: If the target has {move_blight}, {accuracy_die_blight}, or {damage_die_blight} it gains 1 wound.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "5",
+            "damage": "5"
+          }
+        ]
+      },
+      {
+        "name": "Icebolt",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
         "text": "Hit Effect: Inflict {accuracy_die_blight}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "4",
-            "damage": "5"
+            "range": "3",
+            "accuracy": "7",
+            "damage": "3"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Quartzlings",
-    "units": 3,
+    "name": "Cold Bones",
+    "units": 5,
+    "size": "small",
     "stats": {
-      "plotSpeed": "2",
-      "clashSpeed": "0",
+      "plotSpeed": "1",
+      "clashSpeed": "1",
       "dodge": "2",
-      "protection": "4",
+      "protection": "3",
       "health": "1"
     },
     "traits": [
       {
-        "name": "Rock Formation",
-        "text": "When Nia's banner is removed from the battlefield, the Quartzlings may immediately make a recruit action, even if it is the end phase."
+        "name": "Brain Freeze",
+        "text": "After an enemy model uses a skill to knock out one or more Cold Bones, the enemy model gains {dodge_blight}."
       }
     ],
     "plotSkills": [
       {
-        "name": "Calcify",
-        "skillIcon": "skill_self",
+        "name": "So Cool, Mistress!",
+        "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "If this Quartzling is the only model in its hex and is adjacent to an objective hex, replace it with an objective hex.",
+        "text": "If Morrigan is within range, she gains {accuracy_die_boon} or {move_boon}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "-",
+            "range": "3",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Shimmer",
+        "name": "Chill Out",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Move target up to 1 hex.",
+        "text": "This skill has +1 {accuracy_die} for each Cold Bones adjacent to the target. Hit Effect: Inflict {damage_die_blight}.",
         "statProfiles": [
           {
             "figuresInHex": 1,
-            "range": "2",
-            "accuracy": "4",
+            "range": "1",
+            "accuracy": "1*",
             "damage": "-"
           },
           {
             "figuresInHex": 2,
-            "range": "2",
-            "accuracy": "5",
+            "range": "1",
+            "accuracy": "1*",
             "damage": "-"
           },
           {
             "figuresInHex": 3,
-            "range": "2",
-            "accuracy": "5",
+            "range": "1",
+            "accuracy": "1*",
             "damage": "-"
           }
         ]
@@ -194,10 +181,10 @@
     ],
     "clashSkills": [
       {
-        "name": "Rolling Stones",
+        "name": "Intense Cold",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Each Quartzling may move up to 3 hexes in a straight line.",
+        "text": "Gain {damage_die_boon}",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -208,27 +195,27 @@
         ]
       },
       {
-        "name": "Stone's Throw",
+        "name": "Snowblade Fight!",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "",
+        "text": "This skill has +1 {accuracy_die} for each Cold Bones adjacent to the target.",
         "statProfiles": [
           {
             "figuresInHex": 1,
-            "range": "2",
-            "accuracy": "4",
-            "damage": "4"
+            "range": "1",
+            "accuracy": "1*",
+            "damage": "3"
           },
           {
             "figuresInHex": 2,
-            "range": "2",
-            "accuracy": "5",
+            "range": "1",
+            "accuracy": "1*",
             "damage": "4"
           },
           {
             "figuresInHex": 3,
-            "range": "2",
-            "accuracy": "5",
+            "range": "1",
+            "accuracy": "1*",
             "damage": "5"
           }
         ]

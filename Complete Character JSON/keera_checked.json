@@ -1,8 +1,8 @@
 {
-  "id": "maxen",
-  "name": "Maxen",
+  "id": "keera",
+  "name": "Keera",
   "faction": "Slayer",
-  "source": "Characters/maxen/",
+  "source": "Characters/keera/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -15,10 +15,10 @@
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "1",
+      "plotSpeed": "2",
       "clashSpeed": "2",
       "dodge": "3",
-      "protection": "3",
+      "protection": "2",
       "health": "6"
     },
     "factionTrait": {
@@ -27,30 +27,30 @@
     },
     "uniqueTraits": [
       {
-        "name": "Scavenger",
-        "text": "When Maxen knocks out an enemy champion, remove their banner from the battlefield."
+        "name": "By My Command!",
+        "text": "The range of Keera's skill_enemy skills must be determined from a Young Dragon within 3 hexes of her."
       }
     ],
     "ultimate": {
-      "name": "Bird Shot",
-      "skillIcon": "skill_enemy",
+      "name": "Firebrand",
+      "skillIcon": "skill_area",
       "mustTarget": "-",
-      "text": "Remove up to 3 Gearhawks from the battlefield. This skill has +2 {accuracy} and +2 {damage} for each Gearhawk removed.",
+      "text": "Each enemy champion that is within 2 hexes of 1 or more Young Dragons gains 1 wound.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "3",
-          "accuracy": "2",
-          "damage": "2"
+          "range": "-",
+          "accuracy": "-",
+          "damage": "-"
         }
       ]
     },
     "plotSkills": [
       {
-        "name": "March",
-        "skillIcon": "skill_self",
+        "name": "Royal Summons",
+        "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Move Maxen up to 1 hex.",
+        "text": "The Young Dragons may make an advance action or a recruit action.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -61,14 +61,14 @@
         ]
       },
       {
-        "name": "Tinker",
+        "name": "Regal Blessing",
         "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "The Gearhawks may immediately make a recruit action and may gain a boon of your choice.",
+        "text": "If a Young Dragon is within range they gain {accuracy_die_boon}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "-",
+            "range": "3",
             "accuracy": "-",
             "damage": "-"
           }
@@ -77,57 +77,72 @@
     ],
     "clashSkills": [
       {
-        "name": "Piercing Round",
-        "skillIcon": "skill_enemy",
+        "name": "Royal Summons",
+        "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "This skill has -1 {accuracy} for each hex between Maxen and his target. Hit Effect: The target gains 1 wound.",
+        "text": "The Young Dragons may make an advance action or a recruit action.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "6",
+            "range": "-",
+            "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Shrapnel Shot",
+        "name": "Vicious Bite",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "This skill has -1 {accuracy} and -1 {damage} for each hex between Maxen and his target. Hit Effect: Move target up to 1 hex away from Maxen.",
+        "text": "Hit Effect: If the target is a champion it gains 1 wound.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "6",
-            "damage": "6"
+            "range": "1",
+            "accuracy": "4",
+            "damage": "7"
+          }
+        ]
+      },
+      {
+        "name": "Rain of Fire",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {protection_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "7",
+            "damage": "4"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Gearhawks",
-    "units": 3,
+    "name": "Young Dragons",
+    "units": 2,
+    "size": "large",
     "stats": {
-      "plotSpeed": "1",
-      "clashSpeed": "0",
-      "dodge": "3",
+      "plotSpeed": "3",
+      "clashSpeed": "3",
+      "dodge": "2",
       "protection": "2",
-      "health": "1"
+      "health": "5"
     },
     "traits": [
       {
-        "name": "Eagle Eye",
-        "text": "At the end of the Gearhawks' activation, you may choose a friendly champion adjacent to a Gearhawk model. That friendly champion gains {accuracy_die_boon}."
+        "name": "Flight",
+        "text": "During an advance action, the Young Dragons may move through other models' hexes but cannot end their movement on those hexes."
       }
     ],
     "plotSkills": [
       {
-        "name": "Migration",
+        "name": "Draconic Rage",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "You may place each Gearhawk up to 3 hexes from its current hex.",
+        "text": "Gain {damage_die_boon}",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -138,15 +153,15 @@
         ]
       },
       {
-        "name": "Talon Rake",
+        "name": "Roar",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "This skill gains +1 {accuracy} for each Gearhawk adjacent to the target. Hit Effect: Inflict {move_blight}.",
+        "text": "Hit Effect: Inflict {dodge_blight}",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "2*",
+            "range": "3",
+            "accuracy": "5",
             "damage": "-"
           }
         ]
@@ -154,30 +169,30 @@
     ],
     "clashSkills": [
       {
-        "name": "Migration",
-        "skillIcon": "skill_self",
-        "mustTarget": "-",
-        "text": "You may place each Gearhawk up to 3 hexes from its current hex.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "-",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Dive Bomb",
+        "name": "Bite",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "This skill gains +1 {accuracy} for each Gearhawk adjacent to the target.",
+        "text": "Hit Effect: If the target is a champion it gains 1 wound.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "1",
-            "accuracy": "2*",
-            "damage": "4"
+            "accuracy": "3",
+            "damage": "5"
+          }
+        ]
+      },
+      {
+        "name": "Fiery Breath",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {protection_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "5",
+            "damage": "3"
           }
         ]
       }

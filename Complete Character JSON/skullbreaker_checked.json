@@ -1,8 +1,8 @@
 {
-  "id": "helena",
-  "name": "Helena",
-  "faction": "Guardian",
-  "source": "Characters/helena/",
+  "id": "skullbreaker",
+  "name": "Skullbreaker",
+  "faction": "Slayer",
+  "source": "Characters/skullbreaker/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -15,31 +15,31 @@
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "2",
+      "plotSpeed": "3",
       "clashSpeed": "2",
-      "dodge": "3",
-      "protection": "4",
-      "health": "4"
+      "dodge": "4",
+      "protection": "1",
+      "health": "8"
     },
     "factionTrait": {
-      "name": "Guardian Champion",
-      "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+      "name": "Slayer Champion",
+      "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
     },
     "uniqueTraits": [
       {
-        "name": "Banner Bearer",
-        "text": "Helena cannot make claim actions. During the end phase, if she is not knocked out, Helena counts as a banner for the purposes of gaining steps on the battle ladder."
+        "name": "Out Of My Way!",
+        "text": "Skullbreaker may move through small followers' hexes but cannot end his movement on those hexes."
       }
     ],
     "ultimate": {
-      "name": "Call to Arms",
-      "skillIcon": "skill_area",
+      "name": "Finisher",
+      "skillIcon": "skill_self",
       "mustTarget": "-",
-      "text": "Follower units of all friendly champions in range, immediately make recruit actions up to maximum unit size.",
+      "text": "Clash phase only. Skullbreaker may make up to 3 skill actions.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "2",
+          "range": "-",
           "accuracy": "-",
           "damage": "-"
         }
@@ -47,10 +47,10 @@
     },
     "plotSkills": [
       {
-        "name": "Rally the Troops",
-        "skillIcon": "skill_friendly",
+        "name": "Shake It Off",
+        "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "The Rallied Peasants immediately make up to 2 recruit actions.",
+        "text": "Remove a blight from Skullbreaker.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -61,14 +61,14 @@
         ]
       },
       {
-        "name": "Lead the Charge",
+        "name": "Hunting Call",
         "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Move Helena up to 1 hex. Then move each Rallied Peasant that is within range up to 1 hex.",
+        "text": "Follower units within range gain {accuracy_die_boon}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "3",
+            "range": "1",
             "accuracy": "-",
             "damage": "-"
           }
@@ -77,76 +77,91 @@
     ],
     "clashSkills": [
       {
-        "name": "Shield Push",
-        "skillIcon": "skill_enemy",
+        "name": "I Smell Blood...",
+        "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Hit Effect: Move target up to 1 hex.",
+        "text": "Skullbreaker's Jawblade skill gains +4 {accuracy_die} and 'Hit Effect: The target gains 1 wound.' this activation.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "6",
+            "range": "-",
+            "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Holy Light",
-        "skillIcon": "skill_enemy",
+        "name": "Go For The Belly!",
+        "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "",
+        "text": "Skullbreaker's Jawblade skill gains +2 {damage_die} and 'Hit Effect: Move target up to 2 hexes.' this activation.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "3",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Jawblade",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "After using this skill, Skullbreaker gains {move_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
             "accuracy": "5",
-            "damage": "4"
+            "damage": "7"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Rallied Peasants",
-    "units": 6,
+    "name": "Tooth Bearers",
+    "units": 4,
+    "size": "small",
     "stats": {
-      "plotSpeed": "2",
+      "plotSpeed": "3",
       "clashSpeed": "2",
-      "dodge": "3",
+      "dodge": "4",
       "protection": "1",
       "health": "1"
     },
     "traits": [
       {
-        "name": "Devoted",
-        "text": "A Rallied Peasant has +1 {dodge} and {protection} while it is within 2 hexes of Helena."
+        "name": "Set Up The Boss!",
+        "text": "When a Tooth Bearer damages an enemy, Skullbreaker may gain a boon of your choice or move 1 hex."
       }
     ],
     "plotSkills": [
       {
-        "name": "Prayer",
-        "skillIcon": "skill_friendly",
+        "name": "Rush",
+        "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "If Helena is within range, remove up to 1 wound from Helena.",
+        "text": "Choose a hex. Each Tooth Bearer in that hex may move up to 2 hexes.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
+            "range": "-",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Condemnation",
+        "name": "Feral Howl",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Move target up to 1 hex.",
+        "text": "This skill has +1 {accuracy_die} for each Tooth Bearer adjacent to the target. Hit Effect: Move target up to 1 hex. Inflict {dodge_blight}",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "3",
+            "range": "1",
+            "accuracy": "2*",
             "damage": "-"
           }
         ]
@@ -154,42 +169,42 @@
     ],
     "clashSkills": [
       {
-        "name": "Prayer",
-        "skillIcon": "skill_friendly",
+        "name": "Skullcracker",
+        "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "If Helena is within range, remove up to 1 wound from Helena.",
+        "text": "Gain {damage_die_boon}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
+            "range": "-",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Will of the People",
+        "name": "Club Bash",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "This skill gains +1 {accuracy} and +1 {damage} for each Rallied Peasant adjacent to the target.",
+        "text": "Hit Effect: The target gains 1 wound.",
         "statProfiles": [
           {
             "figuresInHex": 1,
             "range": "1",
-            "accuracy": "0*",
-            "damage": "0*"
+            "accuracy": "4",
+            "damage": "4"
           },
           {
             "figuresInHex": 2,
             "range": "1",
-            "accuracy": "0*",
-            "damage": "0*"
+            "accuracy": "5",
+            "damage": "4"
           },
           {
             "figuresInHex": 3,
             "range": "1",
-            "accuracy": "0*",
-            "damage": "0*"
+            "accuracy": "6",
+            "damage": "5"
           }
         ]
       }

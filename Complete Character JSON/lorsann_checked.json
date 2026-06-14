@@ -1,8 +1,8 @@
 {
-  "id": "blackjaw",
-  "name": "Blackjaw",
-  "faction": "Maelstrom",
-  "source": "Characters/blackjaw/",
+  "id": "lorsann",
+  "name": "Lorsann",
+  "faction": "Slayer",
+  "source": "Characters/lorsann/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -15,42 +15,42 @@
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "3",
-      "clashSpeed": "2",
-      "dodge": "3",
-      "protection": "2",
-      "health": "8"
+      "plotSpeed": "2",
+      "clashSpeed": "3",
+      "dodge": "4",
+      "protection": "1",
+      "health": "6"
     },
     "factionTrait": {
-      "name": "Maelstrom Champion",
-      "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+      "name": "Slayer Champion",
+      "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
     },
     "uniqueTraits": [
       {
-        "name": "Wildfire",
-        "text": "If Blackjaw knocks out a follower during his activation, he may make a bonus action that activation."
+        "name": "Shoot and Scoot",
+        "text": "After Lorsann uses a skill that inflicts 1 or more wounds, she may move up to 1 hex."
       }
     ],
     "ultimate": {
-      "name": "Fire Storm",
+      "name": "Deathblow",
       "skillIcon": "skill_enemy",
-      "mustTarget": "follower",
-      "text": "This skill may target up to five followers on any hexes within range.",
+      "mustTarget": "-",
+      "text": "Hit Effect: The target gains 2 wounds.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "2",
+          "range": "3",
           "accuracy": "6",
-          "damage": "5"
+          "damage": "-"
         }
       ]
     },
     "plotSkills": [
       {
-        "name": "Hotfoot",
+        "name": "Field Instruction",
         "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Grant {move_boon}",
+        "text": "Grant {damage_die_boon}",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -61,15 +61,15 @@
         ]
       },
       {
-        "name": "Evil Eye",
+        "name": "Fairy Fire",
         "skillIcon": "skill_enemy",
-        "mustTarget": "follower",
-        "text": "Inflict {protection_blight}",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {protection_blight}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "6",
+            "range": "3",
+            "accuracy": "5",
             "damage": "-"
           }
         ]
@@ -77,43 +77,43 @@
     ],
     "clashSkills": [
       {
-        "name": "Kick",
+        "name": "Piercing Shot",
         "skillIcon": "skill_enemy",
-        "mustTarget": "follower",
-        "text": "",
+        "mustTarget": "-",
+        "text": "Hit Effect: The target gains 1 wound.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "6",
-            "damage": "6"
+            "range": "3",
+            "accuracy": "5",
+            "damage": "-"
           }
         ]
       },
       {
-        "name": "Fiery Axe",
+        "name": "Mystic Arrow",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "This skill may target up to three models in one hex.",
+        "text": "After the mystic arrow damage roll, make a 5 {damage_die} damage roll against the target.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "4",
+            "range": "3",
+            "accuracy": "3",
             "damage": "5"
           }
         ]
       },
       {
-        "name": "Fireball",
+        "name": "Snipe",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "This skill may target up to three models in one hex.",
+        "text": "",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "5",
+            "range": "3",
+            "accuracy": "8",
             "damage": "4"
           }
         ]
@@ -121,28 +121,28 @@
     ]
   },
   "followers": {
-    "name": "Unburnt Reavers",
-    "units": 5,
+    "name": "Mistwood Rangers",
+    "units": 3,
     "size": "small",
     "stats": {
-      "plotSpeed": "3",
-      "clashSpeed": "2",
+      "plotSpeed": "2",
+      "clashSpeed": "3",
       "dodge": "3",
-      "protection": "2",
+      "protection": "1",
       "health": "1"
     },
     "traits": [
       {
-        "name": "Fearsome",
-        "text": "If a small enemy is within 3 hexes of one or more Unburnt Reavers and has fewer than three models in its hex, all of its skills have -1 {accuracy_die}."
+        "name": "Kill Shot",
+        "text": "When the target is a wounded enemy champion, the Mistwood Rangers' skills have +1 {damage_die}."
       }
     ],
     "plotSkills": [
       {
-        "name": "Rush",
+        "name": "Blur",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Choose a hex. Each Unburnt Reaver in that hex may move up to 2 hexes.",
+        "text": "Gain {dodge_boon}",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -153,27 +153,27 @@
         ]
       },
       {
-        "name": "Intimidation",
+        "name": "Fairy Fire",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Inflict {dodge_blight}",
+        "text": "Hit Effect: Inflict {protection_blight}.",
         "statProfiles": [
           {
             "figuresInHex": 1,
-            "range": "1",
-            "accuracy": "2",
+            "range": "3",
+            "accuracy": "3",
             "damage": "-"
           },
           {
             "figuresInHex": 2,
-            "range": "1",
+            "range": "3",
             "accuracy": "4",
             "damage": "-"
           },
           {
             "figuresInHex": 3,
-            "range": "1",
-            "accuracy": "6",
+            "range": "3",
+            "accuracy": "5",
             "damage": "-"
           }
         ]
@@ -181,7 +181,7 @@
     ],
     "clashSkills": [
       {
-        "name": "War Cry",
+        "name": "Aim",
         "skillIcon": "skill_self",
         "mustTarget": "-",
         "text": "Gain {accuracy_die_boon}",
@@ -195,28 +195,28 @@
         ]
       },
       {
-        "name": "Cleaving Strike",
+        "name": "Fire",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
         "text": "",
         "statProfiles": [
           {
             "figuresInHex": 1,
-            "range": "1",
+            "range": "3",
             "accuracy": "3",
-            "damage": "4"
+            "damage": "3"
           },
           {
             "figuresInHex": 2,
-            "range": "1",
+            "range": "3",
             "accuracy": "4",
-            "damage": "5"
+            "damage": "4"
           },
           {
             "figuresInHex": 3,
-            "range": "1",
+            "range": "3",
             "accuracy": "5",
-            "damage": "6"
+            "damage": "5"
           }
         ]
       }

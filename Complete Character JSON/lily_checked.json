@@ -1,8 +1,8 @@
 {
-  "id": "blackjaw",
-  "name": "Blackjaw",
-  "faction": "Maelstrom",
-  "source": "Characters/blackjaw/",
+  "id": "lily",
+  "name": "Lily",
+  "faction": "Shaper",
+  "source": "Characters/lily/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -16,60 +16,60 @@
   "champion": {
     "stats": {
       "plotSpeed": "3",
-      "clashSpeed": "2",
-      "dodge": "3",
-      "protection": "2",
-      "health": "8"
+      "clashSpeed": "3",
+      "dodge": "4",
+      "protection": "1",
+      "health": "7"
     },
     "factionTrait": {
-      "name": "Maelstrom Champion",
-      "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+      "name": "Shaper Champion",
+      "text": "A shaper moves the turn token +1 step when they make a claim action."
     },
     "uniqueTraits": [
       {
-        "name": "Wildfire",
-        "text": "If Blackjaw knocks out a follower during his activation, he may make a bonus action that activation."
+        "name": "Touch of the Fae",
+        "text": "After one of her actions, Lily may place a status effect token of her choice in an adjacent empty hex. When a model enters a hex with a token, move it onto them after they end their movement."
       }
     ],
     "ultimate": {
-      "name": "Fire Storm",
-      "skillIcon": "skill_enemy",
-      "mustTarget": "follower",
-      "text": "This skill may target up to five followers on any hexes within range.",
+      "name": "Thorn Wall",
+      "skillIcon": "skill_area",
+      "mustTarget": "-",
+      "text": "Remove any number of Thornlings from the battlefield and place them on objective hexes within range. Thornlings on objective hexes cannot make advance actions or be moved by enemy skills.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "2",
-          "accuracy": "6",
-          "damage": "5"
+          "range": "4",
+          "accuracy": "-",
+          "damage": "-"
         }
       ]
     },
     "plotSkills": [
       {
-        "name": "Hotfoot",
-        "skillIcon": "skill_friendly",
+        "name": "Earth Call",
+        "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "Grant {move_boon}",
+        "text": "Move one objective hex within range 1 hex onto an empty non-objective hex. Models on the objective hex move with it.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
+            "range": "3",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Evil Eye",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "follower",
-        "text": "Inflict {protection_blight}",
+        "name": "Breath of the Earth",
+        "skillIcon": "skill_area",
+        "mustTarget": "-",
+        "text": "Place a status effect token of your choice in an empty hex within range. When a model enters a hex with a token, move it onto them after they end their movement.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "6",
+            "range": "1",
+            "accuracy": "-",
             "damage": "-"
           }
         ]
@@ -77,72 +77,58 @@
     ],
     "clashSkills": [
       {
-        "name": "Kick",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "follower",
-        "text": "",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "6",
-            "damage": "6"
-          }
-        ]
-      },
-      {
-        "name": "Fiery Axe",
+        "name": "Nature's Visage",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "This skill may target up to three models in one hex.",
+        "text": "Hit Effect: Move each friendly and enemy model in hexes adjacent to the target up to 1 hex away from the target.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "4",
-            "damage": "5"
-          }
-        ]
-      },
-      {
-        "name": "Fireball",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "This skill may target up to three models in one hex.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "2",
+            "range": "3",
             "accuracy": "5",
-            "damage": "4"
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Haunting Melody",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move all models in the target's hex up to 2 hexes.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "3",
+            "accuracy": "6",
+            "damage": "-"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Unburnt Reavers",
+    "name": "Thornlings",
     "units": 5,
     "size": "small",
     "stats": {
-      "plotSpeed": "3",
+      "plotSpeed": "1",
       "clashSpeed": "2",
-      "dodge": "3",
-      "protection": "2",
+      "dodge": "2",
+      "protection": "3",
       "health": "1"
     },
     "traits": [
       {
-        "name": "Fearsome",
-        "text": "If a small enemy is within 3 hexes of one or more Unburnt Reavers and has fewer than three models in its hex, all of its skills have -1 {accuracy_die}."
+        "name": "Overgrowth",
+        "text": "When the Thornlings make a recruit action, you may recruit one, two, or three Thornlings to the hex."
       }
     ],
     "plotSkills": [
       {
-        "name": "Rush",
+        "name": "Deep Roots",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Choose a hex. Each Unburnt Reaver in that hex may move up to 2 hexes.",
+        "text": "Remove any number of Thornlings from the battlefield. Then take a recruit action for each Thornling this skill removed from the battlefield.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -153,26 +139,26 @@
         ]
       },
       {
-        "name": "Intimidation",
+        "name": "Tangling Thorns",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Inflict {dodge_blight}",
+        "text": "Hit Effect: Inflict {move_blight}.",
         "statProfiles": [
           {
             "figuresInHex": 1,
-            "range": "1",
+            "range": "2",
             "accuracy": "2",
             "damage": "-"
           },
           {
             "figuresInHex": 2,
-            "range": "1",
+            "range": "2",
             "accuracy": "4",
             "damage": "-"
           },
           {
             "figuresInHex": 3,
-            "range": "1",
+            "range": "2",
             "accuracy": "6",
             "damage": "-"
           }
@@ -181,7 +167,7 @@
     ],
     "clashSkills": [
       {
-        "name": "War Cry",
+        "name": "Sprout",
         "skillIcon": "skill_self",
         "mustTarget": "-",
         "text": "Gain {accuracy_die_boon}",
@@ -195,28 +181,28 @@
         ]
       },
       {
-        "name": "Cleaving Strike",
+        "name": "Nature's Wrath",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "",
+        "text": "If the hit roll total equals the target's dodge exactly, this skill has +3 {damage_die}.",
         "statProfiles": [
           {
             "figuresInHex": 1,
-            "range": "1",
-            "accuracy": "3",
-            "damage": "4"
+            "range": "2",
+            "accuracy": "2",
+            "damage": "4*"
           },
           {
             "figuresInHex": 2,
-            "range": "1",
+            "range": "2",
             "accuracy": "4",
-            "damage": "5"
+            "damage": "4*"
           },
           {
             "figuresInHex": 3,
-            "range": "1",
-            "accuracy": "5",
-            "damage": "6"
+            "range": "2",
+            "accuracy": "6",
+            "damage": "4*"
           }
         ]
       }

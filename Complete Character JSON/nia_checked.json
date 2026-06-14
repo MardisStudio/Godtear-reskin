@@ -1,8 +1,8 @@
 {
-  "id": "blackjaw",
-  "name": "Blackjaw",
-  "faction": "Maelstrom",
-  "source": "Characters/blackjaw/",
+  "id": "nia",
+  "name": "Nia",
+  "faction": "Shaper",
+  "source": "Characters/nia/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -15,42 +15,42 @@
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "3",
+      "plotSpeed": "1",
       "clashSpeed": "2",
-      "dodge": "3",
+      "dodge": "4",
       "protection": "2",
-      "health": "8"
+      "health": "6"
     },
     "factionTrait": {
-      "name": "Maelstrom Champion",
-      "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+      "name": "Shaper Champion",
+      "text": "A shaper moves the turn token +1 step when they make a claim action."
     },
     "uniqueTraits": [
       {
-        "name": "Wildfire",
-        "text": "If Blackjaw knocks out a follower during his activation, he may make a bonus action that activation."
+        "name": "Rock Concert",
+        "text": "If all 3 Quartzlings are on the battlefield when Nia activates, she may make a bonus action that activation."
       }
     ],
     "ultimate": {
-      "name": "Fire Storm",
-      "skillIcon": "skill_enemy",
-      "mustTarget": "follower",
-      "text": "This skill may target up to five followers on any hexes within range.",
+      "name": "Geode",
+      "skillIcon": "skill_area",
+      "mustTarget": "-",
+      "text": "Plot phase only. Choose a Quartzling that is the only model in its hex and is adjacent to an objective hex, and replace it with an objective hex. If it is within 2 hexes of Nia, she may make a claim action on that hex.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "2",
-          "accuracy": "6",
-          "damage": "5"
+          "range": "-",
+          "accuracy": "-",
+          "damage": "-"
         }
       ]
     },
     "plotSkills": [
       {
-        "name": "Hotfoot",
-        "skillIcon": "skill_friendly",
+        "name": "Crystal Mirror",
+        "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "Grant {move_boon}",
+        "text": "Choose a boon on any model within range. Then choose a friendly model within range to gain that boon.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -61,15 +61,29 @@
         ]
       },
       {
-        "name": "Evil Eye",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "follower",
-        "text": "Inflict {protection_blight}",
+        "name": "Meditation",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Gain {accuracy_die_boon}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "6",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "March",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Move Nia up to 1 hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
             "damage": "-"
           }
         ]
@@ -77,72 +91,72 @@
     ],
     "clashSkills": [
       {
-        "name": "Kick",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "follower",
-        "text": "",
+        "name": "Crystal Glare",
+        "skillIcon": "skill_area",
+        "mustTarget": "-",
+        "text": "Choose a blight on any model within range. Then choose an enemy model within range to gain that blight.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "6",
-            "damage": "6"
+            "range": "2",
+            "accuracy": "-",
+            "damage": "-"
           }
         ]
       },
       {
-        "name": "Fiery Axe",
+        "name": "Erosion",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "This skill may target up to three models in one hex.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "4",
-            "damage": "5"
-          }
-        ]
-      },
-      {
-        "name": "Fireball",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "This skill may target up to three models in one hex.",
+        "text": "Hit Effect: Inflict {protection_blight}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "2",
             "accuracy": "5",
-            "damage": "4"
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Blinding Light",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {accuracy_die_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "4",
+            "damage": "5"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Unburnt Reavers",
-    "units": 5,
+    "name": "Quartzlings",
+    "units": 3,
     "size": "small",
     "stats": {
-      "plotSpeed": "3",
-      "clashSpeed": "2",
-      "dodge": "3",
-      "protection": "2",
+      "plotSpeed": "2",
+      "clashSpeed": "0",
+      "dodge": "2",
+      "protection": "4",
       "health": "1"
     },
     "traits": [
       {
-        "name": "Fearsome",
-        "text": "If a small enemy is within 3 hexes of one or more Unburnt Reavers and has fewer than three models in its hex, all of its skills have -1 {accuracy_die}."
+        "name": "Rock Formation",
+        "text": "When Nia's banner is removed from the battlefield, the Quartzlings may immediately make a recruit action, even if it is the end phase."
       }
     ],
     "plotSkills": [
       {
-        "name": "Rush",
+        "name": "Calcify",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Choose a hex. Each Unburnt Reaver in that hex may move up to 2 hexes.",
+        "text": "If this Quartzling is the only model in its hex and is adjacent to an objective hex, replace it with an objective hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -153,27 +167,27 @@
         ]
       },
       {
-        "name": "Intimidation",
+        "name": "Shimmer",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Inflict {dodge_blight}",
+        "text": "Hit Effect: Inflict {move_blight}",
         "statProfiles": [
           {
             "figuresInHex": 1,
-            "range": "1",
-            "accuracy": "2",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 2,
-            "range": "1",
+            "range": "2",
             "accuracy": "4",
             "damage": "-"
           },
           {
+            "figuresInHex": 2,
+            "range": "2",
+            "accuracy": "5",
+            "damage": "-"
+          },
+          {
             "figuresInHex": 3,
-            "range": "1",
-            "accuracy": "6",
+            "range": "2",
+            "accuracy": "5",
             "damage": "-"
           }
         ]
@@ -181,10 +195,10 @@
     ],
     "clashSkills": [
       {
-        "name": "War Cry",
+        "name": "Rolling Stones",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Gain {accuracy_die_boon}",
+        "text": "Each Quartzling may move up to 3 hexes in a straight line.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -195,28 +209,28 @@
         ]
       },
       {
-        "name": "Cleaving Strike",
+        "name": "Stone's Throw",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
         "text": "",
         "statProfiles": [
           {
             "figuresInHex": 1,
-            "range": "1",
-            "accuracy": "3",
+            "range": "2",
+            "accuracy": "4",
             "damage": "4"
           },
           {
             "figuresInHex": 2,
-            "range": "1",
-            "accuracy": "4",
-            "damage": "5"
+            "range": "2",
+            "accuracy": "5",
+            "damage": "4"
           },
           {
             "figuresInHex": 3,
-            "range": "1",
+            "range": "2",
             "accuracy": "5",
-            "damage": "6"
+            "damage": "5"
           }
         ]
       }

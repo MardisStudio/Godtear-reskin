@@ -1,8 +1,8 @@
 {
-  "id": "jeen",
-  "name": "Jeen",
-  "faction": "Maelstrom",
-  "source": "Characters/jeen/",
+  "id": "jaak",
+  "name": "Jaak",
+  "faction": "Guardian",
+  "source": "Characters/jaak/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -17,25 +17,25 @@
     "stats": {
       "plotSpeed": "3",
       "clashSpeed": "1",
-      "dodge": "3",
-      "protection": "3",
-      "health": "5"
+      "dodge": "4",
+      "protection": "2",
+      "health": "7"
     },
     "factionTrait": {
-      "name": "Maelstrom Champion",
-      "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+      "name": "Guardian Champion",
+      "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
     },
     "uniqueTraits": [
       {
-        "name": "Martial Discipline",
-        "text": "After Jeen gains 1 or more wounds from an enemy skill, she may gain {protection_boon} or {dodge_boon}."
+        "name": "Battlefield Brew",
+        "text": "If Jaak's banner is on the battlefield, after he takes each action you may remove a wound from another friendly model within two hexes of Jaak."
       }
     ],
     "ultimate": {
-      "name": "Overrun",
+      "name": "Dubious Remedy",
       "skillIcon": "skill_area",
       "mustTarget": "-",
-      "text": "Move Jeen up to 2 hexes. Then move each other friendly model within range up to 2 hexes in the order of your choice.",
+      "text": "Choose any number of champions and large followers within range. Roll a die for each one and add 1 to the result. Remove up to that many wounds from that model.",
       "statProfiles": [
         {
           "figuresInHex": "-",
@@ -47,54 +47,40 @@
     },
     "plotSkills": [
       {
-        "name": "Blade Storm",
-        "skillIcon": "skill_enemy",
+        "name": "Tortoise Shavings",
+        "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "This skill may target up to 3 models in 1 hex. After using Blade Storm, move Jeen up to 1 hex.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "5",
-            "damage": "5"
-          }
-        ]
-      },
-      {
-        "name": "Rapid Strike",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "follower",
-        "text": "Jeen may use this skill as a bonus action.",
+        "text": "Grant {protection_boon}",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "2",
-            "accuracy": "3",
-            "damage": "3"
+            "accuracy": "-",
+            "damage": "-"
           }
         ]
       },
       {
-        "name": "Polearm Sweep",
+        "name": "Spider Staff",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Choose up to 2 hexes within range that are adjacent to each other. This skill can target 1 model in each of those hexes.",
+        "text": "Hit Effect: Inflict {dodge_blight}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "2",
             "accuracy": "4",
-            "damage": "4"
+            "damage": "6"
           }
         ]
       }
     ],
     "clashSkills": [
       {
-        "name": "Sharpen Blade",
+        "name": "Foot of Rabbit",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Gain {damage_die_boon}",
+        "text": "Gain {move_boon}",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -105,118 +91,117 @@
         ]
       },
       {
-        "name": "Press Forward",
-        "skillIcon": "skill_friendly",
-        "mustTarget": "-",
-        "text": "Grant {move_boon}",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Polearm Sweep",
+        "name": "Spider Staff",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Choose up to 2 hexes within range that are adjacent to each other. This skill can target 1 model in each of those hexes.",
+        "text": "Hit Effect: Inflict {dodge_blight}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "2",
             "accuracy": "4",
-            "damage": "4"
+            "damage": "6"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Golden Shrikes",
-    "units": 1,
+    "name": "Cauldron Cronies",
+    "units": 5,
+    "size": "small",
     "stats": {
       "plotSpeed": "3",
       "clashSpeed": "1",
-      "dodge": "3",
-      "protection": "3",
+      "dodge": "4",
+      "protection": "1",
       "health": "1"
     },
     "traits": [
       {
-        "name": "Drive Back",
-        "text": "At the end of the Golden Shrikes' activation, choose a hex adjacent to a Golden Shrike. You may move each enemy follower in that hex up to 1 hex."
+        "name": "Missing Ingredient",
+        "text": "While Jaak's banner is on the battlefield, the Cauldron Cronies skills have +1 {accuracy_die} and +1 {damage_die}."
       }
     ],
     "plotSkills": [
       {
-        "name": "Sprint",
-        "skillIcon": "skill_self",
+        "name": "Deploy Cauldron",
+        "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "One Golden Shrike may move up to 3 hexes.",
+        "text": "If Jaak is in range, he may take a claim action. Place his banner on an objective hex adjacent to this Cauldron Crony.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "-",
+            "range": "3",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Slash and Dash",
+        "name": "Eye of Newt",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "After using Slash and Dash, each Golden Shrike in this hex may move up to 1 hex.",
+        "text": "",
         "statProfiles": [
           {
             "figuresInHex": 1,
-            "range": "1",
-            "accuracy": "3",
-            "damage": "5"
+            "range": "2",
+            "accuracy": "5",
+            "damage": "3"
           },
           {
             "figuresInHex": 2,
-            "range": "1",
-            "accuracy": "5",
+            "range": "2",
+            "accuracy": "4",
             "damage": "4"
           },
           {
             "figuresInHex": 3,
-            "range": "1",
-            "accuracy": "7",
-            "damage": "3"
+            "range": "2",
+            "accuracy": "3",
+            "damage": "5"
           }
         ]
       }
     ],
     "clashSkills": [
       {
-        "name": "Balanced Stance",
-        "skillIcon": "skill_self",
+        "name": "Toil and Trouble",
+        "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "Gain {protection_boon} or {dodge_boon}.",
+        "text": "Choose a friendly banner within range. Place it on an objective hex adjacent to any Cauldron Crony within range.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "-",
+            "range": "1",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Press Forward",
-        "skillIcon": "skill_friendly",
+        "name": "Aggressive Chant",
+        "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Grant {move_boon}",
+        "text": "Hit Effect: Inflict {dodge_blight}. Move target up to 1 hex.",
         "statProfiles": [
           {
-            "figuresInHex": "-",
+            "figuresInHex": 1,
             "range": "2",
-            "accuracy": "-",
+            "accuracy": "3",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "2",
+            "accuracy": "4",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "2",
+            "accuracy": "6",
             "damage": "-"
           }
         ]

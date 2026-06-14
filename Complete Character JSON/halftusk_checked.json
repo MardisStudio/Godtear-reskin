@@ -1,8 +1,8 @@
 {
-  "id": "blackjaw",
-  "name": "Blackjaw",
-  "faction": "Maelstrom",
-  "source": "Characters/blackjaw/",
+  "id": "halftusk",
+  "name": "Halftusk",
+  "faction": "Guardian",
+  "source": "Characters/halftusk/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -15,39 +15,53 @@
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "3",
+      "plotSpeed": "2",
       "clashSpeed": "2",
       "dodge": "3",
-      "protection": "2",
-      "health": "8"
+      "protection": "3",
+      "health": "7"
     },
     "factionTrait": {
-      "name": "Maelstrom Champion",
-      "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+      "name": "Guardian Champion",
+      "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
     },
     "uniqueTraits": [
       {
-        "name": "Wildfire",
-        "text": "If Blackjaw knocks out a follower during his activation, he may make a bonus action that activation."
+        "name": "Fighting Fit",
+        "text": "If Halftusk does not have any wounds, his skills have +2 {accuracy_die}."
       }
     ],
     "ultimate": {
-      "name": "Fire Storm",
-      "skillIcon": "skill_enemy",
-      "mustTarget": "follower",
-      "text": "This skill may target up to five followers on any hexes within range.",
+      "name": "The Great Tusk",
+      "skillIcon": "skill_area",
+      "mustTarget": "-",
+      "text": "Plot phase only. Halftusk may make a claim action. Then choose {protection_boon} or {move_boon}. Friendly models within range gain the boon you chose.",
       "statProfiles": [
         {
           "figuresInHex": "-",
           "range": "2",
-          "accuracy": "6",
-          "damage": "5"
+          "accuracy": "-",
+          "damage": "-"
         }
       ]
     },
     "plotSkills": [
       {
-        "name": "Hotfoot",
+        "name": "Regenerate",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Remove up to 2 of Halftusk's wounds.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Footwork",
         "skillIcon": "skill_friendly",
         "mustTarget": "-",
         "text": "Grant {move_boon}",
@@ -61,15 +75,15 @@
         ]
       },
       {
-        "name": "Evil Eye",
+        "name": "Feint",
         "skillIcon": "skill_enemy",
-        "mustTarget": "follower",
-        "text": "Inflict {protection_blight}",
+        "mustTarget": "-",
+        "text": "Inflict {accuracy_die_blight}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "2",
-            "accuracy": "6",
+            "accuracy": "5",
             "damage": "-"
           }
         ]
@@ -77,72 +91,72 @@
     ],
     "clashSkills": [
       {
-        "name": "Kick",
+        "name": "Regenerate",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Remove up to 2 of Halftusk's wounds.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "One Punch",
         "skillIcon": "skill_enemy",
-        "mustTarget": "follower",
-        "text": "",
+        "mustTarget": "-",
+        "text": "Hit Effect: Halftusk may use Two Punch this turn as a bonus action.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "1",
             "accuracy": "6",
-            "damage": "6"
+            "damage": "4"
           }
         ]
       },
       {
-        "name": "Fiery Axe",
+        "name": "Two Punch",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "This skill may target up to three models in one hex.",
+        "text": "Hit Effect: Halftusk may move up to 1 hex.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "1",
             "accuracy": "4",
             "damage": "5"
-          }
-        ]
-      },
-      {
-        "name": "Fireball",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "This skill may target up to three models in one hex.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "5",
-            "damage": "4"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Unburnt Reavers",
-    "units": 5,
+    "name": "Froglodytes",
+    "units": 3,
     "size": "small",
     "stats": {
-      "plotSpeed": "3",
-      "clashSpeed": "2",
-      "dodge": "3",
-      "protection": "2",
+      "plotSpeed": "1",
+      "clashSpeed": "3",
+      "dodge": "2",
+      "protection": "3",
       "health": "1"
     },
     "traits": [
       {
-        "name": "Fearsome",
-        "text": "If a small enemy is within 3 hexes of one or more Unburnt Reavers and has fewer than three models in its hex, all of its skills have -1 {accuracy_die}."
+        "name": "Tear-Twisted",
+        "text": "Froglodytes may enter objective hexes."
       }
     ],
     "plotSkills": [
       {
-        "name": "Rush",
+        "name": "Feel the Power",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Choose a hex. Each Unburnt Reaver in that hex may move up to 2 hexes.",
+        "text": "This skill may be used only while on an objective hex. Gain {dodge_boon} and {protection_boon}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -153,27 +167,15 @@
         ]
       },
       {
-        "name": "Intimidation",
-        "skillIcon": "skill_enemy",
+        "name": "Hop",
+        "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Inflict {dodge_blight}",
+        "text": "You may place each Froglodyte in a hex up to 2 hexes from its current hex.",
         "statProfiles": [
           {
-            "figuresInHex": 1,
-            "range": "1",
-            "accuracy": "2",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 2,
-            "range": "1",
-            "accuracy": "4",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 3,
-            "range": "1",
-            "accuracy": "6",
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
             "damage": "-"
           }
         ]
@@ -181,42 +183,42 @@
     ],
     "clashSkills": [
       {
-        "name": "War Cry",
-        "skillIcon": "skill_self",
+        "name": "Tongue Tow",
+        "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "Gain {accuracy_die_boon}",
+        "text": "Move a friendly banner that is within range up to 1 hex toward this Froglodyte.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "-",
+            "range": "2",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Cleaving Strike",
+        "name": "Tongue Lash",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "",
+        "text": "Hit Effect: Move target up to 1 hex toward this Froglodyte.",
         "statProfiles": [
           {
             "figuresInHex": 1,
-            "range": "1",
-            "accuracy": "3",
-            "damage": "4"
+            "range": "2",
+            "accuracy": "5",
+            "damage": "-"
           },
           {
             "figuresInHex": 2,
-            "range": "1",
-            "accuracy": "4",
-            "damage": "5"
+            "range": "2",
+            "accuracy": "6",
+            "damage": "-"
           },
           {
             "figuresInHex": 3,
-            "range": "1",
-            "accuracy": "5",
-            "damage": "6"
+            "range": "2",
+            "accuracy": "7",
+            "damage": "-"
           }
         ]
       }

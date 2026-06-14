@@ -80,7 +80,7 @@
         "name": "Bough Strike",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "This skill gains {damage} equal to the amount the hit roll exceeds the target's {dodge}, to a maximum of 8 additional {damage}.",
+        "text": "This skill gains {damage_die} equal to the amount the hit roll exceeds the target's {dodge}, to a maximum of 8 additional {damage_die}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -109,6 +109,7 @@
   "followers": {
     "name": "Treekin",
     "units": 4,
+    "size": "small",
     "stats": {
       "plotSpeed": "2",
       "clashSpeed": "2",

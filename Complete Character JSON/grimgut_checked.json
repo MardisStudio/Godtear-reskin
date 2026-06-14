@@ -1,8 +1,8 @@
 {
-  "id": "lorsann",
-  "name": "Lorsann",
-  "faction": "Slayer",
-  "source": "Characters/lorsann/",
+  "id": "grimgut",
+  "name": "Grimgut",
+  "faction": "Maelstrom",
+  "source": "Characters/grimgut/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -15,61 +15,75 @@
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "2",
-      "clashSpeed": "3",
-      "dodge": "4",
-      "protection": "1",
-      "health": "6"
+      "plotSpeed": "1",
+      "clashSpeed": "1",
+      "dodge": "2",
+      "protection": "2",
+      "health": "9"
     },
     "factionTrait": {
-      "name": "Slayer Champion",
-      "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
+      "name": "Maelstrom Champion",
+      "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
     },
     "uniqueTraits": [
       {
-        "name": "Shoot and Scoot",
-        "text": "After Lorsann uses a skill that inflicts 1 or more wounds, she may move up to 1 hex."
+        "name": "Spew",
+        "text": "When Retchlings make a recruit action during Grimgut's activation, you may place the new Retchling adjacent to any Retchling placed during this activation."
       }
     ],
     "ultimate": {
-      "name": "Deathblow",
+      "name": "Buffet",
       "skillIcon": "skill_enemy",
-      "mustTarget": "-",
-      "text": "Hit Effect: The target gains 2 wounds.",
+      "mustTarget": "follower",
+      "text": "This skill may target up to three followers on any hexes within range.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "3",
-          "accuracy": "6",
-          "damage": "-"
+          "range": "1",
+          "accuracy": "7",
+          "damage": "7"
         }
       ]
     },
     "plotSkills": [
       {
-        "name": "Field Instruction",
+        "name": "New Spew",
         "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Grant {accuracy_die_boon}",
+        "text": "Remove all Retchlings from the battlefield. Then they make five recruit actions.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
+            "range": "-",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Fairy Fire",
+        "name": "Flu Spew",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Inflict {dodge_blight}.",
+        "text": "This skill targets each enemy champion and follower unit adjacent to one or more Retchlings. Hit Effect: Inflict {damage_die_blight}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "5",
+            "range": "*",
+            "accuracy": "4",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Goo Spew",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "This skill targets each enemy champion and follower unit adjacent to one or more Retchlings. Hit Effect: Inflict {move_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "*",
+            "accuracy": "4",
             "damage": "-"
           }
         ]
@@ -77,102 +91,77 @@
     ],
     "clashSkills": [
       {
-        "name": "Piercing Shot",
-        "skillIcon": "skill_enemy",
+        "name": "Roll",
+        "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Hit Effect: The target gains 1 wound.",
+        "text": "Grimgut moves up to 3 hexes in a straight line.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "5",
+            "range": "-",
+            "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Mystic Arrow",
-        "skillIcon": "skill_enemy",
+        "name": "New Spew",
+        "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "After the mystic arrow damage roll, make a 5 {damage} damage roll against the target.",
+        "text": "Remove all Retchlings from the battlefield. Then they make five recruit actions.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "3",
-            "damage": "5"
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
           }
         ]
       },
       {
-        "name": "Snipe",
+        "name": "Nom Nom Nom",
         "skillIcon": "skill_enemy",
-        "mustTarget": "-",
+        "mustTarget": "follower",
         "text": "",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "8",
-            "damage": "4"
+            "range": "1",
+            "accuracy": "7",
+            "damage": "7"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Mistwood Rangers",
-    "units": 3,
+    "name": "Retchlings",
+    "units": 5,
+    "size": "small",
     "stats": {
-      "plotSpeed": "2",
-      "clashSpeed": "3",
-      "dodge": "3",
+      "plotSpeed": "0",
+      "clashSpeed": "1",
+      "dodge": "2",
       "protection": "1",
       "health": "1"
     },
     "traits": [
       {
-        "name": "Kill Shot",
-        "text": "When the target is a wounded enemy champion, the Mistwood Rangers' skills have +1 {damage}."
+        "name": "Wretched",
+        "text": "When a Retchling is knocked out, it is worth 0 steps instead of 1."
       }
     ],
     "plotSkills": [
       {
-        "name": "Blur",
-        "skillIcon": "skill_self",
+        "name": "Slip and Slide",
+        "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Gain {dodge_boon}",
+        "text": "Gain {move_boon}. Two Retchlings may use this skill in the same activation if they are in different hexes.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "-",
+            "range": "1",
             "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Faerie Fire",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "Hit Effect: Inflict {dodge_blight}.",
-        "statProfiles": [
-          {
-            "figuresInHex": 1,
-            "range": "3",
-            "accuracy": "3",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 2,
-            "range": "3",
-            "accuracy": "4",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 3,
-            "range": "3",
-            "accuracy": "5",
             "damage": "-"
           }
         ]
@@ -180,40 +169,26 @@
     ],
     "clashSkills": [
       {
-        "name": "Aim",
-        "skillIcon": "skill_self",
-        "mustTarget": "-",
-        "text": "Gain {accuracy_die_boon}",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "-",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Fire",
+        "name": "Slimed",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "",
+        "text": "This skill may target up to three models in one hex. Two Retchlings may use this skill in the same activation if they are in different hexes.",
         "statProfiles": [
           {
             "figuresInHex": 1,
-            "range": "3",
+            "range": "2",
             "accuracy": "3",
-            "damage": "3"
+            "damage": "5"
           },
           {
             "figuresInHex": 2,
-            "range": "3",
+            "range": "2",
             "accuracy": "4",
-            "damage": "4"
+            "damage": "5"
           },
           {
             "figuresInHex": 3,
-            "range": "3",
+            "range": "2",
             "accuracy": "5",
             "damage": "5"
           }

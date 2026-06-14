@@ -1,8 +1,8 @@
 {
-  "id": "raithmarid",
-  "name": "Raith'Marid",
+  "id": "rattlebone",
+  "name": "Rattlebone",
   "faction": "Shaper",
-  "source": "Characters/raithmarid/",
+  "source": "Characters/rattlebone/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -15,11 +15,11 @@
   ],
   "champion": {
     "stats": {
-      "plotSpeed": "1",
-      "clashSpeed": "1",
-      "dodge": "2",
+      "plotSpeed": "3",
+      "clashSpeed": "2",
+      "dodge": "3",
       "protection": "3",
-      "health": "7"
+      "health": "6"
     },
     "factionTrait": {
       "name": "Shaper Champion",
@@ -27,19 +27,19 @@
     },
     "uniqueTraits": [
       {
-        "name": "Rippling Scales",
-        "text": "When a Splashling leaves the battlefield, Raith'Marid may gain the boon of your choice."
+        "name": "Roll the Bones",
+        "text": "At the end of Rattlebone's activation, roll one die. If you roll a 1 or 2, you may remove a boon or blight from a model within that many hexes of Rattlebone and place it on a different model within that many hexes."
       }
     ],
     "ultimate": {
-      "name": "Tsunami",
+      "name": "Power Hex",
       "skillIcon": "skill_area",
       "mustTarget": "-",
-      "text": "Place Raith'Marid on a hex within range. Then move each enemy model within 2 hexes of him up to 2 hexes in the order of your choice.",
+      "text": "Choose one blight for each Hexling within range. Each enemy champion within range gains those blights.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "3",
+          "range": "2",
           "accuracy": "-",
           "damage": "-"
         }
@@ -47,43 +47,29 @@
     },
     "plotSkills": [
       {
-        "name": "Undertow",
-        "skillIcon": "skill_area",
-        "mustTarget": "-",
-        "text": "Choose an empty objective hex within range. Place it on an empty non-objective hex within range.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Ker-Splash",
-        "skillIcon": "skill_self",
-        "mustTarget": "-",
-        "text": "Choose a hex within range containing one Splashling. Remove the Splashling and place Raith'Marid in that hex.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Jet",
+        "name": "Call Totems",
         "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Move a Splashling within range up to 3 hexes.",
+        "text": "Remove any number of Hexlings from the battlefield. Then place them on hexes within 2 hexes of Rattlebone.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Grasping Curse",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {move_blight} or {dodge_blight}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "2",
-            "accuracy": "-",
+            "accuracy": "6",
             "damage": "-"
           }
         ]
@@ -91,71 +77,58 @@
     ],
     "clashSkills": [
       {
-        "name": "Ker-Splash",
-        "skillIcon": "skill_self",
+        "name": "Cursed Ground",
+        "skillIcon": "skill_area",
         "mustTarget": "-",
-        "text": "Choose a hex within range containing one Splashling. Remove the Splashling and place Raith'Marid in that hex.",
+        "text": "Place up to two objective hexes on empty non-objective hexes within range. Remove them at the end of the clash phase.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "3",
+            "range": "2",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Headbutt",
+        "name": "Deadly Curse",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Move target up to 1 hex.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "5",
-            "damage": "5"
-          }
-        ]
-      },
-      {
-        "name": "Lunging Strike",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "Before the hit roll, move Raith'Marid up to 1 hex towards the target.",
+        "text": "Hit Effect: Inflict {accuracy_die_blight} or {damage_die_blight}.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "2",
-            "accuracy": "6",
-            "damage": "4"
+            "accuracy": "4",
+            "damage": "6"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Splashlings",
-    "units": 3,
+    "name": "Hexlings",
+    "units": 5,
+    "size": "small",
     "stats": {
-      "plotSpeed": "0",
-      "clashSpeed": "0",
-      "dodge": "4",
-      "protection": "1",
+      "plotSpeed": "2",
+      "clashSpeed": "2",
+      "dodge": "3",
+      "protection": "2",
       "health": "1"
     },
     "traits": [
       {
-        "name": "Like Water",
-        "text": "Once per phase during the Splashlings' activation, you may choose a boon on Raith'Marid. The Splashlings gain that boon."
+        "name": "Hex Eaters",
+        "text": "When Rattlebone rolls a blank on her Roll the Bones roll, the Hexlings may gain the boon of your choice."
       }
     ],
     "plotSkills": [
       {
-        "name": "Current",
+        "name": "Attune Magic",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "You may place each Splashling in a hex up to 3 hexes from its current hex.",
+        "text": "Gain the boon of your choice.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -166,27 +139,27 @@
         ]
       },
       {
-        "name": "Tide",
+        "name": "Hex Bolt",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Move target up to 1 hex.",
+        "text": "Hit Effect: The target gains the blight of your choice.",
         "statProfiles": [
           {
             "figuresInHex": 1,
             "range": "2",
-            "accuracy": "5",
+            "accuracy": "2",
             "damage": "-"
           },
           {
             "figuresInHex": 2,
             "range": "2",
-            "accuracy": "6",
+            "accuracy": "4",
             "damage": "-"
           },
           {
             "figuresInHex": 3,
             "range": "2",
-            "accuracy": "7",
+            "accuracy": "6",
             "damage": "-"
           }
         ]
@@ -194,41 +167,41 @@
     ],
     "clashSkills": [
       {
-        "name": "Current",
-        "skillIcon": "skill_self",
+        "name": "Purge Magic",
+        "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "You may place each Splashling in a hex up to 3 hexes from its current hex.",
+        "text": "Move all boons and blights from the Hexlings to a friendly model within range.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "-",
+            "range": "2",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Tide",
+        "name": "Hex Bolt",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Move target up to 1 hex.",
+        "text": "Hit Effect: The target gains the blight of your choice.",
         "statProfiles": [
           {
             "figuresInHex": 1,
             "range": "2",
-            "accuracy": "5",
+            "accuracy": "2",
             "damage": "-"
           },
           {
             "figuresInHex": 2,
             "range": "2",
-            "accuracy": "6",
+            "accuracy": "4",
             "damage": "-"
           },
           {
             "figuresInHex": 3,
             "range": "2",
-            "accuracy": "7",
+            "accuracy": "6",
             "damage": "-"
           }
         ]

@@ -1,8 +1,8 @@
 {
-  "id": "blackjaw",
-  "name": "Blackjaw",
-  "faction": "Maelstrom",
-  "source": "Characters/blackjaw/",
+  "id": "sneaky-peet",
+  "name": "Sneaky Peet",
+  "faction": "Slayer",
+  "source": "Characters/sneaky-peet/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -11,46 +11,76 @@
     "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
     "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
     "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
-    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
+    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}.\""
   ],
   "champion": {
     "stats": {
       "plotSpeed": "3",
-      "clashSpeed": "2",
-      "dodge": "3",
-      "protection": "2",
-      "health": "8"
+      "clashSpeed": "1",
+      "dodge": "5",
+      "protection": "1",
+      "health": "5"
     },
     "factionTrait": {
-      "name": "Maelstrom Champion",
-      "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+      "name": "Slayer Champion",
+      "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
     },
     "uniqueTraits": [
       {
-        "name": "Wildfire",
-        "text": "If Blackjaw knocks out a follower during his activation, he may make a bonus action that activation."
+        "name": "Gang Boss",
+        "text": "Sneaky Peet's skills have +1 {accuracy_die} for each Sneaky Stabber adjacent to the target."
       }
     ],
     "ultimate": {
-      "name": "Fire Storm",
+      "name": "Pounce",
       "skillIcon": "skill_enemy",
-      "mustTarget": "follower",
-      "text": "This skill may target up to five followers on any hexes within range.",
+      "mustTarget": "-",
+      "text": "Before the hit roll, you may place Sneaky Peet on a hex adjacent to the target.",
       "statProfiles": [
         {
           "figuresInHex": "-",
           "range": "2",
           "accuracy": "6",
-          "damage": "5"
+          "damage": "6"
         }
       ]
     },
     "plotSkills": [
       {
-        "name": "Hotfoot",
+        "name": "Leap",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "You may place Sneaky Peet on a hex up to 2 hexes from his current hex.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Backstab",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "If this attack hits a champion, the champion gains 1 wound.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "1",
+            "accuracy": "5",
+            "damage": "5"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Plot Revenge",
         "skillIcon": "skill_friendly",
         "mustTarget": "-",
-        "text": "Grant {move_boon}",
+        "text": "Grant {accuracy_die_boon}",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -61,88 +91,58 @@
         ]
       },
       {
-        "name": "Evil Eye",
+        "name": "Annoy",
         "skillIcon": "skill_enemy",
-        "mustTarget": "follower",
-        "text": "Inflict {protection_blight}",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 2 hexes toward Sneaky Peet.",
         "statProfiles": [
           {
             "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "6",
+            "range": "3",
+            "accuracy": "5",
             "damage": "-"
           }
         ]
-      }
-    ],
-    "clashSkills": [
+      },
       {
-        "name": "Kick",
+        "name": "Backstab",
         "skillIcon": "skill_enemy",
-        "mustTarget": "follower",
-        "text": "",
+        "mustTarget": "-",
+        "text": "If this attack hits a champion, the champion gains 1 wound.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "1",
-            "accuracy": "6",
-            "damage": "6"
-          }
-        ]
-      },
-      {
-        "name": "Fiery Axe",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "This skill may target up to three models in one hex.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "1",
-            "accuracy": "4",
-            "damage": "5"
-          }
-        ]
-      },
-      {
-        "name": "Fireball",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "This skill may target up to three models in one hex.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "2",
             "accuracy": "5",
-            "damage": "4"
+            "damage": "5"
           }
         ]
       }
     ]
   },
   "followers": {
-    "name": "Unburnt Reavers",
-    "units": 5,
+    "name": "Sneaky Stabbers",
+    "units": 3,
     "size": "small",
     "stats": {
       "plotSpeed": "3",
-      "clashSpeed": "2",
-      "dodge": "3",
-      "protection": "2",
+      "clashSpeed": "1",
+      "dodge": "5",
+      "protection": "1",
       "health": "1"
     },
     "traits": [
       {
-        "name": "Fearsome",
-        "text": "If a small enemy is within 3 hexes of one or more Unburnt Reavers and has fewer than three models in its hex, all of its skills have -1 {accuracy_die}."
+        "name": "Small and Sneaky",
+        "text": "Sneaky Stabbers may move through other models' hexes but cannot end their movement on those hexes."
       }
     ],
     "plotSkills": [
       {
-        "name": "Rush",
+        "name": "Sprint",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Choose a hex. Each Unburnt Reaver in that hex may move up to 2 hexes.",
+        "text": "One Sneaky Stabber may move up to 3 hexes.",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -153,49 +153,7 @@
         ]
       },
       {
-        "name": "Intimidation",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "Inflict {dodge_blight}",
-        "statProfiles": [
-          {
-            "figuresInHex": 1,
-            "range": "1",
-            "accuracy": "2",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 2,
-            "range": "1",
-            "accuracy": "4",
-            "damage": "-"
-          },
-          {
-            "figuresInHex": 3,
-            "range": "1",
-            "accuracy": "6",
-            "damage": "-"
-          }
-        ]
-      }
-    ],
-    "clashSkills": [
-      {
-        "name": "War Cry",
-        "skillIcon": "skill_self",
-        "mustTarget": "-",
-        "text": "Gain {accuracy_die_boon}",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "-",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Cleaving Strike",
+        "name": "Let Me Do It!",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
         "text": "",
@@ -203,20 +161,62 @@
           {
             "figuresInHex": 1,
             "range": "1",
-            "accuracy": "3",
+            "accuracy": "7",
             "damage": "4"
           },
           {
             "figuresInHex": 2,
             "range": "1",
-            "accuracy": "4",
+            "accuracy": "5",
             "damage": "5"
           },
           {
             "figuresInHex": 3,
             "range": "1",
-            "accuracy": "5",
+            "accuracy": "3",
             "damage": "6"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Sneak",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "Remove one Sneaky Stabber from the battlefield. Then make a recruit action.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
+            "accuracy": "-",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Irritate",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Inflict {accuracy_die_blight}.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "3",
+            "accuracy": "3",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "3",
+            "accuracy": "5",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "3",
+            "accuracy": "7",
+            "damage": "-"
           }
         ]
       }

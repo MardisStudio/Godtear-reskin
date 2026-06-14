@@ -1,8 +1,8 @@
 {
-  "id": "jaak",
-  "name": "Jaak",
-  "faction": "Guardian",
-  "source": "Characters/jaak/",
+  "id": "rangosh",
+  "name": "Rangosh",
+  "faction": "Slayer",
+  "source": "Characters/rangosh/",
   "iconReference": "icons.json",
   "iconPlaceholderFormat": "{icon_id}",
   "extractionNotes": [
@@ -16,30 +16,30 @@
   "champion": {
     "stats": {
       "plotSpeed": "3",
-      "clashSpeed": "1",
+      "clashSpeed": "2",
       "dodge": "4",
       "protection": "2",
       "health": "7"
     },
     "factionTrait": {
-      "name": "Guardian Champion",
-      "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+      "name": "Slayer Champion",
+      "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
     },
     "uniqueTraits": [
       {
-        "name": "Battlefield Brew",
-        "text": "If Jaak's banner is on the battlefield, after he takes each action you may remove a wound from another friendly model within two hexes of Jaak."
+        "name": "Brutal Master",
+        "text": "Once per hit roll or damage roll before rolling the dice, you may remove one Red Bandit from a hex within 3 hexes of Rangosh to add 1 die to Rangosh's roll."
       }
     ],
     "ultimate": {
-      "name": "Dubious Remedy",
+      "name": "Beastly Charge",
       "skillIcon": "skill_area",
       "mustTarget": "-",
-      "text": "Choose any number of champions and large followers within range. Roll a die for each one and add 1 to the result. Remove up to that many wounds from that model.",
+      "text": "Move Rangosh up to 2 hexes. Then you may place up to 2 wounds on an enemy within range.",
       "statProfiles": [
         {
           "figuresInHex": "-",
-          "range": "2",
+          "range": "1",
           "accuracy": "-",
           "damage": "-"
         }
@@ -47,40 +47,10 @@
     },
     "plotSkills": [
       {
-        "name": "Tortoise Shavings",
-        "skillIcon": "skill_friendly",
-        "mustTarget": "-",
-        "text": "Grant {protection_boon}",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "-",
-            "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Spider Staff",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "Hit Effect: Inflict {dodge_blight}.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "2",
-            "accuracy": "4",
-            "damage": "6"
-          }
-        ]
-      }
-    ],
-    "clashSkills": [
-      {
-        "name": "Foot of Rabbit",
+        "name": "Channel Rage",
         "skillIcon": "skill_self",
         "mustTarget": "-",
-        "text": "Gain {move_boon}",
+        "text": "Gain {damage_die_boon}",
         "statProfiles": [
           {
             "figuresInHex": "-",
@@ -91,7 +61,7 @@
         ]
       },
       {
-        "name": "Spider Staff",
+        "name": "Break Spirit",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
         "text": "Hit Effect: Inflict {dodge_blight}.",
@@ -99,109 +69,152 @@
           {
             "figuresInHex": "-",
             "range": "2",
-            "accuracy": "4",
-            "damage": "6"
-          }
-        ]
-      }
-    ]
-  },
-  "followers": {
-    "name": "Cauldron Cronies",
-    "units": 3,
-    "stats": {
-      "plotSpeed": "3",
-      "clashSpeed": "1",
-      "dodge": "4",
-      "protection": "1",
-      "health": "1"
-    },
-    "traits": [
-      {
-        "name": "Missing Ingredient",
-        "text": "While Jaak's banner is on the battlefield, the Cauldron Cronies skills have +1 {accuracy} and +1 {damage}."
-      }
-    ],
-    "plotSkills": [
-      {
-        "name": "Deploy Cauldron",
-        "skillIcon": "skill_area",
-        "mustTarget": "-",
-        "text": "If Jaak is in range, he may take a claim action. Place his banner on an objective hex adjacent to this Cauldron Crony.",
-        "statProfiles": [
-          {
-            "figuresInHex": "-",
-            "range": "3",
-            "accuracy": "-",
+            "accuracy": "6",
             "damage": "-"
-          }
-        ]
-      },
-      {
-        "name": "Eye of Newt",
-        "skillIcon": "skill_enemy",
-        "mustTarget": "-",
-        "text": "",
-        "statProfiles": [
-          {
-            "figuresInHex": 1,
-            "range": "2",
-            "accuracy": "5",
-            "damage": "3"
-          },
-          {
-            "figuresInHex": 2,
-            "range": "2",
-            "accuracy": "4",
-            "damage": "4"
-          },
-          {
-            "figuresInHex": 3,
-            "range": "2",
-            "accuracy": "3",
-            "damage": "5"
           }
         ]
       }
     ],
     "clashSkills": [
       {
-        "name": "Toil and Trouble",
-        "skillIcon": "skill_area",
+        "name": "Jawbreaker",
+        "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Choose a friendly banner within range. Place it on an objective hex adjacent to any Cauldron Crony within range.",
+        "text": "Hit Effect: Move target up to 1 hex away from Rangosh.",
         "statProfiles": [
           {
             "figuresInHex": "-",
             "range": "1",
+            "accuracy": "3",
+            "damage": "7"
+          }
+        ]
+      },
+      {
+        "name": "Whiplash",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: Move target up to 1 hex toward Rangosh.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "2",
+            "accuracy": "5",
+            "damage": "5"
+          }
+        ]
+      }
+    ]
+  },
+  "followers": {
+    "name": "Red Bandits",
+    "units": 5,
+    "size": "small",
+    "stats": {
+      "plotSpeed": "2",
+      "clashSpeed": "2",
+      "dodge": "3",
+      "protection": "2",
+      "health": "1"
+    },
+    "traits": [
+      {
+        "name": "Stolen Treasure",
+        "text": "If the Red Bandits cause an enemy model to gain a wound when they use a skill action, they may gain one boon of your choice."
+      }
+    ],
+    "plotSkills": [
+      {
+        "name": "Induct",
+        "skillIcon": "skill_self",
+        "mustTarget": "-",
+        "text": "If the Red Bandits are below their maximum unit size, add one to a hex containing at least one Red Bandit.",
+        "statProfiles": [
+          {
+            "figuresInHex": "-",
+            "range": "-",
             "accuracy": "-",
             "damage": "-"
           }
         ]
       },
       {
-        "name": "Aggressive Chant",
+        "name": "Ambush",
         "skillIcon": "skill_enemy",
         "mustTarget": "-",
-        "text": "Hit Effect: Move target up to 1 hex.",
+        "text": "Hit Effect: The target gains 1 wound.",
         "statProfiles": [
           {
             "figuresInHex": 1,
-            "range": "2",
+            "range": "1",
             "accuracy": "3",
             "damage": "-"
           },
           {
             "figuresInHex": 2,
-            "range": "2",
+            "range": "1",
             "accuracy": "4",
             "damage": "-"
           },
           {
             "figuresInHex": 3,
-            "range": "2",
-            "accuracy": "6",
+            "range": "1",
+            "accuracy": "5",
             "damage": "-"
+          }
+        ]
+      }
+    ],
+    "clashSkills": [
+      {
+        "name": "Ambush",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "Hit Effect: The target gains 1 wound.",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "1",
+            "accuracy": "3",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "1",
+            "accuracy": "4",
+            "damage": "-"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "1",
+            "accuracy": "5",
+            "damage": "-"
+          }
+        ]
+      },
+      {
+        "name": "Shoot",
+        "skillIcon": "skill_enemy",
+        "mustTarget": "-",
+        "text": "",
+        "statProfiles": [
+          {
+            "figuresInHex": 1,
+            "range": "3",
+            "accuracy": "3",
+            "damage": "4"
+          },
+          {
+            "figuresInHex": 2,
+            "range": "3",
+            "accuracy": "4",
+            "damage": "4"
+          },
+          {
+            "figuresInHex": 3,
+            "range": "3",
+            "accuracy": "5",
+            "damage": "4"
           }
         ]
       }
