@@ -1,0 +1,5491 @@
+{
+  "count": 27,
+  "champions": [
+    {
+      "id": "blackjaw",
+      "name": "Darth Vader",
+      "faction": "Maelstrom",
+      "champion": {
+        "stats": {
+          "plotSpeed": "3",
+          "clashSpeed": "2",
+          "dodge": "3",
+          "protection": "2",
+          "health": "8"
+        },
+        "factionTrait": {
+          "name": "Maelstrom Champion",
+          "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Dark Side Fury",
+            "text": "If Darth Vader knocks out a follower during his activation, he may make a bonus action that activation."
+          }
+        ],
+        "ultimate": {
+          "name": "Force Storm",
+          "skillIcon": "skill_enemy",
+          "mustTarget": "follower",
+          "text": "This skill may target up to five followers on any hexes within range.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "2",
+              "accuracy": "6",
+              "damage": "5"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Forced March",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Grant {move_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Force Choke",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "follower",
+            "text": "Inflict {protection_blight}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Force Push",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "follower",
+            "text": "",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "6",
+                "damage": "6"
+              }
+            ]
+          },
+          {
+            "name": "Lightsaber Slash",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill may target up to three models in one hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "4",
+                "damage": "5"
+              }
+            ]
+          },
+          {
+            "name": "Saber Throw",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill may target up to three models in one hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "5",
+                "damage": "4"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "501st Legion",
+        "units": 5,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "3",
+          "clashSpeed": "2",
+          "dodge": "3",
+          "protection": "2",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Vader's Fist",
+            "text": "If a small enemy is within 3 hexes of one or more 501st Legion and has fewer than three models in its hex, all of its skills have -1 {accuracy_die}."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Forward March",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Choose a hex. Each 501st Trooper in that hex may move up to 2 hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Suppressing Fire",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Inflict {dodge_blight}",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "2",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "4",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Take Aim",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {accuracy_die_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Blaster Volley",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "3",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "4",
+                "damage": "5"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "durthax",
+      "name": "Din Djarin",
+      "faction": "Guardian",
+      "champion": {
+        "stats": {
+          "plotSpeed": "0",
+          "clashSpeed": "1",
+          "dodge": "2",
+          "protection": "1",
+          "health": "14"
+        },
+        "factionTrait": {
+          "name": "Guardian Champion",
+          "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Creed of the Watch",
+            "text": "Once during Din Djarin's activation, choose a banner within 2 hexes of Din Djarin and place it on another empty objective hex within 2 hexes of them."
+          }
+        ],
+        "ultimate": {
+          "name": "This is the Way",
+          "skillIcon": "skill_friendly",
+          "mustTarget": "-",
+          "text": "Plot phase only. Din Djarin may use this skill as a bonus action. Every champion within range may take a claim action.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "3",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Jetpack Boost",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Place Din Djarin on a hex up to 2 hexes from their current hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Cover Fire",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Small followers within range gain {protection_boon}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Amban Rifle",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill gains {damage_die} equal to the amount the hit roll exceeds the target's {dodge}, to a maximum of 8 additional {damage_die}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "7",
+                "damage": "1*"
+              }
+            ]
+          },
+          {
+            "name": "Whistling Birds",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move the target up to 1 hex away from Din Djarin and remove 1 wound from Din Djarin.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "4",
+                "damage": "6"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Mandalorian Covert",
+        "units": 4,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "2",
+          "dodge": "4",
+          "protection": "1",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Hidden Covert",
+            "text": "Enemy champions and followers can't be placed or recruited in hexes adjacent to Mandalorian Covert."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Evasive Maneuver",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {dodge_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Flanking Fire",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move the target up to 1 hex away from this Mandalorian Covert and this Mandalorian Covert may move 1 hex toward the target.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "6",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Rally to the Mandalorian",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "If Din Djarin is within range, place them in a hex adjacent to this Mandalorian Covert.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Field Medic",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: You may remove 1 wound from Din Djarin.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "6",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "6",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "fenra",
+      "name": "Asajj Ventress",
+      "faction": "Maelstrom",
+      "champion": {
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "4",
+          "dodge": "5",
+          "protection": "1",
+          "health": "5"
+        },
+        "factionTrait": {
+          "name": "Maelstrom Champion",
+          "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Feral Instinct",
+            "text": "When Asajj Ventress knocks out an enemy follower, move a friendly model within 3 hexes of her up to 1 hex. Each model may only be moved once per activation using this trait."
+          }
+        ],
+        "ultimate": {
+          "name": "Hunt Them Down",
+          "skillIcon": "skill_friendly",
+          "mustTarget": "-",
+          "text": "Move another model within range up to 3 hexes.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "3",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Sic 'Em",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Followers within range move up to 2 hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Predator's Lunge",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Asajj Ventress moves up to 2 hexes towards the target.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Twin Sabers",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Target up to 3 models in a single hex. This skill has +1 {damage_die} for each hex adjacent to the target that contains one or more friendly followers.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "6",
+                "damage": "4*"
+              }
+            ]
+          },
+          {
+            "name": "Dark Reaping",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "follower",
+            "text": "This skill may target up to 2 followers within range. This skill has +1 {damage_die} for each hex adjacent to the target that contains one or more friendly followers.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "5",
+                "damage": "4*"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Anooba Pack",
+        "units": 4,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "3",
+          "dodge": "4",
+          "protection": "2",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Hunt in Packs",
+            "text": "When a Anooba uses a skill targeting a small follower it gains +3 {accuracy_die} if there are more followers in the Anooba's hex than in the target's hex."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Thick Hide",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {protection_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Encircle",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Place each Anooba within range of the target in a hex adjacent to the target.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "2",
+                "accuracy": "4",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "2",
+                "accuracy": "5",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "2",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Vicious Snarl",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move each follower model in the target's hex up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Hamstring",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move a Anooba up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "4",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "4",
+                "damage": "5"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "finvarr",
+      "name": "Emperor Palpatine",
+      "faction": "Guardian",
+      "champion": {
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "3",
+          "dodge": "4",
+          "protection": "3",
+          "health": "5"
+        },
+        "factionTrait": {
+          "name": "Guardian Champion",
+          "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Unlimited Power",
+            "text": "If Emperor Palpatine is on an objective hex, his skills have +2 {accuracy_die}."
+          }
+        ],
+        "ultimate": {
+          "name": "Hidden Hand",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "Choose any number of friendly banners within range. Place them on objective hexes within range.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "4",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Stalking Shadow",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {move_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Force Lightning",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move target up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Misdirection",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Choose a friendly banner within 2 hexes of Emperor Palpatine. Place it on an objective hex that is 1 hex away from its current hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Dark Side Edge",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {damage_die_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Dark Leech",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Remove up to 1 of Emperor Palpatine's wounds.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "4",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Imperial Royal Guard",
+        "units": 3,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "3",
+          "dodge": "4",
+          "protection": "2",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Loyal to the Throne",
+            "text": "If the Imperial Royal Guard do not make an advance action during their activation, each Royal Guard may move up to 1 hex when the activation ends."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Guard Stance",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Grant {protection_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Stun Net",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Inflict {move_blight}",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "4",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Dark Side Edge",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {damage_die_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Reinforce",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "If this skill knocks out an enemy while the Imperial Royal Guard are below their maximum unit size, add 1 Royal Guard to this hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "4",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "5"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "grimgut",
+      "name": "Jabba the Hutt",
+      "faction": "Maelstrom",
+      "champion": {
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "1",
+          "dodge": "2",
+          "protection": "2",
+          "health": "9"
+        },
+        "factionTrait": {
+          "name": "Maelstrom Champion",
+          "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Insatiable Appetite",
+            "text": "When Gamorrean Guards make a recruit action during Jabba the Hutt's activation, you may place the new Gamorrean Guard adjacent to any Gamorrean Guard placed during this activation."
+          }
+        ],
+        "ultimate": {
+          "name": "Palace Wrath",
+          "skillIcon": "skill_enemy",
+          "mustTarget": "follower",
+          "text": "This skill may target up to three followers on any hexes within range.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "1",
+              "accuracy": "7",
+              "damage": "7"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Summon the Court",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Remove all Gamorrean Guards from the battlefield. Then they make five recruit actions.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Foul Stench",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill targets each enemy champion and follower unit adjacent to one or more Gamorrean Guards. Hit Effect: Inflict {damage_die_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "*",
+                "accuracy": "4",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Drooling Spray",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill targets each enemy champion and follower unit adjacent to one or more Gamorrean Guards. Hit Effect: Inflict {move_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "*",
+                "accuracy": "4",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Hutt Slither",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Jabba the Hutt moves up to 3 hexes in a straight line.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Summon the Court",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Remove all Gamorrean Guards from the battlefield. Then they make five recruit actions.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Devour",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "follower",
+            "text": "",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "7",
+                "damage": "7"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Gamorrean Guards",
+        "units": 5,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "0",
+          "clashSpeed": "1",
+          "dodge": "2",
+          "protection": "1",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Brutish Guards",
+            "text": "When a Gamorrean Guard is knocked out, it is worth 0 steps instead of 1."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Lumbering Charge",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Gain {move_boon}. Two Gamorrean Guards may use this skill in the same activation if they are in different hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Axe Smash",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill may target up to three models in one hex. Two Gamorrean Guards may use this skill in the same activation if they are in different hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "2",
+                "accuracy": "3",
+                "damage": "5"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "2",
+                "accuracy": "4",
+                "damage": "5"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "2",
+                "accuracy": "5",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "halftusk",
+      "name": "Boss Nass",
+      "faction": "Guardian",
+      "champion": {
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "2",
+          "dodge": "3",
+          "protection": "3",
+          "health": "7"
+        },
+        "factionTrait": {
+          "name": "Guardian Champion",
+          "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Bombad Boss",
+            "text": "If Boss Nass does not have any wounds, his skills have +2 {accuracy_die}."
+          }
+        ],
+        "ultimate": {
+          "name": "Gungan Stand",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "Plot phase only. Boss Nass may make a claim action. Then choose {protection_boon} or {move_boon}. Friendly models within range gain the boon you chose.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "2",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Bombad Recovery",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Remove up to 2 of Boss Nass's wounds.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Bombad Footwork",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Grant {move_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Boomer Bluff",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Inflict {accuracy_die_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Bombad Recovery",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Remove up to 2 of Boss Nass's wounds.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Bombad Slam",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Boss Nass may use Double Slam this turn as a bonus action.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "6",
+                "damage": "4"
+              }
+            ]
+          },
+          {
+            "name": "Double Slam",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Boss Nass may move up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "4",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Gungan Militia",
+        "units": 3,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "3",
+          "dodge": "2",
+          "protection": "3",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Grand Army of the Gungans",
+            "text": "Gungan Militia may enter objective hexes."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Gungan Pride",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "This skill may be used only while on an objective hex. Gain {dodge_boon} and {protection_boon}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Bounce",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "You may place each Gungan in a hex up to 2 hexes from its current hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Booma Toss",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Move a friendly banner that is within range up to 1 hex toward this Gungan.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Energy Booma",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move target up to 1 hex toward this Gungan.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "2",
+                "accuracy": "5",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "2",
+                "accuracy": "6",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "2",
+                "accuracy": "7",
+                "damage": "-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "helena",
+      "name": "Leia Organa",
+      "faction": "Guardian",
+      "champion": {
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "2",
+          "dodge": "3",
+          "protection": "4",
+          "health": "4"
+        },
+        "factionTrait": {
+          "name": "Guardian Champion",
+          "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Rebel Leader",
+            "text": "Leia Organa cannot make claim actions. During the end phase, if she is not knocked out, Leia Organa counts as a banner for the purposes of gaining steps on the battle ladder."
+          }
+        ],
+        "ultimate": {
+          "name": "For the Rebellion!",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "Follower units of all friendly champions in range, immediately make recruit actions up to maximum unit size.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "2",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Reinforcements",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "The Rebel Troopers immediately make up to 2 recruit actions.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Lead the Charge",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Move Leia Organa up to 1 hex. Then move each Rebel Trooper that is within range up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Blaster Bolt",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move target up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Hope's Light",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "5",
+                "damage": "4"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Rebel Troopers",
+        "units": 6,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "2",
+          "dodge": "3",
+          "protection": "1",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "For the Rebellion",
+            "text": "A Rebel Trooper has +1 {dodge} and {protection} while it is within 2 hexes of Leia Organa."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Cover the Princess",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "If Leia Organa is within range, remove up to 1 wound from Leia Organa.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Suppressing Fire",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "inflict {accuracy_die_blight}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "3",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Cover the Princess",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "If Leia Organa is within range, remove up to 1 wound from Leia Organa.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "For Freedom!",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill gains +1 {accuracy_die} and +1 {damage_die} for each Rebel Trooper adjacent to the target.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "0*",
+                "damage": "0*"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "0*",
+                "damage": "0*"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "0*",
+                "damage": "0*"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "jaak",
+      "name": "Mother Talzin",
+      "faction": "Guardian",
+      "champion": {
+        "stats": {
+          "plotSpeed": "3",
+          "clashSpeed": "1",
+          "dodge": "4",
+          "protection": "2",
+          "health": "7"
+        },
+        "factionTrait": {
+          "name": "Guardian Champion",
+          "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Nightsister Magicks",
+            "text": "If Mother Talzin's banner is on the battlefield, after he takes each action you may remove a wound from another friendly model within two hexes of Mother Talzin."
+          }
+        ],
+        "ultimate": {
+          "name": "Dark Ritual",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "Choose any number of champions and large followers within range. Roll a die for each one and add 1 to the result. Remove up to that many wounds from that model.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "2",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Witch's Ward",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Grant {protection_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Ichor Curse",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {dodge_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "4",
+                "damage": "6"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Spirit Step",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {move_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Ichor Curse",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {dodge_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "4",
+                "damage": "6"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Nightsisters",
+        "units": 5,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "3",
+          "clashSpeed": "1",
+          "dodge": "4",
+          "protection": "1",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "The Coven",
+            "text": "While Mother Talzin's banner is on the battlefield, the Nightsisters skills have +1 {accuracy_die} and +1 {damage_die}."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Summoning Circle",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "If Mother Talzin is in range, he may take a claim action. Place his banner on an objective hex adjacent to this Cauldron Crony.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Hex Bolt",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "2",
+                "accuracy": "5",
+                "damage": "3"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "2",
+                "accuracy": "4",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "2",
+                "accuracy": "3",
+                "damage": "5"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Dark Magick",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Choose a friendly banner within range. Place it on an objective hex adjacent to any Cauldron Crony within range.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Cackling Hex",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {dodge_blight}. Move target up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "2",
+                "accuracy": "3",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "2",
+                "accuracy": "4",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "2",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "jeen",
+      "name": "Hondo Ohnaka",
+      "faction": "Maelstrom",
+      "champion": {
+        "stats": {
+          "plotSpeed": "3",
+          "clashSpeed": "1",
+          "dodge": "3",
+          "protection": "3",
+          "health": "5"
+        },
+        "factionTrait": {
+          "name": "Maelstrom Champion",
+          "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Pirate's Cunning",
+            "text": "After Hondo Ohnaka gains 1 or more wounds from an enemy skill, she may gain {protection_boon} or {dodge_boon}."
+          }
+        ],
+        "ultimate": {
+          "name": "Plunder Run",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "Move Hondo Ohnaka up to 2 hexes. Then move each other friendly model within range up to 2 hexes in the order of your choice.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "2",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Pirate's Flurry",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill may target up to 3 models in 1 hex. After using Pirate's Flurry, move Hondo Ohnaka up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "5",
+                "damage": "5"
+              }
+            ]
+          },
+          {
+            "name": "Quick Draw",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "follower",
+            "text": "Hondo Ohnaka may use this skill as a bonus action.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "3",
+                "damage": "3"
+              }
+            ]
+          },
+          {
+            "name": "Sweeping Blasters",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Choose up to 2 hexes within range that are adjacent to each other. This skill can target 1 model in each of those hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "4",
+                "damage": "4"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Lock and Load",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {damage_die_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Press the Attack",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Grant {move_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Sweeping Blasters",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Choose up to 2 hexes within range that are adjacent to each other. This skill can target 1 model in each of those hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "4",
+                "damage": "4"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Ohnaka Gang",
+        "units": 4,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "3",
+          "clashSpeed": "1",
+          "dodge": "3",
+          "protection": "3",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Weequay Pirates",
+            "text": "At the end of the Ohnaka Gang' activation, choose a hex adjacent to a Ohnaka Pirate. You may move each enemy follower in that hex up to 1 hex."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Skirmish",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "One Ohnaka Pirate may move up to 3 hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Hit and Run",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "After using Hit and Run, each Ohnaka Pirate in this hex may move up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "3",
+                "damage": "5"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "7",
+                "damage": "3"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Pirate's Guard",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {protection_boon} or {dodge_boon}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Press the Attack",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Grant {move_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kailinn",
+      "name": "Obi-Wan Kenobi",
+      "faction": "Maelstrom",
+      "champion": {
+        "stats": {
+          "plotSpeed": "4",
+          "clashSpeed": "4",
+          "dodge": "3",
+          "protection": "2",
+          "health": "7"
+        },
+        "factionTrait": {
+          "name": "Maelstrom Champion",
+          "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+        },
+        "uniqueTraits": [
+          {
+            "name": "The High Ground",
+            "text": "Obi-Wan Kenobi cannot enter objective hexes. During her activation she may enter small followers hexes. If she ends her movement on a hex containing small followers, move each small follower into an adjacent hex."
+          }
+        ],
+        "ultimate": {
+          "name": "Soresu Riposte",
+          "skillIcon": "skill_area",
+          "mustTarget": "follower",
+          "text": "Move Obi-Wan Kenobi up to 1 hex. Then you may choose an enemy follower within range to gain wounds until it is knocked out. You move the turn token an extra +2 steps instead of the usual maelstrom bonus for this knock out.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "1",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Force Leap",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Place Obi-Wan Kenobi on a hex up to 2 hexes from her current hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Guiding Light",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Move Obi-Wan Kenobi up to 1 hex. Then move one friendly champion within range up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Resolute Charge",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "If Obi-Wan Kenobi made an advance action this activation, Resolute Charge is a bonus action.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "4",
+                "damage": "6"
+              }
+            ]
+          },
+          {
+            "name": "Flashing Saber",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill may target up to two followers that are in different hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "5",
+                "damage": "6"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Jedi Temple Guards",
+        "units": 2,
+        "size": "large",
+        "stats": {
+          "plotSpeed": "4",
+          "clashSpeed": "2",
+          "dodge": "3",
+          "protection": "2",
+          "health": "4"
+        },
+        "traits": [
+          {
+            "name": "Guardians of the Temple",
+            "text": "Immediately after a Temple Guard uses a skill, the other Temple Guard may use the same skill as part of the same action."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Patience",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "If Obi-Wan Kenobi is within range, she gains a boon of your choice.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Compassion",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Move this Temple Guard up to 1 hex. Then move one friendly follower within range up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Serenity",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {dodge_boon}. You may move this Temple Guard up to 2 hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Justice",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "If the Jedi Temple Guards made an advance action this activation, Justice has +1 {damage_die}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "5",
+                "damage": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "keera",
+      "name": "Nute Gunray",
+      "faction": "Slayer",
+      "champion": {
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "2",
+          "dodge": "3",
+          "protection": "2",
+          "health": "6"
+        },
+        "factionTrait": {
+          "name": "Slayer Champion",
+          "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Viceroy's Authority",
+            "text": "The range of Nute Gunray's skill_enemy skills must be determined from a Droideka within 3 hexes of her."
+          }
+        ],
+        "ultimate": {
+          "name": "Invasion",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "Each enemy champion that is within 2 hexes of 1 or more Droidekas gains 1 wound.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "-",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Deploy Destroyers",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "The Droidekas may make an advance action or a recruit action.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Viceroy's Command",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "If a Droideka is within range they gain {accuracy_die_boon}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Deploy Destroyers",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "The Droidekas may make an advance action or a recruit action.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Crush Them",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: If the target is a champion it gains 1 wound.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "4",
+                "damage": "7"
+              }
+            ]
+          },
+          {
+            "name": "Concentrated Fire",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {protection_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "7",
+                "damage": "4"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Droidekas",
+        "units": 2,
+        "size": "large",
+        "stats": {
+          "plotSpeed": "3",
+          "clashSpeed": "3",
+          "dodge": "2",
+          "protection": "2",
+          "health": "5"
+        },
+        "traits": [
+          {
+            "name": "Deflector Shields",
+            "text": "During an advance action, the Droidekas may move through other models' hexes but cannot end their movement on those hexes."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Power Up",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {damage_die_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Suppressing Fire",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {dodge_blight}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Blaster Barrage",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: If the target is a champion it gains 1 wound.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "3",
+                "damage": "5"
+              }
+            ]
+          },
+          {
+            "name": "Twin Cannons",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {protection_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "5",
+                "damage": "3"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "lily",
+      "name": "Yoda",
+      "faction": "Shaper",
+      "champion": {
+        "stats": {
+          "plotSpeed": "3",
+          "clashSpeed": "3",
+          "dodge": "4",
+          "protection": "1",
+          "health": "7"
+        },
+        "factionTrait": {
+          "name": "Shaper Champion",
+          "text": "A shaper moves the turn token +1 step when they make a claim action."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Size Matters Not",
+            "text": "After one of her actions, Yoda may place a status effect token of her choice in an adjacent empty hex. When a model enters a hex with a token, move it onto them after they end their movement."
+          }
+        ],
+        "ultimate": {
+          "name": "Living Barricade",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "Remove any number of Ewoks from the battlefield and place them on objective hexes within range. Ewoks on objective hexes cannot make advance actions or be moved by enemy skills.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "4",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Levitate",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Move one objective hex within range 1 hex onto an empty non-objective hex. Models on the objective hex move with it.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Living Force",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Place a status effect token of your choice in an empty hex within range. When a model enters a hex with a token, move it onto them after they end their movement.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Force Push",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move each friendly and enemy model in hexes adjacent to the target up to 1 hex away from the target.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Force Wave",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move all models in the target's hex up to 2 hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Ewoks",
+        "units": 5,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "2",
+          "dodge": "2",
+          "protection": "3",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Tribe of Endor",
+            "text": "When the Ewoks make a recruit action, you may recruit one, two, or three Ewoks to the hex."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Hide",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Remove any number of Ewoks from the battlefield. Then take a recruit action for each Ewok this skill removed from the battlefield.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Snare Trap",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {move_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "2",
+                "accuracy": "2",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "2",
+                "accuracy": "4",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "2",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "War Drums",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {accuracy_die_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Spear Jab",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "If the hit roll total equals the target's dodge exactly, this skill has +3 {damage_die}.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "2",
+                "accuracy": "2",
+                "damage": "4*"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "2",
+                "accuracy": "4",
+                "damage": "4*"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "2",
+                "accuracy": "6",
+                "damage": "4*"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "lorsann",
+      "name": "Cassian Andor",
+      "faction": "Slayer",
+      "champion": {
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "3",
+          "dodge": "4",
+          "protection": "1",
+          "health": "6"
+        },
+        "factionTrait": {
+          "name": "Slayer Champion",
+          "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Rebel Spy",
+            "text": "After Cassian Andor uses a skill that inflicts 1 or more wounds, she may move up to 1 hex."
+          }
+        ],
+        "ultimate": {
+          "name": "Kill Shot",
+          "skillIcon": "skill_enemy",
+          "mustTarget": "-",
+          "text": "Hit Effect: The target gains 2 wounds.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "3",
+              "accuracy": "6",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Recon Intel",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Grant {damage_die_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Marked Target",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {protection_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Sniper Shot",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: The target gains 1 wound.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Double Tap",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "After the double tap damage roll, make a 5 {damage_die} damage roll against the target.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "3",
+                "damage": "5"
+              }
+            ]
+          },
+          {
+            "name": "Headshot",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "8",
+                "damage": "4"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Rebel Pathfinders",
+        "units": 3,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "3",
+          "dodge": "3",
+          "protection": "1",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Pathfinder Squad",
+            "text": "When the target is a wounded enemy champion, the Rebel Pathfinders' skills have +1 {damage_die}."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Take Cover",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {dodge_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Marked Target",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {protection_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "3",
+                "accuracy": "3",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "3",
+                "accuracy": "4",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "3",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Take Aim",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {accuracy_die_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Open Fire",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "3",
+                "accuracy": "3",
+                "damage": "3"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "3",
+                "accuracy": "4",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "3",
+                "accuracy": "5",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "luella",
+      "name": "Bo-Katan Kryze",
+      "faction": "Maelstrom",
+      "champion": {
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "2",
+          "dodge": "2",
+          "protection": "3",
+          "health": "7"
+        },
+        "factionTrait": {
+          "name": "Maelstrom Champion",
+          "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Rightful Heir",
+            "text": "When Bo-Katan Kryze makes an advance action, she may gain +1 {speed} for that action. If she does, she must move in a straight line."
+          }
+        ],
+        "ultimate": {
+          "name": "Jetpack Dive",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "Move Bo-Katan Kryze up to 2 hexes. Then make a 3 {damage_die} damage roll against each enemy within range.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "1",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Afterburners",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Grant {move_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Strafing Run",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "If Bo-Katan Kryze moved 3 or more hexes this activation, Strafing Run is a bonus action. Hit Effect: Inflict {dodge_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Afterburners",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Grant {move_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Thunderbolt Strike",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "If Bo-Katan Kryze moved 3 or more hexes this activation, Thunderbolt Strike is a bonus action.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "4",
+                "damage": "5"
+              }
+            ]
+          },
+          {
+            "name": "Wrist Blasters",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: After the Wrist Blasters damage roll, Bo-Katan Kryze may make a 3 {damage_die} damage roll against up to 2 other models within 1 hex of the target's hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "6",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Nite Owls",
+        "units": 3,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "2",
+          "dodge": "2",
+          "protection": "4",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Nite Owl Squadron",
+            "text": "At the end of the Nite Owls' activation, if any Nite Owls are adjacent to Bo-Katan Kryze, Bo-Katan Kryze gains {protection_boon}."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Lock On",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {damage_die_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Advance",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Move each Nite Owl up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Advance",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Move each Nite Owl up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Jetpack Slam",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "6",
+                "damage": "3"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "6",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "6",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "maxen",
+      "name": "Boba Fett",
+      "faction": "Slayer",
+      "champion": {
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "2",
+          "dodge": "3",
+          "protection": "3",
+          "health": "6"
+        },
+        "factionTrait": {
+          "name": "Slayer Champion",
+          "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Bounty Hunter",
+            "text": "When Boba Fett knocks out an enemy champion, remove their banner from the battlefield."
+          }
+        ],
+        "ultimate": {
+          "name": "Bola Barrage",
+          "skillIcon": "skill_enemy",
+          "mustTarget": "-",
+          "text": "Remove up to 3 Assassin Droids from the battlefield. This skill has +2 {accuracy_die} and +2 {damage_die} for each Assassin Droid removed.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "3",
+              "accuracy": "2",
+              "damage": "2"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Stride",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Move Boba Fett up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Reactivate Droids",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "The Assassin Droids may immediately make a recruit action and may gain a boon of your choice.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Long Shot",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill has -1 {accuracy_die} for each hex between Boba Fett and his target. Hit Effect: The target gains 1 wound.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "6*",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Scattergun",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill has -1 {accuracy_die} and -1 {damage_die} for each hex between Boba Fett and his target. Hit Effect: Move target up to 1 hex away from Boba Fett.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "6*",
+                "damage": "6*"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Assassin Droids",
+        "units": 5,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "0",
+          "dodge": "3",
+          "protection": "2",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Targeting Protocols",
+            "text": "At the end of the Assassin Droids' activation, you may choose a friendly champion adjacent to a Assassin Droid model. That friendly champion gains {accuracy_die_boon}."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Redeploy",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "You may place each Assassin Droid up to 3 hexes from its current hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Vibroblade Slash",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill gains +1 {accuracy_die} for each Assassin Droid adjacent to the target. Hit Effect: Inflict {protection_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "2*",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Redeploy",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "You may place each Assassin Droid up to 3 hexes from its current hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Ambush Strike",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill gains +1 {accuracy_die} for each Assassin Droid adjacent to the target.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "2*",
+                "damage": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "morrigan",
+      "name": "Moff Gideon",
+      "faction": "Slayer",
+      "champion": {
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "2",
+          "dodge": "2",
+          "protection": "3",
+          "health": "6"
+        },
+        "factionTrait": {
+          "name": "Slayer Champion",
+          "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Imperial Remnant",
+            "text": "Moff Gideon gains a +2 bonus for boons instead of a +1 bonus."
+          }
+        ],
+        "ultimate": {
+          "name": "Stun Barrage",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "All enemies within range gain {dodge_blight} and {move_blight}.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "3",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Advance, Troopers!",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Move each Dark Troopers that is within range up to 2 hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "4",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Cold Command",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {protection_blight}. Move Moff Gideon up to 1 hex towards the target.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Relentless Assault",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "If this skill wounds its target, they gain wounds until they are knocked out.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "1",
+                "damage": "2"
+              }
+            ]
+          },
+          {
+            "name": "Beskar Blade",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: If the target has {move_blight}, {accuracy_die_blight}, or {damage_die_blight} it gains 1 wound.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "5",
+                "damage": "5"
+              }
+            ]
+          },
+          {
+            "name": "Blaster Volley",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {accuracy_die_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "7",
+                "damage": "3"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Dark Troopers",
+        "units": 5,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "1",
+          "dodge": "2",
+          "protection": "3",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Relentless Machines",
+            "text": "After an enemy model uses a skill to knock out one or more Dark Troopers, the enemy model gains {dodge_blight}."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "For the Moff",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "If Moff Gideon is within range, she gains {accuracy_die_boon} or {move_boon}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Concentrated Fire",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill has +1 {accuracy_die} for each Dark Troopers adjacent to the target. Hit Effect: Inflict {damage_die_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "1*",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "1*",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "1*",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Power Up",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {damage_die_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Overwhelm",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill has +1 {accuracy_die} for each Dark Troopers adjacent to the target.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "1*",
+                "damage": "3"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "1*",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "1*",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "mournblade",
+      "name": "Kylo Ren",
+      "faction": "Guardian",
+      "champion": {
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "2",
+          "dodge": "2",
+          "protection": "4",
+          "health": "1"
+        },
+        "factionTrait": {
+          "name": "Guardian Champion",
+          "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Heir to Vader",
+            "text": "When Kylo Ren is knocked out, he is worth 1 step instead of 4. When an enemy is knocked out, Kylo Ren may immediately make a rally action."
+          }
+        ],
+        "ultimate": {
+          "name": "Return from the Grave",
+          "skillIcon": "skill_friendly",
+          "mustTarget": "-",
+          "text": "Remove all Knights of Ren from the battlefield. Then place all three Knights of Ren on hexes that are within 3 hexes of Kylo Ren.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "-",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Sith Banner",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Kylo Ren makes a claim action. You may place his banner on any objective hex within range.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Advance, Knights!",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Move each Knight of Ren that is within range up to 2 hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "4",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Dark Tide",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "If Kylo Ren's banner is within range, place it on an objective hex within range.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Reanimate",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "All friendly champions within range may make a rally action.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Soul Harvest",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: The Knights of Ren make a recruit action.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "5",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Knights of Ren",
+        "units": 3,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "1",
+          "dodge": "2",
+          "protection": "3",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Blades of Ren",
+            "text": "Enemy models that make an advance action while they are adjacent to a Knight of Ren have speed 0 during that advance action."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Guard the Master",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "If Kylo Ren is within range, he gains {dodge_boon}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Recover the Master",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "If Kylo Ren is within range, he may make a rally action or move up to 2 hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Cold Resolve",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Grant {damage_die_boon}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Last Stand",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "If the Knights of Ren made a recruit action this activation, Last Stand has +1 {accuracy_die} and {damage_die}.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "4*",
+                "damage": "4*"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "5*",
+                "damage": "4*"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "5*",
+                "damage": "5*"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "nia",
+      "name": "Luke Skywalker",
+      "faction": "Shaper",
+      "champion": {
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "2",
+          "dodge": "4",
+          "protection": "2",
+          "health": "6"
+        },
+        "factionTrait": {
+          "name": "Shaper Champion",
+          "text": "A shaper moves the turn token +1 step when they make a claim action."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Jedi Master",
+            "text": "If all 3 Jedi Younglings are on the battlefield when Luke Skywalker activates, she may make a bonus action that activation."
+          }
+        ],
+        "ultimate": {
+          "name": "Kyber Forge",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "Plot phase only. Choose a Jedi Youngling that is the only model in its hex and is adjacent to an objective hex, and replace it with an objective hex. If it is within 2 hexes of Luke Skywalker, she may make a claim action on that hex.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "-",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Reflect",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Choose a boon on any model within range. Then choose a friendly model within range to gain that boon.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Meditation",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {accuracy_die_boon}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Advance",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Move Luke Skywalker up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Disrupt",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Choose a blight on any model within range. Then choose an enemy model within range to gain that blight.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Saber Cut",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {protection_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Blinding Flash",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {accuracy_die_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "4",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Jedi Younglings",
+        "units": 3,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "0",
+          "dodge": "2",
+          "protection": "4",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Jedi Academy",
+            "text": "When Luke Skywalker's banner is removed from the battlefield, the Jedi Younglings may immediately make a recruit action, even if it is the end phase."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Form Up",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "If this Jedi Youngling is the only model in its hex and is adjacent to an objective hex, replace it with an objective hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Force Hold",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {move_blight}",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "2",
+                "accuracy": "4",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "2",
+                "accuracy": "5",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "2",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Padawan Dash",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Each Jedi Youngling may move up to 3 hexes in a straight line.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Saber Throw",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "2",
+                "accuracy": "4",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "2",
+                "accuracy": "5",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "2",
+                "accuracy": "5",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "raithmarid",
+      "name": "Admiral Ackbar",
+      "faction": "Shaper",
+      "champion": {
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "1",
+          "dodge": "2",
+          "protection": "3",
+          "health": "7"
+        },
+        "factionTrait": {
+          "name": "Shaper Champion",
+          "text": "A shaper moves the turn token +1 step when they make a claim action."
+        },
+        "uniqueTraits": [
+          {
+            "name": "It's a Trap!",
+            "text": "When a Mon Cala Guard leaves the battlefield, Admiral Ackbar may gain the boon of your choice."
+          }
+        ],
+        "ultimate": {
+          "name": "Tidal Surge",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "Place Admiral Ackbar on a hex within range. Then move each enemy model within 2 hexes of him up to 2 hexes in the order of your choice.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "3",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Riptide",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Choose an empty objective hex within range. Place it on an empty non-objective hex within range.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Depth Charge",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Choose a hex within range containing one Mon Cala Guard. Remove the Mon Cala Guard and place Admiral Ackbar in that hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Torpedo Run",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Move a Mon Cala Guard within range up to 3 hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Depth Charge",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Choose a hex within range containing one Mon Cala Guard. Remove the Mon Cala Guard and place Admiral Ackbar in that hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Ramming Speed",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move target up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "5",
+                "damage": "5"
+              }
+            ]
+          },
+          {
+            "name": "Boarding Strike",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Before the hit roll, move Admiral Ackbar up to 1 hex towards the target.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "6",
+                "damage": "4"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Mon Cala Guards",
+        "units": 3,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "0",
+          "clashSpeed": "0",
+          "dodge": "4",
+          "protection": "1",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Mon Cala Fleet",
+            "text": "Once per phase during the Mon Cala Guards' activation, you may choose a boon on Admiral Ackbar. The Mon Cala Guards gain that boon."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Drift",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "You may place each Mon Cala Guard in a hex up to 3 hexes from its current hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Wave Crash",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move target up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "2",
+                "accuracy": "5",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "2",
+                "accuracy": "6",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "2",
+                "accuracy": "7",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Drift",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "You may place each Mon Cala Guard in a hex up to 3 hexes from its current hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Wave Crash",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move target up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "2",
+                "accuracy": "5",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "2",
+                "accuracy": "6",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "2",
+                "accuracy": "7",
+                "damage": "-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "rangosh",
+      "name": "Enfys Nest",
+      "faction": "Slayer",
+      "champion": {
+        "stats": {
+          "plotSpeed": "3",
+          "clashSpeed": "2",
+          "dodge": "4",
+          "protection": "2",
+          "health": "7"
+        },
+        "factionTrait": {
+          "name": "Slayer Champion",
+          "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Marauder Chief",
+            "text": "Once per hit roll or damage roll before rolling the dice, you may remove one Cloud-Rider from a hex within 3 hexes of Enfys Nest to add 1 die to Enfys Nest's roll."
+          }
+        ],
+        "ultimate": {
+          "name": "Raider's Charge",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "Move Enfys Nest up to 2 hexes. Then you may place up to 2 wounds on an enemy within range.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "1",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "War Fury",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {damage_die_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Intimidate",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {dodge_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Vibro-Lance",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move target up to 1 hex away from Enfys Nest.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "3",
+                "damage": "7"
+              }
+            ]
+          },
+          {
+            "name": "Grapple Line",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move target up to 1 hex toward Enfys Nest.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "5",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Cloud-Riders",
+        "units": 5,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "2",
+          "dodge": "3",
+          "protection": "2",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Swoop Raiders",
+            "text": "If the Cloud-Riders cause an enemy model to gain a wound when they use a skill action, they may gain one boon of your choice."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Recruit Raiders",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "If the Cloud-Riders are below their maximum unit size, add one to a hex containing at least one Cloud-Rider.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Raid",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: The target gains 1 wound.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "3",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "4",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Raid",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: The target gains 1 wound.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "3",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "4",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Blaster Volley",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "3",
+                "accuracy": "3",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "3",
+                "accuracy": "4",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "3",
+                "accuracy": "5",
+                "damage": "4"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "rattlebone",
+      "name": "Count Dooku",
+      "faction": "Shaper",
+      "champion": {
+        "stats": {
+          "plotSpeed": "3",
+          "clashSpeed": "2",
+          "dodge": "3",
+          "protection": "3",
+          "health": "6"
+        },
+        "factionTrait": {
+          "name": "Shaper Champion",
+          "text": "A shaper moves the turn token +1 step when they make a claim action."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Separatist Leader",
+            "text": "At the end of Count Dooku's activation, roll one die. If you roll a 1 or 2, you may remove a boon or blight from a model within that many hexes of Count Dooku and place it on a different model within that many hexes."
+          }
+        ],
+        "ultimate": {
+          "name": "Tactical Overload",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "Choose one blight for each B1 Battle Droid within range. Each enemy champion within range gains those blights.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "2",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Deploy Droids",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Remove any number of B1 Battle Droids from the battlefield. Then place them on hexes within 2 hexes of Count Dooku.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Targeting Jammer",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {move_blight} or {dodge_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Mark Territory",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Place up to two objective hexes on empty non-objective hexes within range. Remove them at the end of the clash phase.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Ion Burst",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {accuracy_die_blight} or {damage_die_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "4",
+                "damage": "6"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "B1 Battle Droids",
+        "units": 5,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "2",
+          "dodge": "3",
+          "protection": "2",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Roger, Roger",
+            "text": "When Count Dooku rolls a blank on her Roll the Bones roll, the B1 Battle Droids may gain the boon of your choice."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Reroute Power",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain the boon of your choice.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Blaster Bolt",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: The target gains the blight of your choice.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "2",
+                "accuracy": "2",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "2",
+                "accuracy": "4",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "2",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Transfer Protocol",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Move all boons and blights from the B1 Battle Droids to a friendly model within range.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Blaster Bolt",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: The target gains the blight of your choice.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "2",
+                "accuracy": "2",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "2",
+                "accuracy": "4",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "2",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "rhodri",
+      "name": "Captain Rex",
+      "faction": "Guardian",
+      "champion": {
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "2",
+          "dodge": "2",
+          "protection": "4",
+          "health": "7"
+        },
+        "factionTrait": {
+          "name": "Guardian Champion",
+          "text": "A guardian moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Loyal to the End",
+            "text": "If Captain Rex is adjacent to a friendly banner, he cannot be moved by enemy models."
+          }
+        ],
+        "ultimate": {
+          "name": "Lockdown",
+          "skillIcon": "skill_self",
+          "mustTarget": "-",
+          "text": "Clash phase only. Make a claim action.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "-",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Patrol",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Move Captain Rex up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Call Reinforcements",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "follower",
+            "text": "Choose a follower within range. Its unit makes a recruit action.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Hold the Line",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Grant {protection_boon}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Patrol",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Move Captain Rex up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Riot Shield",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {damage_die_blight}. Move target up to 2 hexes away from Captain Rex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "7",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Blaster Strike",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "5",
+                "damage": "6"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Clone Troopers",
+        "units": 4,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "1",
+          "clashSpeed": "2",
+          "dodge": "2",
+          "protection": "4",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Form Up!",
+            "text": "Clone Troopers in hexes adjacent to Captain Rex cannot be moved by enemy models."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Riot Stance",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {protection_boon}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Patrol",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Move each Clone Troopers up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Patrol",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Move each Clone Troopers up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Blaster Volley",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "5"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "shayle",
+      "name": "Han Solo",
+      "faction": "Shaper",
+      "champion": {
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "2",
+          "dodge": "4",
+          "protection": "2",
+          "health": "5"
+        },
+        "factionTrait": {
+          "name": "Shaper Champion",
+          "text": "A shaper moves the turn token +1 step when they make a claim action."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Scoundrel",
+            "text": "After Han Solo makes an action during his activation, if he is within 3 hexes of Chewbacca, you may place Chewbacca in a hex up to 2 hexes from its current hex."
+          }
+        ],
+        "ultimate": {
+          "name": "Kessel Run",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "Choose any number of objective hexes within 3 hexes of Chewbacca. Move each up to 1 hex onto an empty non-objective hex in any order. Models on the objective hexes move with them.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "-",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Let the Wookiee Win",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "If Chewbacca is within range, it gains {protection_boon} or {damage_die_boon}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Swindle",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move a boon from the target to any model within range.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Disarm",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Remove all boons from enemies within range.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Pin Down",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {move_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Chewbacca",
+        "units": 1,
+        "size": "large",
+        "stats": {
+          "plotSpeed": "0",
+          "clashSpeed": "0",
+          "dodge": "2",
+          "protection": "3",
+          "health": "4"
+        },
+        "traits": [
+          {
+            "name": "Loyal Co-Pilot",
+            "text": "When Chewbacca is knocked out, replace it with an objective hex."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Wookiee Roar",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Friendly and enemy models adjacent to Chewbacca gain {protection_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Bowcaster Blast",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move target champion or all followers in target's unit up to 2 hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "4",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Bowcaster Blast",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move target champion or all followers in target's unit up to 2 hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "4",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Wookiee Slam",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {dodge_blight}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "6",
+                "damage": "6"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "skullbreaker",
+      "name": "Savage Opress",
+      "faction": "Slayer",
+      "champion": {
+        "stats": {
+          "plotSpeed": "3",
+          "clashSpeed": "2",
+          "dodge": "4",
+          "protection": "1",
+          "health": "8"
+        },
+        "factionTrait": {
+          "name": "Slayer Champion",
+          "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Unstoppable",
+            "text": "Savage Opress may move through small followers' hexes but cannot end his movement on those hexes."
+          }
+        ],
+        "ultimate": {
+          "name": "Unbound Rage",
+          "skillIcon": "skill_self",
+          "mustTarget": "-",
+          "text": "Clash phase only. Savage Opress may make up to 3 skill actions.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "-",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Shrug It Off",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Remove a blight from Savage Opress.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Brothers, Attack!",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Follower units within range gain {accuracy_die_boon}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Bloodlust",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Savage Opress's Double Saber skill gains +4 {accuracy_die} and 'Hit Effect: The target gains 1 wound.' this activation.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Savage Strike",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Savage Opress's Double Saber skill gains +2 {damage_die} and 'Hit Effect: Move target up to 2 hexes.' this activation.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Double Saber",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "After using this skill, Savage Opress gains {move_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "5",
+                "damage": "7"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Nightbrothers",
+        "units": 4,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "3",
+          "clashSpeed": "2",
+          "dodge": "4",
+          "protection": "1",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "For the Brotherhood",
+            "text": "When a Nightbrother damages an enemy, Savage Opress may gain a boon of your choice or move 1 hex."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Charge",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Choose a hex. Each Nightbrother in that hex may move up to 2 hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "War Chant",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill has +1 {accuracy_die} for each Nightbrother adjacent to the target. Hit Effect: Move target up to 1 hex. Inflict {dodge_blight}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "2*",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Rage",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Gain {damage_die_boon}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Brutal Smash",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: The target gains 1 wound.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "4",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "6",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "sneaky-peet",
+      "name": "Greedo",
+      "faction": "Slayer",
+      "champion": {
+        "stats": {
+          "plotSpeed": "3",
+          "clashSpeed": "1",
+          "dodge": "5",
+          "protection": "1",
+          "health": "5"
+        },
+        "factionTrait": {
+          "name": "Slayer Champion",
+          "text": "A slayer moves the turn token +1 step when they knock out an enemy champion."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Han Shot First",
+            "text": "Greedo's skills have +1 {accuracy_die} for each Rodian Hunter adjacent to the target."
+          }
+        ],
+        "ultimate": {
+          "name": "Ambush Pounce",
+          "skillIcon": "skill_enemy",
+          "mustTarget": "-",
+          "text": "Before the hit roll, you may place Greedo on a hex adjacent to the target.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "2",
+              "accuracy": "6",
+              "damage": "6"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Slip Away",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "You may place Greedo on a hex up to 2 hexes from his current hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Treacherous Strike",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "If this attack hits a champion, the champion gains 1 wound.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "5",
+                "damage": "5"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Scheme",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "-",
+            "text": "Grant {accuracy_die_boon}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Taunt",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move target up to 2 hexes toward Greedo.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Treacherous Strike",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "If this attack hits a champion, the champion gains 1 wound.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "5",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Rodian Hunters",
+        "units": 3,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "3",
+          "clashSpeed": "1",
+          "dodge": "5",
+          "protection": "1",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "Cantina Lowlifes",
+            "text": "Rodian Hunters may move through other models' hexes but cannot end their movement on those hexes."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Scurry",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "One Rodian Hunter may move up to 3 hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Sneak Attack",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "7",
+                "damage": "4"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "5"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "3",
+                "damage": "6"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Vanish",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Remove one Rodian Hunter from the battlefield. Then make a recruit action.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Harass",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {accuracy_die_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "3",
+                "accuracy": "3",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "3",
+                "accuracy": "5",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "3",
+                "accuracy": "7",
+                "damage": "-"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "styx",
+      "name": "Darth Maul",
+      "faction": "Shaper",
+      "champion": {
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "2",
+          "dodge": "4",
+          "protection": "2",
+          "health": "6"
+        },
+        "factionTrait": {
+          "name": "Shaper Champion",
+          "text": "A shaper moves the turn token +1 step when they make a claim action."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Crimson Dawn",
+            "text": "When Darth Maul is knocked out, your opponent may not move him."
+          }
+        ],
+        "ultimate": {
+          "name": "Death Sentence",
+          "skillIcon": "skill_area",
+          "mustTarget": "-",
+          "text": "Knock out an enemy model within range. It does not award you any steps on the battle ladder.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "2",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Hunt the Prey",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Darth Maul may use this skill as a bonus action. An enemy model within range gains {protection_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Force Pull",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Move target up to 1 hex toward Darth Maul.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Phantom Step",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Move one objective hex within range 1 hex toward Darth Maul onto an empty non-objective hex. Models on the objective hex move with it.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Saber Reaver",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {damage_die_blight}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "5",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "Corellian Hounds",
+        "units": 2,
+        "size": "large",
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "2",
+          "dodge": "4",
+          "protection": "1",
+          "health": "4"
+        },
+        "traits": [
+          {
+            "name": "Hunting Beasts",
+            "text": "At the end of the Corellian Hounds' activation, move up to 2 small follower models within 2 hexes of an Corellian Hound, 1 hex towards that Corellian Hound."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Pack Tactics",
+            "skillIcon": "skill_self",
+            "mustTarget": "-",
+            "text": "Move each Corellian Hound within 4 hexes of Darth Maul up to 2 hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "-",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Bloodcurdling Howl",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {accuracy_die_blight}",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "5",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Tear Apart",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "If both Corellian Hounds are adjacent to the same enemy banner, remove the banner from the battlefield.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Frenzy",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Make 3 hit rolls instead of 1. For each hit, this skill has +2 {damage_die}.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "4",
+                "damage": "0*"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "titus",
+      "name": "General Grievous",
+      "faction": "Maelstrom",
+      "champion": {
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "2",
+          "dodge": "3",
+          "protection": "3",
+          "health": "5"
+        },
+        "factionTrait": {
+          "name": "Maelstrom Champion",
+          "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
+        },
+        "uniqueTraits": [
+          {
+            "name": "Trophy Collector",
+            "text": "General Grievous has +1 {dodge} against followers' hit rolls and +1 {protection} against followers' damage rolls."
+          }
+        ],
+        "ultimate": {
+          "name": "Jedi Hunter",
+          "skillIcon": "skill_self",
+          "mustTarget": "-",
+          "text": "General Grievous may make a skill action. Then he may move 1 hex. Then he may make another skill action.",
+          "statProfiles": [
+            {
+              "figuresInHex": "-",
+              "range": "-",
+              "accuracy": "-",
+              "damage": "-"
+            }
+          ]
+        },
+        "plotSkills": [
+          {
+            "name": "Cornered Prey",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "An enemy model within range gains two different blights of your choice. General Grievous gains a blight of your opponent's choice.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Slaughter",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "follower",
+            "text": "Hit Effect: Move all followers in target's unit that are within range up to 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "3",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Four-Arm Flurry",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill may target up to two models in the same hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "5",
+                "damage": "6"
+              }
+            ]
+          },
+          {
+            "name": "Whirling Sabers",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill may target up to two models that are in different hexes.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "1",
+                "accuracy": "6",
+                "damage": "5"
+              }
+            ]
+          }
+        ]
+      },
+      "followers": {
+        "name": "MagnaGuards",
+        "units": 5,
+        "size": "small",
+        "stats": {
+          "plotSpeed": "2",
+          "clashSpeed": "2",
+          "dodge": "3",
+          "protection": "3",
+          "health": "1"
+        },
+        "traits": [
+          {
+            "name": "IG-100 Series",
+            "text": "After using a recruit action, the MagnaGuard returned to the battlefield moves up to 2 hexes."
+          }
+        ],
+        "plotSkills": [
+          {
+            "name": "Electrostaff Guard",
+            "skillIcon": "skill_friendly",
+            "mustTarget": "champion",
+            "text": "One champion within range may move 1 hex.",
+            "statProfiles": [
+              {
+                "figuresInHex": "-",
+                "range": "2",
+                "accuracy": "-",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Flank",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Place each MagnaGuard that is adjacent to the target in a hex adjacent to the target.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "6",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "6",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          }
+        ],
+        "clashSkills": [
+          {
+            "name": "Staff Jab",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "Hit Effect: Inflict {protection_blight}",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "5",
+                "damage": "-"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "6",
+                "damage": "-"
+              }
+            ]
+          },
+          {
+            "name": "Gang Up",
+            "skillIcon": "skill_enemy",
+            "mustTarget": "-",
+            "text": "This skill has +1 {accuracy_die} and +1 {damage_die} for each other hex adjacent to the target that contains one or more MagnaGuards.",
+            "statProfiles": [
+              {
+                "figuresInHex": 1,
+                "range": "1",
+                "accuracy": "4*",
+                "damage": "3*"
+              },
+              {
+                "figuresInHex": 2,
+                "range": "1",
+                "accuracy": "4*",
+                "damage": "4*"
+              },
+              {
+                "figuresInHex": 3,
+                "range": "1",
+                "accuracy": "4*",
+                "damage": "5*"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
