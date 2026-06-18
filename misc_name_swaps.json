@@ -1,0 +1,17 @@
+{
+    "Slayer": [
+        "marauders",
+        "duelists",
+        "hunters"
+    ],
+    "Maelstrom": [],
+    "Shaper": [
+        "tacticians"
+    ],
+    "gaurdian": [
+        "sentinals"
+    ],
+    "objective hex": [
+        "control point"
+    ]
+}

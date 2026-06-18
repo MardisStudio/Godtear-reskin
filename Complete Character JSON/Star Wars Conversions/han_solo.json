@@ -1,0 +1,201 @@
+{
+    "id": "han_solo",
+    "name": "Han Solo",
+    "faction": "Tactician",
+    "convertedFrom": {
+        "id": "shayle",
+        "name": "Shayle"
+    },
+    "champion": {
+        "stats": {
+            "plotSpeed": "2",
+            "clashSpeed": "2",
+            "dodge": "4",
+            "protection": "2",
+            "health": "5"
+        },
+        "factionTrait": {
+            "name": "Tactician Champion",
+            "text": "A tactician moves the turn token +1 step when they make a claim action."
+        },
+        "uniqueTraits": [
+            {
+                "name": "Scoundrel",
+                "text": "After Han Solo makes an action during his activation, if he is within 3 hexes of Chewbacca, you may place Chewbacca in a hex up to 2 hexes from his current hex."
+            }
+        ],
+        "ultimate": {
+            "name": "Kessel Run",
+            "skillIcon": "skill_area",
+            "mustTarget": "-",
+            "text": "Choose any number of objective hexes within 3 hexes of Chewbacca. Move each up to 1 hex onto an empty non-objective hex in any order. Models on the objective hexes move with them.",
+            "statProfiles": [
+                {
+                    "figuresInHex": "-",
+                    "range": "-",
+                    "accuracy": "-",
+                    "damage": "-"
+                }
+            ]
+        },
+        "plotSkills": [
+            {
+                "name": "Let the Wookiee Win",
+                "skillIcon": "skill_friendly",
+                "mustTarget": "-",
+                "text": "If Chewbacca is within range, he gains {protection_boon} or {damage_die_boon}.",
+                "statProfiles": [
+                    {
+                        "figuresInHex": "-",
+                        "range": "3",
+                        "accuracy": "-",
+                        "damage": "-"
+                    }
+                ]
+            },
+            {
+                "name": "Smuggler's Gambit",
+                "alternateNames": [
+                    "Swindle"
+                ],
+                "skillIcon": "skill_enemy",
+                "mustTarget": "-",
+                "text": "Hit Effect: Move a boon from the target to any model within range.",
+                "statProfiles": [
+                    {
+                        "figuresInHex": "-",
+                        "range": "3",
+                        "accuracy": "6",
+                        "damage": "-"
+                    }
+                ]
+            }
+        ],
+        "clashSkills": [
+            {
+                "name": "Suppressing Fire",
+                "alternateNames": [
+                    "Disarm, Thermal Detonator"
+                ],
+                "skillIcon": "skill_area",
+                "mustTarget": "-",
+                "text": "Remove all boons from enemies within range.",
+                "statProfiles": [
+                    {
+                        "figuresInHex": "-",
+                        "range": "2",
+                        "accuracy": "-",
+                        "damage": "-"
+                    }
+                ]
+            },
+            {
+                "name": "Shoot First",
+                "alternateNames": [
+                    "Pin Down"
+                ],
+                "skillIcon": "skill_enemy",
+                "mustTarget": "-",
+                "text": "Hit Effect: Inflict {move_blight}.",
+                "statProfiles": [
+                    {
+                        "figuresInHex": "-",
+                        "range": "3",
+                        "accuracy": "5",
+                        "damage": "-"
+                    }
+                ]
+            }
+        ]
+    },
+    "followers": {
+        "name": "Chewbacca",
+        "units": 1,
+        "size": "large",
+        "stats": {
+            "plotSpeed": "0",
+            "clashSpeed": "0",
+            "dodge": "2",
+            "protection": "3",
+            "health": "4"
+        },
+        "traits": [
+            {
+                "name": "Life Debt",
+                "alternateNames": [
+                    "Loyal Co-Pilot"
+                ],
+                "text": "When Chewbacca is knocked out, replace him with an objective hex."
+            }
+        ],
+        "plotSkills": [
+            {
+                "name": "Furious Roar",
+                "skillIcon": "skill_area",
+                "mustTarget": "-",
+                "text": "Friendly and enemy models adjacent to Chewbacca gain {protection_blight}.",
+                "statProfiles": [
+                    {
+                        "figuresInHex": "-",
+                        "range": "1",
+                        "accuracy": "-",
+                        "damage": "-"
+                    }
+                ]
+            },
+            {
+                "name": "Bowcaster Blast",
+                "alternateNames": [
+                    "Wookiee Slam"
+                ],
+                "skillIcon": "skill_enemy",
+                "mustTarget": "-",
+                "text": "Hit Effect: Move target champion or all followers in target's unit up to 2 hexes.",
+                "statProfiles": [
+                    {
+                        "figuresInHex": "-",
+                        "range": "2",
+                        "accuracy": "4",
+                        "damage": "-"
+                    }
+                ]
+            }
+        ],
+        "clashSkills": [
+            {
+                "name": "Bowcaster Blast",
+                "alternateNames": [
+                    "Wookiee Slam"
+                ],
+                "skillIcon": "skill_enemy",
+                "mustTarget": "-",
+                "text": "Hit Effect: Move target champion or all followers in target's unit up to 2 hexes.",
+                "statProfiles": [
+                    {
+                        "figuresInHex": "-",
+                        "range": "2",
+                        "accuracy": "4",
+                        "damage": "-"
+                    }
+                ]
+            },
+            {
+                "name": "Wookiee Slam",
+                "alternateNames": [
+                    "Bowcaster Strike"
+                ],
+                "skillIcon": "skill_enemy",
+                "mustTarget": "-",
+                "text": "Hit Effect: Inflict {dodge_blight}",
+                "statProfiles": [
+                    {
+                        "figuresInHex": "-",
+                        "range": "1",
+                        "accuracy": "6",
+                        "damage": "6"
+                    }
+                ]
+            }
+        ]
+    }
+}

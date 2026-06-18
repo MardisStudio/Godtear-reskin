@@ -2,17 +2,6 @@
   "id": "durthax",
   "name": "Durthax",
   "faction": "Guardian",
-  "source": "Characters/durthax/",
-  "iconReference": "icons.json",
-  "iconPlaceholderFormat": "{icon_id}",
-  "extractionNotes": [
-    "Every skill (plot, clash, and ultimate) is preceded on the card by a target icon from icons.json skillIcons: skill_self, skill_friendly, skill_area, or skill_enemy. Stored as the skillIcon field.",
-    "Skill range / accuracy / damage are stored only in statProfiles. Use figuresInHex \"-\" when the card shows a single stat row; use 1, 2, or 3 when multiple rows match follower figures in the hex (max 3).",
-    "Champion and follower stats always use plotSpeed and clashSpeed (never a single speed field), even when both values are the same.",
-    "Follower stats are plotSpeed, clashSpeed, dodge, protection, and health from the stat row on the follower card. Unit count (top-right icon) is stored separately as units.",
-    "If card text says \"Must target a follower\" or \"Must target a champion\", remove it from text and store as mustTarget (follower, champion, or -).",
-    "Icon-only boon effects: skill_self → \"Gain {boon_id}\", skill_friendly → \"Grant {boon_id}\". Icon-only blight or \"Hit Effect:\" blight → \"Inflict {blight_id}\"."
-  ],
   "champion": {
     "stats": {
       "plotSpeed": "0",
