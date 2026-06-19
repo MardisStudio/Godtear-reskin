@@ -1,0 +1,229 @@
+{
+	"id": "darth_maul",
+	"name": "Darth Maul",
+	"faction": "Duelist",
+	"convertedFrom": {
+		"id": "skullbreaker",
+		"name": "Skullbreaker"
+	},
+	"bannerMiniatureIdeas": [
+		"A crimson double-bladed lightsaber mounted on a Dathomirian stone totem, surrounded by Death Watch sigils",
+		"Maul's bisected saber hilt on a Mandalorian supercommando banner, with Pyke spice vials at the base",
+		"A horned Zabrak skull totem wreathed in dark side smoke, topped with a miniature Sith holocron"
+	],
+	"vehicleSuggestions": [
+		"Scimitar (Sith Infiltrator — Maul's stealth ship from the Naboo campaign)",
+		"Nightbrother (Maul's custom speeder bike from the Clone Wars Mandalore arc)",
+		"Kom'rk-class Fighter (Death Watch gauntlet fighter — Shadow Collective era)"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "3",
+			"clashSpeed": "2",
+			"dodge": "4",
+			"protection": "1",
+			"health": "8"
+		},
+		"factionTrait": {
+			"name": "Duelist Champion",
+			"text": "A duelist moves the turn token +1 step when they knock out an enemy champion."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Phantom Step",
+				"alternateNames": ["Juyo Rush", "At Last We Will Reveal Ourselves"],
+				"text": "Darth Maul may move through small followers' hexes but cannot end his movement on those hexes."
+			}
+		],
+		"ultimate": {
+			"name": "Dual-Bladed Flurry",
+			"alternateNames": ["Dance of the Double-Blade", "Form VII Assault"],
+			"skillIcon": "skill_self",
+			"mustTarget": "-",
+			"text": "Clash phase only. Darth Maul may make up to 3 skill actions.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "-",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Sith Resilience",
+				"alternateNames": ["Hatred Sustains Me", "Pain Is Weakness"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Remove a blight from Darth Maul.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Death Watch Rally",
+				"alternateNames": ["Shadow Collective Orders", "Crimson Dawn Signal"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Follower units within range gain {accuracy_die_boon}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Channel Rage",
+				"alternateNames": ["Focus the Dark Side", "Predatory Focus"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Darth Maul's Twin Crimson Blades skill gains +4 {accuracy_die} and 'Hit Effect: The target gains 1 wound.' this activation.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Channel Hatred",
+				"alternateNames": ["Unleash Fury", "Overpower"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Darth Maul's Twin Crimson Blades skill gains +2 {damage_die} and 'Hit Effect: Move target up to 2 hexes.' this activation.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Twin Crimson Blades",
+				"alternateNames": ["Saberstaff Strike", "Form VII Strike"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "After using this skill, Darth Maul gains {move_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "5",
+						"damage": "7"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Death Watch Commandos",
+		"alternateNames": ["Crimson Dawn Thugs", "Shadow Collective Operatives"],
+		"units": 4,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "3",
+			"clashSpeed": "2",
+			"dodge": "4",
+			"protection": "1",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "For the Crime Lord",
+				"alternateNames": ["Serve the Lord", "Open the Way"],
+				"text": "When a Death Watch Commando damages an enemy, Darth Maul may gain a boon of your choice or move 1 hex."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Death Watch Advance",
+				"alternateNames": ["Syndicate Charge", "Spice-Fueled Rush"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "Choose a hex. Each Death Watch Commando in that hex may move up to 2 hexes.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Intimidating Presence",
+				"alternateNames": ["Fear of the Sith", "Dark Side Howl"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill has +1 {accuracy_die} for each Death Watch Commando adjacent to the target. Hit Effect: Move target up to 1 hex. Inflict {dodge_blight}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "2*",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Beskar Breaker",
+				"alternateNames": ["Wind Up", "Work Into Frenzy"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {damage_die_boon}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Vibrosword Strike",
+				"alternateNames": ["Gaderffii Strike", "Crushing Blow"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: The target gains 1 wound.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "4",
+						"damage": "4"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "4"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "6",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	}
+}

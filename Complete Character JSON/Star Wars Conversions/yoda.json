@@ -1,0 +1,226 @@
+{
+	"id": "yoda",
+	"name": "Yoda",
+	"faction": "Tactician",
+	"convertedFrom": {
+		"id": "lily",
+		"name": "Lily"
+	},
+	"bannerMiniatureIdeas": [
+		"Yoda's gimer stick planted in a mossy Dagobah stump, with a tiny woven Ewok totem hanging from the branch",
+		"A carved Endor tree trunk bearing the Jedi Order symbol, ringed with glowing swamp fireflies from Dagobah",
+		"A small bronze bust of Yoda mounted on a base of woven Bright Tree Village vine rope and Ewok spears"
+	],
+	"vehicleSuggestions": [
+		"X-wing Starfighter (Luke's Dagobah training ship — ties Yoda to his most famous apprentice)",
+		"Ewok Hang Glider (Battle of Endor aerial assault alongside the tribe)",
+		"Rebel Assault Shuttle (deployment to the forest moon — Yoda directing the alliance)"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "3",
+			"clashSpeed": "3",
+			"dodge": "4",
+			"protection": "1",
+			"health": "7"
+		},
+		"factionTrait": {
+			"name": "Tactician Champion",
+			"text": "A tactician moves the turn token +1 step when they make a claim action."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Living Force",
+				"alternateNames": ["Size Matters Not", "Do Or Do Not"],
+				"text": "After one of his actions, Yoda may place a status effect token of his choice in an adjacent empty hex. When a model enters a hex with a token, move it onto them after they end their movement."
+			}
+		],
+		"ultimate": {
+			"name": "Hold the Line",
+			"alternateNames": ["Living Barricade", "Tribe Defense"],
+			"skillIcon": "skill_area",
+			"mustTarget": "-",
+			"text": "Remove any number of Ewoks from the battlefield and place them on objective hexes within range. Ewoks on objective hexes cannot make advance actions or be moved by enemy skills.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "4",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Levitate",
+				"alternateNames": ["Force Lift", "Unlimited Power"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "Move one objective hex within range 1 hex onto an empty non-objective hex. Models on the objective hex move with it.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Trust the Force",
+				"alternateNames": ["Living Force", "Force Foresight"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "Place a status effect token of your choice in an empty hex within range. When a model enters a hex with a token, move it onto them after they end their movement.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Force Push",
+				"alternateNames": ["Forbidden Technique", "Repulse"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Move each friendly and enemy model in hexes adjacent to the target up to 1 hex away from the target.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Force Wave",
+				"alternateNames": ["Force Burst", "Telekinetic Surge"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Move all models in the target's hex up to 2 hexes.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "6",
+						"damage": "-"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Ewoks",
+		"alternateNames": ["Bright Tree Tribe", "Ewok Warriors"],
+		"units": 5,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "1",
+			"clashSpeed": "2",
+			"dodge": "2",
+			"protection": "3",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Tribe of Endor",
+				"alternateNames": ["Yub Nub!", "Forest Allies"],
+				"text": "When the Ewoks make a recruit action, you may recruit one, two, or three Ewoks to the hex."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Vanish Into Forest",
+				"alternateNames": ["Hide", "Meltdown"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Remove any number of Ewoks from the battlefield. Then take a recruit action for each Ewok this skill removed from the battlefield.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Log Trap",
+				"alternateNames": ["Snare Trap", "Net Snare"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {move_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "2",
+						"accuracy": "2",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "2",
+						"accuracy": "4",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "2",
+						"accuracy": "6",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "War Drums",
+				"alternateNames": ["Hunt Prep", "Battle Cry"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {accuracy_die_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Spear Jab",
+				"alternateNames": ["Spear Thrust", "Hunting Spear"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "If the hit roll total equals the target's dodge exactly, this skill has +3 {damage_die}.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "2",
+						"accuracy": "2",
+						"damage": "4*"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "2",
+						"accuracy": "4",
+						"damage": "4*"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "2",
+						"accuracy": "6",
+						"damage": "4*"
+					}
+				]
+			}
+		]
+	}
+}

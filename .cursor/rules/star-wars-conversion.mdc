@@ -74,6 +74,16 @@ In the matching faction's `champions` array, find the entry by `godtearId` and s
 
 Then update that faction's `converted` count, `summary.converted`, `summary.notConverted`, and `lastUpdated`.
 
+## 5. Update `top-40-list.md`
+
+After writing the conversion JSON and updating the tracker, mark the Star Wars character done in **`top-40-list.md`**:
+
+1. Find the matching line in the **main list** (top of file) and in the **By recommended group** section for the Star Wars faction (`Duelist`, `Marauders`, `Tactician`, or `Sentinal`).
+2. Change `- [ ]` → `- [x]` on each matching line.
+3. Match by list entry text — handles combined names and aliases (e.g. `Han Solo & Chewy`, `Darth Sidious / Emperor Palpatine`). If the conversion `name` is a substring or obvious alias of a list line, check that line.
+4. If the character is not on the list, skip — do not add entries unless the user asks.
+5. Only flip checkboxes; do not reorder or reformat the file.
+
 ## Example input snippet
 
 ```
@@ -85,4 +95,4 @@ Plot Skills:
 Old: Field Instruction → New: Bounty Prep (Alts: Mandalorian Tactics, ...)
 ```
 
-→ Source: `lorsann_checked.json` → Output: `boba_fett.json` → Tracker: Duelist faction, `lorsann` entry marked converted.
+→ Source: `lorsann_checked.json` → Output: `boba_fett.json` → Tracker: Duelist faction, `lorsann` entry marked converted → `top-40-list.md`: `[x] Boba Fett` in main list and Duelist group.

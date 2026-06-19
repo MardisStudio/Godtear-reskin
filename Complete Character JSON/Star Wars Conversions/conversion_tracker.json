@@ -1,15 +1,15 @@
 {
 	"description": "Tracks Star Wars conversion progress grouped by faction. Converted entries are derived from JSON files in this folder.",
-	"lastUpdated": "2026-06-18",
+	"lastUpdated": "2026-06-19",
 	"summary": {
-		"converted": 6,
-		"notConverted": 21,
+		"converted": 9,
+		"notConverted": 18,
 		"total": 27
 	},
 	"factions": {
 		"Sentinal": {
 			"oldFaction": "Guardian",
-			"converted": 1,
+			"converted": 2,
 			"total": 7,
 			"champions": [
 				{
@@ -47,7 +47,9 @@
 				{
 					"godtearId": "rhodri",
 					"godtearName": "Rhodri",
-					"converted": false
+					"converted": true,
+					"starWarsId": "obi_wan_kenobi",
+					"starWarsName": "Obi-Wan Kenobi"
 				}
 			]
 		},
@@ -99,13 +101,15 @@
 		},
 		"Tactician": {
 			"oldFaction": "Shaper",
-			"converted": 1,
+			"converted": 2,
 			"total": 6,
 			"champions": [
 				{
 					"godtearId": "lily",
 					"godtearName": "Lily",
-					"converted": false
+					"converted": true,
+					"starWarsId": "yoda",
+					"starWarsName": "Yoda"
 				},
 				{
 					"godtearId": "nia",
@@ -138,7 +142,7 @@
 		},
 		"Duelist": {
 			"oldFaction": "Slayer",
-			"converted": 2,
+			"converted": 3,
 			"total": 7,
 			"champions": [
 				{
@@ -173,7 +177,9 @@
 				{
 					"godtearId": "skullbreaker",
 					"godtearName": "Skullbreaker",
-					"converted": false
+					"converted": true,
+					"starWarsId": "darth_maul",
+					"starWarsName": "Darth Maul"
 				},
 				{
 					"godtearId": "sneaky-peet",

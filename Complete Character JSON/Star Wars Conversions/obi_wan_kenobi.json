@@ -1,0 +1,244 @@
+{
+	"id": "obi_wan_kenobi",
+	"name": "Obi-Wan Kenobi",
+	"faction": "Sentinal",
+	"convertedFrom": {
+		"id": "rhodri",
+		"name": "Rhodri"
+	},
+	"bannerMiniatureIdeas": [
+		"A Jedi holocron mounted on a Republic military standard — Obi-Wan's teaching legacy and archive of knowledge",
+		"Obi-Wan's lightsaber hilt planted in desert sand — the iconic silhouette of his Tatooine exile",
+		"A 212th Attack Battalion clone helmet with orange markings atop a Republic crest"
+	],
+	"vehicleSuggestions": [
+		"Venator-class Star Destroyer Negotiator — Obi-Wan's flagship during the Clone Wars",
+		"LAAT/i Republic Gunship — deployment platform for the 212th Attack Battalion",
+		"ARC-170 Starfighter — Clone Wars-era starfighter flown in Obi-Wan's campaigns"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "1",
+			"clashSpeed": "2",
+			"dodge": "2",
+			"protection": "4",
+			"health": "7"
+		},
+		"factionTrait": {
+			"name": "Sentinal Champion",
+			"text": "A sentinel moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Unshakeable General",
+				"alternateNames": ["Soresu Anchor", "Root of the Negotiator"],
+				"text": "If Obi-Wan Kenobi is adjacent to a friendly banner, he cannot be moved by enemy models."
+			}
+		],
+		"ultimate": {
+			"name": "Seize the High Ground",
+			"alternateNames": ["Raise the Standard", "Banner of the Republic"],
+			"skillIcon": "skill_self",
+			"mustTarget": "-",
+			"text": "Clash phase only. Make a claim action.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "-",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Hello There",
+				"alternateNames": ["Steady Advance", "Negotiator's Pace"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Move Obi-Wan Kenobi up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "For the Republic",
+				"alternateNames": ["Troopers, With Me", "212th, Rally!"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "follower",
+				"text": "Choose a follower within range. Its unit makes a recruit action.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Guard Them Well",
+				"alternateNames": ["Soresu Guard", "Force Shield"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Grant {protection_boon}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Hello There",
+				"alternateNames": ["Steady Advance", "Negotiator's Pace"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Move Obi-Wan Kenobi up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Force Push",
+				"alternateNames": ["Repel with the Force", "Saber Pommel Strike"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {damage_die_blight}. Move target up to 2 hexes away from Obi-Wan Kenobi.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "7",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Lightsaber Slash",
+				"alternateNames": ["Soresu Riposte", "Blade of the Negotiator"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "5",
+						"damage": "6"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Clone Troopers",
+		"alternateNames": ["212th Attack Battalion", "Open Circle Legionnaires"],
+		"units": 4,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "1",
+			"clashSpeed": "2",
+			"dodge": "2",
+			"protection": "4",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Hold the Line",
+				"alternateNames": ["Clone Shield Wall", "Form Up Around Me"],
+				"text": "Clone Troopers in hexes adjacent to Obi-Wan Kenobi cannot be moved by enemy models."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Take Cover",
+				"alternateNames": ["Blast Deflection", "Defensive Stance"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {protection_boon}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Troopers, Advance",
+				"alternateNames": ["212th Forward", "Move Out"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Move each Clone Trooper up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Troopers, Advance",
+				"alternateNames": ["212th Forward", "Move Out"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Move each Clone Trooper up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Concentrated Assault",
+				"alternateNames": ["Coordinated Fire", "Vibro-blade Volley"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "4"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "5"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "6"
+					}
+				]
+			}
+		]
+	}
+}

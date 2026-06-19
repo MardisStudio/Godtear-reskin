@@ -9,9 +9,25 @@ alwaysApply: false
 
 **Goal:** Interactive plan mode inside Cursor. End by writing the conversion JSON and updating the tracker — unless the user says **plan only**.
 
+## Sources allowed during planning (strict)
+
+When evaluating candidates, drafting name options, or proposing banners/vehicles, use **only**:
+
+1. **`Complete Character JSON/Star Wars Conversions/template.json`** — expected output shape and field conventions.
+2. **`Complete Character JSON/{id}_checked.json`** — mechanics, stats, and ability text for each candidate champion.
+3. **External Star Wars research** — web search, Wookieepedia, film summaries, etc.
+
+**Do not reference previously done conversions** when matching or planning. Do not read or cite:
+
+- Other files in `Complete Character JSON/Star Wars Conversions/` (e.g. `han_solo.json`, `boba_fett.json`, `darth_maul.json`)
+- `conversion_tracker.json` (except in **Phase 4** when marking the new entry converted)
+- Bulk mapping lists such as `claude_characters_starwars.json`, `lego_star_wars_godtear_characters.json`, or `misc_name_swaps.json`
+
+Judge fit and name ideas from **Godtear mechanics + Star Wars lore**, not from how other champions were converted before.
+
 ## Phase 0 — Research the Star Wars character
 
-Before matching or naming anything, **look up the Star Wars character** (web search, Wookieepedia, film summaries, etc.) to build a working profile:
+After reading the candidate `_checked.json` files and `template.json`, **look up the Star Wars character** (web search, Wookieepedia, film summaries, etc.) to build a working profile:
 
 - **Role & playstyle** — fighter type, leader, support, ranged/melee, mobility, durability, control, burst, summons/minions, etc.
 - **Iconic gear & abilities** — weapons, tech, Force powers, signature tactics.
@@ -38,8 +54,8 @@ Use this research in **Phase 1** to judge fit against the provided Godtear champ
 
 ## Phase 1 — Match champion
 
-1. Complete **Phase 0** research on the Star Wars character.
-2. Read each candidate's `Complete Character JSON/{id}_checked.json`.
+1. Read `Complete Character JSON/Star Wars Conversions/template.json` and each candidate's `Complete Character JSON/{id}_checked.json`.
+2. Complete **Phase 0** research on the Star Wars character (no prior conversion files).
 3. Compare each candidate to the Star Wars profile — thematic role, combat style, faction vibe, follower count/size, and how specific skills map to iconic moments or abilities.
 4. Pick the **best thematic and mechanical fit**. Briefly explain why you chose it and why others are weaker fits, referencing both Godtear mechanics and Star Wars lore from your research.
 5. Use **AskQuestion** to confirm the match (include top pick + other candidates as options + Other).
@@ -94,7 +110,7 @@ Use stable `id` values per item (e.g. `unique_trait_1`, `ultimate`, `champion_pl
 
 ## Phase 3 — Banner & vehicles (no pick required)
 
-Using **Phase 0** research, propose **3 banner miniature ideas** (totem, sculpture, relic, flag, etc. — like existing conversions) and **3 associated vehicles**. Include all 6 in the final output; no AskQuestion needed unless the user wants to narrow them down.
+Using **Phase 0** research, propose **3 banner miniature ideas** (totem, sculpture, relic, flag, etc.) and **3 associated vehicles** tied to the Star Wars character. Include all 6 in the final output; no AskQuestion needed unless the user wants to narrow them down.
 
 ## Phase 4 — Write conversion JSON
 
@@ -106,12 +122,20 @@ After Phase 2 answers and Phase 3 banner/vehicle proposals, write the conversion
 4. Set top-level `id`, `name`, `faction`, `convertedFrom`, `bannerMiniatureIdeas`, and `vehicleSuggestions`.
 5. Update `champion.factionTrait` and skill/trait `text` only where old champion, follower, or skill names appear.
 6. Update `conversion_tracker.json` (mark `converted`, set `starWarsId` / `starWarsName`, refresh counts) per **`star-wars-conversion.mdc`**.
+7. Update **`top-40-list.md`**: mark the Star Wars character done in **both** checklist sections (main list and the matching faction group under **By recommended group**).
 
-A brief chat confirmation is fine (e.g. file path written). No approval step unless the user said **plan only** — then stop after Phase 3 without writing files.
+**`top-40-list.md` rules:**
+- Change `- [ ]` → `- [x]` on every line that matches the converted character.
+- Match by the list entry text, not the JSON `name` alone — e.g. `Han Solo & Chewy`, `Darth Sidious / Emperor Palpatine`, `Grogu (Baby Yoda)`. If the conversion name is a substring or obvious alias of a list line, check that line.
+- Use the conversion's Star Wars **faction** (`Duelist`, `Marauders`, `Tactician`, `Sentinal`) to find the correct group section.
+- If the character is **not** on the list, skip this step — do not add new entries unless the user asks.
+- Do not reorder or reformat the file; only flip checkboxes.
+
+A brief chat confirmation is fine (e.g. file paths written). No approval step unless the user said **plan only** — then stop after Phase 3 without writing files.
 
 ## Expected JSON output
 
-The final JSON must match the structure in **`Complete Character JSON/Star Wars Conversions/template.json`** (derived from `han_solo.json`). Read the template before writing output.
+The final JSON must match the structure in **`Complete Character JSON/Star Wars Conversions/template.json`**. Read the template before writing output.
 
 **Top-level shape** (field order matters):
 
@@ -133,11 +157,9 @@ followers { ... }
 - `alternateNames` is optional on any skill, trait, or `followers` — include when alts exist.
 - Only edit skill/trait `text` when it references old champion, follower, or skill names.
 
-**Canonical example:** `han_solo.json`
-
 ## Reference
 
 - **Output template:** `Complete Character JSON/Star Wars Conversions/template.json`
-- Source files: `Complete Character JSON/{id}_checked.json`
-- Examples: `han_solo.json`, `boba_fett.json`
-- Tracker: `Complete Character JSON/Star Wars Conversions/conversion_tracker.json`
+- **Source champions:** `Complete Character JSON/{id}_checked.json`
+- **Tracker (Phase 4 only):** `Complete Character JSON/Star Wars Conversions/conversion_tracker.json`
+- **Progress checklist (Phase 4 only):** `top-40-list.md`
