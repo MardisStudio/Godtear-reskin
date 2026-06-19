@@ -1,0 +1,236 @@
+{
+	"id": "boba_fett",
+	"name": "Boba Fett",
+	"faction": "Duelist",
+	"convertedFrom": {
+		"id": "lorsann",
+		"name": "Lorsann"
+	},
+	"bannerMiniatureIdeas": [
+		"Slave I landing gear totem with deployed ramp and scattered bounty pucks",
+		"Weathered Mandalorian helmet on spiked trophy stand with glowing green rangefinder",
+		"Miniature rocket dart launcher on beskar stand with hanging tracking fobs"
+	],
+	"vehicleSuggestions": ["Slave I (iconic Firespray gunship)", "Modified Firespray Patrol Craft", "Pursuit Speeder"],
+	"champion": {
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "3",
+			"dodge": "4",
+			"protection": "1",
+			"health": "6"
+		},
+		"factionTrait": {
+			"name": "Duelist Champion",
+			"text": "A duelist moves the turn token +1 step when they knock out an enemy champion."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Jetpack Reposition",
+				"alternateNames": ["Rangefinder Retreat", "I'm Taking the Bounty Maneuver"],
+				"text": "After Boba Fett uses a skill that inflicts 1 or more wounds, he may move up to 1 hex."
+			}
+		],
+		"ultimate": {
+			"name": "Carbon-Freezing",
+			"alternateNames": ["Deadly Rocket Dart", "Finishing Flamethrower"],
+			"skillIcon": "skill_enemy",
+			"mustTarget": "-",
+			"text": "Hit Effect: The target gains 2 wounds.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "3",
+					"accuracy": "6",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Bounty Prep",
+				"alternateNames": ["Mandalorian Tactics", "Let's Make This Quick Briefing"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Grant {damage_die_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Tracking Beacon",
+				"alternateNames": ["Seeker Dart Flare", "I Prefer the Direct Approach"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {protection_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "EE-3 Blaster Burst",
+				"alternateNames": ["Precision Wrist Rocket", "Just Like on Tatooine Shot"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: The target gains 1 wound.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Flamethrower",
+				"alternateNames": ["Concussion Missile Follow-up", "Nice Guy Secondary Detonation"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "After the flamethrower damage roll, make a 5 {damage_die} damage roll against the target.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "3",
+						"damage": "5"
+					}
+				]
+			},
+			{
+				"name": "Sniper Shot",
+				"alternateNames": ["Long-Range Sniper Shot", "From the Shadows"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "8",
+						"damage": "4"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Probe Droids",
+		"units": 3,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "3",
+			"dodge": "3",
+			"protection": "1",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Bounty in Sight",
+				"alternateNames": ["Wounded Prey", "He's Worth More Dead"],
+				"text": "When the target is a wounded enemy champion, the Probe Droids' skills have +1 {damage_die}."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Cloaking Field",
+				"alternateNames": ["Stealth Mode", "Shadow Protocol"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {dodge_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Seeker Dart",
+				"alternateNames": ["Targeting Paint", "Lock On Beacon"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {protection_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "3",
+						"accuracy": "3",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "3",
+						"accuracy": "4",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "3",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Rangefinder Lock",
+				"alternateNames": ["Steady Aim", "I Hit the Target"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {accuracy_die_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Blaster Volley",
+				"alternateNames": ["Suppressive Fire", "Bring Him In"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "3",
+						"accuracy": "3",
+						"damage": "3"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "3",
+						"accuracy": "4",
+						"damage": "4"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "3",
+						"accuracy": "5",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	}
+}

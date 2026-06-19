@@ -1,0 +1,141 @@
+{
+	"id": "star_wars_id",
+	"name": "Star Wars Name",
+	"faction": "Tactician",
+	"convertedFrom": {
+		"id": "godtear_id",
+		"name": "Godtear Name"
+	},
+	"bannerMiniatureIdeas": [
+		"Banner miniature idea 1",
+		"Banner miniature idea 2",
+		"Banner miniature idea 3"
+	],
+	"vehicleSuggestions": [
+		"Vehicle suggestion 1",
+		"Vehicle suggestion 2",
+		"Vehicle suggestion 3"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "0",
+			"clashSpeed": "0",
+			"dodge": "0",
+			"protection": "0",
+			"health": "0"
+		},
+		"factionTrait": {
+			"name": "Tactician Champion",
+			"text": "A tactician ..."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Unique Trait Name",
+				"alternateNames": ["Alt Name 1", "Alt Name 2"],
+				"text": "Trait text with Star Wars character/follower names where referenced."
+			}
+		],
+		"ultimate": {
+			"name": "Ultimate Name",
+			"alternateNames": ["Alt Name 1", "Alt Name 2"],
+			"skillIcon": "skill_area",
+			"mustTarget": "-",
+			"text": "Ultimate effect text — unchanged from source unless names are referenced.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "-",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Plot Skill Name",
+				"alternateNames": ["Alt Name 1", "Alt Name 2"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Skill effect text.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "0",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Clash Skill Name",
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Skill effect text.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "0",
+						"accuracy": "0",
+						"damage": "0"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Follower Unit Name",
+		"alternateNames": ["Alt Follower Name 1", "Alt Follower Name 2"],
+		"units": 1,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "0",
+			"clashSpeed": "0",
+			"dodge": "0",
+			"protection": "0",
+			"health": "0"
+		},
+		"traits": [
+			{
+				"name": "Follower Trait Name",
+				"alternateNames": ["Alt Name 1", "Alt Name 2"],
+				"text": "Trait text with follower unit name where referenced."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Follower Plot Skill Name",
+				"alternateNames": ["Alt Name 1", "Alt Name 2"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Skill effect text.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Follower Clash Skill Name",
+				"alternateNames": ["Alt Name 1", "Alt Name 2"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Skill effect text.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "0",
+						"accuracy": "0",
+						"damage": "0"
+					}
+				]
+			}
+		]
+	}
+}

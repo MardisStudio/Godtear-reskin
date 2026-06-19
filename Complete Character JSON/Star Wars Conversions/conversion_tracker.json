@@ -1,0 +1,186 @@
+{
+	"description": "Tracks Star Wars conversion progress grouped by faction. Converted entries are derived from JSON files in this folder.",
+	"lastUpdated": "2026-06-18",
+	"summary": {
+		"converted": 6,
+		"notConverted": 21,
+		"total": 27
+	},
+	"factions": {
+		"Sentinal": {
+			"oldFaction": "Guardian",
+			"converted": 1,
+			"total": 7,
+			"champions": [
+				{
+					"godtearId": "durthax",
+					"godtearName": "Durthax",
+					"converted": false
+				},
+				{
+					"godtearId": "finvarr",
+					"godtearName": "Finvarr",
+					"converted": false
+				},
+				{
+					"godtearId": "halftusk",
+					"godtearName": "Halftusk",
+					"converted": false
+				},
+				{
+					"godtearId": "helena",
+					"godtearName": "Helena",
+					"converted": true,
+					"starWarsId": "captain_rex",
+					"starWarsName": "Captain Rex"
+				},
+				{
+					"godtearId": "jaak",
+					"godtearName": "Jaak",
+					"converted": false
+				},
+				{
+					"godtearId": "mournblade",
+					"godtearName": "Mournblade",
+					"converted": false
+				},
+				{
+					"godtearId": "rhodri",
+					"godtearName": "Rhodri",
+					"converted": false
+				}
+			]
+		},
+		"Marauders": {
+			"oldFaction": "Maelstrom",
+			"converted": 2,
+			"total": 7,
+			"champions": [
+				{
+					"godtearId": "blackjaw",
+					"godtearName": "Blackjaw",
+					"converted": false
+				},
+				{
+					"godtearId": "fenra",
+					"godtearName": "Fenra",
+					"converted": false
+				},
+				{
+					"godtearId": "grimgut",
+					"godtearName": "Grimgut",
+					"converted": true,
+					"starWarsId": "jabba_the_hutt",
+					"starWarsName": "Jabba the Hutt"
+				},
+				{
+					"godtearId": "jeen",
+					"godtearName": "Jeen",
+					"converted": false
+				},
+				{
+					"godtearId": "kailinn",
+					"godtearName": "Kailinn",
+					"converted": false
+				},
+				{
+					"godtearId": "luella",
+					"godtearName": "Luella",
+					"converted": false
+				},
+				{
+					"godtearId": "titus",
+					"godtearName": "Titus",
+					"converted": true,
+					"starWarsId": "darth_vader",
+					"starWarsName": "Darth Vader"
+				}
+			]
+		},
+		"Tactician": {
+			"oldFaction": "Shaper",
+			"converted": 1,
+			"total": 6,
+			"champions": [
+				{
+					"godtearId": "lily",
+					"godtearName": "Lily",
+					"converted": false
+				},
+				{
+					"godtearId": "nia",
+					"godtearName": "Nia",
+					"converted": false
+				},
+				{
+					"godtearId": "raithmarid",
+					"godtearName": "Raith'Marid",
+					"converted": false
+				},
+				{
+					"godtearId": "rattlebone",
+					"godtearName": "Rattlebone",
+					"converted": false
+				},
+				{
+					"godtearId": "shayle",
+					"godtearName": "Shayle",
+					"converted": true,
+					"starWarsId": "han_solo",
+					"starWarsName": "Han Solo"
+				},
+				{
+					"godtearId": "styx",
+					"godtearName": "Styx",
+					"converted": false
+				}
+			]
+		},
+		"Duelist": {
+			"oldFaction": "Slayer",
+			"converted": 2,
+			"total": 7,
+			"champions": [
+				{
+					"godtearId": "keera",
+					"godtearName": "Keera",
+					"converted": true,
+					"starWarsId": "moff_gideon",
+					"starWarsName": "Moff Gideon"
+				},
+				{
+					"godtearId": "lorsann",
+					"godtearName": "Lorsann",
+					"converted": true,
+					"starWarsId": "boba_fett",
+					"starWarsName": "Boba Fett"
+				},
+				{
+					"godtearId": "maxen",
+					"godtearName": "Maxen",
+					"converted": false
+				},
+				{
+					"godtearId": "morrigan",
+					"godtearName": "Morrigan",
+					"converted": false
+				},
+				{
+					"godtearId": "rangosh",
+					"godtearName": "Rangosh",
+					"converted": false
+				},
+				{
+					"godtearId": "skullbreaker",
+					"godtearName": "Skullbreaker",
+					"converted": false
+				},
+				{
+					"godtearId": "sneaky-peet",
+					"godtearName": "Sneaky Peet",
+					"converted": false
+				}
+			]
+		}
+	}
+}

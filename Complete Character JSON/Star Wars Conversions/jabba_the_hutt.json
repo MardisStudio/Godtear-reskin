@@ -1,0 +1,210 @@
+{
+	"id": "jabba_the_hutt",
+	"name": "Jabba the Hutt",
+	"faction": "Marauders",
+	"convertedFrom": {
+		"id": "grimgut",
+		"name": "Grimgut"
+	},
+	"bannerMiniatureIdeas": [
+		"Ornate Hutt throne dais with golden goblet, chain links, and a tiny frozen Han carbonite plaque",
+		"Rancor pit gate totem with bone pile, iron grate, and flickering torch sconces",
+		"Holoprojector pedestal displaying Jabba's calling card with surrounding palace coin offerings"
+	],
+	"vehicleSuggestions": ["Khetanna (Jabba's luxury sail barge)", "Desert skiff (iconic Tatooine transport from the Sarlacc sequence)", "Escort skiff (paired guard skiff for palace processions)"],
+	"champion": {
+		"stats": {
+			"plotSpeed": "1",
+			"clashSpeed": "1",
+			"dodge": "2",
+			"protection": "2",
+			"health": "9"
+		},
+		"factionTrait": {
+			"name": "Marauders Champion",
+			"text": "A marauder moves the turn token +1 step when they knock out an enemy follower."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Hutt's Entourage",
+				"alternateNames": ["Throne Room Summons", "More Guards!"],
+				"text": "When Gamorrean Guards make a recruit action during Jabba the Hutt's activation, you may place the new Gamorrean Guard adjacent to any Gamorrean Guard placed during this activation."
+			}
+		],
+		"ultimate": {
+			"name": "The Sarlacc Pit",
+			"alternateNames": ["Feast of Fools", "Rancor Snack"],
+			"skillIcon": "skill_enemy",
+			"mustTarget": "follower",
+			"text": "This skill may target up to three followers on any hexes within range.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "1",
+					"accuracy": "7",
+					"damage": "7"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Palace Reinforcements",
+				"alternateNames": ["Summon the Gamorreans", "Call the Hutt Cartel"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Remove all Gamorrean Guards from the battlefield. Then they make five recruit actions.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Rancor Breath",
+				"alternateNames": ["Toxic Hutt Fumes", "Spice Den Miasma"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill targets each enemy champion and follower unit adjacent to one or more Gamorrean Guards. Hit Effect: Inflict {damage_die_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "*",
+						"accuracy": "4",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Gamorrean Shackles",
+				"alternateNames": ["Slime of the Hutt", "Greasy Palace Floor"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill targets each enemy champion and follower unit adjacent to one or more Gamorrean Guards. Hit Effect: Inflict {move_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "*",
+						"accuracy": "4",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Sail Barge Procession",
+				"alternateNames": ["Slug Crawl", "Hover Throne Glide"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Jabba the Hutt moves up to 3 hexes in a straight line.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Palace Reinforcements",
+				"alternateNames": ["Gamorrean Charge", "Henchmen Flood"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Remove all Gamorrean Guards from the battlefield. Then they make five recruit actions.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Feed the Rancor",
+				"alternateNames": ["Devour the Weak", "Hutt Appetite"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "follower",
+				"text": "",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "7",
+						"damage": "7"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Gamorrean Guards",
+		"alternateNames": ["Palace Henchmen", "Weequay Thugs"],
+		"units": 5,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "0",
+			"clashSpeed": "1",
+			"dodge": "2",
+			"protection": "1",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Expendable Guards",
+				"alternateNames": ["Disposable Henchmen", "Jabba Spares No One"],
+				"text": "When a Gamorrean Guard is knocked out, it is worth 0 steps instead of 1."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Guard Rush",
+				"alternateNames": ["Palace Scramble", "Jabba's Security Alert"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Gain {move_boon}. Two Gamorrean Guards may use this skill in the same activation if they are in different hexes.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Gamorrean Beatdown",
+				"alternateNames": ["Vibro-Axe Volley", "Palace Brutality"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill may target up to three models in one hex. Two Gamorrean Guards may use this skill in the same activation if they are in different hexes.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "2",
+						"accuracy": "3",
+						"damage": "5"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "2",
+						"accuracy": "4",
+						"damage": "5"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "2",
+						"accuracy": "5",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	}
+}

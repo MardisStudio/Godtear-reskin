@@ -1,0 +1,217 @@
+{
+	"id": "moff_gideon",
+	"name": "Moff Gideon",
+	"faction": "Duelist",
+	"convertedFrom": {
+		"id": "keera",
+		"name": "Keera"
+	},
+	"bannerMiniatureIdeas": [
+		"Imperial light cruiser bridge holotable with glowing Phase-III Dark Trooper deployment schematic and a miniature tracking beacon",
+		"The Darksaber mounted on a beskar-alloy display stand flanked by twin Dark Trooper helmet totems",
+		"Nevarro lava-rock pedestal topped with a crushed Mandalorian signet and an Imperial Remnant command insignia"
+	],
+	"vehicleSuggestions": [
+		"Gideon's Imperial light cruiser (orbital command ship and Dark Trooper hangar from The Mandalorian)",
+		"TIE/ln Fighter (Gideon's personal starfighter from the Nevarro siege)",
+		"Imperial Shuttle (Dark Trooper insertion craft used on Tython)"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "2",
+			"dodge": "3",
+			"protection": "2",
+			"health": "6"
+		},
+		"factionTrait": {
+			"name": "Duelist Champion",
+			"text": "A duelist moves the turn token +1 step when they knock out an enemy champion."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Imperial Directive",
+				"alternateNames": ["Coordinated Fire", "From the Bridge"],
+				"text": "The range of Moff Gideon's skill_enemy skills must be determined from a Phase-III Dark Trooper within 3 hexes of him."
+			}
+		],
+		"ultimate": {
+			"name": "Dark Trooper Sweep",
+			"alternateNames": ["Orbital Strike", "Scorched Corridor"],
+			"skillIcon": "skill_area",
+			"mustTarget": "-",
+			"text": "Each enemy champion that is within 2 hexes of 1 or more Phase-III Dark Troopers gains 1 wound.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "-",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Deploy the Dark Troopers",
+				"alternateNames": ["Release the Droids", "They Are Coming"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "The Phase-III Dark Troopers may make an advance action or a recruit action.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Imperial Precision",
+				"alternateNames": ["Targeting Calibration", "Moment of Consideration"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "If a Phase-III Dark Trooper is within range they gain {accuracy_die_boon}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Deploy the Dark Troopers",
+				"alternateNames": ["Release the Droids", "They Are Coming"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "The Phase-III Dark Troopers may make an advance action or a recruit action.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Ruthless Execution",
+				"alternateNames": ["Power Fist Strike", "Terminate with Prejudice"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: If the target is a champion it gains 1 wound.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "4",
+						"damage": "7"
+					}
+				]
+			},
+			{
+				"name": "Incendiary Barrage",
+				"alternateNames": ["Flame Projector", "Thermal Detonator"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {protection_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "7",
+						"damage": "4"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Phase-III Dark Troopers",
+		"alternateNames": ["Imperial Dark Troopers", "Third-Generation Dark Troopers"],
+		"units": 2,
+		"size": "large",
+		"stats": {
+			"plotSpeed": "3",
+			"clashSpeed": "3",
+			"dodge": "2",
+			"protection": "2",
+			"health": "5"
+		},
+		"traits": [
+			{
+				"name": "Jetpack Insertion",
+				"alternateNames": ["Relentless Advance", "Overrun Protocol"],
+				"text": "During an advance action, the Phase-III Dark Troopers may move through other models' hexes but cannot end their movement on those hexes."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Assault Programming",
+				"alternateNames": ["Combat Protocols Activated", "Ruthless"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {damage_die_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Intimidation Protocol",
+				"alternateNames": ["Demoralize", "Mechanical War Cry"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {dodge_blight}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Power Fist",
+				"alternateNames": ["Droid Strike", "Melee Execution"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: If the target is a champion it gains 1 wound.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "3",
+						"damage": "5"
+					}
+				]
+			},
+			{
+				"name": "Incinerator Round",
+				"alternateNames": ["Flame Projector", "Scorched Earth"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {protection_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "5",
+						"damage": "3"
+					}
+				]
+			}
+		]
+	}
+}

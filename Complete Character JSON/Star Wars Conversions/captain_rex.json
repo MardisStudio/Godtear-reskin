@@ -1,0 +1,214 @@
+{
+	"id": "captain_rex",
+	"name": "Captain Rex",
+	"faction": "Sentinal",
+	"convertedFrom": {
+		"id": "helena",
+		"name": "Helena"
+	},
+	"bannerMiniatureIdeas": [
+		"A 501st clone helmet with blue jaig eyes mounted atop a Republic military standard, battle-scarred but upright",
+		"CT-7567 dog tags draped over a miniature LAAT/i nose panel painted with Torrent Company markings",
+		"A Torrent Company banner with crossed DC-17 blaster pistols fixed to a blast-dented riot shield base"
+	],
+	"vehicleSuggestions": [
+		"LAAT/i Republic Gunship — Rex's iconic aerial deployment and extraction platform",
+		"AT-TE Walker — heavy assault walker Rex has commanded from the front lines",
+		"ARC-170 Starfighter — 501st Legion starfighter association for orbital support"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "2",
+			"dodge": "3",
+			"protection": "4",
+			"health": "4"
+		},
+		"factionTrait": {
+			"name": "Sentinal Champion",
+			"text": "A sentinel moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+		},
+		"uniqueTraits": [
+			{
+				"name": "501st Vanguard",
+				"alternateNames": ["Jaig Eyes", "Torrent Standard"],
+				"text": "Captain Rex cannot make claim actions. During the end phase, if he is not knocked out, Captain Rex counts as a banner for the purposes of gaining steps on the battle ladder."
+			}
+		],
+		"ultimate": {
+			"name": "Reinforce the Line",
+			"alternateNames": ["Torrent Company, Deploy!", "All Hands on Deck"],
+			"skillIcon": "skill_area",
+			"mustTarget": "-",
+			"text": "Follower units of all friendly champions in range, immediately make recruit actions up to maximum unit size.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "2",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Torrent Company Reinforcements",
+				"alternateNames": ["Double Time", "Send in the Troopers"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "The 501st Legionnaires immediately make up to 2 recruit actions.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Lead from the Front",
+				"alternateNames": ["Forward, Torrent!", "After Them!"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Move Captain Rex up to 1 hex. Then move each 501st Legionnaire that is within range up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "DC-17 Bash",
+				"alternateNames": ["Riot Shield Push", "For the Republic"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Move target up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "6",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Twin Blasters",
+				"alternateNames": ["Suppressive Fire", "Concentrated Volley"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "5",
+						"damage": "4"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "501st Legionnaires",
+		"alternateNames": ["Torrent Troopers", "Clone Shock Troopers"],
+		"units": 6,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "2",
+			"dodge": "3",
+			"protection": "1",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Brothers in Blue",
+				"alternateNames": ["For the Captain", "Torrent Loyalty"],
+				"text": "A 501st Legionnaire has +1 {dodge} and {protection} while it is within 2 hexes of Captain Rex."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Bacta Patch",
+				"alternateNames": ["Cover the Captain", "Brothers, Watch Your Six"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "If Captain Rex is within range, remove up to 1 wound from Captain Rex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Target Designator",
+				"alternateNames": ["Mark the Enemy", "ARC Discipline"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "inflict {accuracy_die_blight}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "3",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Bacta Patch",
+				"alternateNames": ["Field Medic", "Suppressing Fire Support"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "If Captain Rex is within range, remove up to 1 wound from Captain Rex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Concentrated Fire",
+				"alternateNames": ["Focus Fire", "Torrent Company Volley"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill gains +1 {accuracy_die} and +1 {damage_die} for each 501st Legionnaire adjacent to the target.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "0*",
+						"damage": "0*"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "0*",
+						"damage": "0*"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "0*",
+						"damage": "0*"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,88 @@
+---
+description: Apply Star Wars converter output — duplicate Godtear JSON, create conversion file, update tracker
+alwaysApply: false
+---
+
+# Star Wars Character Conversion
+
+When the user pastes converter output text, create a new Star Wars conversion JSON and update the tracker. Do not ask for confirmation unless the source champion ID is ambiguous or missing.
+
+## 1. Parse the converter output
+
+Extract from the text (format may vary slightly):
+
+- **Source champion**: `Old Champion ID` or header like `Conversion Mapping (Lorsann → Boba Fett)`
+- **Star Wars champion**: name from header or `Champion: X → Y`
+- **Faction**: from `Faction: Slayer → Duelist` (use the **new** Star Wars faction)
+- **Followers**: from `Followers: Mistwood Rangers → Probe Droids`
+- **Renames**: sections for Unique Trait, Ultimate, Plot Skills, Clash Skills, Follower Trait, Follower Plot/Clash Skills — each has `Old: X` / `New: Y` and optional `Alts: ...`
+- **Extras**: `Banner Miniature Ideas` and `Associated Vehicles` lists
+
+## 2. Duplicate the source JSON
+
+1. Read `Complete Character JSON/{godtearId}_checked.json`
+2. Copy structure to `Complete Character JSON/Star Wars Conversions/{star_wars_id}.json`
+3. `star_wars_id` = lowercase snake_case of Star Wars name (`Boba Fett` → `boba_fett`)
+
+## 3. Apply conversions
+
+Match existing fields by **old name** (order in source JSON if names are ambiguous). Keep `stats`, `skillIcon`, `mustTarget`, and `statProfiles` unchanged unless skill `text` references old names.
+
+**Top-level fields:**
+```json
+"id": "boba_fett",
+"name": "Boba Fett",
+"faction": "Duelist",
+"convertedFrom": {
+  "id": "lorsann",
+  "name": "Lorsann"
+},
+"bannerMiniatureIdeas": ["...", "...", "..."],
+"vehicleSuggestions": ["...", "...", "..."]
+```
+
+Follow the full structure in `Complete Character JSON/Star Wars Conversions/template.json` (canonical example: `han_solo.json`). Use tabs for indentation.
+
+**Faction mapping** (Godtear → Star Wars):
+
+| Godtear | Star Wars |
+|---------|-----------|
+| Guardian | Sentinal |
+| Maelstrom | Marauders |
+| Shaper | Tactician |
+| Slayer | Duelist |
+
+**`champion.factionTrait`**: rename to `"{StarWarsFaction} Champion"` and update `text` — replace the Godtear faction word with the singular lowercase Star Wars name (`slayer` → `duelist`, `maelstrom` → `marauder`, etc.).
+
+**Skills & traits**: set `name` to the new value; add `alternateNames` array when alts are provided (strip surrounding quotes from alt names).
+
+**`followers.name`**: use the new follower name. Add `alternateNames` when appropriate.
+
+**Skill/trait `text`**: replace old champion name, follower unit name, and any old skill names referenced in the text with their Star Wars equivalents.
+
+Follow existing conversion style in `template.json` and `han_solo.json` (tabs, field order, no extra fields).
+
+## 4. Update `conversion_tracker.json`
+
+In the matching faction's `champions` array, find the entry by `godtearId` and set:
+
+```json
+"converted": true,
+"starWarsId": "boba_fett",
+"starWarsName": "Boba Fett"
+```
+
+Then update that faction's `converted` count, `summary.converted`, `summary.notConverted`, and `lastUpdated`.
+
+## Example input snippet
+
+```
+Conversion Mapping (Lorsann → Boba Fett)
+Old Champion ID: lorsann
+Faction: Slayer → Duelist
+Followers: Mistwood Rangers → Probe Droids
+Plot Skills:
+Old: Field Instruction → New: Bounty Prep (Alts: Mandalorian Tactics, ...)
+```
+
+→ Source: `lorsann_checked.json` → Output: `boba_fett.json` → Tracker: Duelist faction, `lorsann` entry marked converted.

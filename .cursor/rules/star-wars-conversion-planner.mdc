@@ -1,0 +1,143 @@
+---
+description: Plan a Star Wars conversion — match champion, ask rename choices, write JSON and update tracker
+alwaysApply: false
+---
+
+# Star Wars Conversion Planner
+
+**Trigger:** User @-mentions this rule or says "plan star wars conversion" with a Star Wars character and one or more candidate Godtear champions.
+
+**Goal:** Interactive plan mode inside Cursor. End by writing the conversion JSON and updating the tracker — unless the user says **plan only**.
+
+## Phase 0 — Research the Star Wars character
+
+Before matching or naming anything, **look up the Star Wars character** (web search, Wookieepedia, film summaries, etc.) to build a working profile:
+
+- **Role & playstyle** — fighter type, leader, support, ranged/melee, mobility, durability, control, burst, summons/minions, etc.
+- **Iconic gear & abilities** — weapons, tech, Force powers, signature tactics.
+- **Personality & reputation** — how they fight, command, intimidate, negotiate, or scheme.
+- **Followers & entourage** — who fights alongside them, droids, troops, beasts, lieutenants.
+- **Quotes, catchphrases, and named moments** — memorable lines and scenes to mine for skill/trait names later (e.g. *"I have altered the deal"*, carbon-freezing, Sarlacc pit).
+
+Use this research in **Phase 1** to judge fit against the provided Godtear champions, and in **Phase 2** when drafting the 3 name options per skill (prefer real quotes, scene titles, gear names, and in-universe terms over generic labels).
+
+## Conversion rules (never violate)
+
+- Godtear → Star Wars reskin. **Do not change stats, skill effects, icons, mustTarget, or statProfiles.**
+- Only rename: champion name, follower unit name, faction, unique traits, ultimate, plot/clash skills, follower traits/skills.
+- Edit skill/trait **text** only when it references the old champion or follower name — swap to Star Wars equivalents.
+- Names must be strongly Star Wars–themed for the chosen character. Prefer movie quotes, named events, iconic gear, and in-universe terms.
+- Faction mapping:
+
+| Godtear | Star Wars |
+|---------|-----------|
+| Guardian | Sentinal |
+| Maelstrom | Marauders |
+| Shaper | Tactician |
+| Slayer | Duelist |
+
+## Phase 1 — Match champion
+
+1. Complete **Phase 0** research on the Star Wars character.
+2. Read each candidate's `Complete Character JSON/{id}_checked.json`.
+3. Compare each candidate to the Star Wars profile — thematic role, combat style, faction vibe, follower count/size, and how specific skills map to iconic moments or abilities.
+4. Pick the **best thematic and mechanical fit**. Briefly explain why you chose it and why others are weaker fits, referencing both Godtear mechanics and Star Wars lore from your research.
+5. Use **AskQuestion** to confirm the match (include top pick + other candidates as options + Other).
+
+Do not proceed until the champion is confirmed.
+
+## Phase 2 — Rename choices (AskQuestion)
+
+Read the confirmed source JSON. Collect **every** renameable item below, then ask for **all** name picks in **one** `AskQuestion` call — a single form with multiple questions, not separate question boxes.
+
+Each question in that form must have exactly **3 Star Wars–themed name options** as choices (add **Other** when useful). Draw options from **Phase 0** research — tie each suggestion to the ability's effect where possible (quotes, scene names, gear, tactics). Avoid generic filler names when a specific reference fits.
+
+Each question **prompt** must include the **old name** and the **ability text** (the skill/trait `text` field from the source JSON). The user should never have to guess which ability they are renaming.
+
+Use this format for each question's `prompt`:
+
+```
+{Section}: "{Old Name}"
+Ability: {text}
+```
+
+For **follower unit name** (no ability text), use:
+```
+Follower unit: "{Old Name}" ({size}, {units} figures)
+```
+
+Also show the full list of rename items in chat (old name + ability for each) before calling AskQuestion. Ask only for new **title** picks — do not change ability text in this phase.
+
+**Duplicate skill names:** Before building the form, group skills that share the **same old name and same ability text** (e.g. Helena follower **Prayer** in both plot and clash). Ask **once** for that group — do not create separate questions per phase.
+
+- Use one question with the **same 3 name options** you would use for either copy.
+- Add a note to the prompt, e.g. `Note: Same skill name in plot and clash — one pick renames both.`
+- List every location in the prompt, e.g. `Used in: Follower plot skill, Follower clash skill`.
+- Use a shared `id` (e.g. `follower_prayer`) and apply the chosen name + `alternateNames` to **every** matching entry when writing JSON.
+
+If the **name** matches but **ability text** differs, keep separate questions and note the shared old name in each prompt instead.
+
+Questions in the form, in order (one question per **unique** renameable item):
+
+1. Unique trait(s)
+2. Ultimate
+3. Champion plot skills (one question each)
+4. Champion clash skills (one question each)
+5. Follower unit name
+6. Follower trait(s)
+7. Follower plot skills (one question each)
+8. Follower clash skills (one question each)
+
+Use stable `id` values per item (e.g. `unique_trait_1`, `ultimate`, `champion_plot_1`, `follower_unit`) so answers map cleanly to the JSON.
+
+**alternateNames:** For each item, the 2 names the user did **not** choose become `alternateNames` on that skill/trait. Order does not matter.
+
+## Phase 3 — Banner & vehicles (no pick required)
+
+Using **Phase 0** research, propose **3 banner miniature ideas** (totem, sculpture, relic, flag, etc. — like existing conversions) and **3 associated vehicles**. Include all 6 in the final output; no AskQuestion needed unless the user wants to narrow them down.
+
+## Phase 4 — Write conversion JSON
+
+After Phase 2 answers and Phase 3 banner/vehicle proposals, write the conversion JSON directly. **Do not** output a text conversion mapping block.
+
+1. Read `Complete Character JSON/Star Wars Conversions/template.json` and the source `{id}_checked.json`.
+2. Copy structure to `Complete Character JSON/Star Wars Conversions/{star_wars_id}.json` (`star_wars_id` = lowercase snake_case of Star Wars name).
+3. Apply all renames from Phase 2 answers; set `alternateNames` from the 2 unchosen options per item. For duplicate-named skills grouped in Phase 2, apply the **same** chosen name and `alternateNames` to every matching plot/clash entry.
+4. Set top-level `id`, `name`, `faction`, `convertedFrom`, `bannerMiniatureIdeas`, and `vehicleSuggestions`.
+5. Update `champion.factionTrait` and skill/trait `text` only where old champion, follower, or skill names appear.
+6. Update `conversion_tracker.json` (mark `converted`, set `starWarsId` / `starWarsName`, refresh counts) per **`star-wars-conversion.mdc`**.
+
+A brief chat confirmation is fine (e.g. file path written). No approval step unless the user said **plan only** — then stop after Phase 3 without writing files.
+
+## Expected JSON output
+
+The final JSON must match the structure in **`Complete Character JSON/Star Wars Conversions/template.json`** (derived from `han_solo.json`). Read the template before writing output.
+
+**Top-level shape** (field order matters):
+
+```
+id, name, faction,
+convertedFrom { id, name },
+bannerMiniatureIdeas [3 strings],
+vehicleSuggestions [3 strings],
+champion { ... },
+followers { ... }
+```
+
+**Rules:**
+- `bannerMiniatureIdeas` and `vehicleSuggestions` are **top-level** — not inside `convertedFrom`.
+- Copy `stats`, `skillIcon`, `mustTarget`, `statProfiles`, `units`, and `size` verbatim from the source `_checked.json`.
+- `faction` uses the Star Wars name (Sentinal, Marauders, Tactician, Duelist).
+- `champion.factionTrait.name` = `"{Faction} Champion"`; update `text` with singular lowercase faction word.
+- Renamed skills/traits get the chosen `name`; unchosen suggestions go in `alternateNames` (omit the field if none).
+- `alternateNames` is optional on any skill, trait, or `followers` — include when alts exist.
+- Only edit skill/trait `text` when it references old champion, follower, or skill names.
+
+**Canonical example:** `han_solo.json`
+
+## Reference
+
+- **Output template:** `Complete Character JSON/Star Wars Conversions/template.json`
+- Source files: `Complete Character JSON/{id}_checked.json`
+- Examples: `han_solo.json`, `boba_fett.json`
+- Tracker: `Complete Character JSON/Star Wars Conversions/conversion_tracker.json`

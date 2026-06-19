@@ -1,17 +1,8 @@
 {
-    "Slayer": [
-        "marauders",
-        "duelists",
-        "hunters"
-    ],
-    "Maelstrom": [],
-    "Shaper": [
-        "tacticians"
-    ],
-    "gaurdian": [
-        "sentinals"
-    ],
-    "objective hex": [
-        "control point"
-    ]
+	"Slayer": ["duelists", "hunters"],
+	"Maelstrom": ["marauders"],
+	"Shaper": ["tacticians"],
+	"gaurdian": ["sentinels"],
+	"objective hex": ["control point"],
+	"banner": ["beacon", "relic"]
 }

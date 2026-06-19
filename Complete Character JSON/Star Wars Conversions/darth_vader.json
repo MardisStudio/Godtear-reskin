@@ -1,265 +1,238 @@
 {
-    "id": "darth_vader",
-    "name": "Darth Vader",
-    "faction": "Maelstrom",
-    "convertedFrom": {
-        "id": "titus",
-        "name": "Titus"
-    },
-    "champion": {
-        "stats": {
-            "plotSpeed": "2",
-            "clashSpeed": "2",
-            "dodge": "3",
-            "protection": "3",
-            "health": "5"
-        },
-        "factionTrait": {
-            "name": "Maelstrom Champion",
-            "text": "A maelstrom moves the turn token +1 step when they knock out an enemy follower."
-        },
-        "uniqueTraits": [
-            {
-                "name": "The Power of the Dark Side",
-                "alternateNames": [
-                    "I Am Your Master",
-                    "Fear Will Keep Them In Line",
-                    "I Am Your Father"
-                ],
-                "text": "Vader has +1 {dodge} against followers' hit rolls and +1 {protection} against followers' damage rolls."
-            }
-        ],
-        "ultimate": {
-            "name": "Unleash the Dark Side",
-            "alternateNames": [
-                "I Find Your Lack of Faith Disturbing",
-                "Execute Order 66"
-            ],
-            "skillIcon": "skill_self",
-            "mustTarget": "-",
-            "text": "Vader may make a skill action. Then he may move 1 hex. Then he may make another skill action.",
-            "statProfiles": [
-                {
-                    "figuresInHex": "-",
-                    "range": "-",
-                    "accuracy": "-",
-                    "damage": "-"
-                }
-            ]
-        },
-        "plotSkills": [
-            {
-                "name": "Force Choke",
-                "alternateNames": [
-                    "You Are Beaten",
-                    "Kneel Before Vader"
-                ],
-                "skillIcon": "skill_area",
-                "mustTarget": "-",
-                "text": "An enemy model within range gains two different blights of your choice. Vader gains a blight of your opponent's choice.",
-                "statProfiles": [
-                    {
-                        "figuresInHex": "-",
-                        "range": "2",
-                        "accuracy": "-",
-                        "damage": "-"
-                    }
-                ]
-            },
-            {
-                "name": "All Too Easy",
-                "alternateNames": [
-                    "Force Push",
-                    "The Empire Will Win"
-                ],
-                "skillIcon": "skill_enemy",
-                "mustTarget": "follower",
-                "text": "Hit Effect: Move all followers in target's unit that are within range up to 1 hex.",
-                "statProfiles": [
-                    {
-                        "figuresInHex": "-",
-                        "range": "3",
-                        "accuracy": "6",
-                        "damage": "-"
-                    }
-                ]
-            }
-        ],
-        "clashSkills": [
-            {
-                "name": "Lightsaber Thrust",
-                "alternateNames": [
-                    "Red Blade Fury",
-                    "Vader's Precision"
-                ],
-                "skillIcon": "skill_enemy",
-                "mustTarget": "-",
-                "text": "This skill may target up to two models in the same hex.",
-                "statProfiles": [
-                    {
-                        "figuresInHex": "-",
-                        "range": "1",
-                        "accuracy": "5",
-                        "damage": "6"
-                    }
-                ]
-            },
-            {
-                "name": "No Mercy",
-                "alternateNames": [
-                    "Lightsaber Sweep",
-                    "Deflect and Destroy"
-                ],
-                "skillIcon": "skill_enemy",
-                "mustTarget": "-",
-                "text": "This skill may target up to two models that are in different hexes.",
-                "statProfiles": [
-                    {
-                        "figuresInHex": "-",
-                        "range": "1",
-                        "accuracy": "6",
-                        "damage": "5"
-                    }
-                ]
-            }
-        ]
-    },
-    "followers": {
-        "name": "Imperial Stormtroopers",
-        "alternateNames": [
-            "Vader's Legion",
-            "Dark Side Enforcers"
-        ],
-        "units": 5,
-        "size": "small",
-        "stats": {
-            "plotSpeed": "2",
-            "clashSpeed": "2",
-            "dodge": "3",
-            "protection": "3",
-            "health": "1"
-        },
-        "traits": [
-            {
-                "name": "Imperial Drop Pods",
-                "alternateNames": [
-                    "Reinforcements from the Death Star",
-                    "Vader's Command"
-                ],
-                "text": "After using a recruit action, the Imperial Stormtrooper returned to the battlefield moves up to 2 hexes."
-            }
-        ],
-        "plotSkills": [
-            {
-                "name": "Vader's Orders",
-                "alternateNames": [
-                    "The Force Is Strong With This One",
-                    "Forward, My Legion"
-                ],
-                "skillIcon": "skill_friendly",
-                "mustTarget": "champion",
-                "text": "One champion within range may move 1 hex.",
-                "statProfiles": [
-                    {
-                        "figuresInHex": "-",
-                        "range": "2",
-                        "accuracy": "-",
-                        "damage": "-"
-                    }
-                ]
-            },
-            {
-                "name": "Flanking Maneuver",
-                "alternateNames": [
-                    "Surround the Rebel Scum",
-                    "Pincer Attack"
-                ],
-                "skillIcon": "skill_enemy",
-                "mustTarget": "-",
-                "text": "Hit Effect: Place each Imperial Stormtrooper that is adjacent to the target in a hex adjacent to the target.",
-                "statProfiles": [
-                    {
-                        "figuresInHex": 1,
-                        "range": "1",
-                        "accuracy": "6",
-                        "damage": "-"
-                    },
-                    {
-                        "figuresInHex": 2,
-                        "range": "1",
-                        "accuracy": "6",
-                        "damage": "-"
-                    },
-                    {
-                        "figuresInHex": 3,
-                        "range": "1",
-                        "accuracy": "6",
-                        "damage": "-"
-                    }
-                ]
-            }
-        ],
-        "clashSkills": [
-            {
-                "name": "For the Empire!",
-                "alternateNames": [
-                    "Blaster Volley",
-                    "Suppressing Fire"
-                ],
-                "skillIcon": "skill_enemy",
-                "mustTarget": "-",
-                "text": "Hit Effect: Inflict {protection_blight}",
-                "statProfiles": [
-                    {
-                        "figuresInHex": 1,
-                        "range": "1",
-                        "accuracy": "5",
-                        "damage": "-"
-                    },
-                    {
-                        "figuresInHex": 2,
-                        "range": "1",
-                        "accuracy": "5",
-                        "damage": "-"
-                    },
-                    {
-                        "figuresInHex": 3,
-                        "range": "1",
-                        "accuracy": "6",
-                        "damage": "-"
-                    }
-                ]
-            },
-            {
-                "name": "Encircling Assault",
-                "alternateNames": [
-                    "Overwhelming Numbers",
-                    "No Escape"
-                ],
-                "skillIcon": "skill_enemy",
-                "mustTarget": "-",
-                "text": "This skill has +1 {accuracy_die} and +1 {damage_die} for each other hex adjacent to the target that contains one or more Imperial Stormtroopers.",
-                "statProfiles": [
-                    {
-                        "figuresInHex": 1,
-                        "range": "1",
-                        "accuracy": "4*",
-                        "damage": "3*"
-                    },
-                    {
-                        "figuresInHex": 2,
-                        "range": "1",
-                        "accuracy": "4*",
-                        "damage": "4*"
-                    },
-                    {
-                        "figuresInHex": 3,
-                        "range": "1",
-                        "accuracy": "4*",
-                        "damage": "5*"
-                    }
-                ]
-            }
-        ]
-    }
+	"id": "darth_vader",
+	"name": "Darth Vader",
+	"faction": "Marauders",
+	"convertedFrom": {
+		"id": "titus",
+		"name": "Titus"
+	},
+	"bannerMiniatureIdeas": [
+		"Miniature of Vader's charred helmet mounted on a black obsidian plinth with glowing red lightsaber energy",
+		"A small-scale Imperial command throne with Vader's cape flowing, red crystal accents, and holographic Death Star projection",
+		"A sculpted black armor fragment (chest plate) on a rocky base with floating red Force lightning effects"
+	],
+	"vehicleSuggestions": [
+		"TIE Advanced x1 – Vader's personal advanced starfighter",
+		"Lambda-class Imperial Shuttle – The shuttle used for dramatic planetary arrivals",
+		"AT-AT Walker – Commanding an All Terrain Armored Transport as a mobile siege platform"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "2",
+			"dodge": "3",
+			"protection": "3",
+			"health": "5"
+		},
+		"factionTrait": {
+			"name": "Marauders Champion",
+			"text": "A marauder moves the turn token +1 step when they knock out an enemy follower."
+		},
+		"uniqueTraits": [
+			{
+				"name": "The Power of the Dark Side",
+				"alternateNames": ["I Am Your Master", "Fear Will Keep Them In Line", "I Am Your Father"],
+				"text": "Vader has +1 {dodge} against followers' hit rolls and +1 {protection} against followers' damage rolls."
+			}
+		],
+		"ultimate": {
+			"name": "Unleash the Dark Side",
+			"alternateNames": ["I Find Your Lack of Faith Disturbing", "Execute Order 66"],
+			"skillIcon": "skill_self",
+			"mustTarget": "-",
+			"text": "Vader may make a skill action. Then he may move 1 hex. Then he may make another skill action.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "-",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Force Choke",
+				"alternateNames": ["You Are Beaten", "Kneel Before Vader"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "An enemy model within range gains two different blights of your choice. Vader gains a blight of your opponent's choice.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "All Too Easy",
+				"alternateNames": ["Force Push", "The Empire Will Win"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "follower",
+				"text": "Hit Effect: Move all followers in target's unit that are within range up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "6",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Lightsaber Thrust",
+				"alternateNames": ["Red Blade Fury", "Vader's Precision"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill may target up to two models in the same hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "5",
+						"damage": "6"
+					}
+				]
+			},
+			{
+				"name": "No Mercy",
+				"alternateNames": ["Lightsaber Sweep", "Deflect and Destroy"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill may target up to two models that are in different hexes.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "6",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Imperial Stormtroopers",
+		"alternateNames": ["Vader's Legion", "Dark Side Enforcers"],
+		"units": 5,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "2",
+			"dodge": "3",
+			"protection": "3",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Imperial Drop Pods",
+				"alternateNames": ["Reinforcements from the Death Star", "Vader's Command"],
+				"text": "After using a recruit action, the Imperial Stormtrooper returned to the battlefield moves up to 2 hexes."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Vader's Orders",
+				"alternateNames": ["The Force Is Strong With This One", "Forward, My Legion"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "champion",
+				"text": "One champion within range may move 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Flanking Maneuver",
+				"alternateNames": ["Surround the Rebel Scum", "Pincer Attack"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Place each Imperial Stormtrooper that is adjacent to the target in a hex adjacent to the target.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "6",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "6",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "6",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "For the Empire!",
+				"alternateNames": ["Blaster Volley", "Suppressing Fire"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {protection_blight}",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "6",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Encircling Assault",
+				"alternateNames": ["Overwhelming Numbers", "No Escape"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill has +1 {accuracy_die} and +1 {damage_die} for each other hex adjacent to the target that contains one or more Imperial Stormtroopers.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "4*",
+						"damage": "3*"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "4*",
+						"damage": "4*"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "4*",
+						"damage": "5*"
+					}
+				]
+			}
+		]
+	}
 }
