@@ -1,0 +1,143 @@
+<style>
+  body { font: 12px -apple-system, system-ui, sans-serif; margin: 0; padding: 12px;
+         color: var(--figma-color-text); background: var(--figma-color-bg); }
+  h3 { margin: 0 0 4px; font-size: 13px; }
+  h4 { margin: 0 0 6px; font-size: 12px; }
+  p  { margin: 0 0 10px; color: var(--figma-color-text-secondary); line-height: 1.4; }
+  textarea { width: 100%; box-sizing: border-box; height: 160px; resize: vertical;
+             font: 11px ui-monospace, Menlo, monospace; padding: 8px; border-radius: 6px;
+             border: 1px solid var(--figma-color-border);
+             background: var(--figma-color-bg-secondary); color: var(--figma-color-text); }
+  .row { display: flex; gap: 8px; align-items: center; margin: 9px 0; flex-wrap: wrap; }
+  label.chk { display: flex; gap: 6px; align-items: center; cursor: pointer; }
+  button { flex: 1; padding: 10px; border: 0; border-radius: 6px; cursor: pointer;
+           font-weight: 600; font-size: 12px; }
+  .primary { background: var(--figma-color-bg-brand); color: var(--figma-color-text-onbrand); }
+  .secondary { background: var(--figma-color-bg-secondary); color: var(--figma-color-text); }
+  input[type=file] { font-size: 11px; max-width: 100%; }
+  input[type=number] { width: 56px; padding: 5px; border-radius: 5px;
+             border: 1px solid var(--figma-color-border);
+             background: var(--figma-color-bg-secondary); color: var(--figma-color-text); }
+  hr { border: 0; border-top: 1px solid var(--figma-color-border); margin: 12px 0; }
+  #bar { height: 4px; background: var(--figma-color-bg-brand); width: 0%; border-radius: 2px;
+         transition: width .15s; }
+  .barwrap { height: 4px; background: var(--figma-color-bg-secondary); border-radius: 2px; margin-top:8px; }
+  small { color: var(--figma-color-text-secondary); display: block; line-height: 1.35; }
+  ol { margin: 0 0 10px; padding-left: 18px; color: var(--figma-color-text-secondary); line-height: 1.45; }
+</style>
+
+<h3>God Tear Card Generator</h3>
+<p>Uses the <b>Master BW Card</b> component as the only template. Generates
+   <b>6 instances per character</b>:</p>
+<ol>
+  <li>Identity — stats hidden, banner/vehicle ideas in skill rows</li>
+  <li>Ultimate — champion stats, ultimate + traits in skill rows</li>
+  <li>Champion plot</li>
+  <li>Champion clash</li>
+  <li>Follower plot</li>
+  <li>Follower clash</li>
+</ol>
+
+<textarea id="json" placeholder="Paste JSON or select character files below…"></textarea>
+
+<div class="row">
+  <input type="file" id="file" accept=".json,application/json" multiple />
+</div>
+
+<hr>
+
+<div class="row">
+  <span>Grid columns:</span>
+  <input type="number" id="genCols" value="6" min="1" />
+  <label class="chk"><input type="checkbox" id="genClear" checked /> Clear previous</label>
+</div>
+<div class="row">
+  <button class="primary" id="generate">Generate all character cards</button>
+</div>
+
+<hr>
+
+<h4>Legacy: fill a single template frame</h4>
+<div class="row">
+  <label class="chk"><input type="checkbox" id="clone" /> Clone before filling</label>
+</div>
+<div class="row">
+  <button class="secondary" id="fill">Fill selected frame</button>
+</div>
+<div class="row">
+  <span>Batch columns:</span>
+  <input type="number" id="cols" value="10" min="1" />
+  <label class="chk"><input type="checkbox" id="clear" checked /> Clear previous</label>
+</div>
+<div class="row">
+  <button class="secondary" id="batch">Batch fill template grid</button>
+</div>
+
+<div class="barwrap"><div id="bar"></div></div>
+<small id="status"></small>
+
+<script>
+  var ta = document.getElementById("json");
+  var bar = document.getElementById("bar");
+  var status = document.getElementById("status");
+
+  var SKIP_FILES = /^(conversion_tracker|template)\.json$/i;
+
+  document.getElementById("file").addEventListener("change", function (e) {
+    var files = Array.prototype.slice.call(e.target.files);
+    if (!files.length) return;
+    var results = [];
+    var remaining = files.length;
+    files.forEach(function (f) {
+      if (SKIP_FILES.test(f.name)) { if (--remaining === 0) finish(); return; }
+      var r = new FileReader();
+      r.onload = function () {
+        try {
+          var parsed = JSON.parse(r.result);
+          if (Array.isArray(parsed)) results = results.concat(parsed);
+          else results.push(parsed);
+        } catch (err) { status.textContent = "Couldn't parse " + f.name; }
+        if (--remaining === 0) finish();
+      };
+      r.readAsText(f);
+    });
+    function finish() {
+      ta.value = JSON.stringify(results, null, 2);
+      status.textContent = results.length + " character(s) loaded";
+    }
+  });
+
+  document.getElementById("generate").addEventListener("click", function () {
+    bar.style.width = "0%"; status.textContent = "Generating…";
+    parent.postMessage({ pluginMessage: {
+      type: "generate", json: ta.value,
+      columns: document.getElementById("genCols").value,
+      clearPrevious: document.getElementById("genClear").checked
+    } }, "*");
+  });
+
+  document.getElementById("fill").addEventListener("click", function () {
+    parent.postMessage({ pluginMessage: {
+      type: "fill", batch: false, json: ta.value,
+      clone: document.getElementById("clone").checked
+    } }, "*");
+  });
+
+  document.getElementById("batch").addEventListener("click", function () {
+    bar.style.width = "0%"; status.textContent = "Generating…";
+    parent.postMessage({ pluginMessage: {
+      type: "fill", batch: true, json: ta.value,
+      columns: document.getElementById("cols").value,
+      clearPrevious: document.getElementById("clear").checked
+    } }, "*");
+  });
+
+  onmessage = function (e) {
+    var msg = e.data.pluginMessage; if (!msg) return;
+    if (msg.type === "progress") {
+      bar.style.width = Math.round(100 * msg.done / msg.total) + "%";
+      status.textContent = msg.done + " / " + msg.total;
+    }
+    if (msg.type === "done") { bar.style.width = "100%"; }
+  };
+</script>
