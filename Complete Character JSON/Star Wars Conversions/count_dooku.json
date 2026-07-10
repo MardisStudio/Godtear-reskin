@@ -1,0 +1,202 @@
+{
+	"id": "count_dooku",
+	"name": "Count Dooku",
+	"faction": "Tactician",
+	"convertedFrom": {
+		"id": "styx",
+		"name": "Styx"
+	},
+	"bannerMiniatureIdeas": [
+		"The crest of House Serenno mounted on a Separatist battle standard, draped in crimson velvet",
+		"Count Dooku's curved-hilt lightsaber crossed with a CIS hex emblem on a bronze plinth",
+		"A miniature Geonosis arena gate flanked by two droideka shields, topped with Darth Tyranus sigil"
+	],
+	"vehicleSuggestions": [
+		"Punworcca 116-class interstellar sloop — Dooku's solar sailer from Geonosis",
+		"Flitknot Speeder Bike — personal transport used during the Geonosis escape",
+		"Providence-class Dreadnought — flagship of the Separatist fleet under Dooku's command"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "2",
+			"dodge": "4",
+			"protection": "2",
+			"health": "6"
+		},
+		"factionTrait": {
+			"name": "Tactician Champion",
+			"text": "A tactician moves the turn token +1 step when they make a claim action."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Fallen Lord",
+				"alternateNames": ["Escort Protocol", "Dark Side Residue"],
+				"text": "When Count Dooku is knocked out, your opponent may not move him."
+			}
+		],
+		"ultimate": {
+			"name": "Kill Him Now",
+			"alternateNames": ["Makashi Coup de Grâce", "Separatist Execution"],
+			"skillIcon": "skill_area",
+			"mustTarget": "-",
+			"text": "Knock out an enemy model within range. It does not award you any steps on the battle ladder.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "2",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Force Lightning",
+				"alternateNames": ["A Worthy Opponent", "Twilight Falls"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "Count Dooku may use this skill as a bonus action. An enemy model within range gains {protection_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Force Pull",
+				"alternateNames": ["Come to Me", "Telekinetic Summons"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Move target up to 1 hex toward Count Dooku.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Force Crush",
+				"alternateNames": ["Telekinetic Displacement", "Geonosis Gambit"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "Move one objective hex within range 1 hex toward Count Dooku onto an empty non-objective hex. Models on the objective hex move with it.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Curved Hilt Slash",
+				"alternateNames": ["Makashi Strike", "Form II Lunge"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {damage_die_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "5",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Droidekas",
+		"alternateNames": ["Destroyer Droids", "Colicoid Destroyers"],
+		"units": 2,
+		"size": "large",
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "2",
+			"dodge": "4",
+			"protection": "1",
+			"health": "4"
+		},
+		"traits": [
+			{
+				"name": "Escort Formation",
+				"alternateNames": ["Reform the Line", "Bodyguard Protocol"],
+				"text": "At the end of the Droidekas' activation, move up to 2 small follower models within 2 hexes of a Droideka, 1 hex towards that Droideka."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Roll Out",
+				"alternateNames": ["Deploy Destroyers", "Advance, Rollies!"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Move each Droideka within 4 hexes of Count Dooku up to 2 hexes.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Targeting Alarm",
+				"alternateNames": ["Suppressing Fire", "Annihilation Protocol"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {accuracy_die_blight}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Complete Annihilation",
+				"alternateNames": ["Pin and Destroy", "Banner Siege"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "If both Droidekas are adjacent to the same enemy banner, remove the banner from the battlefield.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Twin Repeating Blasters",
+				"alternateNames": ["Pounding Pace", "Destructive Energy"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Make 3 hit rolls instead of 1. For each hit, this skill has +2 {damage_die}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "4",
+						"damage": "0*"
+					}
+				]
+			}
+		]
+	}
+}

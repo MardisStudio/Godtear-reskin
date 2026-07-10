@@ -1,0 +1,256 @@
+{
+	"id": "grand_admiral_thrawn",
+	"name": "Grand Admiral Thrawn",
+	"faction": "Tactician",
+	"convertedFrom": {
+		"id": "nia",
+		"name": "Nia"
+	},
+	"bannerMiniatureIdeas": [
+		"Twin bat-rigor arms of the Chimaera carved into an Imperial command totem",
+		"A relic from Thrawn's private art gallery mounted on a Seventh Fleet standard",
+		"Chiss tactical glyphs etched into a polished kyber-glass sculpture"
+	],
+	"vehicleSuggestions": [
+		"Imperial I-class Star Destroyer Chimaera",
+		"TIE Defender",
+		"Interdictor cruiser"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "1",
+			"clashSpeed": "2",
+			"dodge": "4",
+			"protection": "2",
+			"health": "6"
+		},
+		"factionTrait": {
+			"name": "Tactician Champion",
+			"text": "A tactician moves the turn token +1 step when they make a claim action."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Seventh Fleet Formation",
+				"alternateNames": ["Coordinated Assault", "Full Deployment"],
+				"text": "If all 3 Night Troopers are on the battlefield when Grand Admiral Thrawn activates, he may make a bonus action that activation."
+			}
+		],
+		"ultimate": {
+			"name": "Forward Operating Base",
+			"alternateNames": ["Beachhead Protocol", "Strategic Occupation"],
+			"skillIcon": "skill_area",
+			"mustTarget": "-",
+			"text": "Plot phase only. Choose a Night Trooper that is the only model in its hex and is adjacent to an objective hex, and replace it with an objective hex. If it is within 2 hexes of Grand Admiral Thrawn, he may make a claim action on that hex.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "-",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Know Your Enemy",
+				"alternateNames": ["Cultural Analysis", "Art of War"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "Choose a boon on any model within range. Then choose a friendly model within range to gain that boon.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Battle Calculation",
+				"alternateNames": ["Tactical Foresight", "Patient Observation"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {accuracy_die_boon}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Command Relocation",
+				"alternateNames": ["Bridge Transfer", "Adjust Formation"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Move Grand Admiral Thrawn up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Exploit Weakness",
+				"alternateNames": ["Turn Their Strength", "Counterintelligence"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "Choose a blight on any model within range. Then choose an enemy model within range to gain that blight.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Armor Piercing",
+				"alternateNames": ["Siege Protocol", "Structural Compromise"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {protection_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Orbital Bombardment",
+				"alternateNames": ["Concentrated Fire", "Blind Them"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {accuracy_die_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "4",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Night Troopers",
+		"alternateNames": ["Death Troopers", "Seventh Fleet Troopers"],
+		"units": 3,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "0",
+			"dodge": "2",
+			"protection": "4",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Rapid Reinforcement",
+				"alternateNames": ["Reserve Deployment", "Call Reinforcements"],
+				"text": "When Grand Admiral Thrawn's banner is removed from the battlefield, the Night Troopers may immediately make a recruit action, even if it is the end phase."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Hold This Position",
+				"alternateNames": ["Secure the Sector", "Ground Assault"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "If this Night Trooper is the only model in its hex and is adjacent to an objective hex, replace it with an objective hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Interdictor Field",
+				"alternateNames": ["Gravity Well", "Trap Them"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {move_blight}",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "2",
+						"accuracy": "4",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "2",
+						"accuracy": "5",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "2",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Flanking Maneuver",
+				"alternateNames": ["Rapid Advance", "Forward March"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Each Night Trooper may move up to 3 hexes in a straight line.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Suppressive Fire",
+				"alternateNames": ["E-11 Blast", "Volley Fire"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "2",
+						"accuracy": "4",
+						"damage": "4"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "2",
+						"accuracy": "5",
+						"damage": "4"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "2",
+						"accuracy": "5",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	}
+}

@@ -4,39 +4,32 @@
 - [ ] Luke Skywalker
 - [ ] Princess Leia Organa
 - [x] Obi-Wan Kenobi
-- [ ] Yoda
+- [x] Yoda
 - [ ] Grogu (Baby Yoda)
-- [ ] Ahsoka Tano
+- [x] Ahsoka Tano
 - [ ] R2-D2
 - [ ] C-3PO
 - [ ] Darth Sidious / Emperor Palpatine
 - [ ] Din Djarin (The Mandalorian)
-- [ ] Kylo Ren / Ben Solo
 - [x] Darth Maul
 - [ ] Lando Calrissian
-- [ ] Qui-Gon Jinn
+- [x] Qui-Gon Jinn
 - [ ] Padmé Amidala
 - [ ] Mace Windu
 - [x] Boba Fett
-- [ ] Rey Skywalker
-- [ ] Grand Admiral Thrawn
+- [x] Grand Admiral Thrawn
 - [x] Captain Rex
-- [ ] General Grievous
+- [x] General Grievous
 - [ ] K-2SO
 - [ ] Cassian Andor
-- [ ] Count Dooku
-- [ ] Finn
-- [ ] Poe Dameron
-- [ ] Luthen Rael
+- [x] Count Dooku
 - [ ] Hera Syndulla
 - [ ] Ezra Bridger
-- [ ] Bo-Katan Kryze
-- [ ] Asajj Ventress
+- [x] Bo-Katan Kryze
+- [x] Asajj Ventress
 - [ ] Admiral Ackbar
 - [x] Jabba the Hutt
 - [ ] Mon Mothma
-- [ ] Chirrut Îmwe
-- [ ] Director Krennic
 - [ ] Sabine Wren
 
 ## By recommended group
@@ -49,13 +42,13 @@
 - [ ] Mace Windu
 - [ ] Rey Skywalker
 - [ ] Director Krennic
+- [x] Asajj Ventress
 
 ### Marauders
 - [x] Darth Vader
-- [ ] Ahsoka Tano
-- [ ] Asajj Ventress
-- [ ] Bo-Katan Kryze
-- [ ] General Grievous
+- [x] Ahsoka Tano
+- [x] Bo-Katan Kryze
+- [x] General Grievous
 - [ ] Hera Syndulla
 - [x] Jabba the Hutt
 - [ ] Sabine Wren
@@ -63,28 +56,24 @@
 ### Tactician
 - [ ] Admiral Ackbar
 - [ ] C-3PO
-- [ ] Count Dooku
+- [x] Count Dooku
 - [ ] Darth Sidious / Emperor Palpatine
 - [ ] Ezra Bridger
 - [x] Han Solo & Chewy
-- [ ] Grand Admiral Thrawn
+- [x] Grand Admiral Thrawn
 - [ ] Grogu (Baby Yoda)
 - [ ] Lando Calrissian
 - [ ] Luke Skywalker
-- [ ] Luthen Rael
 - [ ] Mon Mothma
-- [ ] Poe Dameron
-- [ ] Qui-Gon Jinn
+- [x] Qui-Gon Jinn
 - [ ] R2-D2
-- [ ] Yoda
+- [x] Yoda
+- [x] Cad Bane
 
 ### Sentinal
 - [x] Captain Rex
-- [ ] Chirrut Îmwe
 - [ ] Din Djarin (The Mandalorian)
-- [ ] Finn
 - [ ] K-2SO
-- [ ] Kylo Ren / Ben Solo
 - [x] Obi-Wan Kenobi
 - [ ] Padmé Amidala
 - [ ] Princess Leia Organa

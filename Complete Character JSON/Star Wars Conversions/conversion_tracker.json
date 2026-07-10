@@ -1,15 +1,15 @@
 {
 	"description": "Tracks Star Wars conversion progress grouped by faction. Converted entries are derived from JSON files in this folder.",
-	"lastUpdated": "2026-06-19",
+	"lastUpdated": "2026-06-21",
 	"summary": {
-		"converted": 9,
-		"notConverted": 18,
+		"converted": 16,
+		"notConverted": 11,
 		"total": 27
 	},
 	"factions": {
 		"Sentinal": {
 			"oldFaction": "Guardian",
-			"converted": 2,
+			"converted": 3,
 			"total": 7,
 			"champions": [
 				{
@@ -25,7 +25,9 @@
 				{
 					"godtearId": "halftusk",
 					"godtearName": "Halftusk",
-					"converted": false
+					"converted": true,
+					"starWarsId": "qui_gon_jinn",
+					"starWarsName": "Qui-Gon Jinn"
 				},
 				{
 					"godtearId": "helena",
@@ -55,7 +57,7 @@
 		},
 		"Marauders": {
 			"oldFaction": "Maelstrom",
-			"converted": 2,
+			"converted": 5,
 			"total": 7,
 			"champions": [
 				{
@@ -66,7 +68,9 @@
 				{
 					"godtearId": "fenra",
 					"godtearName": "Fenra",
-					"converted": false
+					"converted": true,
+					"starWarsId": "bo_katan_kryze",
+					"starWarsName": "Bo-Katan Kryze"
 				},
 				{
 					"godtearId": "grimgut",
@@ -78,12 +82,16 @@
 				{
 					"godtearId": "jeen",
 					"godtearName": "Jeen",
-					"converted": false
+					"converted": true,
+					"starWarsId": "ahsoka_tano",
+					"starWarsName": "Ahsoka Tano"
 				},
 				{
 					"godtearId": "kailinn",
 					"godtearName": "Kailinn",
-					"converted": false
+					"converted": true,
+					"starWarsId": "general_grievous",
+					"starWarsName": "General Grievous"
 				},
 				{
 					"godtearId": "luella",
@@ -101,7 +109,7 @@
 		},
 		"Tactician": {
 			"oldFaction": "Shaper",
-			"converted": 2,
+			"converted": 6,
 			"total": 6,
 			"champions": [
 				{
@@ -114,17 +122,23 @@
 				{
 					"godtearId": "nia",
 					"godtearName": "Nia",
-					"converted": false
+					"converted": true,
+					"starWarsId": "grand_admiral_thrawn",
+					"starWarsName": "Grand Admiral Thrawn"
 				},
 				{
 					"godtearId": "raithmarid",
 					"godtearName": "Raith'Marid",
-					"converted": false
+					"converted": true,
+					"starWarsId": "cad_bane",
+					"starWarsName": "Cad Bane"
 				},
 				{
 					"godtearId": "rattlebone",
 					"godtearName": "Rattlebone",
-					"converted": false
+					"converted": true,
+					"starWarsId": "hondo_ohnaka",
+					"starWarsName": "Hondo Ohnaka"
 				},
 				{
 					"godtearId": "shayle",
@@ -136,13 +150,15 @@
 				{
 					"godtearId": "styx",
 					"godtearName": "Styx",
-					"converted": false
+					"converted": true,
+					"starWarsId": "count_dooku",
+					"starWarsName": "Count Dooku"
 				}
 			]
 		},
 		"Duelist": {
 			"oldFaction": "Slayer",
-			"converted": 3,
+			"converted": 4,
 			"total": 7,
 			"champions": [
 				{
@@ -184,7 +200,9 @@
 				{
 					"godtearId": "sneaky-peet",
 					"godtearName": "Sneaky Peet",
-					"converted": false
+					"converted": true,
+					"starWarsId": "asajj_ventress",
+					"starWarsName": "Asajj Ventress"
 				}
 			]
 		}

@@ -1,0 +1,226 @@
+{
+	"id": "hondo_ohnaka",
+	"name": "Hondo Ohnaka",
+	"faction": "Tactician",
+	"convertedFrom": {
+		"id": "rattlebone",
+		"name": "Rattlebone"
+	},
+	"bannerMiniatureIdeas": [
+		"Hondo's Weequay pirate helmet with iconic goggles mounted atop a plunder pole draped in stolen Republic banners",
+		"A Florrum cantina sign — skull-and-crossbones over a spice barrel, ringed with electrostaffs and cutlasses",
+		"Hondo's crossed electrostaff and cutlass over an open credits chest, with a tiny holo-ransom note for a Sith Lord"
+	],
+	"vehicleSuggestions": [
+		"Corona-class armed frigate (Hondo's Florrum flagship — pirate king's mobile base for raids and ransoms)",
+		"Modified Sheathipede-class shuttle (hostage transport from the Count Dooku capture incident)",
+		"Ohnaka Transport Solutions cargo skiff (Black Spire Outpost smuggling front from the Resistance era)"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "3",
+			"clashSpeed": "2",
+			"dodge": "3",
+			"protection": "3",
+			"health": "6"
+		},
+		"factionTrait": {
+			"name": "Tactician Champion",
+			"text": "A tactician moves the turn token +1 step when they make a claim action."
+		},
+		"uniqueTraits": [
+			{
+				"name": "I Have Altered the Deal",
+				"alternateNames": ["Good Business", "Roll for Credits"],
+				"text": "At the end of Hondo Ohnaka's activation, roll one die. If you roll a 1 or 2, you may remove a boon or blight from a model within that many hexes of Hondo Ohnaka and place it on a different model within that many hexes."
+			}
+		],
+		"ultimate": {
+			"name": "Handsome Price",
+			"alternateNames": ["This Effort Is No Longer Profitable", "Sic the Crew"],
+			"skillIcon": "skill_area",
+			"mustTarget": "-",
+			"text": "Choose one blight for each Florrum Pirate within range. Each enemy champion within range gains those blights.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "2",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Boarding Party",
+				"alternateNames": ["Florrum Recall", "Drop the Gang"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Remove any number of Florrum Pirates from the battlefield. Then place them on hexes within 2 hexes of Hondo Ohnaka.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Hostile Negotiations",
+				"alternateNames": ["Electrostaff Guard", "Cutlass at Throat"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {move_blight} or {dodge_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "6",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Mark the Prize",
+				"alternateNames": ["Claim the Spoils", "Spice Run Territory"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "Place up to two objective hexes on empty non-objective hexes within range. Remove them at the end of the clash phase.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "No Match for My Men",
+				"alternateNames": ["Blasters, Cannons", "Speak Softly, Drive a Big Tank"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {accuracy_die_blight} or {damage_die_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "4",
+						"damage": "6"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Florrum Pirates",
+		"alternateNames": ["Ohnaka Gang", "Weequay Brigands"],
+		"units": 5,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "2",
+			"dodge": "3",
+			"protection": "2",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Crew Gets Paid",
+				"alternateNames": ["Share the Spoils", "Proud but Betrayed"],
+				"text": "When Hondo Ohnaka rolls a blank on his I Have Altered the Deal roll, the Florrum Pirates may gain the boon of your choice."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Strip the Wreck",
+				"alternateNames": ["Loot the Hold", "Count the Credits"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain the boon of your choice.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Weequay Blaster Volley",
+				"alternateNames": ["Pirate's Flurry", "Hold Your Fire... Not!"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: The target gains the blight of your choice.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "2",
+						"accuracy": "2",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "2",
+						"accuracy": "4",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "2",
+						"accuracy": "6",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Unload the Hold",
+				"alternateNames": ["Dump the Cargo", "Pass the Parcel"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Move all boons and blights from the Florrum Pirates to a friendly model within range.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Weequay Blaster Volley",
+				"alternateNames": ["Pirate's Flurry", "Hold Your Fire... Not!"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: The target gains the blight of your choice.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "2",
+						"accuracy": "2",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "2",
+						"accuracy": "4",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "2",
+						"accuracy": "6",
+						"damage": "-"
+					}
+				]
+			}
+		]
+	}
+}

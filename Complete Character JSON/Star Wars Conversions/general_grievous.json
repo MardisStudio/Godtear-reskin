@@ -1,0 +1,202 @@
+{
+	"id": "general_grievous",
+	"name": "General Grievous",
+	"faction": "Marauders",
+	"convertedFrom": {
+		"id": "kailinn",
+		"name": "Kailinn"
+	},
+	"bannerMiniatureIdeas": [
+		"A Kaleesh war mask mounted on a Separatist battle standard, draped in CIS hex emblems and battle-worn cloth",
+		"A trophy rack of captured Jedi lightsaber hilts arranged around General Grievous's sigil on a bronze plinth",
+		"Crossed electrostaffs flanking a miniature Separatist hex emblem, with IG-100 MagnaGuard cloak fragments at the base"
+	],
+	"vehicleSuggestions": [
+		"TSMEU-6 Wheel Bike — Grievous's personal wheel bike from the Battle of Utapau",
+		"Belbullab-22 starfighter (Soulless One) — Grievous's custom starfighter used to flee battlefields",
+		"Providence-class Dreadnought (Invisible Hand) — flagship from the Battle of Coruscant"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "4",
+			"clashSpeed": "4",
+			"dodge": "3",
+			"protection": "2",
+			"health": "7"
+		},
+		"factionTrait": {
+			"name": "Marauders Champion",
+			"text": "A marauder moves the turn token +1 step when they knock out an enemy follower."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Cyborg Strider",
+				"alternateNames": ["Kaleesh Warlord", "Separatist Assault Commander"],
+				"text": "General Grievous cannot enter objective hexes. During his activation he may enter small followers hexes. If he ends his movement on a hex containing small followers, move each small follower into an adjacent hex."
+			}
+		],
+		"ultimate": {
+			"name": "Jedi Hunter's Kill",
+			"alternateNames": ["Run Them Through", "Separatist Purge"],
+			"skillIcon": "skill_area",
+			"mustTarget": "follower",
+			"text": "Move General Grievous up to 1 hex. Then you may choose an enemy follower within range to gain wounds until it is knocked out. You move the turn token an extra +2 steps instead of the usual marauder bonus for this knock out.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "1",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Cybernetic Bound",
+				"alternateNames": ["Ataru Leap", "Leap to Battle"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Place General Grievous on a hex up to 2 hexes from his current hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Separatist Coordination",
+				"alternateNames": ["Command the Vanguard", "Press the Attack"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Move General Grievous up to 1 hex. Then move one friendly champion within range up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Relentless Advance",
+				"alternateNames": ["Servo-Powered Rush", "Kaleesh Charge"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "If General Grievous made an advance action this activation, Relentless Advance is a bonus action.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "4",
+						"damage": "6"
+					}
+				]
+			},
+			{
+				"name": "Twin Saber Sweep",
+				"alternateNames": ["Lightsaber Hurricane", "Dual Wield Strike"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill may target up to two followers that are in different hexes.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "5",
+						"damage": "6"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "MagnaGuards",
+		"alternateNames": ["IG-100 MagnaGuards", "IG Series Bodyguards"],
+		"units": 2,
+		"size": "large",
+		"stats": {
+			"plotSpeed": "4",
+			"clashSpeed": "2",
+			"dodge": "3",
+			"protection": "2",
+			"health": "4"
+		},
+		"traits": [
+			{
+				"name": "Synchronized Guard",
+				"alternateNames": ["Mirror Protocol", "Twin Bodyguard Drill"],
+				"text": "Immediately after a MagnaGuard uses a skill, the other MagnaGuard may use the same skill as part of the same action."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Protect the General",
+				"alternateNames": ["Bodyguard Discipline", "Stand Ready"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "If General Grievous is within range, he gains a boon of your choice.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Escort Formation",
+				"alternateNames": ["Covering Withdrawal", "Bodyguard Maneuver"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Move this MagnaGuard up to 1 hex. Then move one friendly follower within range up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Electrostaff Guard",
+				"alternateNames": ["Parry and Reposition", "Defensive Formation"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {dodge_boon}. You may move this MagnaGuard up to 2 hexes.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Electrostaff Strike",
+				"alternateNames": ["Staff Lunge", "Punishing Blow"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "If the MagnaGuards made an advance action this activation, Electrostaff Strike has +1 {damage_die}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "5",
+						"damage": "4"
+					}
+				]
+			}
+		]
+	}
+}

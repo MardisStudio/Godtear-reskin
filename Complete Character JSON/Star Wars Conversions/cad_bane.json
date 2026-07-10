@@ -1,0 +1,256 @@
+{
+	"id": "cad_bane",
+	"name": "Cad Bane",
+	"faction": "Tactician",
+	"convertedFrom": {
+		"id": "raithmarid",
+		"name": "Raith'Marid"
+	},
+	"bannerMiniatureIdeas": [
+		"A wide-brimmed hat mounted on a holoprojector pedestal — Cad Bane's iconic gunslinger silhouette",
+		"Twin LL-30 blaster pistols crossed over a bounty puck hologram display",
+		"A holographic disguise matrix emitter flickering with a Neimoidian silhouette from the Naboo kidnapping plot"
+	],
+	"vehicleSuggestions": [
+		"Xanadu Blood — Cad Bane's Rogue-class Porax-38 starfighter from the Clone Wars",
+		"Justifier — Cad Bane's assault transport used during the Imperial era",
+		"Munificent-class star frigate — Trade Federation vessel loaned for the Jedi Temple holocron heist"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "1",
+			"clashSpeed": "1",
+			"dodge": "2",
+			"protection": "3",
+			"health": "7"
+		},
+		"factionTrait": {
+			"name": "Tactician Champion",
+			"text": "A tactician moves the turn token +1 step when they make a claim action."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Decoy Payday",
+				"alternateNames": ["Echo of the Hunt", "Spoils of Misdirection"],
+				"text": "When a Holoprojector Decoy leaves the battlefield, Cad Bane may gain the boon of your choice."
+			}
+		],
+		"ultimate": {
+			"name": "Rocket Boot Descent",
+			"alternateNames": ["Gauntlet Repulsion", "Bounty Hunter's Wake"],
+			"skillIcon": "skill_area",
+			"mustTarget": "-",
+			"text": "Place Cad Bane on a hex within range. Then move each enemy model within 2 hexes of him up to 2 hexes in the order of your choice.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "3",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Shift the Mark",
+				"alternateNames": ["Reroute the Prize", "Holographic Misdirection"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "Choose an empty objective hex within range. Place it on an empty non-objective hex within range.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Through the Decoy",
+				"alternateNames": ["Swap via Holoprojector", "Decoy Substitution"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Choose a hex within range containing one Holoprojector Decoy. Remove the Holoprojector Decoy and place Cad Bane in that hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Holo Scramble",
+				"alternateNames": ["Reposition Decoys", "Scatter the Projections"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Move a Holoprojector Decoy within range up to 3 hexes.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Through the Decoy",
+				"alternateNames": ["Swap via Holoprojector", "Decoy Substitution"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Choose a hex within range containing one Holoprojector Decoy. Remove the Holoprojector Decoy and place Cad Bane in that hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Stun Gauntlet",
+				"alternateNames": ["Vambrace Slam", "Knockout Gas Punch"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Move target up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "5",
+						"damage": "5"
+					}
+				]
+			},
+			{
+				"name": "Quick Draw Charge",
+				"alternateNames": ["Rocket Boot Rush", "Closing the Distance"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Before the hit roll, move Cad Bane up to 1 hex towards the target.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "6",
+						"damage": "4"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Holoprojector Decoys",
+		"alternateNames": ["Holographic Decoys", "Disguise Matrix Images"],
+		"units": 3,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "0",
+			"clashSpeed": "0",
+			"dodge": "4",
+			"protection": "1",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Sync the Projection",
+				"alternateNames": ["Mirror the Master", "Echo Bane's Edge"],
+				"text": "Once per phase during the Holoprojector Decoys' activation, you may choose a boon on Cad Bane. The Holoprojector Decoys gain that boon."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Flicker and Reframe",
+				"alternateNames": ["Holo Relocation", "Phase Shift"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "You may place each Holoprojector Decoy in a hex up to 3 hexes from its current hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Confusion Field",
+				"alternateNames": ["Decoy Interference", "Overlapping Holos"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Move target up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "2",
+						"accuracy": "5",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "2",
+						"accuracy": "6",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "2",
+						"accuracy": "7",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Flicker and Reframe",
+				"alternateNames": ["Holo Relocation", "Phase Shift"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "You may place each Holoprojector Decoy in a hex up to 3 hexes from its current hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Confusion Field",
+				"alternateNames": ["Decoy Interference", "Overlapping Holos"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Move target up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "2",
+						"accuracy": "5",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "2",
+						"accuracy": "6",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "2",
+						"accuracy": "7",
+						"damage": "-"
+					}
+				]
+			}
+		]
+	}
+}

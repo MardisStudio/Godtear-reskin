@@ -1,0 +1,244 @@
+{
+	"id": "qui_gon_jinn",
+	"name": "Qui-Gon Jinn",
+	"faction": "Sentinal",
+	"convertedFrom": {
+		"id": "halftusk",
+		"name": "Halftusk"
+	},
+	"bannerMiniatureIdeas": [
+		"Qui-Gon's green lightsaber hilt planted beside a Gungan energy shield on a Sacred Place stone plinth",
+		"A reed-pipe totem and Otoh Gunga sigil banner draped in swamp moss and luminescent Naboo lichen",
+		"Miniature Boss Nass ceremonial staff crossed with a Jedi holocron on a bongo-submarine viewport base"
+	],
+	"vehicleSuggestions": [
+		"Gungan bongo submarine — iconic transport through Naboo's underwater core to Otoh Gunga",
+		"Fambaa-mounted energy shield — Gungan Grand Army battle formation from the Battle of Naboo",
+		"Kaadu cavalry — fast Gungan mounts used in the assault on the Trade Federation"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "2",
+			"dodge": "3",
+			"protection": "3",
+			"health": "7"
+		},
+		"factionTrait": {
+			"name": "Sentinal Champion",
+			"text": "A sentinel moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Trust Your Instincts",
+				"alternateNames": ["Your Focus Determines Your Reality", "Living Force Focus"],
+				"text": "If Qui-Gon Jinn does not have any wounds, his skills have +2 {accuracy_die}."
+			}
+		],
+		"ultimate": {
+			"name": "I Cannot Fight a War for You",
+			"alternateNames": ["Gungan Stand", "Sacred Place Diversion"],
+			"skillIcon": "skill_area",
+			"mustTarget": "-",
+			"text": "Plot phase only. Qui-Gon Jinn may make a claim action. Then choose {protection_boon} or {move_boon}. Friendly models within range gain the boon you chose.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "2",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Concentrate on the Moment",
+				"alternateNames": ["Force Recovery", "Meditative Healing"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Remove up to 2 of Qui-Gon Jinn's wounds.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Tactical Guidance",
+				"alternateNames": ["Keep Your Concentration", "Move Out, Gungans"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Grant {move_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Cloud Their Focus",
+				"alternateNames": ["Jedi Misdirection", "Feel, Don't Think"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Inflict {accuracy_die_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Concentrate on the Moment",
+				"alternateNames": ["Force Recovery", "Meditative Healing"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Remove up to 2 of Qui-Gon Jinn's wounds.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Opening Strike",
+				"alternateNames": ["Form IV Opening", "Ataru Beginning"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Qui-Gon Jinn may use Follow-Through Cut this turn as a bonus action.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "6",
+						"damage": "4"
+					}
+				]
+			},
+			{
+				"name": "Follow-Through Cut",
+				"alternateNames": ["Closing Blow", "Second Form"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Qui-Gon Jinn may move up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "4",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Gungan Warriors",
+		"alternateNames": ["Gungan Militiamen", "Gungan Grand Army"],
+		"units": 3,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "1",
+			"clashSpeed": "3",
+			"dodge": "2",
+			"protection": "3",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Swamp Born",
+				"alternateNames": ["Sacred Ground Walkers", "Otoh Gunga Territory"],
+				"text": "Gungan Warriors may enter objective hexes."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Energy Shield Up",
+				"alternateNames": ["Booma Cache", "Gungan Defense Line"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "This skill may be used only while on an objective hex. Gain {dodge_boon} and {protection_boon}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Bombad Leap",
+				"alternateNames": ["Gungan Bound", "Swamp Hop"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "You may place each Gungan Warrior in a hex up to 2 hexes from its current hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Mesa Got It!",
+				"alternateNames": ["Tongue Grab", "Yank With Tongue"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "Move a friendly banner that is within range up to 1 hex toward this Gungan Warrior.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Clumsy Tongue Grab",
+				"alternateNames": ["Tongue Whip", "Outta Dissen Way!"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Move target up to 1 hex toward this Gungan Warrior.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "2",
+						"accuracy": "5",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "2",
+						"accuracy": "6",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "2",
+						"accuracy": "7",
+						"damage": "-"
+					}
+				]
+			}
+		]
+	}
+}

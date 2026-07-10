@@ -1,0 +1,280 @@
+{
+	"id": "asajj_ventress",
+	"name": "Asajj Ventress",
+	"faction": "Duelist",
+	"convertedFrom": {
+		"id": "sneaky-peet",
+		"name": "Sneaky Peet"
+	},
+	"bannerMiniatureIdeas": [
+		"Twin curved-hilt red lightsaber hilts crossed over a Separatist hex emblem",
+		"Asajj Ventress's silhouette with Nightsister tattoos and dual red blades",
+		"A broken chain link to Count Dooku's sigil — Ventress forging her own path"
+	],
+	"vehicleSuggestions": [
+		"Ginivex-class fanblade starfighter — Asajj Ventress's personal starfighter",
+		"Trident assault ship — used in the Kamino infiltration alongside General Grievous",
+		"C-9979 landing craft — Separatist deployment vessel for commando droid squads"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "3",
+			"clashSpeed": "1",
+			"dodge": "5",
+			"protection": "1",
+			"health": "5"
+		},
+		"factionTrait": {
+			"name": "Duelist Champion",
+			"text": "A duelist moves the turn token +1 step when they knock out an enemy champion."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Surrounded by Hostility",
+				"alternateNames": [
+					"Commando Flanking",
+					"Droid Support Fire"
+				],
+				"text": "Asajj Ventress's skills have +1 {accuracy_die} for each Commando Droid adjacent to the target."
+			}
+		],
+		"ultimate": {
+			"name": "Assassin's Pounce",
+			"alternateNames": [
+				"Makashi Lunge",
+				"Pounce from the Dark"
+			],
+			"skillIcon": "skill_enemy",
+			"mustTarget": "-",
+			"text": "Before the hit roll, you may place Asajj Ventress on a hex adjacent to the target.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "2",
+					"accuracy": "6",
+					"damage": "6"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Force Leap",
+				"alternateNames": [
+					"Nightsister Agility",
+					"Acrobatic Assault"
+				],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "You may place Asajj Ventress on a hex up to 2 hexes from her current hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Blade from the Shadows",
+				"alternateNames": [
+					"Assassin's Reward",
+					"Kill the Jedi"
+				],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "If this attack hits a champion, the champion gains 1 wound.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "5",
+						"damage": "5"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Vengeance of Dathomir",
+				"alternateNames": [
+					"Dark Side Fury",
+					"Lash Out"
+				],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Grant {accuracy_die_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Force Pull",
+				"alternateNames": [
+					"Come Closer",
+					"You Cannot Escape"
+				],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Move target up to 2 hexes toward Asajj Ventress.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Blade from the Shadows",
+				"alternateNames": [
+					"Assassin's Reward",
+					"Kill the Jedi"
+				],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "If this attack hits a champion, the champion gains 1 wound.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "5",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Commando Droids",
+		"alternateNames": [
+			"BX-Series Commando Droids",
+			"Separatist Commando Droids"
+		],
+		"units": 3,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "3",
+			"clashSpeed": "1",
+			"dodge": "5",
+			"protection": "1",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Infiltration Protocol",
+				"alternateNames": [
+					"Covert Insertion",
+					"Stealth Module"
+				],
+				"text": "Commando Droids may move through other models' hexes but cannot end their movement on those hexes."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Rapid Deployment",
+				"alternateNames": [
+					"Commando Sprint",
+					"Overwatch Reposition"
+				],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "One Commando Droid may move up to 3 hexes.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Commando Strike",
+				"alternateNames": [
+					"Precision Volley",
+					"I'll Take the Shot"
+				],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "7",
+						"damage": "4"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "5"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "3",
+						"damage": "6"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Self-Destruct Distraction",
+				"alternateNames": [
+					"Deploy Replacement",
+					"Tactical Withdrawal"
+				],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Remove one Commando Droid from the battlefield. Then make a recruit action.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Disruptor Burst",
+				"alternateNames": [
+					"Suppressive Fire",
+					"Sensor Jamming"
+				],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {accuracy_die_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "3",
+						"accuracy": "3",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "3",
+						"accuracy": "5",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "3",
+						"accuracy": "7",
+						"damage": "-"
+					}
+				]
+			}
+		]
+	}
+}
