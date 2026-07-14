@@ -1,45 +1,81 @@
 // ===========================================================================
-// Card Data Populator — main thread (code.js)
-// Generates 6 cards per character from a single "Master BW Card" component.
+// God Tear Card Generator — main thread (code.js)
+// Generates 6 cards per character JSON from the colored "card" component:
+//   1. Identity (no ultimate)
+//   2. Identity (with ultimate)
+//   3. Champion plot
+//   4. Champion clash
+//   5. Follower plot
+//   6. Follower clash
 // ===========================================================================
 
-figma.showUI(__html__, { width: 400, height: 600, themeColors: true });
+figma.showUI(__html__, { width: 400, height: 480, themeColors: true });
 
-var GEN_TAG = "cardDataPopulator_generated";
-var TEMPLATE_NAMES = ["Master BW Card", "CardTemplate"];
-
-var SKILL_ICON_MAP = {
-  skill_self: "person",
-  skill_friendly: "gear",
-  skill_area: "star-of-david",
-  skill_enemy: "skull-crossbones",
-};
-
-var DICE = ["dice-one", "dice-two", "dice-three", "dice-four", "dice-five", "dice-six"];
+var TEMPLATE_NAME = "card";
 var CARDS_PER_CHARACTER = 6;
 
-// --- Flatten nested JSON into dot-path keys --------------------------------
-function flatten(obj, prefix, out) {
-  out = out || {};
-  for (var k in obj) {
-    if (!Object.prototype.hasOwnProperty.call(obj, k)) continue;
-    var v = obj[k];
-    var key = prefix ? prefix + "." + k : k;
-    if (v === null || v === undefined) continue;
-    if (Array.isArray(v)) {
-      for (var i = 0; i < v.length; i++) {
-        var item = v[i];
-        if (item !== null && typeof item === "object") flatten(item, key + "." + i, out);
-        else out[key + "." + i] = String(item);
-      }
-    } else if (typeof v === "object") {
-      flatten(v, key, out);
-    } else {
-      out[key] = String(v);
-    }
-  }
-  return out;
-}
+var SKILL_ICON_VARIANTS = {
+  skill_self: "Icon=Target Self",
+  skill_friendly: "Icon=Target Ally",
+  skill_area: "Icon=Target Area",
+  skill_enemy: "Icon=Target Enemy",
+  trait: "Icon=Passive",
+  ultimate: "Icon=Target Area",
+};
+
+// Color Ways modes: Red / Blue / Green / Yellow
+var SKILL_APPEARANCE_MODES = {
+  skill_self: "Blue",
+  skill_friendly: "Blue",
+  skill_area: "Green",
+  skill_enemy: "Red",
+  trait: "Yellow",
+  ultimate: "Green",
+};
+
+var LIGHT_EFFECT_BY_MODE = {
+  Yellow: "Show yellow light effect",
+  Blue: "Show blue light effect",
+  Red: "Show red light effect",
+  Green: "Show green light effect",
+};
+
+// Tactician/Shaper→Green, Sentinel/Guardian→Blue, Duelist/Slayer→Red, Marauders/Maelstrom→Yellow
+var COLOR_WAY_MODE_ALIASES = {
+  red: "Red",
+  blue: "Blue",
+  green: "Green",
+  yellow: "Yellow",
+  tactician: "Green",
+  sentinel: "Blue",
+  sentinal: "Blue",
+  duelist: "Red",
+  marauders: "Yellow",
+  maurauders: "Yellow",
+  shaper: "Green",
+  guardian: "Blue",
+  guardians: "Blue",
+  slayer: "Red",
+  slayers: "Red",
+  maelstrom: "Yellow",
+};
+
+var TOKEN_MAP = {
+  "{protection_boon}": "Protection Up",
+  "{damage_die_boon}": "Damage Die Up",
+  "{accuracy_boon}": "Accuracy Up",
+  "{dodge_boon}": "Dodge Up",
+  "{move_boon}": "Move Up",
+  "{health_boon}": "Health Up",
+  "{protection_blight}": "Protection Down",
+  "{damage_die_blight}": "Damage Die Down",
+  "{accuracy_blight}": "Accuracy Down",
+  "{dodge_blight}": "Dodge Down",
+  "{move_blight}": "Move Down",
+  "{health_blight}": "Health Down",
+};
+
+// --- JSON helpers -----------------------------------------------------------
 
 function isCharacterRecord(obj) {
   return obj && typeof obj === "object" && obj.champion && obj.followers && obj.name;
@@ -55,25 +91,37 @@ function normalizeCharacters(parsed) {
   });
 }
 
-// --- Fonts ------------------------------------------------------------------
-var _fontCache = {};
-async function loadFontsForNode(node) {
-  if (node.fontName === figma.mixed) {
-    var fonts = node.getRangeAllFontNames(0, node.characters.length);
-    await Promise.all(fonts.map(function (f) { return figma.loadFontAsync(f); }));
-  } else {
-    var key = node.fontName.family + "::" + node.fontName.style;
-    if (!_fontCache[key]) { await figma.loadFontAsync(node.fontName); _fontCache[key] = true; }
+function expandTokens(text) {
+  if (!text) return "";
+  var out = String(text);
+  for (var token in TOKEN_MAP) {
+    if (!Object.prototype.hasOwnProperty.call(TOKEN_MAP, token)) continue;
+    out = out.split(token).join(TOKEN_MAP[token]);
   }
+  return out;
 }
 
-async function setText(node, value) {
-  if (!node || node.type !== "TEXT") return;
-  await loadFontsForNode(node);
-  node.characters = value == null ? "" : String(value);
+function profileField(profiles, index, field) {
+  if (!profiles || !profiles[index]) return "";
+  var v = profiles[index][field];
+  if (v == null || v === "-") return index === 0 ? "-" : "";
+  return String(v);
+}
+
+function statTriple(profiles, field) {
+  return [
+    profileField(profiles, 0, field) || "-",
+    profileField(profiles, 1, field),
+    profileField(profiles, 2, field),
+  ];
+}
+
+function isTraitItem(item) {
+  return item && !item.skillIcon && !item.statProfiles;
 }
 
 // --- Component helpers ------------------------------------------------------
+
 function resolvePropKey(definitions, baseName) {
   if (!definitions) return null;
   var keys = Object.keys(definitions);
@@ -84,6 +132,7 @@ function resolvePropKey(definitions, baseName) {
 }
 
 function setComponentProps(instance, definitions, values) {
+  if (!instance || !definitions) return;
   var props = {};
   for (var base in values) {
     if (!Object.prototype.hasOwnProperty.call(values, base)) continue;
@@ -95,129 +144,141 @@ function setComponentProps(instance, definitions, values) {
 
 function getDefinitions(node) {
   var main = node.type === "INSTANCE" ? node.mainComponent : node;
-  if (main.parent && main.parent.type === "COMPONENT_SET") return main.parent.componentPropertyDefinitions;
+  if (!main) return null;
+  if (main.parent && main.parent.type === "COMPONENT_SET") {
+    return main.parent.componentPropertyDefinitions;
+  }
   return main.componentPropertyDefinitions;
 }
 
 function findCardTemplate() {
   var sel = figma.currentPage.selection[0];
   if (sel) {
-    if (sel.type === "COMPONENT") return sel;
-    if (sel.type === "INSTANCE" && sel.mainComponent) return sel.mainComponent;
-  }
-  for (var i = 0; i < TEMPLATE_NAMES.length; i++) {
-    var name = TEMPLATE_NAMES[i];
-    var found = figma.currentPage.findOne(function (n) {
-      return n.type === "COMPONENT" && n.name === name;
-    });
-    if (found) return found;
-  }
-  return null;
-}
-
-function skillIcon(skill) {
-  if (!skill) return "scroll";
-  return SKILL_ICON_MAP[skill.skillIcon] || "skull-crossbones";
-}
-
-function unitsToDice(units) {
-  var n = parseInt(units, 10);
-  if (isNaN(n) || n < 1) return DICE[0];
-  return DICE[Math.min(n, DICE.length) - 1];
-}
-
-function statValues(profiles, field) {
-  profiles = profiles || [{ range: "-", accuracy: "-", damage: "-" }];
-  return [
-    profiles[0] ? String(profiles[0][field] != null ? profiles[0][field] : "-") : "-",
-    profiles[1] ? String(profiles[1][field] != null ? profiles[1][field] : "-") : "-",
-    profiles[2] ? String(profiles[2][field] != null ? profiles[2][field] : "-") : "-",
-  ];
-}
-
-function isTraitItem(item) {
-  return item && !item.skillIcon && !item.statProfiles;
-}
-
-function buildComponentIndex() {
-  var idx = {};
-  var comps = figma.currentPage.findAllWithCriteria
-    ? figma.currentPage.findAllWithCriteria({ types: ["COMPONENT"] })
-    : figma.currentPage.findAll(function (n) { return n.type === "COMPONENT"; });
-  for (var i = 0; i < comps.length; i++) idx[comps[i].name] = comps[i];
-  return idx;
-}
-
-// --- Fill frame by dot-path layer names (legacy) ------------------------------
-async function fillFrame(frame, data, iconIndex) {
-  var map = flatten(data, "", {});
-  var filled = 0, unmatched = [];
-
-  var textNodes = frame.findAll(function (n) { return n.type === "TEXT"; });
-  for (var t = 0; t < textNodes.length; t++) {
-    var node = textNodes[t];
-    if (Object.prototype.hasOwnProperty.call(map, node.name)) {
-      try { await setText(node, map[node.name]); filled++; }
-      catch (e) { unmatched.push(node.name + " (font: " + e.message + ")"); }
+    if (sel.type === "COMPONENT" && sel.name === TEMPLATE_NAME) return sel;
+    if (sel.type === "INSTANCE" && sel.mainComponent && sel.mainComponent.name === TEMPLATE_NAME) {
+      return sel.mainComponent;
     }
   }
-
-  var instNodes = frame.findAll(function (n) { return n.type === "INSTANCE"; });
-  for (var s = 0; s < instNodes.length; s++) {
-    var inst = instNodes[s];
-    if (Object.prototype.hasOwnProperty.call(map, inst.name)) {
-      var target = iconIndex[map[inst.name]];
-      if (target) { try { inst.swapComponent(target); filled++; } catch (e) { unmatched.push(inst.name + " (swap)"); } }
-      else unmatched.push(inst.name + " -> no component '" + map[inst.name] + "'");
-    }
-  }
-  return { filled: filled, unmatched: unmatched };
-}
-
-// --- Master BW Card helpers -------------------------------------------------
-function fillBwskillProps(bwskillInstance, item, isTrait) {
-  var defs = getDefinitions(bwskillInstance);
-  var profiles = item && item.statProfiles ? item.statProfiles : [];
-  var range = statValues(profiles, "range");
-  var accuracy = statValues(profiles, "accuracy");
-  var damage = statValues(profiles, "damage");
-  setComponentProps(bwskillInstance, defs, {
-    "skill-name": item ? item.name : "",
-    "skill-text": item ? item.text : "",
-    icon: item ? (isTrait ? "scroll" : skillIcon(item)) : "minus",
-    "range-1": range[0], "range-2": range[1], "range-3": range[2],
-    "accuracy-1": accuracy[0], "accuracy-2": accuracy[1], "accuracy-3": accuracy[2],
-    "damage-1": damage[0], "damage-2": damage[1], "damage-3": damage[2],
+  return figma.currentPage.findOne(function (n) {
+    return n.type === "COMPONENT" && n.name === TEMPLATE_NAME;
   });
 }
 
-function fillCardBwskills(cardInstance, items) {
-  var defs = getDefinitions(cardInstance);
-  for (var i = 1; i <= 3; i++) {
-    var slot = items[i - 1];
-    setComponentProps(cardInstance, defs, { ["Show bwskill" + i]: !!slot });
-    var node = cardInstance.findOne(function (n) { return n.name === "bwskill" + i; });
-    if (node && slot) {
-      var data = slot.item || slot;
-      var isTrait = slot.isTrait != null ? slot.isTrait : isTraitItem(data);
-      fillBwskillProps(node, data, isTrait);
+function findIconVariant(variantName) {
+  var set = figma.currentPage.findOne(function (n) {
+    return n.type === "COMPONENT_SET" && n.name === "Icons";
+  });
+  if (!set) return null;
+  return set.findOne(function (n) {
+    return n.type === "COMPONENT" && n.name === variantName;
+  });
+}
+
+function skillAppearanceKey(item, isTrait) {
+  if (isTrait || !item) return "trait";
+  if (item.skillIcon && SKILL_APPEARANCE_MODES[item.skillIcon]) return item.skillIcon;
+  if (item.skillIcon) return item.skillIcon;
+  return "trait";
+}
+
+function skillIconVariant(item, isTrait) {
+  var key = skillAppearanceKey(item, isTrait);
+  if (!isTrait && item && item.statProfiles && !item.skillIcon) return SKILL_ICON_VARIANTS.ultimate;
+  return SKILL_ICON_VARIANTS[key] || SKILL_ICON_VARIANTS.skill_enemy;
+}
+
+function skillAppearanceModeName(item, isTrait) {
+  var key = skillAppearanceKey(item, isTrait);
+  if (!isTrait && item && item.statProfiles && !item.skillIcon) return SKILL_APPEARANCE_MODES.ultimate;
+  return SKILL_APPEARANCE_MODES[key] || SKILL_APPEARANCE_MODES.skill_enemy;
+}
+
+// --- Color Ways -------------------------------------------------------------
+
+var _colorWaysCache = null;
+var _colorWaysTried = false;
+
+async function getColorWaysCollection() {
+  if (_colorWaysTried) return _colorWaysCache;
+  _colorWaysTried = true;
+
+  var cols = await figma.variables.getLocalVariableCollectionsAsync();
+  var wanted = ["Red", "Blue", "Green", "Yellow"];
+  var best = null;
+  var bestScore = 0;
+
+  for (var i = 0; i < cols.length; i++) {
+    var col = cols[i];
+    var modesByName = {};
+    var score = 0;
+    for (var j = 0; j < col.modes.length; j++) {
+      var m = col.modes[j];
+      modesByName[m.name] = m.modeId;
+      if (wanted.indexOf(m.name) >= 0) score++;
     }
+    if (/^color ways$/i.test(col.name)) score += 10;
+    else if (/skill|appearance|faction|color.?way/i.test(col.name)) score += 2;
+    if (score > bestScore) {
+      bestScore = score;
+      best = { collection: col, modesByName: modesByName };
+    }
+  }
+
+  if (best && bestScore > 0) _colorWaysCache = best;
+  return _colorWaysCache;
+}
+
+function resolveColorWayMode(faction) {
+  if (!faction) return null;
+  var raw = String(faction).trim();
+  if (!raw) return null;
+  var lower = raw.toLowerCase();
+  if (COLOR_WAY_MODE_ALIASES[lower]) return COLOR_WAY_MODE_ALIASES[lower];
+  var titled = raw.charAt(0).toUpperCase() + raw.slice(1).toLowerCase();
+  if (COLOR_WAY_MODE_ALIASES[titled.toLowerCase()]) {
+    return COLOR_WAY_MODE_ALIASES[titled.toLowerCase()];
+  }
+  return raw;
+}
+
+function applyColorWayMode(node, modeName) {
+  if (!node || !modeName || !_colorWaysCache) return false;
+  var modeId = _colorWaysCache.modesByName[modeName];
+  if (!modeId) {
+    var keys = Object.keys(_colorWaysCache.modesByName);
+    for (var i = 0; i < keys.length; i++) {
+      if (keys[i].toLowerCase() === modeName.toLowerCase()) {
+        modeId = _colorWaysCache.modesByName[keys[i]];
+        break;
+      }
+    }
+  }
+  if (!modeId) return false;
+  try {
+    node.setExplicitVariableModeForCollection(_colorWaysCache.collection, modeId);
+    return true;
+  } catch (e) {
+    console.log("Color Ways mode failed:", modeName, e.message);
+    return false;
   }
 }
 
-function setCardHeader(cardInstance, opts) {
-  var defs = getDefinitions(cardInstance);
-  setComponentProps(cardInstance, defs, {
-    speed: String(opts.speed != null ? opts.speed : "0"),
-    dodge: String(opts.dodge != null ? opts.dodge : "0"),
-    dodge2: String(opts.dodge2 != null ? opts.dodge2 : "0"),
-    health: String(opts.health != null ? opts.health : "0"),
-    name: opts.name || "",
-    type: opts.type || "medal",
-    "plot-clash": opts.phaseIcon || "chart-network",
-    "Show stats": opts.showStats !== false,
-  });
+/** Lights only on clash + ultimate; color follows card colorway. */
+function lightEffectsForColorWay(colorWay, enabled) {
+  var flags = {
+    "Show yellow light effect": false,
+    "Show blue light effect": false,
+    "Show red light effect": false,
+    "Show green light effect": false,
+  };
+  if (!enabled) return flags;
+  var mode = resolveColorWayMode(colorWay);
+  var prop = mode && LIGHT_EFFECT_BY_MODE[mode];
+  if (prop) flags[prop] = true;
+  return flags;
 }
+
+// --- Card content builders --------------------------------------------------
 
 function skillsToItems(skills, isTrait) {
   var items = [];
@@ -229,24 +290,13 @@ function skillsToItems(skills, isTrait) {
 }
 
 function buildIdentityItems(character) {
+  var ch = character.champion;
   var items = [];
-  var banners = character.bannerMiniatureIdeas || [];
-  var vehicles = character.vehicleSuggestions || [];
-  var i;
-  for (i = 0; i < banners.length && items.length < 3; i++) {
-    items.push({ name: "Banner Idea " + (i + 1), text: banners[i], isTrait: true });
-  }
-  for (i = 0; i < vehicles.length && items.length < 3; i++) {
-    items.push({ name: "Vehicle " + (i + 1), text: vehicles[i], isTrait: true });
-  }
-  if (!items.length) {
-    items.push({
-      name: character.faction || "Faction",
-      text: character.convertedFrom
-        ? "Converted from " + character.convertedFrom.name
-        : character.name,
-      isTrait: true,
-    });
+  if (ch.factionTrait) items.push({ item: ch.factionTrait, isTrait: true });
+  if (ch.uniqueTraits) {
+    for (var i = 0; i < ch.uniqueTraits.length && items.length < 3; i++) {
+      items.push({ item: ch.uniqueTraits[i], isTrait: true });
+    }
   }
   return items.slice(0, 3);
 }
@@ -256,15 +306,10 @@ function buildUltimateItems(character) {
   var items = [];
   if (ch.ultimate) items.push({ item: ch.ultimate, isTrait: false });
   if (ch.factionTrait) items.push({ item: ch.factionTrait, isTrait: true });
-  if (ch.uniqueTraits && ch.uniqueTraits[0]) items.push({ item: ch.uniqueTraits[0], isTrait: true });
-  return items;
-}
-
-function buildFollowerItems(followers, phase) {
-  var items = [];
-  if (followers.traits && followers.traits[0]) items.push({ item: followers.traits[0], isTrait: true });
-  var skills = phase === "plot" ? followers.plotSkills : followers.clashSkills;
-  return items.concat(skillsToItems(skills, false)).slice(0, 3);
+  if (ch.uniqueTraits && ch.uniqueTraits[0]) {
+    items.push({ item: ch.uniqueTraits[0], isTrait: true });
+  }
+  return items.slice(0, 3);
 }
 
 function buildChampionItems(champion, phase) {
@@ -272,81 +317,202 @@ function buildChampionItems(champion, phase) {
   return skillsToItems(skills, false).slice(0, 3);
 }
 
-function configureCard(cardInstance, character, cardType, phase) {
-  if (cardType === "identity") {
-    setCardHeader(cardInstance, {
-      name: character.name,
-      type: "medal",
-      phaseIcon: "chart-network",
-      showStats: false,
-    });
-    fillCardBwskills(cardInstance, buildIdentityItems(character));
-    return;
+function buildFollowerItems(followers, phase) {
+  var items = [];
+  if (followers.traits && followers.traits[0]) {
+    items.push({ item: followers.traits[0], isTrait: true });
   }
-
-  if (cardType === "ultimate") {
-    var uStats = character.champion.stats || {};
-    setCardHeader(cardInstance, {
-      speed: uStats.plotSpeed,
-      dodge: uStats.dodge,
-      dodge2: uStats.protection,
-      health: uStats.health,
-      name: character.name,
-      type: "medal",
-      phaseIcon: "star-of-david",
-      showStats: true,
-    });
-    fillCardBwskills(cardInstance, buildUltimateItems(character));
-    return;
-  }
-
-  if (cardType === "champion") {
-    var cStats = character.champion.stats || {};
-    var cSpeed = phase === "plot" ? cStats.plotSpeed : cStats.clashSpeed;
-    setCardHeader(cardInstance, {
-      speed: cSpeed,
-      dodge: cStats.dodge,
-      dodge2: cStats.protection,
-      health: cStats.health,
-      name: character.name,
-      type: "medal",
-      phaseIcon: phase === "plot" ? "chart-network" : "axe-battle",
-      showStats: true,
-    });
-    fillCardBwskills(cardInstance, buildChampionItems(character.champion, phase));
-    return;
-  }
-
-  if (cardType === "follower") {
-    var f = character.followers;
-    var fStats = f.stats || {};
-    var fSpeed = phase === "plot" ? fStats.plotSpeed : fStats.clashSpeed;
-    setCardHeader(cardInstance, {
-      speed: fSpeed,
-      dodge: fStats.dodge,
-      dodge2: fStats.protection,
-      health: fStats.health,
-      name: f.name || "Follower",
-      type: unitsToDice(f.units),
-      phaseIcon: phase === "plot" ? "chart-network" : "axe-battle",
-      showStats: true,
-    });
-    fillCardBwskills(cardInstance, buildFollowerItems(f, phase));
-  }
+  var skills = phase === "plot" ? followers.plotSkills : followers.clashSkills;
+  return items.concat(skillsToItems(skills, false)).slice(0, 3);
 }
 
-function clearGenerated() {
-  var prev = figma.currentPage.findAll(function (n) {
-    return n.getPluginData && n.getPluginData(GEN_TAG) === "1";
+function cardJobs() {
+  return [
+    { label: "Identity", type: "identity", phase: "identity", withUltimate: false },
+    { label: "Identity + Ultimate", type: "identity", phase: "ultimate", withUltimate: true },
+    { label: "Champion plot", type: "champion", phase: "plot" },
+    { label: "Champion clash", type: "champion", phase: "clash" },
+    { label: "Follower plot", type: "follower", phase: "plot" },
+    { label: "Follower clash", type: "follower", phase: "clash" },
+  ];
+}
+
+function resolveCardContent(character, job) {
+  var ch = character.champion;
+  var f = character.followers;
+  var cStats = ch.stats || {};
+  var fStats = f.stats || {};
+  var colorWay = character.colorWay || character.faction || "";
+  var showLightEffect = job.withUltimate === true || job.phase === "clash";
+
+  if (job.type === "identity") {
+    return {
+      name: character.name,
+      faction: character.faction || "",
+      colorWay: colorWay,
+      showLightEffect: showLightEffect,
+      phaseLabel: job.withUltimate ? "Ultimate" : "Identity",
+      typeLabel: "Champion",
+      speed: cStats.plotSpeed || "0",
+      dodge: cStats.dodge || "0",
+      protection: cStats.protection || "0",
+      health: cStats.health || "0",
+      showStats: true,
+      items: job.withUltimate ? buildUltimateItems(character) : buildIdentityItems(character),
+    };
+  }
+
+  if (job.type === "champion") {
+    return {
+      name: character.name,
+      faction: character.faction || "",
+      colorWay: colorWay,
+      showLightEffect: showLightEffect,
+      phaseLabel: job.phase === "plot" ? "Plot Phase" : "Clash Phase",
+      typeLabel: "Champion",
+      speed: (job.phase === "plot" ? cStats.plotSpeed : cStats.clashSpeed) || "0",
+      dodge: cStats.dodge || "0",
+      protection: cStats.protection || "0",
+      health: cStats.health || "0",
+      showStats: true,
+      items: buildChampionItems(ch, job.phase),
+    };
+  }
+
+  return {
+    name: f.name || "Follower",
+    faction: character.faction || "",
+    colorWay: colorWay,
+    showLightEffect: showLightEffect,
+    phaseLabel: job.phase === "plot" ? "Plot Phase" : "Clash Phase",
+    typeLabel: "Follower",
+    speed: (job.phase === "plot" ? fStats.plotSpeed : fStats.clashSpeed) || "0",
+    dodge: fStats.dodge || "0",
+    protection: fStats.protection || "0",
+    health: fStats.health || "0",
+    showStats: true,
+    items: buildFollowerItems(f, job.phase),
+  };
+}
+
+// --- Fill colored "card" ----------------------------------------------------
+
+async function fillSkillInstance(skillInst, item, isTrait) {
+  if (!skillInst || skillInst.type !== "INSTANCE") return;
+  var defs = getDefinitions(skillInst);
+  var profiles = item && item.statProfiles ? item.statProfiles : [];
+  var range = statTriple(profiles, "range");
+  var accuracy = statTriple(profiles, "accuracy");
+  var damage = statTriple(profiles, "damage");
+  var showStats = !isTrait && !!(item && item.statProfiles);
+
+  if (showStats) {
+    var hasReal =
+      (range[0] && range[0] !== "-") ||
+      (accuracy[0] && accuracy[0] !== "-") ||
+      (damage[0] && damage[0] !== "-") ||
+      range[1] || accuracy[1] || damage[1];
+    showStats = hasReal || !isTrait;
+  }
+
+  setComponentProps(skillInst, defs, {
+    SkillName: item ? item.name : "",
+    SkillText: item ? expandTokens(item.text) : "",
+    RangeStat1: range[0],
+    RangeStat2: range[1],
+    RangeStat3: range[2],
+    AccuracyStat1: accuracy[0],
+    AccuracyStat2: accuracy[1],
+    AccuracyStat3: accuracy[2],
+    DamageStat1: damage[0],
+    DamageStat2: damage[1],
+    DamageStat3: damage[2],
+    "Show Icon": true,
+    "Show Skill Stats": isTrait ? false : showStats,
   });
-  for (var i = 0; i < prev.length; i++) prev[i].remove();
-  return prev.length;
+
+  await getColorWaysCollection();
+  var modeName = skillAppearanceModeName(item, isTrait);
+  applyColorWayMode(skillInst, modeName);
+
+  var variantName = skillIconVariant(item, isTrait);
+  var target = findIconVariant(variantName);
+  if (!target) return;
+
+  var iconInst = null;
+  var skillIconFrame = skillInst.findOne(function (n) { return n.name === "skillIcon"; });
+  if (skillIconFrame && "findOne" in skillIconFrame) {
+    iconInst = skillIconFrame.findOne(function (n) {
+      return n.type === "INSTANCE" && n.name === "Icons";
+    });
+  }
+  if (!iconInst) {
+    iconInst = skillInst.findOne(function (n) {
+      return n.type === "INSTANCE" && n.name === "Icons" &&
+        n.mainComponent && n.mainComponent.parent &&
+        n.mainComponent.parent.name === "Icons";
+    });
+  }
+  if (iconInst) {
+    try { iconInst.swapComponent(target); } catch (e) { /* ignore */ }
+    applyColorWayMode(iconInst, modeName);
+  }
 }
 
-function tagGenerated(node, label) {
-  node.name = label;
-  node.setPluginData(GEN_TAG, "1");
+async function configureColoredCard(root, content) {
+  if (root.type !== "INSTANCE") return;
+
+  var colorWayMode = resolveColorWayMode(content.colorWay || content.faction);
+  var lights = lightEffectsForColorWay(colorWayMode, content.showLightEffect === true);
+  var defs = getDefinitions(root);
+  var props = {
+    Speed: String(content.speed),
+    Dodge: String(content.dodge),
+    Protection: String(content.protection),
+    Health: String(content.health),
+    Name: content.name || "",
+    Faction: content.faction || "",
+    Phase: content.phaseLabel || "",
+    Type: content.typeLabel || "",
+    "Show stats": content.showStats !== false,
+  };
+  for (var lightKey in lights) {
+    if (Object.prototype.hasOwnProperty.call(lights, lightKey)) {
+      props[lightKey] = lights[lightKey];
+    }
+  }
+  setComponentProps(root, defs, props);
+
+  await getColorWaysCollection();
+  if (colorWayMode) applyColorWayMode(root, colorWayMode);
+
+  var skillNodes = root.findAll(function (n) {
+    return n.name === "skill" && n.type === "INSTANCE";
+  });
+  var items = content.items || [];
+
+  for (var i = 0; i < skillNodes.length; i++) {
+    var slot = items[i];
+    if (!slot) {
+      skillNodes[i].visible = false;
+      var parent = skillNodes[i].parent;
+      if (parent && "children" in parent) {
+        var idx = parent.children.indexOf(skillNodes[i]);
+        var next = parent.children[idx + 1];
+        var prev = parent.children[idx - 1];
+        if (next && next.name === "divider") next.visible = false;
+        if (prev && prev.name === "divider" && i === skillNodes.length - 1) prev.visible = false;
+      }
+      continue;
+    }
+    skillNodes[i].visible = true;
+    var data = slot.item || slot;
+    var isTrait = slot.isTrait != null ? slot.isTrait : isTraitItem(data);
+    await fillSkillInstance(skillNodes[i], data, isTrait);
+  }
 }
+
+// --- Generate ---------------------------------------------------------------
 
 function gridPosition(originX, originY, index, cols, cellW, cellH) {
   return {
@@ -355,144 +521,63 @@ function gridPosition(originX, originY, index, cols, cellW, cellH) {
   };
 }
 
-// --- Generate all cards for character roster --------------------------------
 async function generateCharacterCards(characters, options) {
   var template = findCardTemplate();
   if (!template) {
-    figma.notify('Select "Master BW Card" or name your template component "Master BW Card".');
+    figma.notify('Select the "card" component, or place one named "card" on this page.');
     return;
   }
 
-  if (options.clearPrevious) {
-    var removed = clearGenerated();
-    if (removed) figma.notify("Cleared " + removed + " previously generated cards.");
-  }
-
-  var cardW = template.width + 20;
-  var cardH = template.height + 20;
   var gap = 40;
-  var cellW = cardW + gap;
-  var cellH = cardH + gap;
+  var cellW = template.width + 20 + gap;
+  var cellH = template.height + 20 + gap;
   var cols = Math.max(1, parseInt(options.columns, 10) || CARDS_PER_CHARACTER);
-
   var originX = template.x;
   var originY = template.y + template.height + 120;
 
+  var jobs = cardJobs();
   var cardIndex = 0;
   var totalCards = characters.length * CARDS_PER_CHARACTER;
-
-  var cardJobs = [
-    { label: "Identity", type: "identity", phase: "plot" },
-    { label: "Ultimate", type: "ultimate", phase: "plot" },
-    { label: "Champion plot", type: "champion", phase: "plot" },
-    { label: "Champion clash", type: "champion", phase: "clash" },
-    { label: "Follower plot", type: "follower", phase: "plot" },
-    { label: "Follower clash", type: "follower", phase: "clash" },
-  ];
 
   for (var c = 0; c < characters.length; c++) {
     var character = characters[c];
     var prefix = character.name || character.id || ("char_" + c);
 
-    for (var j = 0; j < cardJobs.length; j++) {
-      var job = cardJobs[j];
-      var card = template.createInstance();
-      configureCard(card, character, job.type, job.phase);
+    for (var j = 0; j < jobs.length; j++) {
+      var job = jobs[j];
+      var content = resolveCardContent(character, job);
+      var node = template.createInstance();
+      await configureColoredCard(node, content);
 
       var pos = gridPosition(originX, originY, cardIndex, cols, cellW, cellH);
-      card.x = pos.x;
-      card.y = pos.y;
-      tagGenerated(card, prefix + " — " + job.label);
-      figma.currentPage.appendChild(card);
+      node.x = pos.x;
+      node.y = pos.y;
+      node.name = prefix + " — " + job.label;
+      figma.currentPage.appendChild(node);
       cardIndex++;
       figma.ui.postMessage({ type: "progress", done: cardIndex, total: totalCards });
     }
   }
 
-  figma.notify("Generated " + cardIndex + " cards from Master BW Card (" +
-    characters.length + " characters × " + CARDS_PER_CHARACTER + ").");
+  figma.notify(
+    "Generated " + cardIndex + " cards (" +
+    characters.length + " × " + CARDS_PER_CHARACTER + ")."
+  );
 }
 
-// --- Message handler --------------------------------------------------------
 figma.ui.onmessage = async function (msg) {
-  if (msg.type === "generate") {
-    var parsed;
-    try { parsed = JSON.parse(msg.json); }
-    catch (e) { figma.notify("Invalid JSON: " + e.message); return; }
+  if (msg.type !== "generate") return;
 
-    var characters = normalizeCharacters(parsed);
-    if (!characters.length) {
-      figma.notify("No character JSON found. Each file needs champion, followers, and name.");
-      return;
-    }
-
-    await generateCharacterCards(characters, {
-      columns: msg.columns,
-      clearPrevious: msg.clearPrevious,
-    });
-    figma.ui.postMessage({ type: "done" });
-    return;
-  }
-
-  if (msg.type !== "fill") return;
-
-  var parsedFill;
-  try { parsedFill = JSON.parse(msg.json); }
+  var parsed;
+  try { parsed = JSON.parse(msg.json); }
   catch (e) { figma.notify("Invalid JSON: " + e.message); return; }
 
-  var cards = Array.isArray(parsedFill) ? parsedFill : [parsedFill];
-  var iconIndex = buildComponentIndex();
-  var template = findCardTemplate();
-
-  if (!msg.batch) {
-    if (!template) { figma.notify('Select "Master BW Card" on canvas first.'); return; }
-    var node = template;
-    if (msg.clone) {
-      node = template.createInstance();
-      node.x = template.x + template.width + 80;
-      node.name = cards[0].name || template.name;
-      node.setPluginData(GEN_TAG, "1");
-      figma.currentPage.appendChild(node);
-    }
-    var r = await fillFrame(node, cards[0], iconIndex);
-    figma.notify("Filled " + r.filled + " layers." + (r.unmatched.length ? " " + r.unmatched.length + " issue(s)." : ""));
-    if (r.unmatched.length) console.log(r.unmatched.join("\n"));
-    figma.ui.postMessage({ type: "done" });
+  var characters = normalizeCharacters(parsed);
+  if (!characters.length) {
+    figma.notify("No character JSON found. Each file needs champion, followers, and name.");
     return;
   }
 
-  if (!template) { figma.notify('Missing "Master BW Card" component on this page.'); return; }
-
-  if (msg.clearPrevious) {
-    var removed = clearGenerated();
-    if (removed) figma.notify("Cleared " + removed + " previously generated cards.");
-  }
-
-  var cols = Math.max(1, parseInt(msg.columns, 10) || 10);
-  var gap = 60;
-  var cellW = template.width + gap;
-  var cellH = template.height + gap;
-  var originX = template.x;
-  var originY = template.y + template.height + 160;
-
-  var totalFilled = 0, issues = [];
-  for (var c = 0; c < cards.length; c++) {
-    var copy = template.createInstance();
-    copy.x = originX + (c % cols) * cellW;
-    copy.y = originY + Math.floor(c / cols) * cellH;
-    copy.name = (cards[c].name || cards[c].id || ("card_" + c));
-    copy.setPluginData(GEN_TAG, "1");
-    figma.currentPage.appendChild(copy);
-
-    var res = await fillFrame(copy, cards[c], iconIndex);
-    totalFilled += res.filled;
-    issues += res.unmatched.length;
-    if (res.unmatched.length) console.log("[" + copy.name + "] " + res.unmatched.join("; "));
-
-    figma.ui.postMessage({ type: "progress", done: c + 1, total: cards.length });
-  }
-
-  figma.notify("Generated " + cards.length + " cards (" + totalFilled + " layers filled" +
-    (issues ? ", " + issues + " issues — see console" : "") + ").");
+  await generateCharacterCards(characters, { columns: msg.columns });
   figma.ui.postMessage({ type: "done" });
 };
