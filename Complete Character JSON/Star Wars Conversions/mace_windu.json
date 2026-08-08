@@ -1,0 +1,241 @@
+{
+	"id": "mace_windu",
+	"name": "Mace Windu",
+	"faction": "Duelist",
+	"convertedFrom": {
+		"id": "morrigan",
+		"name": "Morrigan"
+	},
+	"bannerMiniatureIdeas": [
+		"Amethyst lightsaber planted in cracked Jedi Temple stone",
+		"Shatterpoint crystal lattice mounted on a Jedi Council chair fragment",
+		"187th Legion clone pauldron with a purple blade motif on a Coruscant plinth"
+	],
+	"vehicleSuggestions": [
+		"LAAT/i Republic gunship",
+		"Delta-7 Aethersprite Jedi Starfighter",
+		"Venator-class Star Destroyer"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "2",
+			"dodge": "2",
+			"protection": "3",
+			"health": "6"
+		},
+		"factionTrait": {
+			"name": "Duelist Champion",
+			"text": "A duelist moves the turn token +1 step when they knock out an enemy champion."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Shatterpoint Focus",
+				"alternateNames": ["Vaapad", "Amethyst Edge"],
+				"text": "Mace Windu gains a +2 bonus for boons instead of a +1 bonus."
+			}
+		],
+		"ultimate": {
+			"name": "This Party's Over",
+			"alternateNames": ["Force Stun", "We Will Not Be Hostages"],
+			"skillIcon": "skill_area",
+			"mustTarget": "-",
+			"text": "All enemies within range gain {dodge_blight} and {move_blight}.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "3",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Clone Assault",
+				"alternateNames": ["Advance the 187th", "Forward, Troopers!"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Move each 187th Legion that is within range up to 2 hexes.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "4",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "I Don't Think So",
+				"alternateNames": ["Force Closing Distance", "Shatterpoint Pressure"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {protection_blight}. Move Mace Windu up to 1 hex towards the target.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Finishing Strike",
+				"alternateNames": ["Shatterpoint", "He's Too Dangerous to Be Left Alive"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "If this skill wounds its target, they gain wounds until they are knocked out.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "1",
+						"damage": "2"
+					}
+				]
+			},
+			{
+				"name": "Exploit the Weakness",
+				"alternateNames": ["Purple Blade", "Vaapad Strike"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: If the target has {move_blight}, {accuracy_die_blight}, or {damage_die_blight} it gains 1 wound.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "5",
+						"damage": "5"
+					}
+				]
+			},
+			{
+				"name": "Disrupt Their Focus",
+				"alternateNames": ["Force Push", "Telekinetic Barrage"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {accuracy_die_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "7",
+						"damage": "3"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "187th Legion",
+		"alternateNames": ["Clone Troopers", "Shock Troopers"],
+		"units": 5,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "1",
+			"clashSpeed": "1",
+			"dodge": "2",
+			"protection": "3",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "You Will Pay for That",
+				"alternateNames": ["For the General!", "Retaliatory Fire"],
+				"text": "After an enemy model uses a skill to knock out one or more 187th Legion, the enemy model gains {dodge_blight}."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Keepers of the Peace",
+				"alternateNames": ["At Your Command, General", "Cover the Jedi"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "If Mace Windu is within range, he gains {accuracy_die_boon} or {move_boon}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Pin Them Down",
+				"alternateNames": ["Surround and Suppress", "Coordinated Blaster Fire"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill has +1 {accuracy_die} for each 187th Legion adjacent to the target. Hit Effect: Inflict {damage_die_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "1*",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "1*",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "1*",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Aggressive Negotiations",
+				"alternateNames": ["Charge Bayonets", "For the Republic"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {damage_die_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Take Them Down",
+				"alternateNames": ["Close Quarters", "Bayonet Charge"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill has +1 {accuracy_die} for each 187th Legion adjacent to the target.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "1*",
+						"damage": "3"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "1*",
+						"damage": "4"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "1*",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	}
+}

@@ -2,8 +2,8 @@
 	"description": "Tracks Star Wars conversion progress grouped by faction. Converted entries are derived from JSON files in this folder.",
 	"lastUpdated": "2026-08-08",
 	"summary": {
-		"converted": 21,
-		"notConverted": 6,
+		"converted": 22,
+		"notConverted": 5,
 		"total": 27
 	},
 	"factions": {
@@ -168,7 +168,7 @@
 		},
 		"Duelist": {
 			"oldFaction": "Slayer",
-			"converted": 4,
+			"converted": 5,
 			"total": 7,
 			"champions": [
 				{
@@ -182,8 +182,8 @@
 					"godtearId": "lorsann",
 					"godtearName": "Lorsann",
 					"converted": true,
-					"starWarsId": "boba_fett",
-					"starWarsName": "Boba Fett"
+					"starWarsId": "the_mandalorian",
+					"starWarsName": "The Mandalorian"
 				},
 				{
 					"godtearId": "maxen",
@@ -193,7 +193,9 @@
 				{
 					"godtearId": "morrigan",
 					"godtearName": "Morrigan",
-					"converted": false
+					"converted": true,
+					"starWarsId": "mace_windu",
+					"starWarsName": "Mace Windu"
 				},
 				{
 					"godtearId": "rangosh",

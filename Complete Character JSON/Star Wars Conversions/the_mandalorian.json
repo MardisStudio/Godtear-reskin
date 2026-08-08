@@ -1,17 +1,21 @@
 {
-	"id": "boba_fett",
-	"name": "Boba Fett",
+	"id": "the_mandalorian",
+	"name": "The Mandalorian",
 	"faction": "Duelist",
 	"convertedFrom": {
 		"id": "lorsann",
 		"name": "Lorsann"
 	},
 	"bannerMiniatureIdeas": [
-		"Slave I landing gear totem with deployed ramp and scattered bounty pucks",
-		"Weathered Mandalorian helmet on spiked trophy stand with glowing green rangefinder",
-		"Miniature rocket dart launcher on beskar stand with hanging tracking fobs"
+		"Mudhorn signet crest on a beskar spear stand with whistling bird cartridges",
+		"Razor Crest wreckage fragment with a floating pram silhouette and tracking fob",
+		"Armorer's forge anvil with glowing beskar ingot and Mythosaur medallion"
 	],
-	"vehicleSuggestions": ["Slave I (iconic Firespray gunship)", "Modified Firespray Patrol Craft", "Pursuit Speeder"],
+	"vehicleSuggestions": [
+		"Razor Crest (ST-70 Razor Crest gunship)",
+		"N-1 starfighter (Naboo royal starfighter, modified)",
+		"Speeder bike (Nevarro / Tatooine pursuits)"
+	],
 	"champion": {
 		"stats": {
 			"plotSpeed": "2",
@@ -26,14 +30,14 @@
 		},
 		"uniqueTraits": [
 			{
-				"name": "Jetpack Reposition",
-				"alternateNames": ["Rangefinder Retreat", "I'm Taking the Bounty Maneuver"],
-				"text": "After Boba Fett uses a skill that inflicts 1 or more wounds, he may move up to 1 hex."
+				"name": "I Like Those Odds",
+				"alternateNames": ["Jetpack Strafe", "Whistling Bird Hop"],
+				"text": "After The Mandalorian uses a skill that inflicts 1 or more wounds, he may move up to 1 hex."
 			}
 		],
 		"ultimate": {
-			"name": "Carbon-Freezing",
-			"alternateNames": ["Deadly Rocket Dart", "Finishing Flamethrower"],
+			"name": "Whistling Birds",
+			"alternateNames": ["I Can Bring You In Warm", "Amban Disintegrate"],
 			"skillIcon": "skill_enemy",
 			"mustTarget": "-",
 			"text": "Hit Effect: The target gains 2 wounds.",
@@ -48,8 +52,8 @@
 		},
 		"plotSkills": [
 			{
-				"name": "Bounty Prep",
-				"alternateNames": ["Mandalorian Tactics", "Let's Make This Quick Briefing"],
+				"name": "This Is the Way",
+				"alternateNames": ["Wherever I Go, He Goes", "Weapons Are Part of My Religion"],
 				"skillIcon": "skill_friendly",
 				"mustTarget": "-",
 				"text": "Grant {damage_die_boon}",
@@ -63,8 +67,8 @@
 				]
 			},
 			{
-				"name": "Tracking Beacon",
-				"alternateNames": ["Seeker Dart Flare", "I Prefer the Direct Approach"],
+				"name": "Flamethrower",
+				"alternateNames": ["Whistling Birds", "Soften the Prey"],
 				"skillIcon": "skill_enemy",
 				"mustTarget": "-",
 				"text": "Hit Effect: Inflict {protection_blight}.",
@@ -80,8 +84,8 @@
 		],
 		"clashSkills": [
 			{
-				"name": "EE-3 Blaster Burst",
-				"alternateNames": ["Precision Wrist Rocket", "Just Like on Tatooine Shot"],
+				"name": "Bring You in Cold",
+				"alternateNames": ["IB-94 Burst", "Beskar Spear"],
 				"skillIcon": "skill_enemy",
 				"mustTarget": "-",
 				"text": "Hit Effect: The target gains 1 wound.",
@@ -95,11 +99,11 @@
 				]
 			},
 			{
-				"name": "Flamethrower",
-				"alternateNames": ["Concussion Missile Follow-up", "Nice Guy Secondary Detonation"],
+				"name": "Bring You in Warm",
+				"alternateNames": ["Amban Pulse", "Secondary Charge"],
 				"skillIcon": "skill_enemy",
 				"mustTarget": "-",
-				"text": "After the flamethrower damage roll, make a 5 {damage_die} damage roll against the target.",
+				"text": "After the Bring You in Warm damage roll, make a 5 {damage_die} damage roll against the target.",
 				"statProfiles": [
 					{
 						"figuresInHex": "-",
@@ -110,8 +114,8 @@
 				]
 			},
 			{
-				"name": "Sniper Shot",
-				"alternateNames": ["Long-Range Sniper Shot", "From the Shadows"],
+				"name": "Amban Sniper Shot",
+				"alternateNames": ["Long-Range Amban", "Sniper Configuration"],
 				"skillIcon": "skill_enemy",
 				"mustTarget": "-",
 				"text": "",
@@ -127,7 +131,8 @@
 		]
 	},
 	"followers": {
-		"name": "Probe Droids",
+		"name": "Covert Warriors",
+		"alternateNames": ["The Tribe", "Children of the Watch"],
 		"units": 3,
 		"size": "small",
 		"stats": {
@@ -139,15 +144,15 @@
 		},
 		"traits": [
 			{
-				"name": "Bounty in Sight",
-				"alternateNames": ["Wounded Prey", "He's Worth More Dead"],
-				"text": "When the target is a wounded enemy champion, the Probe Droids' skills have +1 {damage_die}."
+				"name": "Guild Contract",
+				"alternateNames": ["Wounded Bounty", "Bring Them In"],
+				"text": "When the target is a wounded enemy champion, the Covert Warriors' skills have +1 {damage_die}."
 			}
 		],
 		"plotSkills": [
 			{
-				"name": "Cloaking Field",
-				"alternateNames": ["Stealth Mode", "Shadow Protocol"],
+				"name": "Jetpack Dodge",
+				"alternateNames": ["Vanish", "Cloak and Jetpack"],
 				"skillIcon": "skill_self",
 				"mustTarget": "-",
 				"text": "Gain {dodge_boon}",
@@ -161,8 +166,8 @@
 				]
 			},
 			{
-				"name": "Seeker Dart",
-				"alternateNames": ["Targeting Paint", "Lock On Beacon"],
+				"name": "Flamethrower",
+				"alternateNames": ["Whistling Birds", "Soften the Prey"],
 				"skillIcon": "skill_enemy",
 				"mustTarget": "-",
 				"text": "Hit Effect: Inflict {protection_blight}.",
@@ -190,8 +195,8 @@
 		],
 		"clashSkills": [
 			{
-				"name": "Rangefinder Lock",
-				"alternateNames": ["Steady Aim", "I Hit the Target"],
+				"name": "Target Acquired",
+				"alternateNames": ["Rangefinder Lock", "Steady the Amban"],
 				"skillIcon": "skill_self",
 				"mustTarget": "-",
 				"text": "Gain {accuracy_die_boon}",
@@ -205,8 +210,8 @@
 				]
 			},
 			{
-				"name": "Blaster Volley",
-				"alternateNames": ["Suppressive Fire", "Bring Him In"],
+				"name": "Open Fire",
+				"alternateNames": ["Blaster Volley", "Covering Fire"],
 				"skillIcon": "skill_enemy",
 				"mustTarget": "-",
 				"text": "",

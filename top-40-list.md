@@ -10,13 +10,13 @@
 - [ ] R2-D2
 - [ ] C-3PO
 - [x] Darth Sidious / Emperor Palpatine
-- [ ] Din Djarin (The Mandalorian)
+- [x] Din Djarin (The Mandalorian)
 - [x] Darth Maul
 - [ ] Lando Calrissian
 - [x] Qui-Gon Jinn
 - [ ] Padmé Amidala
-- [ ] Mace Windu
-- [x] Boba Fett
+- [x] Mace Windu
+- [ ] Boba Fett
 - [x] Grand Admiral Thrawn
 - [x] Captain Rex
 - [x] General Grievous
@@ -36,10 +36,10 @@
 
 ### Duelist
 - [ ] Anakin Skywalker
-- [x] Boba Fett
+- [ ] Boba Fett
 - [ ] Cassian Andor
 - [x] Darth Maul
-- [X] Mace Windu
+- [x] Mace Windu
 - [ ] Rey Skywalker
 - [ ] Director Krennic
 - [x] Asajj Ventress
@@ -72,7 +72,7 @@
 
 ### Sentinal
 - [x] Captain Rex
-- [ ] Din Djarin (The Mandalorian)
+- [x] Din Djarin (The Mandalorian)
 - [ ] K-2SO
 - [x] Obi-Wan Kenobi
 - [ ] Padmé Amidala
