@@ -1,0 +1,229 @@
+{
+	"id": "emperor_palpatine",
+	"name": "Emperor Palpatine",
+	"faction": "Marauders",
+	"convertedFrom": {
+		"id": "luella",
+		"name": "Luella"
+	},
+	"bannerMiniatureIdeas": [
+		"Emperor's throne dais with crimson cushions, twisted cane, and crackling Force lightning arcs",
+		"Death Star II hologram pedestal ringed by crossed Royal Guard force pikes",
+		"Senate chamber podium fragment with Imperial crest and a miniature crumpled Jedi cloak"
+	],
+	"vehicleSuggestions": [
+		"Lambda-class Imperial Shuttle (Emperor's planetary arrivals)",
+		"Death Star II (throne room command fortress)",
+		"Imperialis (Emperor's personal luxury yacht)"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "1",
+			"clashSpeed": "2",
+			"dodge": "2",
+			"protection": "3",
+			"health": "7"
+		},
+		"factionTrait": {
+			"name": "Marauders Champion",
+			"text": "A marauder moves the turn token +1 step when they knock out an enemy follower."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Unlimited Power Surge",
+				"alternateNames": ["Dark Side Momentum", "Imperial Advance"],
+				"text": "When Emperor Palpatine makes an advance action, he may gain +1 {speed} for that action. If he does, he must move in a straight line."
+			}
+		],
+		"ultimate": {
+			"name": "Unlimited Power",
+			"alternateNames": ["Force Lightning Storm", "Rise, My Friend"],
+			"skillIcon": "skill_area",
+			"mustTarget": "-",
+			"text": "Move Emperor Palpatine up to 2 hexes. Then make a 3 {damage_die} damage roll against each enemy within range.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "1",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Dark Side Inspiration",
+				"alternateNames": ["Execute Order", "Imperial Decree"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Grant {move_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Force Lightning",
+				"alternateNames": ["Sith Lightning", "Power of the Dark Side"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "If Emperor Palpatine moved 3 or more hexes this activation, Force Lightning is a bonus action. Hit Effect: Inflict {dodge_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "6",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Dark Side Inspiration",
+				"alternateNames": ["Execute Order", "Imperial Decree"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Grant {move_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Wrath of the Emperor",
+				"alternateNames": ["Throne Room Assault", "Sith Barrage"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "If Emperor Palpatine moved 3 or more hexes this activation, Wrath of the Emperor is a bonus action.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "4",
+						"damage": "5"
+					}
+				]
+			},
+			{
+				"name": "Chain Lightning",
+				"alternateNames": ["Force Storm", "Lightning Cascade"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: After the Chain Lightning damage roll, Emperor Palpatine may make a 3 {damage_die} damage roll against up to 2 other models within 1 hex of the target's hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "6",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Royal Guards",
+		"alternateNames": ["Emperor's Royal Guard", "Crimson Guard"],
+		"units": 3,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "1",
+			"clashSpeed": "2",
+			"dodge": "2",
+			"protection": "4",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Eternal Vigil",
+				"alternateNames": ["Crimson Watch", "Guard the Emperor"],
+				"text": "At the end of the Royal Guards' activation, if any Royal Guards are adjacent to Emperor Palpatine, Emperor Palpatine gains {protection_boon}."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Crimson Resolve",
+				"alternateNames": ["Ready the Force Pikes", "Force Empowerment"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {damage_die_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Form Ranks",
+				"alternateNames": ["Palace March", "Escort Formation"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Move each Royal Guard up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Form Ranks",
+				"alternateNames": ["Palace March", "Escort Formation"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Move each Royal Guard up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Force Pike Cleave",
+				"alternateNames": ["Guard Strike", "Crimson Sweep"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "6",
+						"damage": "3"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "6",
+						"damage": "4"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "6",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	}
+}

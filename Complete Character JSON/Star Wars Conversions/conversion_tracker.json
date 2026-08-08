@@ -1,15 +1,15 @@
 {
 	"description": "Tracks Star Wars conversion progress grouped by faction. Converted entries are derived from JSON files in this folder.",
-	"lastUpdated": "2026-06-21",
+	"lastUpdated": "2026-08-08",
 	"summary": {
-		"converted": 16,
-		"notConverted": 11,
+		"converted": 20,
+		"notConverted": 7,
 		"total": 27
 	},
 	"factions": {
 		"Sentinal": {
 			"oldFaction": "Guardian",
-			"converted": 3,
+			"converted": 6,
 			"total": 7,
 			"champions": [
 				{
@@ -20,7 +20,9 @@
 				{
 					"godtearId": "finvarr",
 					"godtearName": "Finvarr",
-					"converted": false
+					"converted": true,
+					"starWarsId": "luke_skywalker",
+					"starWarsName": "Luke Skywalker"
 				},
 				{
 					"godtearId": "halftusk",
@@ -39,12 +41,16 @@
 				{
 					"godtearId": "jaak",
 					"godtearName": "Jaak",
-					"converted": false
+					"converted": true,
+					"starWarsId": "princess_leia",
+					"starWarsName": "Princess Leia"
 				},
 				{
 					"godtearId": "mournblade",
 					"godtearName": "Mournblade",
-					"converted": false
+					"converted": true,
+					"starWarsId": "ig_88",
+					"starWarsName": "IG-88"
 				},
 				{
 					"godtearId": "rhodri",
@@ -57,7 +63,7 @@
 		},
 		"Marauders": {
 			"oldFaction": "Maelstrom",
-			"converted": 5,
+			"converted": 6,
 			"total": 7,
 			"champions": [
 				{
@@ -96,7 +102,9 @@
 				{
 					"godtearId": "luella",
 					"godtearName": "Luella",
-					"converted": false
+					"converted": true,
+					"starWarsId": "emperor_palpatine",
+					"starWarsName": "Emperor Palpatine"
 				},
 				{
 					"godtearId": "titus",

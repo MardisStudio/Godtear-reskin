@@ -1,0 +1,241 @@
+{
+	"id": "luke_skywalker",
+	"name": "Luke Skywalker",
+	"faction": "Sentinal",
+	"convertedFrom": {
+		"id": "finvarr",
+		"name": "Finvarr"
+	},
+	"bannerMiniatureIdeas": [
+		"Ahch-To twin suns diorama with Luke's green lightsaber planted in the stone",
+		"Crait salt-crystal totem casting a translucent Luke Force projection silhouette",
+		"X-wing R2-D2 dome on a Yavin IV temple base with Rebel Alliance crest"
+	],
+	"vehicleSuggestions": [
+		"T-65B X-wing starfighter (Red Five)",
+		"X-34 landspeeder (Tatooine)",
+		"Lambda-class T-4a shuttle Tydirium"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "3",
+			"dodge": "4",
+			"protection": "3",
+			"health": "5"
+		},
+		"factionTrait": {
+			"name": "Sentinal Champion",
+			"text": "A sentinel moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Hold the Line",
+				"alternateNames": ["A New Hope", "Jedi on the Objective"],
+				"text": "If Luke Skywalker is on an objective hex, his skills have +2 {accuracy_die}."
+			}
+		],
+		"ultimate": {
+			"name": "Force Projection",
+			"alternateNames": ["The Spark of Hope", "Projected Banners"],
+			"skillIcon": "skill_area",
+			"mustTarget": "-",
+			"text": "Choose any number of friendly banners within range. Place them on objective hexes within range.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "4",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Use the Force",
+				"alternateNames": ["Ready the Lightsaber", "There's Something Familiar About This Place"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {move_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Force Push",
+				"alternateNames": ["Telekinetic Shove", "I Will Not Fight You"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Move target up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Force Move",
+				"alternateNames": ["Shift the Beacon", "Force-Guided Claim"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "Choose a friendly banner within 2 hexes of Luke Skywalker. Place it on an objective hex that is 1 hex away from its current hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Give In to Your Anger",
+				"alternateNames": ["Strike Me Down With All of Your Hatred", "Your Hate Has Made You Powerful"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {damage_die_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "I Am a Jedi",
+				"alternateNames": ["Strength Flows from the Force", "Green Blade Flourish"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Remove up to 1 of Luke Skywalker's wounds.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "4",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Rebel Troopers",
+		"alternateNames": ["Endor Strike Team", "Alliance Commandos"],
+		"units": 3,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "3",
+			"dodge": "4",
+			"protection": "2",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Rebel Infiltration",
+				"alternateNames": ["Covert Reposition", "Forest Moon Advance"],
+				"text": "If the Rebel Troopers do not make an advance action during their activation, each Rebel Trooper may move up to 1 hex when the activation ends."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Covering Fire",
+				"alternateNames": ["For the Alliance", "Shield the Jedi"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Grant {protection_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Pinning Fire",
+				"alternateNames": ["Entangle Them", "Hold Position"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Inflict {move_blight}",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "4",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Give In to Your Anger",
+				"alternateNames": ["Strike Me Down With All of Your Hatred", "Your Hate Has Made You Powerful"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {damage_die_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Rebel Rally",
+				"alternateNames": ["Call for Reinforcements", "Never Tell Me the Odds"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "If this skill knocks out an enemy while the Rebel Troopers are below their maximum unit size, add 1 Rebel Trooper to this hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "4",
+						"damage": "4"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "5"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	}
+}

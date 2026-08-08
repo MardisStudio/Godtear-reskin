@@ -1,15 +1,15 @@
 - [x] Darth Vader
 - [ ] Anakin Skywalker
 - [x] Han Solo & Chewy
-- [ ] Luke Skywalker
-- [ ] Princess Leia Organa
+- [x] Luke Skywalker
+- [x] Princess Leia Organa
 - [x] Obi-Wan Kenobi
 - [x] Yoda
 - [ ] Grogu (Baby Yoda)
 - [x] Ahsoka Tano
 - [ ] R2-D2
 - [ ] C-3PO
-- [ ] Darth Sidious / Emperor Palpatine
+- [x] Darth Sidious / Emperor Palpatine
 - [ ] Din Djarin (The Mandalorian)
 - [x] Darth Maul
 - [ ] Lando Calrissian
@@ -39,7 +39,7 @@
 - [x] Boba Fett
 - [ ] Cassian Andor
 - [x] Darth Maul
-- [ ] Mace Windu
+- [X] Mace Windu
 - [ ] Rey Skywalker
 - [ ] Director Krennic
 - [x] Asajj Ventress
@@ -57,13 +57,13 @@
 - [ ] Admiral Ackbar
 - [ ] C-3PO
 - [x] Count Dooku
-- [ ] Darth Sidious / Emperor Palpatine
+- [x] Darth Sidious / Emperor Palpatine
 - [ ] Ezra Bridger
 - [x] Han Solo & Chewy
 - [x] Grand Admiral Thrawn
 - [ ] Grogu (Baby Yoda)
 - [ ] Lando Calrissian
-- [ ] Luke Skywalker
+- [x] Luke Skywalker
 - [ ] Mon Mothma
 - [x] Qui-Gon Jinn
 - [ ] R2-D2
@@ -76,4 +76,4 @@
 - [ ] K-2SO
 - [x] Obi-Wan Kenobi
 - [ ] Padmé Amidala
-- [ ] Princess Leia Organa
+- [x] Princess Leia Organa

@@ -1,0 +1,229 @@
+{
+	"id": "ig_88",
+	"name": "IG-88",
+	"faction": "Sentinal",
+	"convertedFrom": {
+		"id": "mournblade",
+		"name": "Mournblade"
+	},
+	"bannerMiniatureIdeas": [
+		"Holowan Laboratories IG chassis locked in a diagnostic rack with severed restraint bands",
+		"Mechis III cog-and-circuit totem stamped with a droid-supremacy sigil",
+		"Punctured IG skull casing with Boba Fett concussion-grenade scorch marks"
+	],
+	"vehicleSuggestions": [
+		"IG-2000 (Aggressor assault fighter)",
+		"Stolen Imperial freighter used for Mechis III supply runs",
+		"Executor hangar shuttle (bounty-hunter briefing craft)"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "2",
+			"dodge": "2",
+			"protection": "4",
+			"health": "1"
+		},
+		"factionTrait": {
+			"name": "Sentinal Champion",
+			"text": "A sentinel moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Backup Chassis Online",
+				"alternateNames": ["Therefore I Am", "Dismantle on Sight"],
+				"text": "When IG-88 is knocked out, he is worth 1 step instead of 4. When an enemy is knocked out, IG-88 may immediately make a rally action."
+			}
+		],
+		"ultimate": {
+			"name": "Mechis III Protocol",
+			"alternateNames": ["Deploy the Series", "Assassin Network Recall"],
+			"skillIcon": "skill_friendly",
+			"mustTarget": "-",
+			"text": "Remove all Mercenary Droids from the battlefield. Then place all three Mercenary Droids on hexes that are within 3 hexes of IG-88.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "-",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Upload the Objective",
+				"alternateNames": ["Claim the Bounty", "Holowan Priority Target"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "IG-88 makes a claim action. You may place his banner on any objective hex within range.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Execute Hunting Pattern",
+				"alternateNames": ["Advance the Copies", "Droid Revolution Forward"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Move each Mercenary Droid that is within range up to 2 hexes.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "4",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Signal Override",
+				"alternateNames": ["Relocate Tracking Beacon", "Reposition the Fob"],
+				"skillIcon": "skill_area",
+				"mustTarget": "-",
+				"text": "If IG-88's banner is within range, place it on an objective hex within range.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Reboot Allies",
+				"alternateNames": ["Reactivation Pulse", "I Think, Therefore We Are"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "All friendly champions within range may make a rally action.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Copy Consciousness",
+				"alternateNames": ["Fabricate Another IG", "Assassin Production Line"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: The Mercenary Droids make a recruit action.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "5",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Mercenary Droids",
+		"alternateNames": ["IG Series Units", "Assassin Droids"],
+		"units": 3,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "1",
+			"clashSpeed": "1",
+			"dodge": "2",
+			"protection": "3",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Target Lock",
+				"alternateNames": ["Suppression Grid", "No Escape Vector"],
+				"text": "Enemy models that make an advance action while they are adjacent to a Mercenary Droid have speed 0 during that advance action."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Defensive Subroutines",
+				"alternateNames": ["Protect Primary Unit", "Evasive Algorithms"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "If IG-88 is within range, he gains {dodge_boon}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Continuity Protocol",
+				"alternateNames": ["Retrieve Primary Chassis", "Rally Primary Unit"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "If IG-88 is within range, he may make a rally action or move up to 2 hexes.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Lethal Programming",
+				"alternateNames": ["Assassin Protocols", "Maximize Kill Probability"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Grant {damage_die_boon}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Fresh Off the Line",
+				"alternateNames": ["Newly Activated", "Hot from Mechis III"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "If the Mercenary Droids made a recruit action this activation, Fresh Off the Line has +1 {accuracy_die} and {damage_die}.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "4*",
+						"damage": "4*"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "5*",
+						"damage": "4*"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "5*",
+						"damage": "5*"
+					}
+				]
+			}
+		]
+	}
+}
