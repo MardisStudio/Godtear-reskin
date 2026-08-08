@@ -2,20 +2,22 @@
 	"description": "Tracks Star Wars conversion progress grouped by faction. Converted entries are derived from JSON files in this folder.",
 	"lastUpdated": "2026-08-08",
 	"summary": {
-		"converted": 20,
-		"notConverted": 7,
+		"converted": 21,
+		"notConverted": 6,
 		"total": 27
 	},
 	"factions": {
 		"Sentinal": {
 			"oldFaction": "Guardian",
-			"converted": 6,
+			"converted": 7,
 			"total": 7,
 			"champions": [
 				{
 					"godtearId": "durthax",
 					"godtearName": "Durthax",
-					"converted": false
+					"converted": true,
+					"starWarsId": "general_veers",
+					"starWarsName": "General Veers"
 				},
 				{
 					"godtearId": "finvarr",

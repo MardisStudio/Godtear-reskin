@@ -1,0 +1,226 @@
+{
+	"id": "general_veers",
+	"name": "General Veers",
+	"faction": "Sentinal",
+	"convertedFrom": {
+		"id": "durthax",
+		"name": "Durthax"
+	},
+	"bannerMiniatureIdeas": [
+		"Blizzard 1 AT-AT head sculpted on a cracked Hoth ice plinth",
+		"Shattered Echo Base shield-generator wreckage with Imperial cog overlay",
+		"Snowtrooper helmet and AT-AT footprint cast in frozen resin"
+	],
+	"vehicleSuggestions": [
+		"AT-AT Blizzard 1 (Veers' command walker)",
+		"Gozanti-class cruiser (walker deployment craft)",
+		"Imperial landing barge / Theta-class shuttle"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "0",
+			"clashSpeed": "1",
+			"dodge": "2",
+			"protection": "1",
+			"health": "14"
+		},
+		"factionTrait": {
+			"name": "Sentinal Champion",
+			"text": "A sentinel moves the turn token +1 step when they have their banner on an objective hex during the end phase."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Tactical Positioning",
+				"alternateNames": ["Reposition the Assault", "Blizzard Force Coordinates"],
+				"text": "Once during General Veers's activation, choose a banner within 2 hexes of General Veers and place it on another empty objective hex within 2 hexes of him."
+			}
+		],
+		"ultimate": {
+			"name": "Start Your Landing",
+			"alternateNames": ["Shield Will Be Down in Moments", "Prepare Your Troops for a Surface Attack"],
+			"skillIcon": "skill_friendly",
+			"mustTarget": "-",
+			"text": "Plot phase only. General Veers may use this skill as a bonus action. Every champion within range may take a claim action.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "3",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Lumber Forward",
+				"alternateNames": ["AT-AT Advance", "Blizzard 1 Reposition"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Place General Veers on a hex up to 2 hexes from his current hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Heavy Armor Escort",
+				"alternateNames": ["Armor Cover", "Under the Walker"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "Small followers within range gain {protection_boon}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Heavy Laser Cannons",
+				"alternateNames": ["Chin Guns", "Target the Generators"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill gains {damage_die} equal to the amount the hit roll exceeds the target's {dodge}, to a maximum of 8 additional {damage_die}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "7",
+						"damage": "1*"
+					}
+				]
+			},
+			{
+				"name": "Trample",
+				"alternateNames": ["Stomp", "Hull Integrity Restored"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Move the target up to 1 hex away from General Veers and remove 1 wound from General Veers.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "4",
+						"damage": "6"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Snowtroopers",
+		"alternateNames": ["Blizzard Force Troopers", "Cold-Weather Assault Squad"],
+		"units": 4,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "2",
+			"dodge": "4",
+			"protection": "1",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Suppressive Perimeter",
+				"alternateNames": ["Exclusion Zone", "No Landing Zone"],
+				"text": "Enemy champions and followers can't be placed or recruited in hexes adjacent to Snowtroopers."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Blending In",
+				"alternateNames": ["Snow Camouflage", "Dig In"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {dodge_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Push the Line",
+				"alternateNames": ["Advance Under Fire", "Clear the Path"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Move the target up to 1 hex away from this Snowtrooper and this Snowtrooper may move 1 hex toward the target.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "6",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "6",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Advance to My Position",
+				"alternateNames": ["Deploy the Walker", "Bring Up Blizzard 1"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "If General Veers is within range, place him in a hex adjacent to this Snowtrooper.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Damage Control",
+				"alternateNames": ["Field Repairs", "Reinforce the Hull"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: You may remove 1 wound from General Veers.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "4"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "6",
+						"damage": "4"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "6",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	}
+}
