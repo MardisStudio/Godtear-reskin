@@ -2,8 +2,8 @@
 	"description": "Tracks Star Wars conversion progress grouped by faction. Converted entries are derived from JSON files in this folder.",
 	"lastUpdated": "2026-08-08",
 	"summary": {
-		"converted": 22,
-		"notConverted": 5,
+		"converted": 24,
+		"notConverted": 3,
 		"total": 27
 	},
 	"factions": {
@@ -168,7 +168,7 @@
 		},
 		"Duelist": {
 			"oldFaction": "Slayer",
-			"converted": 5,
+			"converted": 7,
 			"total": 7,
 			"champions": [
 				{
@@ -188,7 +188,9 @@
 				{
 					"godtearId": "maxen",
 					"godtearName": "Maxen",
-					"converted": false
+					"converted": true,
+					"starWarsId": "boba_fett",
+					"starWarsName": "Boba Fett"
 				},
 				{
 					"godtearId": "morrigan",
@@ -200,7 +202,9 @@
 				{
 					"godtearId": "rangosh",
 					"godtearName": "Rangosh",
-					"converted": false
+					"converted": true,
+					"starWarsId": "kylo_ren",
+					"starWarsName": "Kylo Ren"
 				},
 				{
 					"godtearId": "skullbreaker",

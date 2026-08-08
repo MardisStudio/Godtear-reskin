@@ -1,0 +1,202 @@
+{
+	"id": "boba_fett",
+	"name": "Boba Fett",
+	"faction": "Duelist",
+	"convertedFrom": {
+		"id": "maxen",
+		"name": "Maxen"
+	},
+	"bannerMiniatureIdeas": [
+		"Slave I landing gear totem with deployed ramp and scattered bounty pucks",
+		"Weathered Mandalorian helmet on spiked trophy stand with glowing green rangefinder",
+		"Miniature rocket dart launcher on beskar stand with hanging tracking fobs"
+	],
+	"vehicleSuggestions": [
+		"Slave I (iconic Firespray gunship)",
+		"Modified Firespray Patrol Craft",
+		"Pursuit Speeder"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "1",
+			"clashSpeed": "2",
+			"dodge": "3",
+			"protection": "3",
+			"health": "6"
+		},
+		"factionTrait": {
+			"name": "Duelist Champion",
+			"text": "A duelist moves the turn token +1 step when they knock out an enemy champion."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Carbonite Freezing",
+				"alternateNames": ["He's No Good to Me Dead", "Take the Bounty"],
+				"text": "When Boba Fett knocks out an enemy champion, remove their banner from the battlefield."
+			}
+		],
+		"ultimate": {
+			"name": "Seismic Charge",
+			"alternateNames": ["Concussion Missile Barrage", "Empty the Arsenal"],
+			"skillIcon": "skill_enemy",
+			"mustTarget": "-",
+			"text": "Remove up to 3 Probe Droids from the battlefield. This skill has +2 {accuracy_die} and +2 {damage_die} for each Probe Droid removed.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "3",
+					"accuracy": "2",
+					"damage": "2"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Jetpack Jump",
+				"alternateNames": ["As You Wish", "Close the Distance"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Move Boba Fett up to 1 hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Deploy Probes",
+				"alternateNames": ["Reload the Rack", "Restock the Jetpack"],
+				"skillIcon": "skill_friendly",
+				"mustTarget": "-",
+				"text": "The Probe Droids may immediately make a recruit action and may gain a boon of your choice.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "No Disintegrations",
+				"alternateNames": ["EE-3 Carbine", "Point-Blank Bounty"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill has -1 {accuracy_die} for each hex between Boba Fett and his target. Hit Effect: The target gains 1 wound.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "6*",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Flamethrower Blast",
+				"alternateNames": ["Wrist Rocket", "Knockback Charge"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill has -1 {accuracy_die} and -1 {damage_die} for each hex between Boba Fett and his target. Hit Effect: Move target up to 1 hex away from Boba Fett.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "3",
+						"accuracy": "6*",
+						"damage": "6*"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Probe Droids",
+		"alternateNames": ["Seeker Missiles", "Slave I Munitions"],
+		"units": 5,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "1",
+			"clashSpeed": "0",
+			"dodge": "3",
+			"protection": "2",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Rangefinder",
+				"alternateNames": ["Targeting Data Uplink", "I've Got Eyes On"],
+				"text": "At the end of the Probe Droids' activation, you may choose a friendly champion adjacent to a Probe Droid model. That friendly champion gains {accuracy_die_boon}."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Probe Surveillance",
+				"alternateNames": ["Redeploy Munitions", "Scatter the Probes"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "You may place each Probe Droid up to 3 hexes from its current hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Droid Swarm",
+				"alternateNames": ["Surround Soften", "Paint the Target"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill gains +1 {accuracy_die} for each Probe Droid adjacent to the target. Hit Effect: Inflict {protection_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "2*",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Probe Surveillance",
+				"alternateNames": ["Redeploy Munitions", "Scatter the Probes"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "You may place each Probe Droid up to 3 hexes from its current hex.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Closing In",
+				"alternateNames": ["Converging Fire", "Swarm Strike"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "This skill gains +1 {accuracy_die} for each Probe Droid adjacent to the target.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "2*",
+						"damage": "4"
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,238 @@
+{
+	"id": "kylo_ren",
+	"name": "Kylo Ren",
+	"faction": "Duelist",
+	"convertedFrom": {
+		"id": "rangosh",
+		"name": "Rangosh"
+	},
+	"bannerMiniatureIdeas": [
+		"Cracked red kyber crystal and crossguard hilt on a First Order plinth",
+		"Darth Vader's melted helmet shrine with ash and red glow",
+		"Cluster of Knights of Ren masks on a black iron spike"
+	],
+	"vehicleSuggestions": [
+		"TIE Silencer (Kylo Ren's personal fighter)",
+		"Upsilon-class command shuttle",
+		"First Order troop transport"
+	],
+	"champion": {
+		"stats": {
+			"plotSpeed": "3",
+			"clashSpeed": "2",
+			"dodge": "4",
+			"protection": "2",
+			"health": "7"
+		},
+		"factionTrait": {
+			"name": "Duelist Champion",
+			"text": "A duelist moves the turn token +1 step when they knock out an enemy champion."
+		},
+		"uniqueTraits": [
+			{
+				"name": "Pawn Sacrifice",
+				"alternateNames": ["Let the Past Die", "Sacrifice a Knight"],
+				"text": "Once per hit roll or damage roll before rolling the dice, you may remove one Knight of Ren from a hex within 3 hexes of Kylo Ren to add 1 die to Kylo Ren's roll."
+			}
+		],
+		"ultimate": {
+			"name": "Raging Rush",
+			"alternateNames": ["Rage Charge", "I'll Show You the Dark Side"],
+			"skillIcon": "skill_area",
+			"mustTarget": "-",
+			"text": "Move Kylo Ren up to 2 hexes. Then you may place up to 2 wounds on an enemy within range.",
+			"statProfiles": [
+				{
+					"figuresInHex": "-",
+					"range": "1",
+					"accuracy": "-",
+					"damage": "-"
+				}
+			]
+		},
+		"plotSkills": [
+			{
+				"name": "Anger Unleashed",
+				"alternateNames": ["The Pull to the Dark", "Temper the Crystal"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "Gain {damage_die_boon}",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Mind Probe",
+				"alternateNames": ["You Know I Can Take Whatever I Want", "Frozen in Fear"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Inflict {dodge_blight}.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "6",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "Beat Them Back",
+				"alternateNames": ["Crossguard Smash", "Cracked Crystal Strike"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Move target up to 1 hex away from Kylo Ren.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "1",
+						"accuracy": "3",
+						"damage": "7"
+					}
+				]
+			},
+			{
+				"name": "Come to Me",
+				"alternateNames": ["Force Pull", "Telekinetic Yank"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: Move target up to 1 hex toward Kylo Ren.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "2",
+						"accuracy": "5",
+						"damage": "5"
+					}
+				]
+			}
+		]
+	},
+	"followers": {
+		"name": "Knights of Ren",
+		"alternateNames": ["The Knights", "Ren's Shadow Guard"],
+		"units": 5,
+		"size": "small",
+		"stats": {
+			"plotSpeed": "2",
+			"clashSpeed": "2",
+			"dodge": "3",
+			"protection": "2",
+			"health": "1"
+		},
+		"traits": [
+			{
+				"name": "Spoils of the Hunt",
+				"alternateNames": ["Dark Side Momentum", "Kill Strengthens the Pack"],
+				"text": "If the Knights of Ren cause an enemy model to gain a wound when they use a skill action, they may gain one boon of your choice."
+			}
+		],
+		"plotSkills": [
+			{
+				"name": "Recruit a Knight",
+				"alternateNames": ["Strengthen the Order", "Call Another Ren"],
+				"skillIcon": "skill_self",
+				"mustTarget": "-",
+				"text": "If the Knights of Ren are below their maximum unit size, add one to a hex containing at least one Knight of Ren.",
+				"statProfiles": [
+					{
+						"figuresInHex": "-",
+						"range": "-",
+						"accuracy": "-",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "No Mercy",
+				"alternateNames": ["Shadow Strike", "Pack Assault"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: The target gains 1 wound.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "3",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "4",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			}
+		],
+		"clashSkills": [
+			{
+				"name": "No Mercy",
+				"alternateNames": ["Shadow Strike", "Pack Assault"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "Hit Effect: The target gains 1 wound.",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "1",
+						"accuracy": "3",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "1",
+						"accuracy": "4",
+						"damage": "-"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "1",
+						"accuracy": "5",
+						"damage": "-"
+					}
+				]
+			},
+			{
+				"name": "Open Fire",
+				"alternateNames": ["Blaster Barrage", "Ren Volley"],
+				"skillIcon": "skill_enemy",
+				"mustTarget": "-",
+				"text": "",
+				"statProfiles": [
+					{
+						"figuresInHex": 1,
+						"range": "3",
+						"accuracy": "3",
+						"damage": "4"
+					},
+					{
+						"figuresInHex": 2,
+						"range": "3",
+						"accuracy": "4",
+						"damage": "4"
+					},
+					{
+						"figuresInHex": 3,
+						"range": "3",
+						"accuracy": "5",
+						"damage": "4"
+					}
+				]
+			}
+		]
+	}
+}

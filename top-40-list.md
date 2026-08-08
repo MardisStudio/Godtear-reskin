@@ -16,7 +16,7 @@
 - [x] Qui-Gon Jinn
 - [ ] Padmé Amidala
 - [x] Mace Windu
-- [ ] Boba Fett
+- [x] Boba Fett
 - [x] Grand Admiral Thrawn
 - [x] Captain Rex
 - [x] General Grievous
@@ -36,7 +36,7 @@
 
 ### Duelist
 - [ ] Anakin Skywalker
-- [ ] Boba Fett
+- [x] Boba Fett
 - [ ] Cassian Andor
 - [x] Darth Maul
 - [x] Mace Windu
