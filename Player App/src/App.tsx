@@ -1,14 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Fan, type FanItem } from "./Fan";
 import { wrap } from "./math";
-import {
-  CHAMPIONS,
-  FACE_LABEL,
-  SET,
-  faceSrc,
-  type Side,
-} from "./roster";
+import { CHAMPIONS, SET, faceSrc, type Side } from "./roster";
 import { Table, Zoom } from "./Table";
+import { Trio } from "./Trio";
+
+type ZoomShot = { src: string; from: DOMRect };
 
 const SAVE_KEY = "godtear-player";
 
@@ -25,7 +22,6 @@ type Save = {
 type Session = {
   screen: Screen;
   rosterIndex: number;
-  setIndex: number;
   championSide: Side;
   followerSide: Side;
   ultimateUsed: boolean;
@@ -70,17 +66,23 @@ function initialSession(): Session {
   return {
     screen: saved?.screen === "play" ? "play" : "roster",
     rosterIndex: rosterIndex >= 0 ? rosterIndex : 0,
-    setIndex: 2,
     championSide: saved?.championSide ?? "clash",
     followerSide: saved?.followerSide ?? "clash",
     ultimateUsed: saved?.screen === "play" ? Boolean(saved.ultimateUsed) : false,
   };
 }
 
+const OPEN_MS = 260;
+const CLOSE_MS = 260;
+
 export function App() {
   const [session, setSession] = useState(initialSession);
-  const [zoom, setZoom] = useState<string | null>(null);
+  const [zoom, setZoom] = useState<ZoomShot | null>(null);
   const [askLeave, setAskLeave] = useState(false);
+  const [veil, setVeil] = useState<"open" | "close" | null>(null);
+  const [spin, setSpin] = useState(0);
+  const spinDir = useRef(1);
+  const veilTimer = useRef(0);
   const champion = CHAMPIONS[session.rosterIndex];
 
   useEffect(() => {
@@ -95,13 +97,19 @@ export function App() {
   }, [champion.id, session]);
 
   useEffect(() => {
-    const id = champion.id;
+    const near = [-1, 0, 1].map(
+      (offset) => CHAMPIONS[wrap(session.rosterIndex + offset, CHAMPIONS.length)].id,
+    );
 
-    for (const face of SET) {
-      const image = new Image();
-      image.src = faceSrc(id, face);
+    for (const id of near) {
+      for (const face of SET) {
+        const image = new Image();
+        image.src = faceSrc(id, face);
+      }
     }
-  }, [champion.id]);
+  }, [session.rosterIndex]);
+
+  useEffect(() => () => window.clearTimeout(veilTimer.current), []);
 
   useEffect(() => {
     const lock = () => {
@@ -133,7 +141,7 @@ export function App() {
         }
 
         if (session.screen === "set") {
-          setSession((current) => ({ ...current, screen: "roster" }));
+          closeSet();
           return;
         }
 
@@ -163,26 +171,65 @@ export function App() {
 
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [askLeave, session.rosterIndex, session.screen, zoom]);
+  }, [askLeave, session.rosterIndex, session.screen, veil, zoom]);
 
   function step(direction: number) {
-    setSession((current) => {
-      if (current.screen === "set") {
-        return { ...current, setIndex: wrap(current.setIndex + direction, SET.length) };
+    if (session.screen === "set") {
+      if (veil) {
+        return;
       }
 
-      return { ...current, rosterIndex: wrap(current.rosterIndex + direction, CHAMPIONS.length) };
-    });
+      spinDir.current = direction;
+      setSpin((n) => n + 1);
+      return;
+    }
+
+    setSession((current) => ({
+      ...current,
+      rosterIndex: wrap(current.rosterIndex + direction, CHAMPIONS.length),
+    }));
   }
 
   function openSet(index: number) {
+    if (veil) {
+      return;
+    }
+
     setZoom(null);
-    setSession((current) => ({
-      ...current,
-      screen: "set",
-      rosterIndex: index,
-      setIndex: 2,
-    }));
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduce) {
+      setSession((current) => ({ ...current, screen: "set", rosterIndex: index }));
+      return;
+    }
+
+    setVeil("open");
+    window.clearTimeout(veilTimer.current);
+    veilTimer.current = window.setTimeout(() => {
+      setVeil(null);
+      setSession((current) => ({ ...current, screen: "set", rosterIndex: index }));
+    }, OPEN_MS);
+  }
+
+  function closeSet() {
+    if (veil) {
+      return;
+    }
+
+    setZoom(null);
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduce) {
+      setSession((current) => ({ ...current, screen: "roster" }));
+      return;
+    }
+
+    setVeil("close");
+    window.clearTimeout(veilTimer.current);
+    veilTimer.current = window.setTimeout(() => {
+      setVeil(null);
+      setSession((current) => ({ ...current, screen: "roster" }));
+    }, CLOSE_MS);
   }
 
   function confirm() {
@@ -214,12 +261,6 @@ export function App() {
     alt: entry.name,
   }));
 
-  const setItems: FanItem[] = SET.map((face) => ({
-    key: face,
-    src: faceSrc(champion.id, face),
-    alt: `${champion.name}, ${FACE_LABEL[face]}`,
-  }));
-
   return (
     <>
       <div className="gate">
@@ -228,12 +269,14 @@ export function App() {
       </div>
       <div className="app" data-screen={session.screen}>
         {session.screen !== "play" && (
-          <div className="picker">
+          <div className={`picker${veil ? ` veil-${veil}` : ""}`}>
+            {session.screen === "set" && (
+              <button type="button" className="close" aria-label="Close" onClick={closeSet}>
+                ×
+              </button>
+            )}
             <div className="nameplate">
-              <p className="who">{champion.name}</p>
-              {session.screen === "set" && (
-                <p className="face-label">{FACE_LABEL[SET[session.setIndex]]}</p>
-              )}
+              <p className="who" key={champion.id}>{champion.name}</p>
             </div>
             {session.screen === "roster" ? (
               <Fan
@@ -241,15 +284,23 @@ export function App() {
                 index={session.rosterIndex}
                 onIndex={(rosterIndex) => setSession((current) => ({ ...current, rosterIndex }))}
                 onActivate={openSet}
-                activateOnSide
+                onRead={(src, from) => setZoom({ src, from })}
+                activateOnSide={false}
+                dimSides
               />
             ) : (
-              <Fan
-                items={setItems}
-                index={session.setIndex}
-                onIndex={(setIndex) => setSession((current) => ({ ...current, setIndex }))}
-                onActivate={() => setSession((current) => ({ ...current, screen: "roster" }))}
-                activateOnSide={false}
+              <Trio
+                ids={CHAMPIONS.map((entry) => entry.id)}
+                index={session.rosterIndex}
+                spin={spin}
+                direction={spinDir.current}
+                onStep={(direction) =>
+                  setSession((current) => ({
+                    ...current,
+                    rosterIndex: wrap(current.rosterIndex + direction, CHAMPIONS.length),
+                  }))
+                }
+                onRead={(src, from) => setZoom({ src, from })}
               />
             )}
             <div className={session.screen === "set" ? "dock" : "dock quiet"}>
@@ -270,11 +321,11 @@ export function App() {
             onChampionSide={(championSide) => setSession((current) => ({ ...current, championSide }))}
             onFollowerSide={(followerSide) => setSession((current) => ({ ...current, followerSide }))}
             onUltimateUsed={(ultimateUsed) => setSession((current) => ({ ...current, ultimateUsed }))}
-            onZoom={setZoom}
+            onZoom={(src, from) => setZoom({ src, from })}
             onLeave={() => setAskLeave(true)}
           />
         )}
-        {zoom && <Zoom src={zoom} onClose={() => setZoom(null)} />}
+        {zoom && <Zoom src={zoom.src} from={zoom.from} onClose={() => setZoom(null)} />}
         {askLeave && (
           <div className="shade">
             <div className="dialog" role="dialog" aria-labelledby="leave-title">

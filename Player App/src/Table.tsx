@@ -1,19 +1,55 @@
-import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import { Reference } from "./Reference";
-import { faceSrc, type Side } from "./roster";
+import { TEXT_BOTTOM, TEXT_TOP, faceSrc, type Side } from "./roster";
 
 const HOLD_MS = 520;
 const TAP_PX = 12;
 const LEAVE_PX = 92;
 const SHEET_PX = 72;
 
-const TEXT_TOP = 0.5;
-const TEXT_BOTTOM = 0.935;
 const CARD_TALL = 2000 / 1429;
 
-export function Zoom({ src, onClose }: { src: string; onClose: () => void }) {
+export function textFrame(card: DOMRect) {
+  return new DOMRect(
+    card.left,
+    card.top + card.height * TEXT_TOP,
+    card.width,
+    card.height * (TEXT_BOTTOM - TEXT_TOP),
+  );
+}
+
+export function Zoom({ src, from, onClose }: { src: string; from: DOMRect; onClose: () => void }) {
+  const shot = useRef<HTMLDivElement>(null);
   const slice = TEXT_BOTTOM - TEXT_TOP;
   const aspect = 1 / (slice * CARD_TALL);
+
+  useLayoutEffect(() => {
+    const el = shot.current;
+
+    if (!el) {
+      return;
+    }
+
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const end = el.getBoundingClientRect();
+    const sx = from.width / end.width;
+    const sy = from.height / end.height;
+
+    if (reduce || !Number.isFinite(sx) || sx <= 0) {
+      return;
+    }
+
+    const dx = from.left - end.left;
+    const dy = from.top - end.top;
+    el.style.transition = "none";
+    el.style.transformOrigin = "top left";
+    el.style.transform = `translate(${dx}px, ${dy}px) scale(${sx}, ${sy})`;
+    void el.offsetWidth;
+    requestAnimationFrame(() => {
+      el.style.transition = "transform 340ms cubic-bezier(0.2, 0.8, 0.2, 1)";
+      el.style.transform = "none";
+    });
+  }, [from]);
 
   return (
     <div
@@ -25,7 +61,7 @@ export function Zoom({ src, onClose }: { src: string; onClose: () => void }) {
         onClose();
       }}
     >
-      <div className="zoom-shot" style={{ ["--frame" as string]: String(aspect) }}>
+      <div ref={shot} className="zoom-shot" style={{ ["--frame" as string]: String(aspect) }}>
         <img src={src} alt="" draggable={false} style={{ marginTop: `${-(TEXT_TOP * CARD_TALL * 100)}%` }} />
       </div>
     </div>
@@ -50,7 +86,7 @@ export function Table({
   onChampionSide: (side: Side) => void;
   onFollowerSide: (side: Side) => void;
   onUltimateUsed: (used: boolean) => void;
-  onZoom: (src: string) => void;
+  onZoom: (src: string, from: DOMRect) => void;
   onLeave: () => void;
 }) {
   const [shake, setShake] = useState(false);
@@ -230,7 +266,7 @@ function Card({
   onHold?: () => void;
   onHoldStart?: () => void;
   onHoldEnd?: () => void;
-  onText: (src: string) => void;
+  onText: (src: string, from: DOMRect) => void;
 }) {
   const className = ["slot", flipped ? "is-flipped" : "", shake ? "shake" : "", holding ? "holding" : ""]
     .filter(Boolean)
@@ -249,7 +285,7 @@ function Card({
           onHold={onHold}
           onHoldStart={onHoldStart}
           onHoldEnd={onHoldEnd}
-          onText={() => onText(front)}
+          onText={(from) => onText(front, from)}
         />
         <Face
           src={back}
@@ -261,7 +297,7 @@ function Card({
           onHold={onHold}
           onHoldStart={onHoldStart}
           onHoldEnd={onHoldEnd}
-          onText={() => onText(back)}
+          onText={(from) => onText(back, from)}
         />
       </div>
     </div>
@@ -289,7 +325,7 @@ function Face({
   onHold?: () => void;
   onHoldStart?: () => void;
   onHoldEnd?: () => void;
-  onText: () => void;
+  onText: (from: DOMRect) => void;
 }) {
   return (
     <div className={`face ${side}`} inert={hidden} aria-hidden={hidden}>
@@ -302,7 +338,11 @@ function Face({
         onHoldStart={onHoldStart}
         onHoldEnd={onHoldEnd}
       />
-      <Press className="hit text" label={textLabel} onTap={onText} />
+      <Press
+        className="hit text"
+        label={textLabel}
+        onTap={(el) => onText(textFrame(el.closest(".face")!.getBoundingClientRect()))}
+      />
     </div>
   );
 }
@@ -317,7 +357,7 @@ function Press({
 }: {
   className: string;
   label: string;
-  onTap: () => void;
+  onTap: (el: HTMLButtonElement) => void;
   onHold?: () => void;
   onHoldStart?: () => void;
   onHoldEnd?: () => void;
@@ -375,7 +415,7 @@ function Press({
           return;
         }
 
-        onTap();
+        onTap(event.currentTarget);
       }}
       onPointerCancel={() => {
         clearTimer();

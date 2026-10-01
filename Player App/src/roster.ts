@@ -8,6 +8,9 @@ export type Face =
 
 export type Side = "clash" | "plot";
 
+export const TEXT_TOP = 0.488;
+export const TEXT_BOTTOM = 0.96;
+
 export const SET: Face[] = [
   "champion-clash",
   "champion-plot",

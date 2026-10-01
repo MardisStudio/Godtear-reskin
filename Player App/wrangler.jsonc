@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "god-tear",
+  "account_id": "30cbf3441c485e2f1a2fb8796186a614",
+  "compatibility_date": "2026-09-30",
+  "assets": {
+    "directory": "./dist"
+  }
+}
