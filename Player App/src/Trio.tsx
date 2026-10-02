@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
+import { buzz } from "./haptic";
 import { wrap } from "./math";
 import { faceSrc, type Face } from "./roster";
-import { textFrame } from "./Table";
+import { textFrame, type ZoomShot } from "./Table";
 
 const TAP_PX = 12;
 const SWIPE_AT = 0.22;
@@ -46,14 +47,14 @@ export function Trio({
   spin,
   direction,
   onStep,
-  onRead,
+  onZoom,
 }: {
   ids: string[];
   index: number;
   spin: number;
   direction: number;
   onStep: (direction: number) => void;
-  onRead: (src: string, from: DOMRect) => void;
+  onZoom: (shot: ZoomShot) => void;
 }) {
   const champId = ids[index];
   const [seen, setSeen] = useState(champId);
@@ -128,10 +129,15 @@ export function Trio({
     setFlips(BLANK);
   }
 
-  const lift = box.h * 0.08 + 12;
-  const cardH = Math.max(1, (box.h - lift) * 0.96);
+  const BUTTON = 78;
+  const STEP = 0.46;
+  const space = Math.max(1, box.h - BUTTON);
+  const dropRatio = (1 - Math.cos(STEP)) * CARD_RATIO * 3.15;
+  const cardH = Math.max(1, (space * 0.94) / (1 + dropRatio));
+  const topGap = (space - cardH * (1 + dropRatio)) / 2;
+  const lift = box.h - topGap - cardH;
   const cardW = cardH * CARD_RATIO;
-  const spacing = cardW * 0.62;
+  const radius = cardW * 3.15;
   const gap = Math.max(box.w * 0.92, cardW * 2.5);
   gapRef.current = gap;
 
@@ -141,7 +147,12 @@ export function Trio({
     }
 
     event.preventDefault();
-    event.currentTarget.setPointerCapture(event.pointerId);
+
+    try {
+      event.currentTarget.setPointerCapture(event.pointerId);
+    } catch {
+      // Released before capture, still track the gesture.
+    }
     drag.current = {
       id: event.pointerId,
       x: event.clientX,
@@ -191,6 +202,7 @@ export function Trio({
     if (target === 0 || reduce) {
       if (target !== 0) {
         onStep(target);
+        buzz("snap");
       }
 
       setLive(true);
@@ -207,6 +219,7 @@ export function Trio({
     window.clearTimeout(glideTimer.current);
     glideTimer.current = window.setTimeout(() => {
       onStep(target);
+      buzz("snap");
       setLive(true);
       setSlide(0);
       slideRef.current = 0;
@@ -239,11 +252,23 @@ export function Trio({
       const slot = card.getAttribute("data-slot") as Slot;
 
       if (zone === "text") {
-        const src = card.getAttribute("data-src") ?? "";
-        onRead(src, textFrame(card.getBoundingClientRect()));
+        const page = card.closest(".trio-page");
+        const nodes = [...(page?.querySelectorAll(".trio-card") ?? [])];
+        const cards = nodes.map((node) => {
+          const rect = node.getBoundingClientRect();
+
+          return {
+            src: node.getAttribute("data-src") ?? "",
+            from: textFrame(rect),
+            bottom: rect.bottom,
+          };
+        });
+        const picked = nodes.indexOf(card);
+        onZoom({ cards, index: Math.max(0, picked) });
         return;
       }
 
+      buzz("tap");
       setFlips((current) => ({ ...current, [slot]: !current[slot] }));
       return;
     }
@@ -299,13 +324,19 @@ export function Trio({
           const champIndex = wrap(index + rel, ids.length);
           const id = ids[champIndex];
 
+          const travel = Math.abs(rel - slide);
+          const pageOpacity = Math.max(0, 1 - travel * 0.82);
+
           return (
             <div
               key={id}
               className="trio-page"
               style={{
-                transform: `translateX(${(rel - slide) * gap}px)`,
-                transition: live ? "none" : `transform ${GLIDE_MS}ms cubic-bezier(.22,.8,.2,1)`,
+                opacity: pageOpacity,
+                transform: `translateX(${(rel - slide) * gap}px) scale(${1 - Math.min(travel, 1) * 0.045})`,
+                transition: live
+                  ? "none"
+                  : `transform ${GLIDE_MS}ms cubic-bezier(.22,.8,.2,1), opacity ${GLIDE_MS}ms ease`,
               }}
             >
               {SLOTS.map((slot) => {
@@ -313,7 +344,7 @@ export function Trio({
                 const faces = pair(slot);
                 const flipped = rel === 0 && faceUp[slot];
                 const shown = flipped ? faces.back : faces.front;
-                const scale = 1.05 - Math.abs(delta) * 0.07;
+                const angle = delta * STEP;
 
                 return (
                   <div
@@ -327,8 +358,8 @@ export function Trio({
                       height: cardH,
                       bottom: lift,
                       zIndex: 10 - Math.abs(delta),
-                      transformOrigin: "50% 132%",
-                      transform: `translateX(-50%) translateX(${delta * spacing}px) translateY(${Math.abs(delta) * 10 + delta * delta * 4}px) rotate(${delta * 11}deg) scale(${scale})`,
+                      transformOrigin: "center bottom",
+                      transform: `translateX(-50%) translate(${Math.sin(angle) * radius}px, ${(1 - Math.cos(angle)) * radius}px)`,
                     }}
                   >
                     <div className={`slot${flipped ? " is-flipped" : ""}${rel === 0 ? "" : " instant"}`}>

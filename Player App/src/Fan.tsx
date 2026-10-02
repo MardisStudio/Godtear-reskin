@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
+import { buzz } from "./haptic";
 import { fanOffset, wrap } from "./math";
-import { TEXT_BOTTOM, TEXT_TOP } from "./roster";
 
 export type FanItem = {
   key: string;
@@ -9,7 +9,8 @@ export type FanItem = {
 };
 
 const TAP_PX = 12;
-const WINDOW = 2.55;
+const SHOW = 3.35;
+const STEP = 0.42;
 const CARD_RATIO = 1429 / 2000;
 
 export function Fan({
@@ -17,7 +18,6 @@ export function Fan({
   index,
   onIndex,
   onActivate,
-  onRead,
   activateOnSide,
   dimSides,
 }: {
@@ -25,7 +25,6 @@ export function Fan({
   index: number;
   onIndex: (index: number) => void;
   onActivate: (index: number) => void;
-  onRead: (src: string, from: DOMRect) => void;
   activateOnSide: boolean;
   dimSides: boolean;
 }) {
@@ -36,6 +35,9 @@ export function Fan({
   const shiftRef = useRef(0);
   const indexRef = useRef(index);
   const spacingRef = useRef(1);
+  const tickRef = useRef(index);
+  const settleTimer = useRef(0);
+  const settling = useRef(false);
   const drag = useRef({
     id: -1,
     x: 0,
@@ -66,25 +68,70 @@ export function Fan({
     return () => {
       observer.disconnect();
       el.removeEventListener("touchmove", block);
+      window.clearTimeout(settleTimer.current);
     };
   }, []);
 
-  const lift = box.h * 0.16 + 28;
-  const cardH = Math.max(1, (box.h - lift) * 0.9);
+  const TITLE = 36;
+  const lift = TITLE + 4;
+  const cardH = Math.max(1, box.h - lift - 8);
   const cardW = cardH * CARD_RATIO;
-  const spacing = Math.max(1, cardW * 0.56);
-  spacingRef.current = spacing;
+  const radius = Math.max(cardW * 3.05, 1);
+  const titleStep = Math.max(cardW * 1.05, 1);
+  spacingRef.current = radius * STEP;
 
   const count = items.length;
   const cursor = index + shift;
+  const spin = -shift * STEP;
+  const glide = dragging ? "none" : "transform 560ms cubic-bezier(.22,.8,.2,1)";
+  const titleEase = dragging ? "none" : "opacity 560ms cubic-bezier(.22,.8,.2,1)";
+
+  function commit(steps: number) {
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduce) {
+      if (steps !== 0) {
+        onIndex(wrap(indexRef.current + steps, count));
+      }
+
+      setDragging(true);
+      setShift(0);
+      requestAnimationFrame(() => setDragging(false));
+      return;
+    }
+
+    if (steps === 0) {
+      setDragging(false);
+      setShift(0);
+      return;
+    }
+
+    settling.current = true;
+    setDragging(false);
+    setShift(steps);
+    window.clearTimeout(settleTimer.current);
+    settleTimer.current = window.setTimeout(() => {
+      onIndex(wrap(indexRef.current + steps, count));
+      setDragging(true);
+      setShift(0);
+      settling.current = false;
+      requestAnimationFrame(() => setDragging(false));
+    }, 560);
+  }
 
   function onPointerDown(event: ReactPointerEvent<HTMLDivElement>) {
-    if (event.button !== 0) {
+    if (event.button !== 0 || settling.current) {
       return;
     }
 
     event.preventDefault();
-    event.currentTarget.setPointerCapture(event.pointerId);
+    try {
+      event.currentTarget.setPointerCapture(event.pointerId);
+    } catch {
+      // Released before capture, still track the gesture.
+    }
+
+    tickRef.current = indexRef.current;
     drag.current = {
       id: event.pointerId,
       x: event.clientX,
@@ -119,7 +166,15 @@ export function Fan({
       drag.current.moved = true;
     }
 
-    setShift((drag.current.x - event.clientX) / spacingRef.current);
+    const nextShift = (drag.current.x - event.clientX) / spacingRef.current;
+    const landed = wrap(Math.round(indexRef.current + nextShift), count);
+
+    if (landed !== tickRef.current) {
+      tickRef.current = landed;
+      buzz("tick");
+    }
+
+    setShift(nextShift);
   }
 
   function finish(clientX: number, clientY: number) {
@@ -136,28 +191,16 @@ export function Fan({
       if (node) {
         const picked = Number(node.getAttribute("data-index"));
         const delta = fanOffset(picked, indexRef.current, count);
-        const spot = document.elementFromPoint(clientX, clientY)?.closest("[data-zone]");
-
-        if (spot?.getAttribute("data-zone") === "text" && Math.abs(delta) < 0.55) {
-          const card = node.getBoundingClientRect();
-          onRead(node.getAttribute("data-src") ?? "", new DOMRect(
-            card.left,
-            card.top + card.height * TEXT_TOP,
-            card.width,
-            card.height * (TEXT_BOTTOM - TEXT_TOP),
-          ));
-          setShift(0);
-          return;
-        }
+        buzz("tap");
 
         if (activateOnSide || Math.abs(delta) < 0.55) {
           onActivate(picked);
+          setShift(0);
         } else {
-          onIndex(picked);
+          commit(Math.round(delta));
         }
       }
 
-      setShift(0);
       return;
     }
 
@@ -167,9 +210,13 @@ export function Fan({
     }
 
     const flick = Math.max(-3, Math.min(3, (-info.vx * 170) / spacingRef.current));
-    const next = wrap(Math.round(indexRef.current + shiftRef.current + flick), count);
-    setShift(0);
-    onIndex(next);
+    const steps = Math.max(-3, Math.min(3, Math.round(shiftRef.current + flick)));
+
+    if (steps !== 0) {
+      buzz("snap");
+    }
+
+    commit(steps);
   }
 
   function onPointerUp(event: ReactPointerEvent<HTMLDivElement>) {
@@ -195,52 +242,99 @@ export function Fan({
       onPointerUp={onPointerUp}
       onPointerCancel={onPointerCancel}
     >
-      {box.h > 0 &&
-        items.map((item, itemIndex) => {
-          const delta = fanOffset(itemIndex, cursor, count);
+      {box.h > 0 && (
+        <div
+          className="wheel"
+          style={{
+            bottom: lift + cardH / 2 - radius,
+            transform: `rotate(${spin}rad)`,
+            transition: glide,
+          }}
+        >
+          {items.map((item, itemIndex) => {
+            const visual = fanOffset(itemIndex, cursor, count);
 
-          if (Math.abs(delta) > WINDOW) {
-            return null;
-          }
+            if (Math.abs(visual) > SHOW) {
+              return null;
+            }
 
-          const opacity = dimSides
-            ? Math.max(0.32, 1 - Math.abs(delta) * 0.34)
-            : Math.max(0, Math.min(1, (WINDOW - Math.abs(delta)) / 0.5));
-          const scale = 1.03 - Math.min(0.22, Math.abs(delta) * 0.06);
+            const dist = Math.abs(visual);
+            const opacity = dimSides
+              ? dist < 2.15
+                ? Math.max(0.22, 1 - dist * 0.34)
+                : Math.max(0, 0.27 * (1 - (dist - 2.15) / 1.15))
+              : Math.max(0, Math.min(1, (SHOW - dist) / 0.55));
+            const slot = fanOffset(itemIndex, index, count) * STEP;
 
-          return (
-            <button
-              key={item.key}
-              type="button"
-              className="fan-card"
-              data-index={itemIndex}
-              data-src={item.src}
-              aria-label={item.alt}
-              aria-current={Math.abs(delta) < 0.5 ? "true" : undefined}
-              tabIndex={-1}
-              style={{
-                width: cardW,
-                height: cardH,
-                bottom: lift,
-                opacity,
-                zIndex: Math.round(100 - Math.abs(delta) * 12),
-                pointerEvents: opacity < 0.25 ? "none" : "auto",
-                transformOrigin: "50% 132%",
-                transform: `translateX(-50%) translateX(${delta * spacing}px) translateY(${Math.abs(delta) * 6 + delta * delta}px) rotate(${delta * 12}deg) scale(${scale})`,
-                transition: dragging
-                  ? "none"
-                  : "transform 460ms cubic-bezier(.22,.8,.2,1), opacity 280ms linear",
-              }}
-            >
-              <img src={item.src} alt="" draggable={false} />
-              <span
-                className="fan-text"
-                data-zone="text"
-                style={{ top: `${TEXT_TOP * 100}%`, bottom: `${(1 - TEXT_BOTTOM) * 100}%` }}
-              />
-            </button>
-          );
-        })}
+            return (
+              <div
+                key={item.key}
+                className="spoke"
+                style={{
+                  transform: `rotate(${slot}rad)`,
+                  transition: glide,
+                }}
+              >
+                <button
+                  type="button"
+                  className="fan-card"
+                  data-index={itemIndex}
+                  data-src={item.src}
+                  aria-label={item.alt}
+                  aria-current={Math.abs(visual) < 0.5 ? "true" : undefined}
+                  tabIndex={-1}
+                  style={{
+                    width: cardW,
+                    height: cardH,
+                    top: -radius,
+                    opacity,
+                    zIndex: Math.round(100 - dist * 12),
+                    pointerEvents: opacity < 0.25 ? "none" : "auto",
+                    transform: "translate(-50%, -50%)",
+                    transition: dragging ? "none" : "opacity 420ms ease",
+                  }}
+                >
+                  <img src={item.src} alt="" draggable={false} />
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      )}
+      {box.h > 0 && (
+        <div
+          className="title-row"
+          style={{
+            transform: `translateX(${-shift * titleStep}px)`,
+            transition: glide,
+          }}
+        >
+          {items.map((item, itemIndex) => {
+            const slot = fanOffset(itemIndex, index, count);
+
+            if (Math.abs(slot) > 3) {
+              return null;
+            }
+
+            const visual = fanOffset(itemIndex, cursor, count);
+
+            return (
+              <p
+                key={item.key}
+                className="spoke-title is-focus"
+                style={{
+                  left: slot * titleStep,
+                  opacity: Math.max(0, 1 - Math.abs(visual)),
+                  zIndex: Math.round((1 - Math.abs(visual)) * 10),
+                  transition: titleEase,
+                }}
+              >
+                {item.alt}
+              </p>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
